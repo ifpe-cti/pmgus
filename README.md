@@ -1,4 +1,4 @@
-# SysGraph ![status](https://travis-ci.org/ifpe-cti/sysgraph.svg?branch=master)
+# SysGraph ![status](https://travis-ci.org/viniciussoaresti/pmgus.svg?branch=master)
 Prática Profissional Orientada (PPO) em desenvolvimento por Pedro Barros, Matheus Dionísio e Vinícius Soares.
 
 ## Motivação
