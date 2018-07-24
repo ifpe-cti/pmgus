@@ -1,30 +1,36 @@
-# SysGraph ![status](https://travis-ci.org/viniciussoaresti/pmgus.svg?branch=master)
+# PM-Gus ![status](https://travis-ci.org/viniciussoaresti/pmgus.svg?branch=master)
 Prática Profissional Orientada (PPO) em desenvolvimento por Pedro Barros, Matheus Dionísio e Vinícius Soares.
 
 ## Motivação
-Aplicação desenvolvida afim de gerenciar e facilitar vendas na gráfica SB, do município de Iati-PE. A situação atual da gerência beneficiar-se-á bastante com um software implantado na mesma.
+Aplicação desenvolvida com o intuito de de gerenciar e facilitar a criação e acesso de relatórios, estatísticas, planilhas e afins, do batalhão da Polícia Militar em Garanhuns.
+A situação atual da gerência beneficiar-se-á bastante com um software implantado na mesma.
 
 ## Soluções existentes
+A maioria das soluções que armazenam dados e geram relatórios, atualmente, foca-se em business, em empresas e negócios em geral, como:
 
-[GoHiper](https://gohiper.com.br/) - aplicação é paga.
-[ProgramaNex](https://www.programanex.com.br/)- a desenvolvedora não se compromete a manter ativa qualquer ferramenta, funcionalidade ou serviço que já tenha sido oferecido no passado, independentemente de ter sido oferecido de forma onerosa ou gratuita. Além disso, há serviços de assinatura para funcionalidades específicas.
-[TagSoft](https://www.tagsoft.com.br/)- aplicação é paga.
+[Gestão Click](https://gestaoclick.com.br/programa-para-gerar-relatorios);
+[Prophix](https://www.prophix.com/br/geracao-de-relatorios/);
+[Programa NEX](https://www.programanex.com.br/);
+[Hiper](https://hiper.com.br/sistema/relatorios/).
 
-Além disso, necessidades específicas como anexar arquivos do corel draw nas vendas não são suportadas por estes sistemas.
+Seus relatórios são de intuito financeiro, lucrativo, etc.
+Portanto, para adequar-se a necessidade atual do cliente, além de suas funcionalidades particulares, é necessário o desenvolvimento do software específico.
 
 ## Inovação
 
-Além de atender às necessidades específicas da empresa, como o já citado anexo de arquivos, o software será fornecido e implementado gratuitamente.
+Além de atender às necessidades específicas, como já citado, o software será fornecido e implementado gratuitamente.
 
 ## Público alvo
-Este aplicativo direciona-se aos funcionários da empresa SB Gráfica, com o acesso via web, no computador-servidor instalado na empresa.
+Este aplicativo direciona-se aos funcionários do batalhão da Polícia Militar de Garanhuns, com o acesso via web, no computador-servidor instalado no mesmo.
 
 ## Monetização
 
-A manutenção, tanto de correção de erros como desenvolvimento de novas funcionalidades, pode ser monetizada. A aplicação gera ganho de tempo e de planejamento da empresa, acarretando em ganho financeiro devido a melhor gestão, em longo prazo. 
+A manutenção, tanto de correção de erros como desenvolvimento de novas funcionalidades, pode ser monetizada. Novas versões do software também podem oferecer como possibilidade o uso mediante assinatura, ao ser implementado em outros batalhões do Estado.
 
 ## Ferramental utilizado
-O sistema será desenvolvido em java (JDK 1.8) e html, com adicional uso das bibliotecas: JSF 2.2, PrimeFaces 5.0, EclipseLink (JPA 2.1), do Apache TomCat como Container de Servlets Java e do framework Hibernate para conexão com o banco de dados MySql. Seu código será armazenado no GitHub. O Maven será utilizado como ferramenta de construção da aplicação, o JUnit, o TravisCI e o Selenium IDE para suporte aos testes e integração contínua.
+O sistema será desenvolvido em Java, com adicional uso de bibliotecas como: JSF, PrimeFaces, etc.
+O Apache TomCat será utilizao como Container de Servlets Java e o framework Hibernate para conexão com o banco de dados MySql. Seu código será armazenado no GitHub. 
+O Maven será utilizado como ferramenta de construção da aplicação, o JUnit, o TravisCI e o Selenium IDE para suporte aos testes e integração contínua.
 
 ## Contribuidores
 
@@ -36,7 +42,7 @@ O sistema será desenvolvido em java (JDK 1.8) e html, com adicional uso das bib
 ## Licença
 MIT License
 
-Copyright (c) 2018 - SysGraph - Vinícius H., Matheus Dionísio, Pedro Barros e Tiago Eduardo
+Copyright (c) 2018 - SysGraph - Vinícius H., Matheus Dionísio, Pedro Barros and Tiago Eduardo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
