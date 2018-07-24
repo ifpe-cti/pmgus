@@ -72,34 +72,36 @@
   </tr>
 <tr>
    <td colspan="6"></td>
- <td colspan="3" ><center><b>Abril</b></center></td>
-<td colspan="4"><center><b>Maio</b></center></td>
-<td colspan="5"><center><b>Junho</b></center></td>
-<td colspan="4"><center><b>Julho</b></center></td>
-<td colspan="5"><center><b>Agosto</b></center></td>
+ <td colspan="5" ><center><b>Agosto</b></center></td>
+<td colspan="4"><center><b>Setembro</b></center></td>
+<td colspan="5"><center><b>Outubro</b></center></td>
+<td colspan="4"><center><b>Novembro</b></center></td>
+<td colspan="5"><center><b>Dezembro</b></center></td>
   </tr>
 <tr>
  <td colspan="6"><b>Responsável</b></td>
  
- <td >13/abr</td>
- <td >20/abr</td>
- <td >27/abr</td>
-<td >04/maio</td>
- <td >11/maio</td>
- <td >18/maio</td>
- <td >25/maio</td>
-<td >01/jun</td>
- <td >08/jun</td>
- <td >15/jun</td>
- <td >22/jun</td>
- <td >29/jun</td>
-<td >06/jul</td>
- <td >13/jul</td>
- <td >20/jul</td>
- <td >27/jul</td>
-<td >03/ago</td>
- <td >10/ago</td>
- <td >17/ago</td>
+ <td >01/ago</td>
+ <td >08/ago</td>
+ <td >15/ago</td>
+ <td >22/ago</td>
+ <td >29/ago</td>
+ <td >05/set</td>
+ <td >12/set</td>
+<td >19/set</td>
+ <td >26/set</td>
+ <td >03/out</td>
+ <td >10/out</td>
+ <td >17/out</td>
+<td >24/out</td>
+ <td >31/out</td>
+ <td >07/nov</td>
+ <td >14/nov</td>
+<td >21/nov</td>
+ <td >28/nov</td>
+ <td >05/Dez</td>
+ <td >12/Dez</td>
+ <td >19/Dez</td>
  </tr>
 <tr>
 <td colspan="6">Todos</td>
@@ -122,9 +124,13 @@
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
+  <td colspan="1"></td>
+  <td colspan="1"></td>
 
 </tr>
 <td colspan="6">Vínicius</td>
+<td colspan="1"></td>
+<td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
@@ -166,9 +172,13 @@
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
 
 </tr>
 <td colspan="6">Pedro</td>
+<td colspan="1"></td>
+<td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
