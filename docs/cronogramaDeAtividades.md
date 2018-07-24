@@ -11,33 +11,33 @@
 </tr>
 <tr>
 <td colspan="4">T1</td>
-<td colspan="4" >Manter Produto</td>
-<td colspan="4">Funcionalidades de criar, consultar, atualizar e deletar o Produto.</td>
+<td colspan="4" >Manter CVLI</td>
+<td colspan="4">Funcionalidades de criar, consultar, atualizar e deletar o CVLI.</td>
 </tr>
 <tr>
 <td colspan="4">T2</td>
-<td colspan="4" >Manter Estoque</td>
-<td colspan="4">Funcionalidades de consulta, remoção e adição de Produtos no Estoque.</td>
+<td colspan="4" >Manter CVP</td>
+<td colspan="4">Funcionalidades de consulta, remoção e adição de Produtos o CVP.</td>
 </tr>
 <tr>
 <td colspan="4">T3</td>
-<td colspan="4" >Manter Funcionário</td>
-<td colspan="4">Funcionalidades de criar, consultar, atualizar e deletar o Funcionário.</td>
+<td colspan="4" >Manter Produtividade de Armas</td>
+<td colspan="4">Funcionalidades de criar, consultar, atualizar e deletar a Prod. Armas.</td>
 </tr>
 <tr>
 <td colspan="4">T4</td>
-<td colspan="4" >Manter Vendas</td>
-<td colspan="4">Funcionalidades de criar, consultar, atualizar e deletar as Vendas.</td>
+<td colspan="4" >Manter Produtividade de Drogas</td>
+<td colspan="4">Funcionalidades de criar, consultar, atualizar e deletar a Prod. Drogas.</td>
 </tr>
 <tr>
 <td colspan="4">T5</td>
-<td colspan="4" >Manter Clientes</td>
-<td colspan="4">Funcionalidades de criar, consultar, atualizar e deletar o Cliente.</td>
+<td colspan="4" ></td>
+<td colspan="4"></td>
 </tr>
 <tr>
 <td colspan="4">T6</td>
 <td colspan="4" >Login</td>
-<td colspan="4">Login com logoff automático</td>
+<td colspan="4">Autenticação de Usuário</td>
 </tr>
 <tr>
 <td colspan="4">T7</td>
@@ -46,18 +46,18 @@
 </tr>
 <tr>
 <td colspan="4">T8</td>
-<td colspan="4" >Emissão de Nota Fiscal Eletrônica</td>
-<td colspan="4">Emissão de Nota Fiscal Eletrônica no ato da Venda.</td>
+<td colspan="4" ></td>
+<td colspan="4"></td>
 </tr>
 <tr>
 <td colspan="4">T9</td>
-<td colspan="4" >Emissão de Relatórios Financeiros</td>
-<td colspan="4">Emissão de relatórios financeiros anuais, mensais e semanais</td>
+<td colspan="4" ></td>
+<td colspan="4"></td>
 </tr>
 <tr>
 <td colspan="4">T10</td>
-<td colspan="4" >Backup</td>
-<td colspan="4">Funcionalidade de Backup do banco de dados.</td>
+<td colspan="4" ></td>
+<td colspan="4"></td>
 </tr>
   <tr>
 <td colspan="4">T11</td>
@@ -72,121 +72,131 @@
   </tr>
 <tr>
    <td colspan="6"></td>
- <td colspan="3" ><center><b>Abril</b></center></td>
-<td colspan="4"><center><b>Maio</b></center></td>
-<td colspan="5"><center><b>Junho</b></center></td>
-<td colspan="4"><center><b>Julho</b></center></td>
-<td colspan="5"><center><b>Agosto</b></center></td>
+ <td colspan="5" ><center><b>Agosto</b></center></td>
+<td colspan="4"><center><b>Setembro</b></center></td>
+<td colspan="5"><center><b>Outubro</b></center></td>
+<td colspan="4"><center><b>Novembro</b></center></td>
+<td colspan="5"><center><b>Dezembro</b></center></td>
   </tr>
 <tr>
  <td colspan="6"><b>Responsável</b></td>
  
- <td >13/abr</td>
- <td >20/abr</td>
- <td >27/abr</td>
-<td >04/maio</td>
- <td >11/maio</td>
- <td >18/maio</td>
- <td >25/maio</td>
-<td >01/jun</td>
- <td >08/jun</td>
- <td >15/jun</td>
- <td >22/jun</td>
- <td >29/jun</td>
-<td >06/jul</td>
- <td >13/jul</td>
- <td >20/jul</td>
- <td >27/jul</td>
-<td >03/ago</td>
- <td >10/ago</td>
- <td >17/ago</td>
+ <td >01/ago</td>
+ <td >08/ago</td>
+ <td >15/ago</td>
+ <td >22/ago</td>
+ <td >29/ago</td>
+ <td >05/set</td>
+ <td >12/set</td>
+<td >19/set</td>
+ <td >26/set</td>
+ <td >03/out</td>
+ <td >10/out</td>
+ <td >17/out</td>
+<td >24/out</td>
+ <td >31/out</td>
+ <td >07/nov</td>
+ <td >14/nov</td>
+<td >21/nov</td>
+ <td >28/nov</td>
+ <td >05/Dez</td>
+ <td >12/Dez</td>
+ <td >19/Dez</td>
  </tr>
 <tr>
 <td colspan="6">Todos</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">T8</td>
-<td colspan="1">T8</td>
-<td colspan="1">T8</td>
-<td colspan="1">T8</td>
-<td colspan="1">T8</td>
-<td colspan="1">T9</td>
-<td colspan="1">T9</td>
-<td colspan="1">T9</td>
-<td colspan="1">T9</td>
-<td colspan="1">T9</td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+  <td colspan="1"></td>
+  <td colspan="1"></td>
 
 </tr>
 <td colspan="6">Vínicius</td>
-<td colspan="1">x</td>
-<td colspan="1">T5</td>
-<td colspan="1">T5</td>
-<td colspan="1">T5</td>
-<td colspan="1">T4</td>
-<td colspan="1">T4</td>
-<td colspan="1">T4</td>
-<td colspan="1">T10</td>
-<td colspan="1">T10</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
 
 </tr>
 <td colspan="6">Matheus</td>
-<td colspan="1">x</td>
-<td colspan="1">T1</td>
-<td colspan="1">T1</td>
-<td colspan="1">T1</td>
-<td colspan="1">T2</td>
-<td colspan="1">T2</td>
-<td colspan="1">T2</td>
-<td colspan="1">T6</td>
-<td colspan="1">T6</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
 
 </tr>
 <td colspan="6">Pedro</td>
-<td colspan="1">x</td>
-<td colspan="1">T3</td>
-<td colspan="1">T3</td>
-<td colspan="1">T3</td>
-<td colspan="1">T7</td>
-<td colspan="1">T7</td>
-<td colspan="1">T7</td>
-<td colspan="1">T11</td>
-<td colspan="1">T11</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
-<td colspan="1">x</td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
 </tr>
 </table>
