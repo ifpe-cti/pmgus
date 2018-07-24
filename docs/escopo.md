@@ -1,0 +1,13 @@
+PRIORIDADES SEGUNDO O CLIENTE
+---
+- [] Manter Produtos
+- [] Manter Estoque
+- [] Manter Funcionário
+- [] Manter Vendas
+- [] Manter Clientes
+- [] Logoff Automático
+- [] Banco de Dados
+- [] Log
+- [] Emissão de NFe
+- [] Emissão de Relatórios
+- [] Backup
