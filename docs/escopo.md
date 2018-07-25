@@ -1,13 +1,13 @@
 PRIORIDADES SEGUNDO O CLIENTE
 ---
-- [] Manter Produtos
-- [] Manter Estoque
-- [] Manter Funcionário
-- [] Manter Vendas
-- [] Manter Clientes
+- [] Manter CVLI
+- [] Manter CVP
+- [] Manter Usuários
+- [] Manter Produtividade Geral
+- [] Manter Produtividade de drogas
+- [] Manter Produtividade de Armas
 - [] Logoff Automático
 - [] Banco de Dados
 - [] Log
-- [] Emissão de NFe
-- [] Emissão de Relatórios
-- [] Backup
+- [] Emissão de Relatórios (diarios, semanais, mensais, semestreais, com filtros e etc)
+- [] Backup 
