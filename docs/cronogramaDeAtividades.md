@@ -27,17 +27,17 @@
 <tr>
 <td colspan="4">T4</td>
 <td colspan="4" >Estudar PDF</td>
-<td colspan="4"></td>
+<td colspan="4">Converter para PDF, para salvar e imprimir os relatórios</td>
 </tr>
 <tr>
 <td colspan="4">T5</td>
-<td colspan="4" ></td>
-<td colspan="4"></td>
+<td colspan="4">Login</td>
+<td colspan="4">Autenticação de Usuário</td>
 </tr>
 <tr>
 <td colspan="4">T6</td>
-<td colspan="4" >Login</td>
-<td colspan="4">Autenticação de Usuário</td>
+<td colspan="4" >Log</td>
+<td colspan="4">Log do Sistema registrando todas as ações, e o usuário que as realizou, além do carimbo de data e hora</td>
 </tr>
 <tr>
 <td colspan="4">T7</td>
@@ -46,22 +46,7 @@
 </tr>
 <tr>
 <td colspan="4">T8</td>
-<td colspan="4" ></td>
-<td colspan="4"></td>
-</tr>
-<tr>
-<td colspan="4">T9</td>
-<td colspan="4" ></td>
-<td colspan="4"></td>
-</tr>
-<tr>
-<td colspan="4">T10</td>
-<td colspan="4" ></td>
-<td colspan="4"></td>
-</tr>
-  <tr>
-<td colspan="4">T11</td>
-<td colspan="4" >Páginas WEB</td>
+<td colspan="4">Páginas WEB</td>
 <td colspan="4">Menus diferenciados para cada usuário, página de login.</td>
 </tr>
 </table>
