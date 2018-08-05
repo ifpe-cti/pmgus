@@ -1,13 +1,9 @@
 PRIORIDADES SEGUNDO O CLIENTE
 ---
-- [] Manter CVLI
-- [] Manter CVP
-- [] Manter Usuários
-- [] Manter Produtividade Geral
-- [] Manter Produtividade de drogas
-- [] Manter Produtividade de Armas
-- [] Logoff Automático
-- [] Banco de Dados
-- [] Log
-- [] Emissão de Relatórios (diarios, semanais, mensais, semestreais, com filtros e etc)
-- [] Backup 
+- [1] Inserção de Dados
+- [2] Gerar Relatórios
+- [3] Banco de Dados
+- [4] Backup
+- [5] Login e Senha
+- [6] Logoff Automático
+- [7] Log do Sistema
