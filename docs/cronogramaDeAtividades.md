@@ -11,7 +11,7 @@
 </tr>
 <tr>
 <td colspan="4">T1</td>
-<td colspan="4" >Manter Relatórios</td>
+<td colspan="4" >Manter Dados</td>
 <td colspan="4">Funcionalidades de criar, consultar, atualizar e deletar o CVLI, CVP, Prod. Armas, Prod. Drogas.</td>
 </tr>
 <tr>
@@ -41,13 +41,18 @@
 </tr>
 <tr>
 <td colspan="4">T7</td>
-<td colspan="4" >Log</td>
-<td colspan="4">Log do Sistema registrando todas as ações, e o usuário que as realizou, além do carimbo de data e hora.</td>
+<td colspan="4">Páginas WEB</td>
+<td colspan="4">Menus diferenciados para cada usuário, página de login.</td>
 </tr>
 <tr>
 <td colspan="4">T8</td>
-<td colspan="4">Páginas WEB</td>
-<td colspan="4">Menus diferenciados para cada usuário, página de login.</td>
+<td colspan="4">Relatórios</td>
+<td colspan="4">Gerar relatórios com gráficos e pronto para impressão</td>
+</tr>
+<tr>
+<td colspan="4">T9</td>
+<td colspan="4">Design</td>
+<td colspan="4">Planejar telas e protótipos</td>
 </tr>
 </table>
 
@@ -56,18 +61,16 @@
   <td colspan="30" bgcolor="#DCDCDC" align="center"><b>CRONOGRAMA</td>
   </tr>
 <tr>
-<td colspan="6"></td>
-<td colspan="1" ><center><b>Julho</b></center></td>
+<td colspan="5"></td>
 <td colspan="4" ><center><b>Agosto</b></center></td>
 <td colspan="4"><center><b>Setembro</b></center></td>
 <td colspan="5"><center><b>Outubro</b></center></td>
 <td colspan="4"><center><b>Novembro</b></center></td>
 <td colspan="5"><center><b>Dezembro</b></center></td>
-  </tr>
+</tr>
 <tr>
  <td colspan="6"><b>Responsável</b></td>
  
- <td >30/jul</td>
  <td >06/ago</td>
  <td >13/ago</td>
  <td >20/ago</td>
@@ -92,6 +95,19 @@
  </tr>
 <tr>
 <td colspan="6">Todos</td>
+<td colspan="1">T9,T1,T6,T7</td>
+<td colspan="1">T9,T1,T6,T7</td>
+<td colspan="1">T9,T1,T6,T7</td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1"></td>
+<td colspan="1">T5</td>
+<td colspan="1">T5</td>
+<td colspan="1">T8</td>
+<td colspan="1">T8</td>
+<td colspan="1">T8</td>
+<td colspan="1">T8</td>
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
@@ -100,31 +116,16 @@
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-  <td colspan="1"></td>
-  <td colspan="1"></td>
-  <td colspan="1"></td>
 
 </tr>
 <td colspan="6">Vínicius</td>
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
+<td colspan="1">T3</td>
+<td colspan="1">T3</td>
+<td colspan="1">T3</td>
+<td colspan="1">T3</td>
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
@@ -145,11 +146,10 @@
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
+<td colspan="1">T4</td>
+<td colspan="1">T4</td>
+<td colspan="1">T4</td>
+<td colspan="1">T4</td>
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
@@ -170,11 +170,10 @@
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
+<td colspan="1">T2</td>
+<td colspan="1">T2</td>
+<td colspan="1">T2</td>
+<td colspan="1">T2</td>
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
