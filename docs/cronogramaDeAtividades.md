@@ -61,7 +61,7 @@
   <td colspan="30" bgcolor="#DCDCDC" align="center"><b>CRONOGRAMA</td>
   </tr>
 <tr>
-<td colspan="5"></td>
+<td colspan="6"></td>
 <td colspan="4" ><center><b>Agosto</b></center></td>
 <td colspan="4"><center><b>Setembro</b></center></td>
 <td colspan="5"><center><b>Outubro</b></center></td>
