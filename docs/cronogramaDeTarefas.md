@@ -11,38 +11,61 @@
 </tr>
 <tr>
 <td colspan="4">T1</td>
-<td colspan="4" >CRUD CVLI</td>
-<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação para o BD </td>
+<td colspan="4" >CRUD Ocorrência</td>
+<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação e página(s) web</td>
 </tr>
 <tr>
 <td colspan="4">T2</td>
-<td colspan="4" >CRUD CVP</td>
-<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação para o BD</td>
+<td colspan="4" >CRUD Município</td>
+<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação e página(s) web</td>
 </tr>
 <tr>
 <td colspan="4">T3</td>
-<td colspan="4" >CRUD Usuário</td>
-<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação para o BD</td>
+<td colspan="4" >CRUD Droga</td>
+<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação e página(s) web</td>
 </tr>
 <tr>
  <td colspan="4">T4</td>
-<td colspan="4" >CRUD ProdutividadeGeral</td>
-<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação para o BD</td>
+<td colspan="4" >CRUD Tipo de Droga</td>
+<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação e página(s) web</td>
 </tr>
 <tr>
 <td colspan="4">T5</td>
-<td colspan="4" >CRUD ProdutividadeDrogas</td>
-<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação para o BD</td>
+<td colspan="4" >CRUD Unidade de Droga</td>
+<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação e página(s) web</td>
 </tr>
 <tr>
  <td colspan="4">T6</td>
- <td colspan="4" >CRUD ProdutividadeArmas</td>
-<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação para o BD</td>
+ <td colspan="4" >CRUD Arma</td>
+<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação e página(s) web</td>
 </tr>
  <tr>
  <td colspan="4">T7</td>
- <td colspan="4" >CRU EmissãoRelatórios</td>
-<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação para o BD</td>
+ <td colspan="4" >Estudar Excel</td>
+<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação</td>
+</tr>
+ <tr>
+ <td colspan="4">T8</td>
+ <td colspan="4" >Estudar GeoProcessamento</td>
+<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação</td>
+</tr>
+ <tr>
+ <td colspan="4">T9</td>
+ <td colspan="4" >Estudar PDF</td>
+<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação</td>
+</tr>
+ <tr>
+ <td colspan="4">T10</td>
+ <td colspan="4" >Definir Design</td>
+<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação</td>
+</tr>
+ <td colspan="4">T11</td>
+ <td colspan="4" >Log</td>
+ <td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação</td>
+</tr>
+ <td colspan="4">T12</td>
+ <td colspan="4" >Login</td>
+ <td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação</td>
 </tr>
  <tr>
 </table>
