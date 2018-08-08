@@ -42,22 +42,22 @@
  <tr>
  <td colspan="4">T7</td>
  <td colspan="4" >Estudar Excel</td>
-<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação</td>
+<td colspan="4">Definir biblioteca com sua justificativa, e estudar manipulação de dados excel</td>
 </tr>
  <tr>
  <td colspan="4">T8</td>
  <td colspan="4" >Estudar GeoProcessamento</td>
-<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação</td>
+<td colspan="4">Definir biblioteca com sua justificativa, estudar manipulação de dados e geração de imagens</td>
 </tr>
  <tr>
  <td colspan="4">T9</td>
  <td colspan="4" >Estudar PDF</td>
-<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação</td>
+<td colspan="4">Definir biblioteca com sua justificativa, estudar manipulação de dados para geração de arquivo padroninzado</td>
 </tr>
  <tr>
  <td colspan="4">T10</td>
  <td colspan="4" >Definir Design</td>
-<td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação</td>
+<td colspan="4">Definir design dos arquivos de relatrio para impressão e páginas web</td>
 </tr>
  <td colspan="4">T11</td>
  <td colspan="4" >Log</td>
@@ -65,7 +65,7 @@
 </tr>
  <td colspan="4">T12</td>
  <td colspan="4" >Login</td>
- <td colspan="4">Criar todos os atributos e metodos da classe, lembrar da documentação</td>
+ <td colspan="4">Funcionalidade de login </td>
 </tr>
  <tr>
 </table>
@@ -107,19 +107,19 @@
   
 <tr>
 <td colspan="6">Todos</td>
+<td colspan="1">T10</td>
+<td colspan="1">T10</td>
+<td colspan="1">T10</td>
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
+<td colspan="1">T12</td>
+<td colspan="1">T12</td>
+<td colspan="1">T8</td>
+<td colspan="1">T8</td>
+<td colspan="1">T8</td>
+<td colspan="1">T8</td>
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
@@ -131,13 +131,13 @@
 
 <tr>
 <td colspan="6">Matheus</td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
+<td colspan="1">T1,T2</td>
+<td colspan="1">T1,T2</td>
+<td colspan="1">T1,T2</td>
+<td colspan="1">T9</td>
+<td colspan="1">T9</td>
+<td colspan="1">T9</td>
+<td colspan="1">T9</td>
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
@@ -154,13 +154,13 @@
 
 <tr>
 <td colspan="6">Vinicius</td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
+<td colspan="1">T3,T4</td>
+<td colspan="1">T3,T4</td>
+<td colspan="1">T3,T4</td>
+<td colspan="1">T8</td>
+<td colspan="1">T8</td>
+<td colspan="1">T8</td>
+<td colspan="1">T8</td>
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
@@ -178,13 +178,13 @@
 
 <tr>
 <td colspan="6">Pedro</td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
-<td colspan="1"></td>
+<td colspan="1">T5,T6</td>
+<td colspan="1">T5,T6</td>
+<td colspan="1">T5,T6</td>
+<td colspan="1">T7</td>
+<td colspan="1">T7</td>
+<td colspan="1">T7</td>
+<td colspan="1">T7</td>
 <td colspan="1"></td>
 <td colspan="1"></td>
 <td colspan="1"></td>
