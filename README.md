@@ -1,4 +1,4 @@
-# PM-Gus ![status](https://travis-ci.org/viniciussoaresti/pmgus.svg?branch=master)
+# SysPM ![status](https://travis-ci.org/viniciussoaresti/pmgus.svg?branch=master)
 Prática Profissional Orientada (PPO) em desenvolvimento por Pedro Barros, Matheus Dionísio e Vinícius Soares.
 
 ## Motivação
