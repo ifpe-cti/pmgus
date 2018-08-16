@@ -6,7 +6,7 @@
 package com.github.viniciussoaresti.controladores;
 
 import com.github.viniciussoaresti.infraestrutura.repositorios.comportamentos.RepositorioGenerico;
-import com.github.viniciussoaresti.infraestrutura.repositorios.implementações.RepositorioArmasImplBD;
+import com.github.viniciussoaresti.infraestrutura.repositorios.implementacoes.RepositorioArmasImplBD;
 import com.github.viniciussoaresti.negocio.Armas;
 import java.util.List;
 import javax.faces.application.FacesMessage;
