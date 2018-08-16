@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.github.viniciussoaresti.infraestrutura.repositorios.implementações;
+package com.github.viniciussoaresti.infraestrutura.repositorios.implementacoes;
 
 import com.github.viniciussoaresti.infraestrutura.repositorios.comportamentos.RepositorioGenerico;
 import com.github.viniciussoaresti.negocio.Armas;
