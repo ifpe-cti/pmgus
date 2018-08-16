@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.github.viniciussoaresti.dao;
+package com.github.viniciussoaresti.infraestrutura.dao;
 
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-
 /**
  *
- * @author BarrosPedro
+ * @author Vinícius Soares
  */
 public class PersistenceDao {
     
@@ -22,7 +21,7 @@ public class PersistenceDao {
     
     private PersistenceDao(){
     
-        this.emf = Persistence.createEntityManagerFactory("pmgusPU");
+        this.emf = Persistence.createEntityManagerFactory("syspmPU");
     
     }
     
@@ -78,3 +77,4 @@ public class PersistenceDao {
         em.close();
     }
 }
+

@@ -1,4 +1,4 @@
-# PM-Gus ![status](https://travis-ci.org/viniciussoaresti/pmgus.svg?branch=master)
+# SysPM ![status](https://travis-ci.org/viniciussoaresti/pmgus.svg?branch=master)
 Prática Profissional Orientada (PPO) em desenvolvimento por Pedro Barros, Matheus Dionísio e Vinícius Soares.
 
 ## Motivação
@@ -42,7 +42,7 @@ O Maven será utilizado como ferramenta de construção da aplicação, o JUnit,
 ## Licença
 MIT License
 
-Copyright (c) 2018 - SysGraph - Vinícius H., Matheus Dionísio, Pedro Barros and Tiago Eduardo
+Copyright (c) 2018 - SysPM - Vinícius H., Matheus Dionísio, Pedro Barros and Tiago Eduardo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
