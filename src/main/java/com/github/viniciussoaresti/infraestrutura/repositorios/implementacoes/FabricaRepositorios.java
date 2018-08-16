@@ -29,7 +29,7 @@ public class FabricaRepositorios {
                 return new RepositorioDrogas();
             }
             if(tipoNegocio == OCORRENCIA){
-                return new RepositorioOcorrencias();
+                return new RepositorioOcorrencia();
             }
         }
         
