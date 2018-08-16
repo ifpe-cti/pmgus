@@ -79,5 +79,11 @@ public class Armas {
     public void setCalibre(int calibre) {
         this.calibre = calibre;
     }
+      public boolean equals (Object obj){
+        if(obj == null){
+            return false;
+        }
+        return codigo == ((Armas)obj).getCodigo();
+    }
     
 }

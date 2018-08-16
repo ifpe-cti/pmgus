@@ -23,10 +23,10 @@ public class FabricaRepositorios {
     public static RepositorioGenerico manufactor (int tipoNegocio, int tipoPersistencia){
         if(tipoPersistencia == MEMORIA){
             if(tipoNegocio == ARMA){
-                return new RepositorioArma();
+                return new RepositorioArmas();
             }
             if(tipoNegocio == DROGA){
-                return new RepositorioDroga();
+                return new RepositorioDrogas();
             }
             if(tipoNegocio == OCORRENCIA){
                 return new RepositorioOcorrencia();
