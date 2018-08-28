@@ -7,42 +7,42 @@ package com.github.viniciussoaresti.infraestrutura.repositorios.implementacoes;
 
 import com.github.viniciussoaresti.infraestrutura.dao.PersistenceDao;
 import com.github.viniciussoaresti.infraestrutura.repositorios.comportamentos.RepositorioGenerico;
-import com.github.viniciussoaresti.negocio.MedidasDrogas;
+import com.github.viniciussoaresti.negocio.MedidaDroga;
 import java.util.List;
 
 /**
  *
  * @author barro
  */
-public class RepositorioMedidasDrogasImplBD implements RepositorioGenerico<MedidasDrogas, Integer>{
+public class RepositorioMedidaDrogaImplBD implements RepositorioGenerico<MedidaDroga, Integer>{
      @Override
-    public void inserir(MedidasDrogas t) {
+    public void inserir(MedidaDroga t) {
         PersistenceDao.getInstance().persist(t);
     }
 
     @Override
-    public void alterar(MedidasDrogas t) {
+    public void alterar(MedidaDroga t) {
         PersistenceDao.getInstance().update(t);
     }
 
     @Override
-    public MedidasDrogas recuperar(Integer codigo) {
+    public MedidaDroga recuperar(Integer codigo) {
        try{
-           return (MedidasDrogas)PersistenceDao.getInstance().read("select a from MedidasDrogas a where a.codigo="+codigo).get(0);
+           return (MedidaDroga)PersistenceDao.getInstance().read("select a from MedidaDroga a where a.codigo="+codigo).get(0);
        }catch(IndexOutOfBoundsException index){
            return null;
        }
     }
 
     @Override
-    public void deletar(MedidasDrogas t) {
+    public void deletar(MedidaDroga t) {
     PersistenceDao.getInstance().delete(t);
     
     }
 
     @Override
-    public List<MedidasDrogas> recuperarTodos() {
-        return PersistenceDao.getInstance().read("select a from MedidasDrogas a");
+    public List<MedidaDroga> recuperarTodos() {
+        return PersistenceDao.getInstance().read("select a from MedidaDroga a");
 
     }
     

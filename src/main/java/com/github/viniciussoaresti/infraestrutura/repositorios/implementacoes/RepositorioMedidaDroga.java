@@ -6,7 +6,7 @@
 package com.github.viniciussoaresti.infraestrutura.repositorios.implementacoes;
 
 import com.github.viniciussoaresti.infraestrutura.repositorios.comportamentos.RepositorioGenerico;
-import com.github.viniciussoaresti.negocio.MedidasDrogas;
+import com.github.viniciussoaresti.negocio.MedidaDroga;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,20 +14,20 @@ import java.util.List;
  *
  * @author BarrosPedro
  */
-public class RepositorioMedidasDrogas implements RepositorioGenerico<MedidasDrogas, Integer> {
-    private List<MedidasDrogas> clientes = null;
+public class RepositorioMedidaDroga implements RepositorioGenerico<MedidaDroga, Integer> {
+    private List<MedidaDroga> medidasDrogas = null;
 
-    public RepositorioMedidasDrogas() {
-        this.clientes = new ArrayList<>();
+    public RepositorioMedidaDroga() {
+        this.medidasDrogas = new ArrayList<>();
     }
     @Override
-    public void inserir(MedidasDrogas t){
-        this.clientes.add(t);
+    public void inserir(MedidaDroga t){
+        this.medidasDrogas.add(t);
     }
     
     @Override
-    public void alterar (MedidasDrogas t){
-        for (MedidasDrogas e : this.clientes){
+    public void alterar (MedidaDroga t){
+        for (MedidaDroga e : this.medidasDrogas){
             if (e.getCodigo()==( t.getCodigo())){
                 e.setUnidadeDroga(t.getUnidadeDroga());
                 e.setObservação(t.getObservação());
@@ -38,8 +38,8 @@ public class RepositorioMedidasDrogas implements RepositorioGenerico<MedidasDrog
     }
     
     @Override
-    public MedidasDrogas recuperar(Integer codigo){
-        for (MedidasDrogas e : this.clientes){
+    public MedidaDroga recuperar(Integer codigo){
+        for (MedidaDroga e : this.medidasDrogas){
             if(e.getCodigo()== (codigo) ){
                 return e;
             }
@@ -48,12 +48,12 @@ public class RepositorioMedidasDrogas implements RepositorioGenerico<MedidasDrog
     }
     
     @Override
-    public void deletar(MedidasDrogas t){
-        this.clientes.remove(t);
+    public void deletar(MedidaDroga t){
+        this.medidasDrogas.remove(t);
     }
     
     @Override
-    public List<MedidasDrogas> recuperarTodos(){
-        return this.clientes;
+    public List<MedidaDroga> recuperarTodos(){
+        return this.medidasDrogas;
     }   
 }
