@@ -6,7 +6,7 @@
 package com.github.viniciussoaresti.infraestrutura.repositorios.implementacoes;
 
 import com.github.viniciussoaresti.infraestrutura.repositorios.comportamentos.RepositorioGenerico;
-import com.github.viniciussoaresti.negocio.Armas;
+import com.github.viniciussoaresti.negocio.Arma;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,20 +14,20 @@ import java.util.List;
  *
  * @author BarrosPedro
  */
-public class RepositorioArmas implements RepositorioGenerico<Armas, Integer> {
-    private List<Armas> clientes = null;
+public class RepositorioArma implements RepositorioGenerico<Arma, Integer> {
+    private List<Arma> armas = null;
 
-    public RepositorioArmas() {
-        this.clientes = new ArrayList<>();
+    public RepositorioArma() {
+        this.armas = new ArrayList<>();
     }
     @Override
-    public void inserir(Armas t){
-        this.clientes.add(t);
+    public void inserir(Arma t){
+        this.armas.add(t);
     }
     
     @Override
-    public void alterar (Armas t){
-        for (Armas e : this.clientes){
+    public void alterar (Arma t){
+        for (Arma e : this.armas){
             if (e.getCodigo()==( t.getCodigo())){
                 e.setModelo(t.getModelo());
                 e.setMarca(t.getMarca());
@@ -39,8 +39,8 @@ public class RepositorioArmas implements RepositorioGenerico<Armas, Integer> {
     }
     
     @Override
-    public Armas recuperar(Integer codigo){
-        for (Armas e : this.clientes){
+    public Arma recuperar(Integer codigo){
+        for (Arma e : this.armas){
             if(e.getCodigo()== (codigo) ){
                 return e;
             }
@@ -49,12 +49,12 @@ public class RepositorioArmas implements RepositorioGenerico<Armas, Integer> {
     }
     
     @Override
-    public void deletar(Armas t){
-        this.clientes.remove(t);
+    public void deletar(Arma t){
+        this.armas.remove(t);
     }
     
     @Override
-    public List<Armas> recuperarTodos(){
-        return this.clientes;
+    public List<Arma> recuperarTodos(){
+        return this.armas;
     }   
 }

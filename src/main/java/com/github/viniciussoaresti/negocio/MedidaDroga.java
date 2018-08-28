@@ -15,7 +15,7 @@ import javax.persistence.Id;
  * @author barro
  */
 @Entity
-public class MedidasDrogas {
+public class MedidaDroga {
      @Id
     @GeneratedValue
     private int codigo;
@@ -24,10 +24,10 @@ public class MedidasDrogas {
     @Column(length = 20)
     private String observação;
 
-    public MedidasDrogas() {
+    public MedidaDroga() {
     }
 
-    public MedidasDrogas(int codigo, String unidadeDroga, String observação) {
+    public MedidaDroga(int codigo, String unidadeDroga, String observação) {
         this.codigo = codigo;
         this.unidadeDroga = unidadeDroga;
         this.observação = observação;
@@ -60,7 +60,7 @@ public class MedidasDrogas {
         if(obj == null){
             return false;
         }
-        return codigo == ((MedidasDrogas)obj).getCodigo();
+        return codigo == ((MedidaDroga)obj).getCodigo();
     }
     
 }
