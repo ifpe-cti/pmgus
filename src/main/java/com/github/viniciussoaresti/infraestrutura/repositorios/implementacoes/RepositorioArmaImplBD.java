@@ -7,42 +7,42 @@ package com.github.viniciussoaresti.infraestrutura.repositorios.implementacoes;
 
 import com.github.viniciussoaresti.infraestrutura.dao.PersistenceDao;
 import com.github.viniciussoaresti.infraestrutura.repositorios.comportamentos.RepositorioGenerico;
-import com.github.viniciussoaresti.negocio.Armas;
+import com.github.viniciussoaresti.negocio.Arma;
 import java.util.List;
 
 /**
  *
  * @author barro
  */
-public class RepositorioArmasImplBD implements RepositorioGenerico<Armas, Integer>{
+public class RepositorioArmaImplBD implements RepositorioGenerico<Arma, Integer>{
      @Override
-    public void inserir(Armas t) {
+    public void inserir(Arma t) {
         PersistenceDao.getInstance().persist(t);
     }
 
     @Override
-    public void alterar(Armas t) {
+    public void alterar(Arma t) {
         PersistenceDao.getInstance().update(t);
     }
 
     @Override
-    public Armas recuperar(Integer codigo) {
+    public Arma recuperar(Integer codigo) {
        try{
-           return (Armas)PersistenceDao.getInstance().read("select a from Armas a where a.codigo="+codigo).get(0);
+           return (Arma)PersistenceDao.getInstance().read("select a from Arma a where a.codigo="+codigo).get(0);
        }catch(IndexOutOfBoundsException index){
            return null;
        }
     }
 
     @Override
-    public void deletar(Armas t) {
+    public void deletar(Arma t) {
     PersistenceDao.getInstance().delete(t);
     
     }
 
     @Override
-    public List<Armas> recuperarTodos() {
-        return PersistenceDao.getInstance().read("select a from Armas a");
+    public List<Arma> recuperarTodos() {
+        return PersistenceDao.getInstance().read("select a from Arma a");
 
     }
     

@@ -15,7 +15,7 @@ import javax.persistence.Id;
  * @author BarrosPedro
  */
 @Entity
-public class Armas {
+public class Arma {
     @Id
     @GeneratedValue
     private int codigo;
@@ -29,10 +29,10 @@ public class Armas {
     private int calibre;
    
 
-    public Armas() {
+    public Arma() {
     }
 
-    public Armas(int codigo, String tipoDeArma, String modelo, String marca, int calibre) {
+    public Arma(int codigo, String tipoDeArma, String modelo, String marca, int calibre) {
         this.codigo = codigo;
         this.tipoDeArma = tipoDeArma;
         this.modelo = modelo;
@@ -83,7 +83,7 @@ public class Armas {
         if(obj == null){
             return false;
         }
-        return codigo == ((Armas)obj).getCodigo();
+        return codigo == ((Arma)obj).getCodigo();
     }
     
 }
