@@ -26,10 +26,10 @@ public class FabricaRepositorios {
                 return new RepositorioArma();
             }
             if(tipoNegocio == DROGA){
-                return new RepositorioDrogas();
+//                return new RepositorioDrogas();
             }
             if(tipoNegocio == OCORRENCIA){
-                return new RepositorioOcorrencia();
+  //              return new RepositorioOcorrencia();
             }
         }
         
