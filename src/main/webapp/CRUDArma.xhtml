@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Cadastro Arma</title>
+    </h:head>
+    <h:body>
+        <!--<ui:include src="menuPrincipal.xhtml"/>!-->
+        <p:growl id="gro" showDetail="true" showSummary="true"/>
+        <h:form id="MenuPrincipal">
+            <p:commandButton value="inserir" oncomplete="PF('widDialCadArma').show()"/>
+            <p:dataTable var="item" value="#{armaController.recuperarTodosArma()}"
+                         rowKey="#{item.codigo}" paginator="true"
+                         rows="5">
+                <f:facet name="header">
+                    Armas  Cadastradas
+                </f:facet>
+                <p:column headerText="Codigo">
+                    <h:outputText value="#{item.codigo}"/>
+                </p:column>
+                <p:column headerText="Tipo de Arma">
+                    <h:outputText value="#{item.tipoDeArma}"/>
+                </p:column>
+                <p:column headerText="Modelo">
+                    <h:outputText value="#{item.modelo}"/>
+                </p:column>
+                <p:column headerText="Marca">
+                    <h:outputText value="#{item.marca}"/>
+                </p:column>
+                <p:column headerText="Calibre">
+                    <h:outputText value="#{item.calibre}"/>
+                </p:column>
+                <p:column headerText="operações" style="width: 12%">
+                    <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaArma').show()" 
+                                     update=":formCadastroArma:dialVisualizaArma">
+                        <f:setPropertyActionListener value="#{item}" target="#{armaController.selectedArma}"/>
+                    </p:commandButton>
+                    <p:commandButton icon="ui-icon-wrench" oncomplete="PF('widDialAlteraArma').show()"
+                                     update=":formDialAlteraArma">
+                        <f:setPropertyActionListener value="#{item}" target="#{armaController.selectedArma}"/>
+                    </p:commandButton>
+                    <p:commandButton icon="ui-icon-closethick" oncomplete="PF('widDialDeletaArma').show()" 
+                                     update=":formCadastroArma:dialDeletaArma">
+                        <f:setPropertyActionListener value="#{item}" target="#{armaController.selectedArma}"/>
+                    </p:commandButton>    
+                </p:column>
+            </p:dataTable>
+
+            <p:dialog id="dialVisualizaArma" visible="false" modal="true"
+                      resizable="false" widgetVar="widDialVisualizaArma"
+                      header="dados do arma">
+                <p:panelGrid columns="2">
+                    <h:outputText value="Código:"/>
+                    <h:outputText value="#{armaController.selectedArma.codigo}"/>
+
+                    <h:outputText value="Tipo de Arma:"/>
+                    <h:outputText value="#{armaController.selectedArma.tipoDeArma}"/>
+
+                    <h:outputText value="Modelo:"/>
+                    <h:outputText value="#{armaController.selectedArma.modelo}"/>
+
+                    <h:outputText value="Marca:"/>
+                    <h:outputText value="#{armaController.selectedArma.marca}"/>
+
+                    <h:outputText value="Calibre:"/>
+                    <h:outputText value="#{armaController.selectedArma.calibre}"/>
+
+                    <h:outputText value="Telefone:"/>
+                    <h:outputText value="#{armaController.selectedArma.telefone}"/>
+
+
+                </p:panelGrid>
+                <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaArma').hide()"/>
+            </p:dialog>
+
+            <p:dialog id="dialDeletaArma" visible="false" modal="true"
+                      resizable="false" widgetVar="widDialDeletaArma"
+                      header="dados do arma">
+                <p:panelGrid columns="2">
+                    <h:outputText value="Código:"/>
+                    <h:outputText value="#{armaController.selectedArma.codigo}"/>
+
+                    <h:outputText value="Tipo de Arma:"/>
+                    <h:outputText value="#{armaController.selectedArma.tipoDeArma}"/>
+
+                    <h:outputText value="Modelo:"/>
+                    <h:outputText value="#{armaController.selectedArma.Modelo}"/>
+
+                    <h:outputText value="Marca:"/>
+                    <h:outputText value="#{armaController.selectedArma.marca}"/>
+
+                    <h:outputText value="Calibre:"/>
+                    <h:outputText value="#{armaController.selectedArma.calibre}"/>
+
+
+
+                </p:panelGrid>
+                <p:commandButton value="Deseja mesmo deletar a arma?" action="#{armaController.deletar()}" oncomplete="PF('widDialDeletaArma').hide()"
+                                 update="@form"/>
+            </p:dialog>
+
+        </h:form>
+
+        <p:dialog id="dialCadArma" visible="false" modal="true" resizable="false"
+                  widgetVar="widDialCadArma" header="Cadastrar Arma">
+
+            <h:form id="formDialCadArma">
+                <p:fieldset legend="cadastrar arma">
+                    <p:panelGrid columns="3">
+                        <h:outputText value="Tipo de Arma*:"/>
+                        <p:inputText id="txttipoDeArma" value="#{armaController.armaCadastro.tipoDeArma}"
+                                     required="true" requiredMessage="O tipo de Arma é obrigatório"/>
+                        <p:message for="txttipoDeArma"/>
+
+                        <h:outputText value="Modelo*:"/>
+                        <p:inputText id="txtModelo" value="#{armaController.armaCadastro.Modelo}"
+                                     required="true" requiredMessage="O Modelo é obrigatório"/>
+                        <p:message for="txtModelo"/>
+
+                        <h:outputText value="Calibre*:"/>
+                        <p:inputText id="txtEndereco" value="#{armaController.armaCadastro.calibre}"
+                                     required="true" requiredMessage="O Calibre é obrigatório"/>
+                        <p:message for="txtEndereco"/>
+
+                        <h:outputText value="Marca*:"/>
+                        <p:inputText id="txtmarca" value="#{armaController.armaCadastro.marca}"
+                                     required="true" requiredMessage="o campo marca é obrigatório"/>
+                        <p:message for="txtmarca"/>
+
+
+
+
+                    </p:panelGrid>
+
+                    <p:commandButton value="Cadastrar" action="#{armaController.inserir()}"
+                                     oncomplete="PF('widDialCadArma').hide()" 
+                                     update=':formCadastroArma :gro @form'/>
+                </p:fieldset>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dialAlteraArma" visible="false" modal="true" resizable="false"
+                  widgetVar="widDialAlteraArma" header="Alterar Arma">
+            <h:form id="formDialAlteraArma">
+                <p:fieldset legend="alterar arma">
+                    <p:panelGrid columns="3">
+                        <h:outputText value="Tipo de Arma*:"/>
+                        <p:inputText id="txttipoDeArma" value="#{armaController.selectedArma.tipoDeArma}"
+                                     required="true" requiredMessage="O tipoDeArma é obrigatório"/>
+                        <p:message for="txttipoDeArma"/>
+
+                        <h:outputText value="Modelo*:"/>
+                        <p:inputText id="txtModelo" value="#{armaController.selectedArma.Modelo}"
+                                     required="true" requiredMessage="O Modelo é obrigatório"/>
+                        <p:message for="txtModelo"/>
+
+                        <h:outputText value="Calibre*:"/>
+                        <p:inputText id="txtEndereco" value="#{armaController.selectedArma.calibre}"
+                                     required="true" requiredMessage="O Calibre é obrigatório"/>
+                        <p:message for="txtEndereco"/>
+
+                        <h:outputText value="Marca*:"/>
+                        <p:inputText id="txtmarca" value="#{armaController.selectedArma.marca}"
+                                     required="true" requiredMessage="O campo marca é obrigatório"/>
+                        <p:message for="txtmarca"/>
+
+                    </p:panelGrid>
+
+                    <p:commandButton value="Alterar" action="#{armaController.alterar(armaController.selectedArma)}"
+                                     oncomplete="PF('widDialAlteraArma').hide()" 
+                                     update=':formCadastroArma :gro @form'/>
+                </p:fieldset>
+            </h:form>
+        </p:dialog>
+
+    </h:body>
+</html>
+
