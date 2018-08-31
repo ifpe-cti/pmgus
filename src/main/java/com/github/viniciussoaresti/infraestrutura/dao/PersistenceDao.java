@@ -21,7 +21,7 @@ public class PersistenceDao {
     
     private PersistenceDao(){
     
-        this.emf = Persistence.createEntityManagerFactory("syspmPU");
+        this.emf = Persistence.createEntityManagerFactory("pmgus");
     
     }
     
