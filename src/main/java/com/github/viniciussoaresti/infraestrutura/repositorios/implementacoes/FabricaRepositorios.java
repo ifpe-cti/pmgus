@@ -25,9 +25,6 @@ public class FabricaRepositorios {
             if(tipoNegocio == ARMA){
                 return new RepositorioArma();
             }
-            if(tipoNegocio == DROGA){
-                return new RepositorioDrogas();
-            }
             if(tipoNegocio == OCORRENCIA){
                 return new RepositorioOcorrencia();
             }

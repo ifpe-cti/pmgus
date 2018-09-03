@@ -58,7 +58,7 @@ public class ArmaController {
                 new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","A arma foi deletada com sucesso!"));
     }
     
-    public List<Arma> recuperarTodosArmas(){
+    public List<Arma> recuperarTodosArma(){
         return this.repositorioArma.recuperarTodos();
     }
 
