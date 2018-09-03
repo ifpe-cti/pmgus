@@ -12,7 +12,7 @@
     <h:body>
         <!--<ui:include src="menuPrincipal.xhtml"/>!-->
         <p:growl id="gro" showDetail="true" showSummary="true"/>
-        <h:form id="MenuPrincipal">
+        <h:form id="FormCadastroArma">
             <p:commandButton value="inserir" oncomplete="PF('widDialCadArma').show()"/>
             <p:dataTable var="item" value="#{armaController.recuperarTodosArma()}"
                          rowKey="#{item.codigo}" paginator="true"
@@ -118,7 +118,7 @@
                         <p:message for="txttipoDeArma"/>
 
                         <h:outputText value="Modelo*:"/>
-                        <p:inputText id="txtModelo" value="#{armaController.armaCadastro.Modelo}"
+                        <p:inputText id="txtModelo" value="#{armaController.armaCadastro.modelo}"
                                      required="true" requiredMessage="O Modelo é obrigatório"/>
                         <p:message for="txtModelo"/>
 
