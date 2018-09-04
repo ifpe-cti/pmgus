@@ -1,6 +1,6 @@
+com\github\viniciussoaresti\pmgus\infraestrutura\dao\PersistenceDao.class
+com\github\viniciussoaresti\pmgus\infraestrutura\repositorios\implementacoes\RepositorioTipoDrogaImplBD.class
 com\github\viniciussoaresti\pmgus\controladores\TipoDrogaController.class
 com\github\viniciussoaresti\pmgus\negocio\TipoDroga.class
-com\github\viniciussoaresti\pmgus\infraestrutura\dao\PersistenceDao.class
 com\github\viniciussoaresti\pmgus\conversores\TipoDrogaConverter.class
-com\github\viniciussoaresti\pmgus\infraestrutura\repositorios\implementacoes\RepositorioTipoDrogaImplBD.class
 com\github\viniciussoaresti\pmgus\infraestrutura\repositorios\comportamentos\RepositorioGenerico.class
