@@ -13,3 +13,4 @@ target/
 .recommenders
 nb-configuration.xml
 lib
+docs
