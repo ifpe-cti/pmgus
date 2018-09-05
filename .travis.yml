@@ -8,3 +8,4 @@ jdk:
 script:
   - set -e
   - mvn clean package
+  - mvn install
