@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.github.viniciussoaresti</groupId>
     <artifactId>pmgus</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>war</packaging>
-    <name>PMGus</name>
-    <description>Sistema de gerenciamento de dados da Polícia Militar de Garanhuns, além de geração de relatórios estatísticos.</description>
+
+    <name>pmgus</name>
+
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    
     <dependencies>
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.faces</artifactId>
-            <version>2.3.0</version>
+            <version>2.4.0</version>
         </dependency>
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
-            <version>6.1</version>
+            <version>6.2</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
@@ -32,12 +35,6 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>4.3.1.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>unknown.binary</groupId>
-            <artifactId>hibernate-jpamodelgen-4.3.1.Final</artifactId>
-            <version>SNAPSHOT</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
@@ -83,16 +80,17 @@
             <version>1.0.2.Final</version>
         </dependency>
         <dependency>
-            <groupId>org.primefaces.themes</groupId>
+            <groupId>org.primefaces.extensions</groupId>
             <artifactId>all-themes</artifactId>
-            <version>1.0.10</version>
+            <version>1.0.8</version>
         </dependency>
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
             <version>1.2</version>
-        </dependency>
+            </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -105,6 +103,14 @@
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
             <plugin>
@@ -134,17 +140,5 @@
             </plugin>
         </plugins>
     </build>
-    <repositories>
-        <repository>
-            <url>http://repository.primefaces.org/</url>
-            <id>PrimeFaces-maven-lib</id>
-            <layout>default</layout>
-            <name>Repository for library PrimeFaces-maven-lib</name>
-        </repository>
-        <repository>
-            <id>unknown-jars-temp-repo</id>
-            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
-            <url>file:${project.basedir}/lib</url>
-        </repository>
-    </repositories>
+
 </project>
