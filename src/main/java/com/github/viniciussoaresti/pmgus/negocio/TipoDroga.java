@@ -38,12 +38,11 @@ public class TipoDroga{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+  
     public boolean equals (Object obj){
         if(obj == null){
             return false;
         }
         return codigo == ((TipoDroga)obj).getCodigo();
     }
-    
 }
