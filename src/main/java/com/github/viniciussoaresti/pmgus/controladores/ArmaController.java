@@ -53,8 +53,8 @@ public class ArmaController {
         return this.repositorioArma.recuperar(codigo);
     }
     
-    public void deletar(Arma c){
-        this.repositorioArma.deletar(c);
+    public void deletar(){
+        this.repositorioArma.deletar(selectedArma);
         FacesContext.getCurrentInstance().addMessage(null, 
                 new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","A arma foi deletada com sucesso!"));
     }
