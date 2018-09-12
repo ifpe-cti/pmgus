@@ -52,7 +52,7 @@
 
 <tr>
 <td colspan="4">US6</td>
-<td colspan="4" >Administrador (Guedes)</td>
+<td colspan="4" >Desenvolvedor (MVP)</td>
 <td colspan="4">Gerar um log do sistema a cada ação</td>
  <td colspan="4">Possíveis correções de erros</td>
 <td colspan="4">3</td>
