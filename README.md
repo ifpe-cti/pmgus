@@ -37,12 +37,12 @@ O Maven será utilizado como ferramenta de construção da aplicação, o JUnit,
   - [@viniciussoaresti](https://github.com/viniciussoaresti) como Vinícius Soares (Arquiteto)
   - [@MatheusDias18](https://github.com/MatheusDias18) como Matheus Dionísio (Desenvolvedor)
   - [@BarrosPedro](https://github.com/BarrosPedro) como Pedro Barros (Desenvolvedor)
-  - [@tiagoesng](https://github.com/tiagoesng) como Tiago Eduardo (Orientador)
+  - [@lsoaresesilva](https://github.com/lsoaresesilva) como Leonardo Soares (Orientador)
 
 ## Licença
 MIT License
 
-Copyright (c) 2018 - SysPM - Vinícius H., Matheus Dionísio, Pedro Barros and Tiago Eduardo
+Copyright (c) 2018 - SysPM - Vinícius H., Matheus Dionísio, Pedro Barros and Leonardo Soares
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
