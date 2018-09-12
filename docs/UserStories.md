@@ -26,7 +26,8 @@
 </tr>
 <tr>
 <td colspan="8">US1</td>
-<td colspan="8">1-Uma planilha excel retirada do clickview deve ser utilizada para importar esses dados
+<td colspan="8">1-Uma planilha excel retirada do clickview deve ser utilizada para importar esses dados.
+ 
 2-Produtividade de arma, droga, etc.
 </td>
 </tr>
