@@ -1,9 +1,20 @@
-
-#
-Como
-Desejo
-Para
-Prioridade
+#UserStories
+<table>
+<tr>
+<td colspan="30" bgcolor="#DCDCDC" align="center"><b>User Stories</b></td>
+</tr>
+<tr>
+<td colspan="4"  bgcolor="#DCDCDC" align="center"><b>Como</b.</td>
+<td colspan="4"  bgcolor="#DCDCDC" align="center"><b>Desejo</b></td>
+<td colspan="4"  bgcolor="#DCDCDC" align="center"><b>Para</b></td>
+ <td colspan="4"  bgcolor="#DCDCDC" align="center"><b>Prioridade</b></td>
+</tr>
+<tr>
+<td colspan="4">T1</td>
+<td colspan="4" >Manter Dados</td>
+<td colspan="4">Funcionalidades de criar, consultar, atualizar e deletar o CVLI, CVP, Prod. Armas, Prod. Drogas.</td>
+</tr>
+</table>
 1
 Administrador (Guedes)
 Importar cvli e cvp do clikview
