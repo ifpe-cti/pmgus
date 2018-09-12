@@ -21,23 +21,23 @@
 <tr>
 <td colspan="4">US2</td>
 <td colspan="4" >Administrador (Guedes)</td>
-<td colspan="4">Importar cvli e cvp do clikview</td>
- <td colspan="4">Armazenar estes dados</td>
+<td colspan="4">Filtrar e gerar relatórios</td>
+ <td colspan="4">Apresentação e organização</td>
 <td colspan="4">5</td>
 </tr>
 
 <tr>
 <td colspan="4">US3</td>
 <td colspan="4" >Administrador (Guedes)</td>
-<td colspan="4">Importar cvli e cvp do clikview</td>
- <td colspan="4">Armazenar estes dados</td>
+<td colspan="4">Backup</td>
+ <td colspan="4">Confiabilidade<td>
 <td colspan="4">5</td>
 </tr>
 
 <tr>
 <td colspan="4">US4</td>
 <td colspan="4" >Administrador (Guedes)</td>
-<td colspan="4">Importar cvli e cvp do clikview</td>
+<td colspan="4">Inserir dados da resenha diária</td>
  <td colspan="4">Armazenar estes dados</td>
 <td colspan="4">5</td>
 </tr>
@@ -45,16 +45,16 @@
 <tr>
 <td colspan="4">US5</td>
 <td colspan="4" >Administrador (Guedes)</td>
-<td colspan="4">Importar cvli e cvp do clikview</td>
- <td colspan="4">Armazenar estes dados</td>
+<td colspan="4">Login</td>
+ <td colspan="4">Segurança</td>
 <td colspan="4">5</td>
 </tr>
 
 <tr>
 <td colspan="4">US6</td>
 <td colspan="4" >Administrador (Guedes)</td>
-<td colspan="4">Importar cvli e cvp do clikview</td>
- <td colspan="4">Armazenar estes dados</td>
+<td colspan="4">Gerar um log do sistema a cada ação</td>
+ <td colspan="4">Possíveis correções de erros</td>
 <td colspan="4">5</td>
 </tr>
 </table>
