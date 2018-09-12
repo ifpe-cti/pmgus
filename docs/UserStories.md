@@ -30,7 +30,7 @@
 <td colspan="4">US3</td>
 <td colspan="4" >Administrador (Guedes)</td>
 <td colspan="4">Backup</td>
- <td colspan="4">Confiabilidade<td>
+<td colspan="4">Confiabilidade</td>
 <td colspan="4">5</td>
 </tr>
 
