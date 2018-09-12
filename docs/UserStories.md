@@ -20,8 +20,8 @@
 <td colspan="30" bgcolor="#DCDCDC" align="center"><b>User Stories</b></td>
 </tr>
 <tr>
-<td colspan="8"  bgcolor="#DCDCDC" align="center"><b>Como</b.</td>
-<td colspan="8"  bgcolor="#DCDCDC" align="center"><b>Desejo</b></td>
+<td colspan="8"  bgcolor="#DCDCDC" align="center"><b>#</b.</td>
+<td colspan="8"  bgcolor="#DCDCDC" align="center"><b>Critérios de Aceitação</b></td>
 </tr>
 <tr>
 <td colspan="8">US1</td>
