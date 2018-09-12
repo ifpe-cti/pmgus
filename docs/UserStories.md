@@ -23,7 +23,7 @@
 <td colspan="4" >Administrador (Guedes)</td>
 <td colspan="4">Filtrar e gerar relatórios</td>
  <td colspan="4">Apresentação e organização</td>
-<td colspan="4">5</td>
+<td colspan="4">4</td>
 </tr>
 
 <tr>
@@ -31,7 +31,7 @@
 <td colspan="4" >Administrador (Guedes)</td>
 <td colspan="4">Backup</td>
 <td colspan="4">Confiabilidade</td>
-<td colspan="4">5</td>
+<td colspan="4">3</td>
 </tr>
 
 <tr>
@@ -39,7 +39,7 @@
 <td colspan="4" >Administrador (Guedes)</td>
 <td colspan="4">Inserir dados da resenha diária</td>
  <td colspan="4">Armazenar estes dados</td>
-<td colspan="4">5</td>
+<td colspan="4">3</td>
 </tr>
 
 <tr>
@@ -47,7 +47,7 @@
 <td colspan="4" >Administrador (Guedes)</td>
 <td colspan="4">Login</td>
  <td colspan="4">Segurança</td>
-<td colspan="4">5</td>
+<td colspan="4">2</td>
 </tr>
 
 <tr>
@@ -55,7 +55,7 @@
 <td colspan="4" >Administrador (Guedes)</td>
 <td colspan="4">Gerar um log do sistema a cada ação</td>
  <td colspan="4">Possíveis correções de erros</td>
-<td colspan="4">5</td>
+<td colspan="4">3</td>
 </tr>
 </table>
  
