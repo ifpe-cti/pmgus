@@ -1,7 +1,12 @@
+com\github\viniciussoaresti\pmgus\infraestrutura\repositorios\implementacoes\RepositorioMunicipioImplBD.class
 com\github\viniciussoaresti\pmgus\infraestrutura\dao\PersistenceDao.class
 com\github\viniciussoaresti\pmgus\negocio\TipoDroga_.class
 com\github\viniciussoaresti\pmgus\infraestrutura\repositorios\implementacoes\RepositorioTipoDrogaImplBD.class
 com\github\viniciussoaresti\pmgus\controladores\TipoDrogaController.class
 com\github\viniciussoaresti\pmgus\negocio\TipoDroga.class
+com\github\viniciussoaresti\pmgus\controladores\MunicipioController.class
+com\github\viniciussoaresti\pmgus\conversores\MunicipioConverter.class
+com\github\viniciussoaresti\pmgus\negocio\Municipio_.class
+com\github\viniciussoaresti\pmgus\negocio\Municipio.class
 com\github\viniciussoaresti\pmgus\conversores\TipoDrogaConverter.class
 com\github\viniciussoaresti\pmgus\infraestrutura\repositorios\comportamentos\RepositorioGenerico.class
