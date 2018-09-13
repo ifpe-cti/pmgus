@@ -8,10 +8,30 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Crud Tipo de Droga</title>
+        <style type="text/css">
+            #divCima {
+                width:100%;
+                position: relative;
+                overflow:hidden;
+                background:#fff url('CimaPMGus.jpg') top no-repeat;
+
+            }
+            #divBaixo {
+                position: fixed;
+                bottom: 0;
+                right: 1;
+                width:100%;
+                overflow:hidden;
+                background:#fff url('BaixoPMGus.jpg') top no-repeat;
+
+            }
+        </style>
     </h:head>
     <h:body>
-        <!--<ui:include src="menu.xhtml"/>!-->
         <p:growl id="gro" showDetail="true" showSummary="true"/>
+        <div id="divCima">
+            <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
+        </div>
         <h:form id="formTipoDroga">
             <p:commandButton value="inserir" oncomplete="PF('widDialCadTipoDroga').show()"/>
             <p:dataTable var="item" value="#{tipoDrogaController.recuperarTodosTipoDroga()}"
@@ -30,50 +50,50 @@
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaTipoDroga').show()" 
                                      update=":formTipoDroga:dialVisualizaTipoDroga">
                         <f:setPropertyActionListener value="#{item}" target="#{tipoDrogaController.selectedTipoDroga}"/>
-                        </p:commandButton>
+                    </p:commandButton>
                     <p:commandButton icon="ui-icon-wrench" oncomplete="PF('widDialAlteraTipoDroga').show()"
                                      update=":formDialAlteraTipoDroga">
-                    <f:setPropertyActionListener value="#{item}" target="#{tipoDrogaController.selectedTipoDroga}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{tipoDrogaController.selectedTipoDroga}"/>
                     </p:commandButton>
                     <p:commandButton icon="ui-icon-closethick" oncomplete="PF('widDialDeletaTipoDroga').show()" 
                                      update=":formTipoDroga:dialDeletaTipoDroga">
                         <f:setPropertyActionListener value="#{item}" target="#{tipoDrogaController.selectedTipoDroga}"/>
-                        </p:commandButton>    
+                    </p:commandButton>    
                 </p:column>
             </p:dataTable>
-            
+
             <p:dialog id="dialVisualizaTipoDroga" visible="false" modal="true"
                       resizable="false" widgetVar="widDialVisualizaTipoDroga"
                       header="dados do tipo de droga">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
                     <h:outputText value="#{tipoDrogaController.selectedTipoDroga.codigo}"/>
-                    
-                   <h:outputText value="Nome:"/>
-                   <h:outputText value="#{tipoDrogaController.selectedTipoDroga.nome}"/>                   
+
+                    <h:outputText value="Nome:"/>
+                    <h:outputText value="#{tipoDrogaController.selectedTipoDroga.nome}"/>                   
                 </p:panelGrid>
                 <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaTipoDroga').hide()"/>
             </p:dialog>
-            
+
             <p:dialog id="dialDeletaTipoDroga" visible="false" modal="true"
                       resizable="false" widgetVar="widDialDeletaTipoDroga"
                       header="dados do tipo de droga">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
                     <h:outputText value="#{tipoDrogaController.selectedTipoDroga.codigo}"/>
-                    
-                   <h:outputText value="Nome:"/>
-                   <h:outputText value="#{tipoDrogaController.selectedTipoDroga.nome}"/>
+
+                    <h:outputText value="Nome:"/>
+                    <h:outputText value="#{tipoDrogaController.selectedTipoDroga.nome}"/>
                 </p:panelGrid>
                 <p:commandButton value="Deseja mesmo deletar o tipoDroga?" action="#{tipoDrogaController.deletar()}" oncomplete="PF('widDialDeletaTipoDroga').hide()"
                                  update="@form"/>
             </p:dialog>
-            
+
         </h:form>
-        
+
         <p:dialog id="dialCadTipoDroga" visible="false" modal="true" resizable="false"
                   widgetVar="widDialCadTipoDroga" header="Cadastrar Tipo de Droga">
-            
+
             <h:form id="formDialCadTipoDroga">
                 <p:fieldset legend="cadastrar tipo de droga">
                     <p:panelGrid columns="3">
@@ -88,7 +108,7 @@
                 </p:fieldset>
             </h:form>
         </p:dialog>
-        
+
         <p:dialog id="dialAlteraTipoDroga" visible="false" modal="true" resizable="false"
                   widgetVar="widDialAlteraTipoDroga" header="Alterar Tipo de Droga">
             <h:form id="formDialAlteraTipoDroga">
@@ -105,7 +125,9 @@
                 </p:fieldset>
             </h:form>
         </p:dialog>
-        
+        <div id="divBaixo" align="justify">
+            <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
+        </div>
     </h:body>
 </html>
 
