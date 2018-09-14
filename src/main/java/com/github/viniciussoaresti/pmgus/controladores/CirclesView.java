@@ -35,80 +35,73 @@ public class CirclesView implements Serializable {
         LatLng brasilia = new LatLng(-8.882855,-36.496897);
  
         //Circle
-        Circle circle1 = new Circle(severiano, 500);
-        circle1.setStrokeColor("#d93c3c");
+        Circle circle1 = new Circle(severiano, 200);
+        circle1.setStrokeColor("#d93c3c"); //vermelho
         circle1.setFillColor("#d93c3c");
         circle1.setFillOpacity(0.5);
  
-        Circle circle2 = new Circle(heliopolis, 300);
-        circle2.setStrokeColor("#00ff00");
+        Circle circle2 = new Circle(heliopolis, 210);
+        circle2.setStrokeColor("#00ff00"); //verde
         circle2.setFillColor("#00ff00");
+        circle2.setFillOpacity(0.7);
+        
+        Circle circle3 = new Circle(magano, 220);
+        circle2.setStrokeColor("#000000");
+        circle2.setFillColor("#000000");
         circle2.setStrokeOpacity(0.7);
         circle2.setFillOpacity(0.7);
         
-        Circle circle3 = new Circle(magano, 100);
-        circle2.setStrokeColor("#00ff00");
-        circle2.setFillColor("#00ff00");
+        Circle circle4 = new Circle(aluisio, 230);
+        circle2.setStrokeColor("#ffffff");
+        circle2.setFillColor("#ffffff");
+        circle2.setFillOpacity(0.7);
+        
+        Circle circle5 = new Circle(saojose, 220);
+        circle2.setStrokeColor("#111111");
+        circle2.setFillColor("#111111");
         circle2.setStrokeOpacity(0.7);
         circle2.setFillOpacity(0.7);
         
-        Circle circle4 = new Circle(aluisio, 600);
-        circle2.setStrokeColor("#00ff00");
-        circle2.setFillColor("#00ff00");
+        Circle circle6 = new Circle(francisco, 210);
+        circle2.setStrokeColor("#222222");
+        circle2.setFillColor("#222222");
+        circle2.setFillOpacity(0.7);
+        
+        Circle circle7 = new Circle(boavista, 200);
+        circle2.setStrokeColor("#333333");
+        circle2.setFillColor("#333333");
+        circle2.setFillOpacity(0.7);
+        
+        Circle circle8 = new Circle(santoantonio, 190);
+        circle2.setStrokeColor("#444444");
+        circle2.setFillColor("#444444");
         circle2.setStrokeOpacity(0.7);
         circle2.setFillOpacity(0.7);
         
-        Circle circle5 = new Circle(saojose, 700);
-        circle2.setStrokeColor("#00ff00");
-        circle2.setFillColor("#00ff00");
+        Circle circle9 = new Circle(domhelder, 180);
+        circle2.setStrokeColor("#555555");
+        circle2.setFillColor("#555555");
+        circle2.setFillOpacity(0.7);
+        
+        Circle circle10 = new Circle(josemaria, 170);
+        circle2.setStrokeColor("#666666");
+        circle2.setFillColor("#666666");
+        circle2.setFillOpacity(0.7);
+        
+        Circle circle11 = new Circle(novoheliopolis, 160);
+        circle2.setStrokeColor("#777777");
+        circle2.setFillColor("#777777");
         circle2.setStrokeOpacity(0.7);
         circle2.setFillOpacity(0.7);
         
-        Circle circle6 = new Circle(francisco, 200);
-        circle2.setStrokeColor("#00ff00");
-        circle2.setFillColor("#00ff00");
-        circle2.setStrokeOpacity(0.7);
+        Circle circle12 = new Circle(domthiago, 90);
+        circle2.setStrokeColor("#888888");
+        circle2.setFillColor("#888888");
         circle2.setFillOpacity(0.7);
         
-        Circle circle7 = new Circle(boavista, 100);
-        circle2.setStrokeColor("#00ff00");
-        circle2.setFillColor("#00ff00");
-        circle2.setStrokeOpacity(0.7);
-        circle2.setFillOpacity(0.7);
-        
-        Circle circle8 = new Circle(santoantonio, 500);
-        circle2.setStrokeColor("#00ff00");
-        circle2.setFillColor("#00ff00");
-        circle2.setStrokeOpacity(0.7);
-        circle2.setFillOpacity(0.7);
-        
-        Circle circle9 = new Circle(domhelder, 400);
-        circle2.setStrokeColor("#00ff00");
-        circle2.setFillColor("#00ff00");
-        circle2.setStrokeOpacity(0.7);
-        circle2.setFillOpacity(0.7);
-        
-        Circle circle10 = new Circle(josemaria, 300);
-        circle2.setStrokeColor("#00ff00");
-        circle2.setFillColor("#00ff00");
-        circle2.setStrokeOpacity(0.7);
-        circle2.setFillOpacity(0.7);
-        
-        Circle circle11 = new Circle(novoheliopolis, 200);
-        circle2.setStrokeColor("#00ff00");
-        circle2.setFillColor("#00ff00");
-        circle2.setStrokeOpacity(0.7);
-        circle2.setFillOpacity(0.7);
-        
-        Circle circle12 = new Circle(domthiago, 50);
-        circle2.setStrokeColor("#00ff00");
-        circle2.setFillColor("#00ff00");
-        circle2.setStrokeOpacity(0.7);
-        circle2.setFillOpacity(0.7);
-        
-        Circle circle13 = new Circle(brasilia, 200);
-        circle2.setStrokeColor("#00ff00");
-        circle2.setFillColor("#00ff00");
+        Circle circle13 = new Circle(brasilia, 120);
+        circle2.setStrokeColor("#999999");
+        circle2.setFillColor("#999999");
         circle2.setStrokeOpacity(0.7);
         circle2.setFillOpacity(0.7);
  
