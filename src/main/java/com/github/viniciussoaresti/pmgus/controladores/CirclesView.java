@@ -46,64 +46,64 @@ public class CirclesView implements Serializable {
         circle2.setFillOpacity(0.7);
         
         Circle circle3 = new Circle(magano, 220);
-        circle2.setStrokeColor("#000000");
-        circle2.setFillColor("#000000");
-        circle2.setStrokeOpacity(0.7);
-        circle2.setFillOpacity(0.7);
+        circle3.setStrokeColor("#000000");
+        circle3.setFillColor("#000000");
+        circle3.setStrokeOpacity(0.7);
+        circle3.setFillOpacity(0.7);
         
         Circle circle4 = new Circle(aluisio, 230);
-        circle2.setStrokeColor("#ffffff");
-        circle2.setFillColor("#ffffff");
-        circle2.setFillOpacity(0.7);
+        circle4.setStrokeColor("#ffffff");
+        circle4.setFillColor("#ffffff");
+        circle4.setFillOpacity(0.7);
         
         Circle circle5 = new Circle(saojose, 220);
-        circle2.setStrokeColor("#111111");
-        circle2.setFillColor("#111111");
-        circle2.setStrokeOpacity(0.7);
-        circle2.setFillOpacity(0.7);
+        circle5.setStrokeColor("#111111");
+        circle5.setFillColor("#111111");
+        circle5.setStrokeOpacity(0.7);
+        circle5.setFillOpacity(0.7);
         
         Circle circle6 = new Circle(francisco, 210);
-        circle2.setStrokeColor("#222222");
-        circle2.setFillColor("#222222");
-        circle2.setFillOpacity(0.7);
+        circle6.setStrokeColor("#222222");
+        circle6.setFillColor("#222222");
+        circle6.setFillOpacity(0.7);
         
         Circle circle7 = new Circle(boavista, 200);
-        circle2.setStrokeColor("#333333");
-        circle2.setFillColor("#333333");
-        circle2.setFillOpacity(0.7);
+        circle7.setStrokeColor("#333333");
+        circle7.setFillColor("#333333");
+        circle7.setFillOpacity(0.7);
         
         Circle circle8 = new Circle(santoantonio, 190);
-        circle2.setStrokeColor("#444444");
-        circle2.setFillColor("#444444");
-        circle2.setStrokeOpacity(0.7);
-        circle2.setFillOpacity(0.7);
+        circle8.setStrokeColor("#444444");
+        circle8.setFillColor("#444444");
+        circle8.setStrokeOpacity(0.7);
+        circle8.setFillOpacity(0.7);
         
         Circle circle9 = new Circle(domhelder, 180);
-        circle2.setStrokeColor("#555555");
-        circle2.setFillColor("#555555");
-        circle2.setFillOpacity(0.7);
+        circle9.setStrokeColor("#555555");
+        circle9.setFillColor("#555555");
+        circle9.setFillOpacity(0.7);
         
         Circle circle10 = new Circle(josemaria, 170);
-        circle2.setStrokeColor("#666666");
-        circle2.setFillColor("#666666");
-        circle2.setFillOpacity(0.7);
+        circle10.setStrokeColor("#666666");
+        circle10.setFillColor("#666666");
+        circle10.setFillOpacity(0.7);
         
         Circle circle11 = new Circle(novoheliopolis, 160);
-        circle2.setStrokeColor("#777777");
-        circle2.setFillColor("#777777");
-        circle2.setStrokeOpacity(0.7);
-        circle2.setFillOpacity(0.7);
+        circle11.setStrokeColor("#777777");
+        circle11.setFillColor("#777777");
+        circle11.setStrokeOpacity(0.7);
+        circle11.setFillOpacity(0.7);
         
         Circle circle12 = new Circle(domthiago, 90);
-        circle2.setStrokeColor("#888888");
-        circle2.setFillColor("#888888");
-        circle2.setFillOpacity(0.7);
+        circle12.setStrokeColor("#888888");
+        circle12.setFillColor("#888888");
+        circle12.setFillOpacity(0.7);
         
         Circle circle13 = new Circle(brasilia, 120);
-        circle2.setStrokeColor("#999999");
-        circle2.setFillColor("#999999");
-        circle2.setStrokeOpacity(0.7);
-        circle2.setFillOpacity(0.7);
+        circle13.setStrokeColor("#999999");
+        circle13.setFillColor("#999999");
+        circle13.setStrokeOpacity(0.7);
+        circle13.setFillOpacity(0.7);
  
         circleModel.addOverlay(circle1);
         circleModel.addOverlay(circle2);
