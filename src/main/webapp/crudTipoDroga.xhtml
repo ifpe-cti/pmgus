@@ -33,12 +33,12 @@
             <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
         </div>
         <h:form id="formTipoDroga">
-            <p:commandButton value="inserir" oncomplete="PF('widDialCadTipoDroga').show()"/>
+            <p:commandButton value="inserir"  oncomplete="PF('widDialCadTipoDroga').show()"/>
             <p:dataTable var="item" value="#{tipoDrogaController.recuperarTodosTipoDroga()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="5">
                 <f:facet name="header">
-                    Tipos de Drogas Cadastrados
+                    Tipos de Drogas Cadastradas
                 </f:facet>
                 <p:column headerText="Codigo">
                     <h:outputText value="#{item.codigo}"/>
