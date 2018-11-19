@@ -35,6 +35,7 @@
             <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
         </div>
         <h:form id="formUnidadeDroga" class="body">
+            <ui:include src="menubar.xhtml"/>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadUnidadeDroga').show()"/>
             <p:dataTable var="item" value="#{unidadeDrogaController.recuperarTodosUnidadeDroga()}"
                          rowKey="#{item.codigo}" paginator="true"
