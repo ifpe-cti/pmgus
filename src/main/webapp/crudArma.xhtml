@@ -32,9 +32,8 @@
         <div id="divCima">
             <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
         </div>
+        <ui:include src="menubar.xhtml"/>
         <h:form id="formArma">
-            <ui:include src="menubar.xhtml"/>
-            <p:commandButton value="inserir" oncomplete="PF('widDialCadArma').show()"/>
             <p:dataTable var="item" value="#{armaController.recuperarTodosArmas()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="5">
@@ -117,7 +116,7 @@
                 <p:commandButton value="Deseja mesmo deletar a arma?" action="#{armaController.deletar()}" oncomplete="PF('widDialDeletaArma').hide()"
                                  update="@form"/>
             </p:dialog>
-
+            <p:commandButton value="inserir" oncomplete="PF('widDialCadArma').show()"/>
         </h:form>
 
         <p:dialog id="dialCadArma" visible="false" modal="true" resizable="false"

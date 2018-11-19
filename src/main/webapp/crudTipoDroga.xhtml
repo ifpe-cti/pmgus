@@ -32,8 +32,8 @@
         <div id="divCima">
             <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
         </div>
+        <ui:include src="menubar.xhtml"/>
         <h:form id="formTipoDroga">
-            <ui:include src="menubar.xhtml"/>
             <p:dataTable var="item" value="#{tipoDrogaController.recuperarTodosTipoDroga()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="5">
