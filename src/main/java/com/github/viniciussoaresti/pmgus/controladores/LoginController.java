@@ -75,9 +75,17 @@ public class LoginController {
         
         if(login.equals("9bpm") && senhaCripto.equals("5cfc42d4c71557cd294522c6b66d91f1")){
             usrLogado = true; 
-        return "crudTipoDroga.xhtml"; 
-    }
-        return null;
+             FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","Usuário logado com sucesso!"));
+        return "menu.xhtml"; 
+       
+    
+    }else{
+            FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"Atenção!","Login ou senha, incorretos!"));
+        return null; 
+        }
+       
     }
 
     public Usuario getUsuarioLogado() {
