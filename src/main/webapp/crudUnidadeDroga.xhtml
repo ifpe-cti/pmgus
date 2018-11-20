@@ -34,8 +34,8 @@
         <div id="divCima">
             <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
         </div>
+        <ui:include src="menubar.xhtml"/>
         <h:form id="formUnidadeDroga" class="body">
-            <p:commandButton value="inserir" oncomplete="PF('widDialCadUnidadeDroga').show()"/>
             <p:dataTable var="item" value="#{unidadeDrogaController.recuperarTodosUnidadeDroga()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="5">
@@ -90,7 +90,7 @@
                 <p:commandButton value="Deseja mesmo deletar a unidadeDroga?" action="#{unidadeDrogaController.deletar()}" oncomplete="PF('widDialDeletaUnidadeDroga').hide()"
                                  update="@form"/>
             </p:dialog>
-
+            <p:commandButton value="inserir" oncomplete="PF('widDialCadUnidadeDroga').show()"/>
         </h:form>
 
         <p:dialog id="dialCadUnidadeDroga" visible="false" modal="true" resizable="false"
