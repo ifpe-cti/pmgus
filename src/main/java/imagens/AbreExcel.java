@@ -75,20 +75,10 @@ public class AbreExcel {
              } else {
                     
                     for (Arma arma : listaArma) {
-                          
-                         armaC.getArmaCadastro().getCodigo();
-                         armaC.getArmaCadastro().getModelo();
-                         armaC.getArmaCadastro().getMarca();
-                         armaC.getArmaCadastro().getTipoDeArma();
-                         armaC.getArmaCadastro().getCalibre();
-                         
-                         armaC.inserir();
-                         
-                           
-                    }
-                    
-                         
+   
+                          System.out.println("Arma: " + arma.getMarca());
+ 
+                    }                    
              }
-  
        }
 }

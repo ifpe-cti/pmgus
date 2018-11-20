@@ -155,19 +155,19 @@
                 <p:fieldset legend="alterar arma">
                     <p:panelGrid columns="3">
                        <h:outputText value="TipodeArma*:"/>
-                        <p:inputText id="txtTipodeArma" value="#{armaController.armaCadastro.tipoDeArma}"
+                        <p:inputText id="txtTipodeArma" value="#{armaController.selectedArma.tipoDeArma}"
                                      required="true" requiredMessage="O tipo de arma é obrigatório"/>
                         <p:message for="txtTipodeArma"/>
                          <h:outputText value="Modelo*:"/>
-                        <p:inputText id="txtModelo" value="#{armaController.armaCadastro.modelo}"
+                        <p:inputText id="txtModelo" value="#{armaController.selectedArma.modelo}"
                                      required="true" requiredMessage="O modelo é obrigatório"/>
                         <p:message for="txtModelo"/>
                          <h:outputText value="Marca*:"/>
-                         <p:inputText id="txtMarca" value="#{armaController.armaCadastro.marca}"
+                         <p:inputText id="txtMarca" value="#{armaController.selectedArma.marca}"
                                      required="true" requiredMessage="A marca é obrigatório"/>
                         <p:message for="txtMarca"/>
                          <h:outputText value="Calibre*:"/>
-                         <p:inputText id="txtCalibre" value="#{armaController.armaCadastro.calibre}"
+                         <p:inputText id="txtCalibre" value="#{armaController.selectedArma.calibre}"
                                      required="true" requiredMessage="O calibre é obrigatório"/>
                         <p:message for="txtCalibre"/>
                     </p:panelGrid>
