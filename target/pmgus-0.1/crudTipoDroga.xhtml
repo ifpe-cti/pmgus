@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Crud Tipo de Droga</title>
+        <style type="text/css">
+            #divCima {
+                width:100%;
+                position: relative;
+                overflow:hidden;
+                background:#fff url('CimaPMGus.jpg') top no-repeat;
+
+            }
+            #divBaixo {
+                position: fixed;
+                bottom: 0;
+                right: 1;
+                width:100%;
+                overflow:hidden;
+                background:#fff url('BaixoPMGus.jpg') top no-repeat;
+
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <p:growl id="gro" showDetail="true" showSummary="true"/>
+        <div id="divCima">
+            <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
+        </div>
+        <h:form id="formTipoDroga">
+            <p:commandButton value="inserir" oncomplete="PF('widDialCadTipoDroga').show()"/>
+            <p:dataTable var="item" value="#{tipoDrogaController.recuperarTodosTipoDroga()}"
+                         rowKey="#{item.codigo}" paginator="true"
+                         rows="5">
+                <f:facet name="header">
+                    Tipos de Drogas Cadastrados
+                </f:facet>
+                <p:column headerText="Codigo">
+                    <h:outputText value="#{item.codigo}"/>
+                </p:column>
+                <p:column headerText="Nome">
+                    <h:outputText value="#{item.nome}"/>
+                </p:column>
+                <p:column headerText="operações" style="width: 12%">
+                    <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaTipoDroga').show()" 
+                                     update=":formTipoDroga:dialVisualizaTipoDroga">
+                        <f:setPropertyActionListener value="#{item}" target="#{tipoDrogaController.selectedTipoDroga}"/>
+                    </p:commandButton>
+                    <p:commandButton icon="ui-icon-wrench" oncomplete="PF('widDialAlteraTipoDroga').show()"
+                                     update=":formDialAlteraTipoDroga">
+                        <f:setPropertyActionListener value="#{item}" target="#{tipoDrogaController.selectedTipoDroga}"/>
+                    </p:commandButton>
+                    <p:commandButton icon="ui-icon-closethick" oncomplete="PF('widDialDeletaTipoDroga').show()" 
+                                     update=":formTipoDroga:dialDeletaTipoDroga">
+                        <f:setPropertyActionListener value="#{item}" target="#{tipoDrogaController.selectedTipoDroga}"/>
+                    </p:commandButton>    
+                </p:column>
+            </p:dataTable>
+
+            <p:dialog id="dialVisualizaTipoDroga" visible="false" modal="true"
+                      resizable="false" widgetVar="widDialVisualizaTipoDroga"
+                      header="dados do tipo de droga">
+                <p:panelGrid columns="2">
+                    <h:outputText value="Código:"/>
+                    <h:outputText value="#{tipoDrogaController.selectedTipoDroga.codigo}"/>
+
+                    <h:outputText value="Nome:"/>
+                    <h:outputText value="#{tipoDrogaController.selectedTipoDroga.nome}"/>                   
+                </p:panelGrid>
+                <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaTipoDroga').hide()"/>
+            </p:dialog>
+
+            <p:dialog id="dialDeletaTipoDroga" visible="false" modal="true"
+                      resizable="false" widgetVar="widDialDeletaTipoDroga"
+                      header="dados do tipo de droga">
+                <p:panelGrid columns="2">
+                    <h:outputText value="Código:"/>
+                    <h:outputText value="#{tipoDrogaController.selectedTipoDroga.codigo}"/>
+
+                    <h:outputText value="Nome:"/>
+                    <h:outputText value="#{tipoDrogaController.selectedTipoDroga.nome}"/>
+                </p:panelGrid>
+                <p:commandButton value="Deseja mesmo deletar o tipoDroga?" action="#{tipoDrogaController.deletar()}" oncomplete="PF('widDialDeletaTipoDroga').hide()"
+                                 update="@form"/>
+            </p:dialog>
+
+        </h:form>
+
+        <p:dialog id="dialCadTipoDroga" visible="false" modal="true" resizable="false"
+                  widgetVar="widDialCadTipoDroga" header="Cadastrar Tipo de Droga">
+
+            <h:form id="formDialCadTipoDroga">
+                <p:fieldset legend="cadastrar tipo de droga">
+                    <p:panelGrid columns="3">
+                        <h:outputText value="Nome*:"/>
+                        <p:inputText id="txtNome" value="#{tipoDrogaController.tipoDrogaCadastro.nome}"
+                                     required="true" requiredMessage="O nome é obrigatório"/>
+                        <p:message for="txtNome"/>
+                    </p:panelGrid>
+                    <p:commandButton value="Cadastrar" action="#{tipoDrogaController.inserir()}"
+                                     oncomplete="PF('widDialCadTipoDroga').hide()" 
+                                     update=':formTipoDroga :gro @form'/>
+                </p:fieldset>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dialAlteraTipoDroga" visible="false" modal="true" resizable="false"
+                  widgetVar="widDialAlteraTipoDroga" header="Alterar Tipo de Droga">
+            <h:form id="formDialAlteraTipoDroga">
+                <p:fieldset legend="alterar tipo de droga">
+                    <p:panelGrid columns="3">
+                        <h:outputText value="Nome*:"/>
+                        <p:inputText id="txtNome" value="#{tipoDrogaController.selectedTipoDroga.nome}"
+                                     required="true" requiredMessage="O nome é obrigatório"/>
+                        <p:message for="txtNome"/>
+                    </p:panelGrid>
+                    <p:commandButton value="Alterar" action="#{tipoDrogaController.alterar(tipoDrogaController.selectedTipoDroga)}"
+                                     oncomplete="PF('widDialAlteraTipoDroga').hide()" 
+                                     update=':formTipoDroga :gro @form'/>
+                </p:fieldset>
+            </h:form>
+        </p:dialog>
+        <div id="divBaixo" align="justify">
+            <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
+        </div>
+    </h:body>
+</html>
+
