@@ -32,8 +32,8 @@
         <div id="divCima">
             <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
         </div>
+        <ui:include src="menubar.xhtml"/>
         <h:form id="formArma">
-            <p:commandButton value="inserir" oncomplete="PF('widDialCadArma').show()"/>
             <p:dataTable var="item" value="#{armaController.recuperarTodosArmas()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="5">
@@ -46,16 +46,16 @@
                 <p:column headerText="Tipo de Arma">
                     <h:outputText value="#{item.tipoDeArma}"/>
                 </p:column>
-                  <p:column headerText="Modelo">
-                      <h:outputText value="#{item.modelo}"/>
+                <p:column headerText="Modelo">
+                    <h:outputText value="#{item.modelo}"/>
                 </p:column>
-                  <p:column headerText="Marca">
-                      <h:outputText value="#{item.marca}"/>
+                <p:column headerText="Marca">
+                    <h:outputText value="#{item.marca}"/>
                 </p:column>
-                  <p:column headerText="Calibre">
-                      <h:outputText value="#{item.calibre}"/>
+                <p:column headerText="Calibre">
+                    <h:outputText value="#{item.calibre}"/>
                 </p:column>
-                  
+
                 <p:column headerText="operações" style="width: 12%">
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaArma').show()" 
                                      update=":formArma:dialVisualizaArma">
@@ -81,13 +81,13 @@
 
                     <h:outputText value="Tipo de Arma:"/>
                     <h:outputText value="#{armaController.selectedArma.tipoDeArma}"/>     
-                    
+
                     <h:outputText value="Modelo:"/>
                     <h:outputText value="#{armaController.selectedArma.modelo}"/>  
-                    
+
                     <h:outputText value="Marca:"/>
                     <h:outputText value="#{armaController.selectedArma.marca}"/>     
-                    
+
                     <h:outputText value="Calibre:"/>
                     <h:outputText value="#{armaController.selectedArma.calibre}"/>     
                 </p:panelGrid>
@@ -103,20 +103,20 @@
 
                     <h:outputText value="Tipo de Arma:"/>
                     <h:outputText value="#{armaController.selectedArma.tipoDeArma}"/>     
-                    
+
                     <h:outputText value="Modelo:"/>
                     <h:outputText value="#{armaController.selectedArma.modelo}"/>  
-                    
+
                     <h:outputText value="Marca:"/>
                     <h:outputText value="#{armaController.selectedArma.marca}"/>     
-                    
+
                     <h:outputText value="Calibre:"/>
                     <h:outputText value="#{armaController.selectedArma.calibre}"/>   
                 </p:panelGrid>
                 <p:commandButton value="Deseja mesmo deletar a arma?" action="#{armaController.deletar()}" oncomplete="PF('widDialDeletaArma').hide()"
                                  update="@form"/>
             </p:dialog>
-
+            <p:commandButton value="inserir" oncomplete="PF('widDialCadArma').show()"/>
         </h:form>
 
         <p:dialog id="dialCadArma" visible="false" modal="true" resizable="false"
@@ -129,16 +129,16 @@
                         <p:inputText id="txtTipodeArma" value="#{armaController.armaCadastro.tipoDeArma}"
                                      required="true" requiredMessage="O tipo de arma é obrigatório"/>
                         <p:message for="txtTipodeArma"/>
-                         <h:outputText value="Modelo*:"/>
+                        <h:outputText value="Modelo*:"/>
                         <p:inputText id="txtModelo" value="#{armaController.armaCadastro.modelo}"
                                      required="true" requiredMessage="O modelo é obrigatório"/>
                         <p:message for="txtModelo"/>
-                         <h:outputText value="Marca*:"/>
-                         <p:inputText id="txtMarca" value="#{armaController.armaCadastro.marca}"
+                        <h:outputText value="Marca*:"/>
+                        <p:inputText id="txtMarca" value="#{armaController.armaCadastro.marca}"
                                      required="true" requiredMessage="A marca é obrigatório"/>
                         <p:message for="txtMarca"/>
-                         <h:outputText value="Calibre*:"/>
-                         <p:inputText id="txtCalibre" value="#{armaController.armaCadastro.calibre}"
+                        <h:outputText value="Calibre*:"/>
+                        <p:inputText id="txtCalibre" value="#{armaController.armaCadastro.calibre}"
                                      required="true" requiredMessage="O calibre é obrigatório"/>
                         <p:message for="txtCalibre"/>
                     </p:panelGrid>
@@ -154,20 +154,20 @@
             <h:form id="formDialAlteraArma">
                 <p:fieldset legend="alterar arma">
                     <p:panelGrid columns="3">
-                       <h:outputText value="TipodeArma*:"/>
+                        <h:outputText value="TipodeArma*:"/>
                         <p:inputText id="txtTipodeArma" value="#{armaController.selectedArma.tipoDeArma}"
                                      required="true" requiredMessage="O tipo de arma é obrigatório"/>
                         <p:message for="txtTipodeArma"/>
-                         <h:outputText value="Modelo*:"/>
+                        <h:outputText value="Modelo*:"/>
                         <p:inputText id="txtModelo" value="#{armaController.selectedArma.modelo}"
                                      required="true" requiredMessage="O modelo é obrigatório"/>
                         <p:message for="txtModelo"/>
-                         <h:outputText value="Marca*:"/>
-                         <p:inputText id="txtMarca" value="#{armaController.selectedArma.marca}"
+                        <h:outputText value="Marca*:"/>
+                        <p:inputText id="txtMarca" value="#{armaController.selectedArma.marca}"
                                      required="true" requiredMessage="A marca é obrigatório"/>
                         <p:message for="txtMarca"/>
-                         <h:outputText value="Calibre*:"/>
-                         <p:inputText id="txtCalibre" value="#{armaController.selectedArma.calibre}"
+                        <h:outputText value="Calibre*:"/>
+                        <p:inputText id="txtCalibre" value="#{armaController.selectedArma.calibre}"
                                      required="true" requiredMessage="O calibre é obrigatório"/>
                         <p:message for="txtCalibre"/>
                     </p:panelGrid>
