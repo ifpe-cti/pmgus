@@ -33,7 +33,7 @@
             <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
         </div>
         <h:form id="formEndereco">
-       
+        <ui:include src="menubar.xhtml"/>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadEndereco').show()"/>
             <p:dataTable var="item" value="#{enderecoController.recuperarTodosEnderecos()}"
                          rowKey="#{item.codigo}" paginator="true"
@@ -170,7 +170,7 @@
                 <p:fieldset legend="alterar endereco">
                     <p:panelGrid columns="3">
                         <h:outputText value="Nome do Município*:"/>
-                        <p:selectOneListbox id="txtNomeMunicipio" value="#{enderecoController.enderecoCadastro.municipio}" converter="municipioConverter" filter="true" filterMatchMode="contains" required="true" requiredMessage="O Municipio é obrigatório">
+                        <p:selectOneListbox id="txtNomeMunicipio" value="#{enderecoController.selectedEndereco.municipio}" converter="municipioConverter" filter="true" filterMatchMode="contains" required="true" requiredMessage="O Municipio é obrigatório">
                             <f:selectItems value="#{municipioController.recuperarTodosMunicipios()}" var="municipio" itemLabel="#{municipio.nome}" itemValue="#{municipio}" />
                                 </p:selectOneListbox>
                         <p:message for="txtNomeMunicipio"/>

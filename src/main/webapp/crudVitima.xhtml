@@ -33,7 +33,7 @@
             <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
         </div>
         <h:form id="formVitima">
-            
+             <ui:include src="menubar.xhtml"/>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadVitima').show()"/>
             <p:dataTable var="item" value="#{vitimaController.recuperarTodosVitimas()}"
                          rowKey="#{item.codigo}" paginator="true"

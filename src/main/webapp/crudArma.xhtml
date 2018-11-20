@@ -33,6 +33,7 @@
             <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
         </div>
         <h:form id="formArma">
+             <ui:include src="menubar.xhtml"/>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadArma').show()"/>
             <p:dataTable var="item" value="#{armaController.recuperarTodosArmas()}"
                          rowKey="#{item.codigo}" paginator="true"

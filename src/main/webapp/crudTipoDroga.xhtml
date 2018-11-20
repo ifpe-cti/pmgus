@@ -33,6 +33,7 @@
             <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
         </div>
         <h:form id="formTipoDroga">
+             <ui:include src="menubar.xhtml"/>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadTipoDroga').show()"/>
             <p:dataTable var="item" value="#{tipoDrogaController.recuperarTodosTipoDroga()}"
                          rowKey="#{item.codigo}" paginator="true"
