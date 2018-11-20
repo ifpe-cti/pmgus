@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.github.viniciussoaresti.pmgus.controladores;
 
-import java.util.List;
 
+import com.github.viniciussoaresti.pmgus.criptografia.LoginCriptografia;
+import com.github.viniciussoaresti.pmgus.negocio.Usuario;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 /**
@@ -22,8 +18,30 @@ import javax.faces.context.FacesContext;
 public class LoginController {
     private String login;
     private String senha;
-   
+    private String senhaCripto;
+  
+    private Usuario usuarioLogado;
+    
     private boolean usrLogado = false;
+
+    public LoginController(String login, String senha, Usuario usuarioLogado) {
+        this.login = login;
+        this.senha = senha;
+        this.usuarioLogado = usuarioLogado;
+       
+    }
+
+    public LoginController() {
+    }
+
+   public String cripSenha(String senha){
+       senhaCripto=LoginCriptografia.criptografar(senha);
+       return logar();
+         }
+
+    
+
+    
 
     public boolean isUsrLogado() {
         return usrLogado;
@@ -49,12 +67,32 @@ public class LoginController {
         this.senha = senha;
     }
     public String logar(){
-        if(login.equals("9bpm") && senha.equals("3secao")){
+        
+        if(login.equals("9bpm") && senhaCripto.equals("5cfc42d4c71557cd294522c6b66d91f1")){
             usrLogado = true; 
-        return "tipoDroga.xhtml"; 
+             FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","Usuário logado com sucesso!"));
+        return "menu.xhtml"; 
+       
+    
+    }else{
+            FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"Atenção!","Login ou senha, incorretos!"));
+        return null; 
+        }
+       
     }
-        return null;
+
+    public Usuario getUsuarioLogado() {
+        return usuarioLogado;
     }
+
+    public void setUsuarioLogado(Usuario usuarioLogado) {
+        this.usuarioLogado = usuarioLogado;
+    }
+    
+   
+    
     
     
 }
