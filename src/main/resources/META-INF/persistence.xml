@@ -14,7 +14,7 @@
 >>>>>>> 9682e41fd9835e0a94cb0c91f4cc977c533ea8e6
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="dias"/>
+      <property name="javax.persistence.jdbc.password" value="ifpe"/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
