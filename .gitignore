@@ -1,4 +1,4 @@
-/target/
+target/
 *.aux
 *.log
 .settings
@@ -13,3 +13,4 @@ target/
 .recommenders
 nb-configuration.xml
 lib
+src/main/resources/META-INF/persistence
