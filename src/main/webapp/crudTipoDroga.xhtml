@@ -32,13 +32,13 @@
         <div id="divCima">
             <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
         </div>
+        <ui:include src="menubar.xhtml"/>
         <h:form id="formTipoDroga">
-            <p:commandButton value="inserir"  oncomplete="PF('widDialCadTipoDroga').show()"/>
             <p:dataTable var="item" value="#{tipoDrogaController.recuperarTodosTipoDroga()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="5">
                 <f:facet name="header">
-                    Tipos de Drogas Cadastradas
+                    Tipos de Drogas Cadastrados
                 </f:facet>
                 <p:column headerText="Codigo">
                     <h:outputText value="#{item.codigo}"/>
@@ -88,7 +88,7 @@
                 <p:commandButton value="Deseja mesmo deletar o tipoDroga?" action="#{tipoDrogaController.deletar()}" oncomplete="PF('widDialDeletaTipoDroga').hide()"
                                  update="@form"/>
             </p:dialog>
-
+            <p:commandButton value="inserir" oncomplete="PF('widDialCadTipoDroga').show()"/>
         </h:form>
 
         <p:dialog id="dialCadTipoDroga" visible="false" modal="true" resizable="false"
