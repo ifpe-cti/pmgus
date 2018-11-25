@@ -2,6 +2,7 @@ package com.github.viniciussoaresti.pmgus.controladores;
 
 import com.github.viniciussoaresti.pmgus.negocio.Arma;
 import java.io.File;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import org.apache.poi.openxml4j.opc.OPCPackage;
@@ -19,6 +20,7 @@ import org.primefaces.model.UploadedFile;
  */
 public class ExcelController {
 
+    List<Arma> armas;
     private UploadedFile arquivoupload;
 
     public UploadedFile getArquivoupload() {
@@ -41,9 +43,10 @@ public class ExcelController {
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
-    public boolean cadastrarArma(ArmaController armacontroller) {
+    public boolean cadastrarArmas(ArmaController armacontroller) {
         try {
-            if (arquivoupload != null){
+            if (arquivoupload != null) {
+                System.out.println(arquivoupload.getFileName());
                 OPCPackage pkg = OPCPackage.open(new File(arquivoupload.getFileName()));
                 XSSFWorkbook wb = new XSSFWorkbook(pkg);
                 for (Sheet sheet : wb) {
@@ -56,8 +59,7 @@ public class ExcelController {
                             Arma arma = new Arma();
                             for (Cell celula : linha) { //coluna
                                 switch (celula.getColumnIndex()) {
-                                    case 0: //lembrar q o código é automatico quando definir no banco
-                                        arma.setCodigo((int) celula.getNumericCellValue());
+                                    case 0://código é definido automaticamente
                                         break;
                                     case 1:
                                         arma.setTipoDeArma(celula.getStringCellValue());
@@ -77,7 +79,12 @@ public class ExcelController {
                         }
                     }
                 }
+                for (Arma a : armas) {
+                    armacontroller.setArmaCadastro(a);
+                    armacontroller.inserir();
+                }
                 pkg.close();
+                return true;
             }
         } catch (Exception e) {
             e.printStackTrace();
