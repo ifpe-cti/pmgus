@@ -1,105 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Menu Inicial</title>
+        <title>Login</title>
         <style type="text/css">
             #divCima {
                 width:100%;
                 position: relative;
                 overflow:hidden;
-                background:#fff url('CimaPMGus.jpg') top no-repeat;
+                background:#fff url('imagens/CimaPMGus') top no-repeat;
+
             }
             #divBaixo {
                 position: fixed;
                 bottom: 0;
-                right: 1px;
+                right: 1;
                 width:100%;
                 overflow:hidden;
-                background:#fff url('BaixoPMGus.jpg') top no-repeat;
+                    background:#fff url('imagens/BaixoPMGus.jpg') top no-repeat;
 
             }
-            #divCentro{
-                width:100%;
-                overflow:hidden;
-                background:#fff url('pmgusDivFundo.jpg') top no-repeat;
-                z-index: 1;
-            }
-            #divPactoPelaVida{
-                overflow:hidden;
-                background:#fff url('pmgusDivPACTOPELAVIDA.jpg') top no-repeat;
-                z-index: 2;
-                position: absolute;
-                top: 220px;
-                left: 100px;
-            }
-            #divCVLI{
-                overflow:hidden;
-                background:#fff url('pmgusDivCVLI.jpg') top no-repeat;
-                z-index: 2;
-                position: absolute;
-                top: 220px;
-                left: 400px;
-            }
-            #divCVP{
-                overflow:hidden;
-                background:#fff url('pmgusDivCVP.jpg') top no-repeat;
-                z-index: 2;
-                position: absolute;
-                top: 220px;
-                left: 700px;
-            }
-            #divBOWEB{
-                overflow:hidden;
-                background:#fff url('pmgusDivBOWEB.jpg') top no-repeat;
-                z-index: 2;
-                position: absolute;
-                top: 220px;
-                left: 1000px;
-            }
-
         </style>
     </h:head>
-    <h:body >
-        <!--<ui:include src="menu.xhtml"/>!-->
+    <h:body>
         <div id="divCima">
-            <hl><img src="\imagens\CimaPMGus.jpg"  height="122px"/></hl>
+            <hl><img src="\imagens\CimaPMGus.jpg" height="122"/></hl>
         </div>
-        <div id="divCentro">
-            <hl><img src="\imagens\pmgusDivFundo.jpg" height="430px"/></hl>
-        </div>
-        <a href="crudArma.xhtml">
-            <div id="divPactoPelaVida">
-                <hl><img src="\imagens\pmgusDivPACTOPELAVIDA.jpg" height="220px"/></hl>
-            </div>
-        </a>
-        <a href="crudTipoDroga.xhtml">
-        <div id="divCVLI">
-            <hl><img src="\imagens\pmgusDivCVLI.jpg" height="220px"/></hl>
-        </div>
-        </a>
-        <a href="crudUnidadeDroga.xhtml">
-        <div id="divCVP">
-            <hl><img src="\imagens\pmgusDivCVP.jpg" height="220px"/></hl>
-        </div>
-        </a>
-        <a href="crudTipoDroga.xhtml">
-        <div id="divBOWEB">
-            <hl><img src="\imagens\pmgusDivBOWEB.jpg" height="220px"/></hl>
-        </div>
-        </a>
-        <div id="divBaixo">
+        <h:form id="formMenu" >
+             <p:panelGrid columns="3" >
+                        <h:outputText value="Login:" />
+                        <p:inputText id="txtLogin" value="#{loginController.login}"
+                                     required="true" requiredMessage="O login é obrigatório"/>
+                        <p:message for="txtLogin"/>
+                        <h:outputText value="Senha:"/>
+                        <p:inputText id="txtSenha" value="#{loginController.senha}"
+                                     required="true" requiredMessage="A senha é obrigatória" type="password"/>
+                        <p:message for="txtSenha"/>                                               
+                    </p:panelGrid>
+            <p:commandButton value="Logar" action="#{loginController.cripSenha(loginController.senha)}"/>
+            <p:separator/>
+        <p:separator/>
+        </h:form>
+        <div id="divBaixo" align="justify">
             <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
         </div>
     </h:body>
 </html>
+

@@ -72,20 +72,16 @@ public class LoginController {
         this.senha = senha;
     }
     public String logar(){
-        
-        if(login.equals("9bpm") && senhaCripto.equals("5cfc42d4c71557cd294522c6b66d91f1")){
+        if(login.equals("9bpm") && senhaCripto.equals("5cfc42d4c71557cd294522c6b66d91f1".toUpperCase())){
             usrLogado = true; 
              FacesContext.getCurrentInstance().addMessage(null, 
                 new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","Usuário logado com sucesso!"));
-        return "menu.xhtml"; 
-       
-    
+        return "menu.xhtml";    
     }else{
             FacesContext.getCurrentInstance().addMessage(null, 
                 new FacesMessage(FacesMessage.SEVERITY_INFO,"Atenção!","Login ou senha, incorretos!"));
         return null; 
         }
-       
     }
 
     public Usuario getUsuarioLogado() {

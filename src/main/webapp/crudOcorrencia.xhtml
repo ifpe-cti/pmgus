@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>CRUD Ocorrencia</title>
+        <style type="text/css">
+            #divCima {
+                width:100%;
+                position: relative;
+                overflow:hidden;
+                background:#fff url('CimaPMGus.jpg') top no-repeat;
+
+            }
+            #divBaixo {
+                position: fixed;
+                bottom: 0;
+                right: 1;
+                width:100%;
+                overflow:hidden;
+                background:#fff url('BaixoPMGus.jpg') top no-repeat;
+
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <p:growl id="gro" showDetail="true" showSummary="true"/>
+        <div id="divCima">
+            <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
+        </div>
+        <ui:include src="menubar.xhtml"/>
+        <h:form id="formOcorrencia">
+            <p:commandButton value="inserir" oncomplete="PF('widDialCadOcorrencia').show()"/>
+            <p:dataTable var="item" value="#{ocorrenciaController.recuperarTodosOcorrencia()}"
+                         rowKey="#{item.codigo}" paginator="true"
+                         rows="5">
+                <f:facet name="header">
+                    Ocorrencias Cadastradas
+                </f:facet>
+                <p:column headerText="Codigo">
+                    <h:outputText value="#{item.codigo}"/>
+                </p:column>
+                <p:column headerText="Tipo de Ocorrencia">
+                    <h:outputText value="#{item.tipoDeOcorrencia}"/>
+                </p:column>
+                  <p:column headerText="Modelo">
+                      <h:outputText value="#{item.modelo}"/>
+                </p:column>
+                  <p:column headerText="Marca">
+                      <h:outputText value="#{item.marca}"/>
+                </p:column>
+                  <p:column headerText="Calibre">
+                      <h:outputText value="#{item.calibre}"/>
+                </p:column>
+                  
+                <p:column headerText="operações" style="width: 12%">
+                    <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaOcorrencia').show()" 
+                                     update=":formOcorrencia:dialVisualizaOcorrencia">
+                        <f:setPropertyActionListener value="#{item}" target="#{ocorrenciaController.selectedOcorrencia}"/>
+                    </p:commandButton>
+                    <p:commandButton icon="ui-icon-wrench" oncomplete="PF('widDialAlteraOcorrencia').show()"
+                                     update=":formDialAlteraOcorrencia">
+                        <f:setPropertyActionListener value="#{item}" target="#{ocorrenciaController.selectedOcorrencia}"/>
+                    </p:commandButton>
+                    <p:commandButton icon="ui-icon-closethick" oncomplete="PF('widDialDeletaOcorrencia').show()" 
+                                     update=":formOcorrencia:dialDeletaOcorrencia">
+                        <f:setPropertyActionListener value="#{item}" target="#{ocorrenciaController.selectedOcorrencia}"/>
+                    </p:commandButton>    
+                </p:column>
+            </p:dataTable>
+
+            <p:dialog id="dialVisualizaOcorrencia" visible="false" modal="true"
+                      resizable="false" widgetVar="widDialVisualizaOcorrencia"
+                      header="dados de ocorrencia">
+                <p:panelGrid columns="2">
+                    <h:outputText value="Código:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.codigo}"/>
+
+                    <h:outputText value="Tipo de Ocorrencia:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.tipoDeOcorrencia}"/>     
+                    
+                    <h:outputText value="Modelo:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.modelo}"/>  
+                    
+                    <h:outputText value="Marca:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.marca}"/>     
+                    
+                    <h:outputText value="Calibre:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.calibre}"/>     
+                </p:panelGrid>
+                <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaOcorrencia').hide()"/>
+            </p:dialog>
+
+            <p:dialog id="dialDeletaOcorrencia" visible="false" modal="true"
+                      resizable="false" widgetVar="widDialDeletaOcorrencia"
+                      header="dados de ocorrencia">
+                <p:panelGrid columns="2">
+                    <h:outputText value="Código:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.codigo}"/>
+
+                    <h:outputText value="Tipo de Ocorrencia:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.tipoDeOcorrencia}"/>     
+                    
+                    <h:outputText value="Modelo:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.modelo}"/>  
+                    
+                    <h:outputText value="Marca:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.marca}"/>     
+                    
+                    <h:outputText value="Calibre:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.calibre}"/>   
+                </p:panelGrid>
+                <p:commandButton value="Deseja mesmo deletar a ocorrencia?" action="#{ocorrenciaController.deletar()}" oncomplete="PF('widDialDeletaOcorrencia').hide()"
+                                 update="@form"/>
+            </p:dialog>
+
+        </h:form>
+
+        <p:dialog id="dialCadOcorrencia" visible="false" modal="true" resizable="false"
+                  widgetVar="widDialCadOcorrencia" header="Cadastrar Ocorrencia">
+
+            <h:form id="formDialCadOcorrencia">
+                <p:fieldset legend="cadastrar ocorrencia">
+                    <p:panelGrid columns="3">
+                        <h:outputText value="TipodeOcorrencia*:"/>
+                        <p:inputText id="txtTipodeOcorrencia" value="#{ocorrenciaController.ocorrenciaCadastro.tipoDeOcorrencia}"
+                                     required="true" requiredMessage="O tipo de ocorrencia é obrigatório"/>
+                        <p:message for="txtTipodeOcorrencia"/>
+                         <h:outputText value="Modelo*:"/>
+                        <p:inputText id="txtModelo" value="#{ocorrenciaController.ocorrenciaCadastro.modelo}"
+                                     required="true" requiredMessage="O modelo é obrigatório"/>
+                        <p:message for="txtModelo"/>
+                         <h:outputText value="Marca*:"/>
+                         <p:inputText id="txtMarca" value="#{ocorrenciaController.ocorrenciaCadastro.marca}"
+                                     required="true" requiredMessage="A marca é obrigatório"/>
+                        <p:message for="txtMarca"/>
+                         <h:outputText value="Calibre*:"/>
+                         <p:inputText id="txtCalibre" value="#{ocorrenciaController.ocorrenciaCadastro.calibre}"
+                                     required="true" requiredMessage="O calibre é obrigatório"/>
+                        <p:message for="txtCalibre"/>
+                    </p:panelGrid>
+                    <p:commandButton value="Cadastrar" action="#{ocorrenciaController.inserir()}"
+                                     oncomplete="PF('widDialCadOcorrencia').hide()" 
+                                     update=':formOcorrencia :gro @form'/>
+                </p:fieldset>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dialAlteraOcorrencia" visible="false" modal="true" resizable="false"
+                  widgetVar="widDialAlteraOcorrencia" header="Alterar Ocorrencia">
+            <h:form id="formDialAlteraOcorrencia">
+                <p:fieldset legend="alterar ocorrencia">
+                    <p:panelGrid columns="3">
+                       <h:outputText value="TipodeOcorrencia*:"/>
+                        <p:inputText id="txtTipodeOcorrencia" value="#{ocorrenciaController.ocorrenciaCadastro.tipoDeOcorrencia}"
+                                     required="true" requiredMessage="O tipo de ocorrencia é obrigatório"/>
+                        <p:message for="txtTipodeOcorrencia"/>
+                         <h:outputText value="Modelo*:"/>
+                        <p:inputText id="txtModelo" value="#{ocorrenciaController.ocorrenciaCadastro.modelo}"
+                                     required="true" requiredMessage="O modelo é obrigatório"/>
+                        <p:message for="txtModelo"/>
+                         <h:outputText value="Marca*:"/>
+                         <p:inputText id="txtMarca" value="#{ocorrenciaController.ocorrenciaCadastro.marca}"
+                                     required="true" requiredMessage="A marca é obrigatório"/>
+                        <p:message for="txtMarca"/>
+                         <h:outputText value="Calibre*:"/>
+                         <p:inputText id="txtCalibre" value="#{ocorrenciaController.ocorrenciaCadastro.calibre}"
+                                     required="true" requiredMessage="O calibre é obrigatório"/>
+                        <p:message for="txtCalibre"/>
+                    </p:panelGrid>
+                    <p:commandButton value="Alterar" action="#{ocorrenciaController.alterar(ocorrenciaController.selectedOcorrencia)}"
+                                     oncomplete="PF('widDialAlteraOcorrencia').hide()" 
+                                     update=':formOcorrencia :gro @form'/>
+                </p:fieldset>
+            </h:form>
+        </p:dialog>
+        <div id="divBaixo" align="justify">
+            <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
+        </div>
+    </h:body>
+</html>

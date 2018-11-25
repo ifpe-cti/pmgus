@@ -22,7 +22,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class ArmaController {
+public class ArmaController{
      private RepositorioGenerico<Arma,Integer> repositorioArma = null;
     private Arma armaCadastro;
     private Arma selectedArma;
@@ -33,16 +33,13 @@ public class ArmaController {
         this.repositorioArma = new RepositorioArmaImplBD();
         this.armaCadastro = new Arma();
     }
-    
     public void inserir(){
         
         this.repositorioArma.inserir(this.armaCadastro);
         this.armaCadastro = new Arma();
-        
         FacesContext.getCurrentInstance().addMessage(null, 
                 new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","A arma foi cadastrada com sucesso!"));
     }
-    
     public void alterar(Arma c){
         this.repositorioArma.alterar(c);
         FacesContext.getCurrentInstance().addMessage(null, 
