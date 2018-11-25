@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Crud Endereco</title>
+        <style type="text/css">
+            #divCima {
+                width:100%;
+                position: relative;
+                overflow:hidden;
+                background:#fff url('CimaPMGus.jpg') top no-repeat;
+
+            }
+            #divBaixo {
+                position: fixed;
+                bottom: 0;
+                right: 1;
+                width:100%;
+                overflow:hidden;
+                background:#fff url('BaixoPMGus.jpg') top no-repeat;
+
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <p:growl id="gro" showDetail="true" showSummary="true"/>
+        <div id="divCima">
+            <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
+        </div>
+        <ui:include src="menubar.xhtml"/>
+        <h:form id="formEndereco">
+            <p:dataTable var="item" value="#{enderecoController.recuperarTodosEnderecos()}"
+                         rowKey="#{item.codigo}" paginator="true"
+                         rows="5">
+                <f:facet name="header">
+                    Enderecos Cadastrados
+                </f:facet>
+                <p:column headerText="Codigo">
+                    <h:outputText value="#{item.codigo}"/>
+                </p:column>
+                <p:column headerText="Nome munícipio">
+                    <h:outputText value="#{item.municipio.nome}"/>
+                </p:column>
+                <p:column headerText="CEP">
+                    <h:outputText value="#{item.cep}"/>
+                </p:column>
+                <p:column headerText="Bairro">
+                    <h:outputText value="#{item.bairro}"/>
+                </p:column>
+                <p:column headerText="Rua">
+                    <h:outputText value="#{item.rua}"/>
+                </p:column>
+                <p:column headerText="Numero">
+                    <h:outputText value="#{item.numero}"/>
+                </p:column>
+
+                <p:column headerText="operações" style="width: 12%">
+                    <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaEndereco').show()" 
+                                     update=":formEndereco:dialVisualizaEndereco">
+                        <f:setPropertyActionListener value="#{item}" target="#{enderecoController.selectedEndereco}"/>
+                    </p:commandButton>
+                    <p:commandButton icon="ui-icon-wrench" oncomplete="PF('widDialAlteraEndereco').show()"
+                                     update=":formDialAlteraEndereco">
+                        <f:setPropertyActionListener value="#{item}" target="#{enderecoController.selectedEndereco}"/>
+                    </p:commandButton>
+                    <p:commandButton icon="ui-icon-closethick" oncomplete="PF('widDialDeletaEndereco').show()" 
+                                     update=":formEndereco:dialDeletaEndereco">
+                        <f:setPropertyActionListener value="#{item}" target="#{enderecoController.selectedEndereco}"/>
+                    </p:commandButton>    
+                </p:column>
+            </p:dataTable>
+
+            <p:dialog id="dialVisualizaEndereco" visible="false" modal="true"
+                      resizable="false" widgetVar="widDialVisualizaEndereco"
+                      header="dados de endereco">
+                <p:panelGrid columns="2">
+                    <h:outputText value="Código:"/>
+                    <h:outputText value="#{enderecoController.selectedEndereco.codigo}"/>
+
+                    <h:outputText value="Nome município:"/>
+                    <h:outputText value="#{enderecoController.selectedEndereco.municipio.nome}"/>     
+
+                    <h:outputText value="CEP:"/>
+                    <h:outputText value="#{enderecoController.selectedEndereco.cep}"/>  
+
+                    <h:outputText value="Bairro:"/>
+                    <h:outputText value="#{enderecoController.selectedEndereco.bairro}"/>     
+
+                    <h:outputText value="Rua:"/>
+                    <h:outputText value="#{enderecoController.selectedEndereco.rua}"/>   
+
+                    <h:outputText value="Número:"/>
+                    <h:outputText value="#{enderecoController.selectedEndereco.numero}"/>     
+                </p:panelGrid>
+                <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaEndereco').hide()"/>
+            </p:dialog>
+
+            <p:dialog id="dialDeletaEndereco" visible="false" modal="true"
+                      resizable="false" widgetVar="widDialDeletaEndereco"
+                      header="dados de endereco">
+                <p:panelGrid columns="2">
+                    <h:outputText value="Código:"/>
+                    <h:outputText value="#{enderecoController.selectedEndereco.codigo}"/>
+
+                    <h:outputText value="Nome município:"/>
+                    <h:outputText value="#{enderecoController.selectedEndereco.municipio.nome}"/>     
+
+                    <h:outputText value="CEP:"/>
+                    <h:outputText value="#{enderecoController.selectedEndereco.cep}"/>  
+
+                    <h:outputText value="Bairro:"/>
+                    <h:outputText value="#{enderecoController.selectedEndereco.bairro}"/>     
+
+                    <h:outputText value="Rua:"/>
+                    <h:outputText value="#{enderecoController.selectedEndereco.rua}"/>   
+
+                    <h:outputText value="Número:"/>
+                    <h:outputText value="#{enderecoController.selectedEndereco.numero}"/>   
+                </p:panelGrid>
+                <p:commandButton value="Deseja mesmo deletar o endereco?" action="#{enderecoController.deletar()}" oncomplete="PF('widDialDeletaEndereco').hide()"
+                                 update="@form"/>
+            </p:dialog>
+            <p:commandButton value="inserir" oncomplete="PF('widDialCadEndereco').show()"/>
+        </h:form>
+
+        <p:dialog id="dialCadEndereco" visible="false" modal="true" resizable="false"
+                  widgetVar="widDialCadEndereco" header="Cadastrar Endereco">
+
+            <h:form id="formDialCadEndereco">
+                <p:fieldset legend="cadastrar endereco">
+                    <p:panelGrid columns="3">
+                        <h:outputText value="Nome do Município*:"/>
+                        <p:selectOneListbox id="txtNomeMunicipio" value="#{enderecoController.enderecoCadastro.municipio}" converter="municipioConverter" filter="true" filterMatchMode="contains" required="true" requiredMessage="O Municipio é obrigatório">
+                            <f:selectItems value="#{municipioController.recuperarTodosMunicipios()}" var="municipio" itemLabel="#{municipio.nome}" itemValue="#{municipio}" />
+                        </p:selectOneListbox>
+                        <p:message for="txtNomeMunicipio"/>
+                        <h:outputText value="CEP*:"/>
+                        <p:inputText id="txtCep" value="#{enderecoController.enderecoCadastro.cep}"
+                                     required="true" requiredMessage="O CEP é obrigatório"/>
+                        <p:message for="txtCep"/>
+                        <h:outputText value="Bairro*:"/>
+                        <p:inputText id="txtBairro" value="#{enderecoController.enderecoCadastro.bairro}"
+                                     required="true" requiredMessage="O bairro é obrigatório"/>
+                        <p:message for="txtBairro"/>
+                        <h:outputText value="Rua*:"/>
+                        <p:inputText id="txtRua" value="#{enderecoController.enderecoCadastro.rua}"
+                                     required="true" requiredMessage="A rua é obrigatório"/>
+                        <p:message for="txtRua"/>
+                        <h:outputText value="Numero*:"/>
+                        <p:inputText id="txtNumero" value="#{enderecoController.enderecoCadastro.numero}"
+                                     required="true" requiredMessage="O número é obrigatório"/>
+                        <p:message for="txtNumero"/>
+                    </p:panelGrid>
+                    <p:commandButton value="Cadastrar" action="#{enderecoController.inserir()}"
+                                     oncomplete="PF('widDialCadEndereco').hide()" 
+                                     update=':formEndereco :gro @form'/>
+                </p:fieldset>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dialAlteraEndereco" visible="false" modal="true" resizable="false"
+                  widgetVar="widDialAlteraEndereco" header="Alterar Endereco">
+            <h:form id="formDialAlteraEndereco">
+                <p:fieldset legend="alterar endereco">
+                    <p:panelGrid columns="3">
+                        <h:outputText value="Nome do Município*:"/>
+                        <p:selectOneListbox id="txtNomeMunicipio" value="#{enderecoController.enderecoCadastro.municipio}" converter="municipioConverter" filter="true" filterMatchMode="contains" required="true" requiredMessage="O Municipio é obrigatório">
+                            <f:selectItems value="#{municipioController.recuperarTodosMunicipios()}" var="municipio" itemLabel="#{municipio.nome}" itemValue="#{municipio}" />
+                        </p:selectOneListbox>
+                        <p:message for="txtNomeMunicipio"/>
+                        <h:outputText value="CEP*:"/>
+                        <p:inputText id="txtCep" value="#{enderecoController.selectedEndereco.cep}"
+                                     required="true" requiredMessage="O CEP é obrigatório"/>
+                        <p:message for="txtCep"/>
+                        <h:outputText value="Bairro*:"/>
+                        <p:inputText id="txtBairro" value="#{enderecoController.selectedEndereco.bairro}"
+                                     required="true" requiredMessage="O bairro é obrigatório"/>
+                        <p:message for="txtBairro"/>
+                        <h:outputText value="Rua*:"/>
+                        <p:inputText id="txtRua" value="#{enderecoController.selectedEndereco.rua}"
+                                     required="true" requiredMessage="A rua é obrigatório"/>
+                        <p:message for="txtRua"/>
+                        <h:outputText value="Numero*:"/>
+                        <p:inputText id="txtNumero" value="#{enderecoController.selectedEndereco.numero}"
+                                     required="true" requiredMessage="O número é obrigatório"/>
+                        <p:message for="txtNumero"/>
+                    </p:panelGrid>
+                    <p:commandButton value="Alterar" action="#{enderecoController.alterar(enderecoController.selectedEndereco)}"
+                                     oncomplete="PF('widDialAlteraEndereco').hide()" 
+                                     update=':formEndereco :gro @form'/>
+                </p:fieldset>
+            </h:form>
+        </p:dialog>
+        <div id="divBaixo" align="justify">
+            <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
+        </div>
+    </h:body>
+</html>
+

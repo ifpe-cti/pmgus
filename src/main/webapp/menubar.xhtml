@@ -15,6 +15,9 @@ and open the template in the editor.
         <h:form id="formMenu">
             <p:menubar>
                 <p:menuitem value="Página Inicial" url="menu.xhtml"/>
+                <p:submenu label="Ocorrencia">
+                    <p:menuitem value="Dados" url="crudOcorrencia.xhtml"/>
+                </p:submenu>
                 <p:submenu label="Armas">
                     <p:menuitem value="Dados" url="crudArma.xhtml"/>
                 </p:submenu>
@@ -23,6 +26,15 @@ and open the template in the editor.
                 </p:submenu>
                 <p:submenu label="Unidade de Droga">
                     <p:menuitem value="Dados" url="crudUnidadeDroga.xhtml"/>
+                </p:submenu>
+                <p:submenu label="Endereço">
+                    <p:menuitem value="Dados" url="crudEndereco.xhtml"/>
+                </p:submenu>
+                <p:submenu label="Município">
+                    <p:menuitem value="Dados" url="crudMunicipio.xhtml"/>
+                </p:submenu>
+                <p:submenu label="Vítima">
+                    <p:menuitem value="Dados" url="crudVitima.xhtml"/>
                 </p:submenu>
                 <p:menuitem value="Sair" url="index.xhtml" style="position: absolute;left: 97%"/>
             </p:menubar>
