@@ -44,19 +44,19 @@
                 <p:column headerText="Codigo">
                     <h:outputText value="#{item.codigo}"/>
                 </p:column>
-                <p:column headerText="Tipo de Ocorrencia">
-                    <h:outputText value="#{item.tipoDeOcorrencia}"/>
+                <p:column headerText="Data Ocorrencia">
+                    <h:outputText value="#{item.dataOcorrencia}"/>
                 </p:column>
-                  <p:column headerText="Modelo">
-                      <h:outputText value="#{item.modelo}"/>
+                <p:column headerText="Endereço">
+                    <h:outputText value="#{item.endereco}"/>
                 </p:column>
-                  <p:column headerText="Marca">
-                      <h:outputText value="#{item.marca}"/>
+                <p:column headerText="Arma">
+                    <h:outputText value="#{item.arma}"/>
                 </p:column>
-                  <p:column headerText="Calibre">
-                      <h:outputText value="#{item.calibre}"/>
+                <p:column headerText="Droga">
+                    <h:outputText value="#{item.droga}"/>
                 </p:column>
-                  
+
                 <p:column headerText="operações" style="width: 12%">
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaOcorrencia').show()" 
                                      update=":formOcorrencia:dialVisualizaOcorrencia">
@@ -80,17 +80,32 @@
                     <h:outputText value="Código:"/>
                     <h:outputText value="#{ocorrenciaController.selectedOcorrencia.codigo}"/>
 
-                    <h:outputText value="Tipo de Ocorrencia:"/>
-                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.tipoDeOcorrencia}"/>     
-                    
-                    <h:outputText value="Modelo:"/>
-                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.modelo}"/>  
-                    
-                    <h:outputText value="Marca:"/>
-                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.marca}"/>     
-                    
-                    <h:outputText value="Calibre:"/>
-                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.calibre}"/>     
+                    <h:outputText value="Ocorrencia:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.ocorrencia}"/>     
+
+                    <h:outputText value="Descrição da Ocorrencia:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.descricaoOcorrencia}"/>
+
+                    <h:outputText value="Data da Ocorrencia:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.dataOcorrencia}"/>
+
+                    <h:outputText value="Flagrante:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.flagrante}"/>
+
+                    <h:outputText value="Endereço:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.endereco}"/>
+
+                    <h:outputText value="Vítima:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.vitima}"/>
+
+                    <h:outputText value="Arma:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.arma}"/>
+
+                    <h:outputText value="Droga:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.droga}"/>
+
+                    <h:outputText value="Unidade de Droga:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.unidade}"/>
                 </p:panelGrid>
                 <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaOcorrencia').hide()"/>
             </p:dialog>
@@ -102,81 +117,45 @@
                     <h:outputText value="Código:"/>
                     <h:outputText value="#{ocorrenciaController.selectedOcorrencia.codigo}"/>
 
-                    <h:outputText value="Tipo de Ocorrencia:"/>
-                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.tipoDeOcorrencia}"/>     
-                    
-                    <h:outputText value="Modelo:"/>
-                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.modelo}"/>  
-                    
-                    <h:outputText value="Marca:"/>
-                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.marca}"/>     
-                    
-                    <h:outputText value="Calibre:"/>
-                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.calibre}"/>   
+                    <h:outputText value="Ocorrencia:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.ocorrencia}"/>     
+
+                    <h:outputText value="Descrição da Ocorrencia:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.descricaoOcorrencia}"/>
+
+                    <h:outputText value="Data da Ocorrencia:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.dataOcorrencia}"/>
+
+                    <h:outputText value="Flagrante:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.flagrante}"/>
+
+                    <h:outputText value="Endereço:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.endereco}"/>
+
+                    <h:outputText value="Vítima:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.vitima}"/>
+
+                    <h:outputText value="Arma:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.arma}"/>
+
+                    <h:outputText value="Droga:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.droga}"/>
+
+                    <h:outputText value="Unidade de Droga:"/>
+                    <h:outputText value="#{ocorrenciaController.selectedOcorrencia.unidade}"/>  
                 </p:panelGrid>
                 <p:commandButton value="Deseja mesmo deletar a ocorrencia?" action="#{ocorrenciaController.deletar()}" oncomplete="PF('widDialDeletaOcorrencia').hide()"
                                  update="@form"/>
             </p:dialog>
-
         </h:form>
-
         <p:dialog id="dialCadOcorrencia" visible="false" modal="true" resizable="false"
                   widgetVar="widDialCadOcorrencia" header="Cadastrar Ocorrencia">
-
-            <h:form id="formDialCadOcorrencia">
-                <p:fieldset legend="cadastrar ocorrencia">
-                    <p:panelGrid columns="3">
-                        <h:outputText value="TipodeOcorrencia*:"/>
-                        <p:inputText id="txtTipodeOcorrencia" value="#{ocorrenciaController.ocorrenciaCadastro.tipoDeOcorrencia}"
-                                     required="true" requiredMessage="O tipo de ocorrencia é obrigatório"/>
-                        <p:message for="txtTipodeOcorrencia"/>
-                         <h:outputText value="Modelo*:"/>
-                        <p:inputText id="txtModelo" value="#{ocorrenciaController.ocorrenciaCadastro.modelo}"
-                                     required="true" requiredMessage="O modelo é obrigatório"/>
-                        <p:message for="txtModelo"/>
-                         <h:outputText value="Marca*:"/>
-                         <p:inputText id="txtMarca" value="#{ocorrenciaController.ocorrenciaCadastro.marca}"
-                                     required="true" requiredMessage="A marca é obrigatório"/>
-                        <p:message for="txtMarca"/>
-                         <h:outputText value="Calibre*:"/>
-                         <p:inputText id="txtCalibre" value="#{ocorrenciaController.ocorrenciaCadastro.calibre}"
-                                     required="true" requiredMessage="O calibre é obrigatório"/>
-                        <p:message for="txtCalibre"/>
-                    </p:panelGrid>
-                    <p:commandButton value="Cadastrar" action="#{ocorrenciaController.inserir()}"
-                                     oncomplete="PF('widDialCadOcorrencia').hide()" 
-                                     update=':formOcorrencia :gro @form'/>
-                </p:fieldset>
-            </h:form>
+            <ui:include src="cadOcorrencia.xhtml"/>
         </p:dialog>
 
         <p:dialog id="dialAlteraOcorrencia" visible="false" modal="true" resizable="false"
                   widgetVar="widDialAlteraOcorrencia" header="Alterar Ocorrencia">
-            <h:form id="formDialAlteraOcorrencia">
-                <p:fieldset legend="alterar ocorrencia">
-                    <p:panelGrid columns="3">
-                       <h:outputText value="TipodeOcorrencia*:"/>
-                        <p:inputText id="txtTipodeOcorrencia" value="#{ocorrenciaController.ocorrenciaCadastro.tipoDeOcorrencia}"
-                                     required="true" requiredMessage="O tipo de ocorrencia é obrigatório"/>
-                        <p:message for="txtTipodeOcorrencia"/>
-                         <h:outputText value="Modelo*:"/>
-                        <p:inputText id="txtModelo" value="#{ocorrenciaController.ocorrenciaCadastro.modelo}"
-                                     required="true" requiredMessage="O modelo é obrigatório"/>
-                        <p:message for="txtModelo"/>
-                         <h:outputText value="Marca*:"/>
-                         <p:inputText id="txtMarca" value="#{ocorrenciaController.ocorrenciaCadastro.marca}"
-                                     required="true" requiredMessage="A marca é obrigatório"/>
-                        <p:message for="txtMarca"/>
-                         <h:outputText value="Calibre*:"/>
-                         <p:inputText id="txtCalibre" value="#{ocorrenciaController.ocorrenciaCadastro.calibre}"
-                                     required="true" requiredMessage="O calibre é obrigatório"/>
-                        <p:message for="txtCalibre"/>
-                    </p:panelGrid>
-                    <p:commandButton value="Alterar" action="#{ocorrenciaController.alterar(ocorrenciaController.selectedOcorrencia)}"
-                                     oncomplete="PF('widDialAlteraOcorrencia').hide()" 
-                                     update=':formOcorrencia :gro @form'/>
-                </p:fieldset>
-            </h:form>
+            <ui:include src="altOcorrencia.xhtml"/>
         </p:dialog>
         <div id="divBaixo" align="justify">
             <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>

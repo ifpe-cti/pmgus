@@ -7,6 +7,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import org.primefaces.event.FlowEvent;
 /**
  *
  * @author vinic
@@ -18,7 +19,7 @@ public class OcorrenciaController {
     private RepositorioGenerico<Ocorrencia,Integer> repositorioOcorrencia = null;
     private Ocorrencia ocorrenciaCadastro;
     private Ocorrencia selectedOcorrencia;
-
+    
     public void setRepositorioOcorrencia(RepositorioGenerico<Ocorrencia, Integer> repositorioOcorrencia) {
         this.repositorioOcorrencia = repositorioOcorrencia;
     }
@@ -76,5 +77,9 @@ public class OcorrenciaController {
 
     public void setSelectedOcorrencia(Ocorrencia selectedOcorrencia) {
         this.selectedOcorrencia = selectedOcorrencia;
+    }
+     
+    public String onFlowProcess(FlowEvent event) {
+            return event.getNewStep();
     }
 }

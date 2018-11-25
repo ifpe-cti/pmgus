@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.github.viniciussoaresti.pmgus.excel;
+package excel;
 import com.github.viniciussoaresti.pmgus.controladores.ArmaController;
 import com.github.viniciussoaresti.pmgus.negocio.Arma;
 import java.io.File;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
   
-/*import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -49,7 +49,7 @@ public class AbreExcel {
                                   Cell cell = cellIterator.next();
                                   switch (cell.getColumnIndex()) {
                                   case 0:
-                                        arma.setCodigo(cell.getCellType());
+                                        arma.setCodigo(Integer.valueOf(cell.getCellType().toString()));
                                         break;
                                   case 1:
                                         arma.setTipoDeArma(cell.getStringCellValue());
@@ -61,7 +61,7 @@ public class AbreExcel {
                                         arma.setMarca(cell.getStringCellValue());
                                         break;
                                   case 4:
-                                         arma.setCalibre(cell.getCellType());
+                                         arma.setCalibre(Integer.valueOf(cell.getCellType().toString()));
                                         break;
                                  
                                   }
@@ -86,4 +86,3 @@ public class AbreExcel {
              }
        }
 }
-*/

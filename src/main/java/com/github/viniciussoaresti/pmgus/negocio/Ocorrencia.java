@@ -1,21 +1,43 @@
 package com.github.viniciussoaresti.pmgus.negocio;
 
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Version;
 
 /**
  *
  * @author vinic
  */
-public class Ocorrencia{
+@Entity
+public class Ocorrencia {
+
+    @Id
+    @GeneratedValue
     private int codigo;
+    @Column(length = 150)
     private String ocorrencia;
+    @Column(length = 600)
     private String descricaoOcorrencia;
+    @Column(name = "DATA_OCORRENCIA")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dataOcorrencia;
+    @Column(length = 50)
     private String flagrante;
+    @OneToOne(optional = false)
     private Endereco endereco;
+    @OneToOne(optional = false)
     private Vitima vitima;
+    @OneToOne(optional = false)
     private Arma arma;
+    @OneToOne(optional = false)
     private TipoDroga droga;
+    @OneToOne(optional = false)
     private UnidadeDroga unidade;
 
     public int getCodigo() {
@@ -97,11 +119,11 @@ public class Ocorrencia{
     public void setUnidade(UnidadeDroga unidade) {
         this.unidade = unidade;
     }
-    
-    public Ocorrencia(){
-        
+
+    public Ocorrencia() {
+
     }
-    
+
     public Ocorrencia(int codigo, String ocorrencia, String descricaoOcorrencia, Date dataOcorrencia, String flagrante, Endereco endereco, Vitima vitima, Arma arma, TipoDroga droga, UnidadeDroga unidade) {
         this.codigo = codigo;
         this.ocorrencia = ocorrencia;
