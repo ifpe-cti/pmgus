@@ -28,12 +28,12 @@
         </style>
     </h:head>
 
-    <h:body>
-        <!--<ui:include src="menu.xhtml"/>!-->
+    <h:body>  
         <p:growl id="gro" showDetail="true" showSummary="true"/>
         <div id="divCima">
             <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
         </div>
+        <ui:include src="menubar.xhtml"/>
         <h:form id="formUnidadeDroga" class="body">
             <p:commandButton value="inserir" oncomplete="PF('widDialCadUnidadeDroga').show()"/>
             <p:dataTable var="item" value="#{unidadeDrogaController.recuperarTodosUnidadeDroga()}"

@@ -32,6 +32,7 @@
         <div id="divCima">
             <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
         </div>
+        <ui:include src="menubar.xhtml"/>
         <h:form id="formArma">
             <p:commandButton value="inserir" oncomplete="PF('widDialCadArma').show()"/>
             <p:dataTable var="item" value="#{armaController.recuperarTodosArmas()}"

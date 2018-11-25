@@ -39,13 +39,13 @@ public class OcorrenciaController {
         this.ocorrenciaCadastro = new Ocorrencia();
         
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","a ocorrencia foi cadastrada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","A ocorrencia foi cadastrada com sucesso!"));
     }
 
    public void alterar(Ocorrencia c){
         this.repositorioOcorrencia.alterar(c);
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","a ocorrencia foi alterada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","A ocorrencia foi alterada com sucesso!"));
     }
     
     public Ocorrencia recuperarOcorrencia(Integer codigo){
@@ -55,7 +55,7 @@ public class OcorrenciaController {
     public void deletar(){
         this.repositorioOcorrencia.deletar(selectedOcorrencia);
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","a ocorrencia foi deletada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","A ocorrencia foi deletada com sucesso!"));
     }
     
     public List<Ocorrencia> recuperarTodosOcorrencia(){
@@ -66,15 +66,15 @@ public class OcorrenciaController {
         return ocorrenciaCadastro;
     }
 
-    public void setOcorrenciaCadastro(Ocorrencia clienteCadastro) {
-        this.ocorrenciaCadastro = clienteCadastro;
+    public void setOcorrenciaCadastro(Ocorrencia ocorrenciaCadastro) {
+        this.ocorrenciaCadastro = ocorrenciaCadastro;
     }
 
     public Ocorrencia getSelectedOcorrencia() {
         return selectedOcorrencia;
     }
 
-    public void setSelectedOcorrencia(Ocorrencia selectedCliente) {
-        this.selectedOcorrencia = selectedCliente;
+    public void setSelectedOcorrencia(Ocorrencia selectedOcorrencia) {
+        this.selectedOcorrencia = selectedOcorrencia;
     }
 }
