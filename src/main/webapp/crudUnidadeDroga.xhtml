@@ -35,7 +35,7 @@
         </div>
         <ui:include src="menubar.xhtml"/>
         <h:form id="formUnidadeDroga" class="body">
-            <p:dataTable var="item" value="#{fachada.unidadedrogacontroller.recuperarTodosUnidadeDroga()}"
+            <p:dataTable var="item" value="#{unidadeDrogaController.recuperarTodosUnidadeDroga()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="5">
                 <f:facet name="header">
@@ -47,46 +47,46 @@
                 <p:column headerText="Unidade de Droga">
                     <h:outputText value="#{item.unidadeDroga}"/>
                 </p:column>
-                <p:column headerText="operações" style="width: 12%">
+                <p:column headerText="Operações" style="width: 12%">
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaUnidadeDroga').show()" 
                                      update=":formUnidadeDroga:dialVisualizaUnidadeDroga">
-                        <f:setPropertyActionListener value="#{item}" target="#{fachada.unidadedrogacontroller.selectedUnidadeDroga}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{unidadeDrogaController.selectedUnidadeDroga}"/>
                     </p:commandButton>
                     <p:commandButton icon="ui-icon-wrench" oncomplete="PF('widDialAlteraUnidadeDroga').show()"
                                      update=":formDialAlteraUnidadeDroga">
-                        <f:setPropertyActionListener value="#{item}" target="#{fachada.unidadedrogacontroller.selectedUnidadeDroga}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{unidadeDrogaController.selectedUnidadeDroga}"/>
                     </p:commandButton>
                     <p:commandButton icon="ui-icon-closethick" oncomplete="PF('widDialDeletaUnidadeDroga').show()" 
                                      update=":formUnidadeDroga:dialDeletaUnidadeDroga">
-                        <f:setPropertyActionListener value="#{item}" target="#{fachada.unidadedrogacontroller.selectedUnidadeDroga}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{unidadeDrogaController.selectedUnidadeDroga}"/>
                     </p:commandButton>    
                 </p:column>
             </p:dataTable>
 
             <p:dialog id="dialVisualizaUnidadeDroga" visible="false" modal="true"
                       resizable="false" widgetVar="widDialVisualizaUnidadeDroga"
-                      header="dados do unidade de droga">
+                      header="Dados de Unidade de Droga">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
-                    <h:outputText value="#{fachada.unidadedrogacontroller.selectedUnidadeDroga.codigo}"/>
+                    <h:outputText value="#{unidadeDrogaController.selectedUnidadeDroga.codigo}"/>
 
                     <h:outputText value="Unidade de Droga:"/>
-                    <h:outputText value="#{fachada.unidadedrogacontroller.selectedUnidadeDroga.unidadeDroga}"/>                   
+                    <h:outputText value="#{unidadeDrogaController.selectedUnidadeDroga.unidadeDroga}"/>                   
                 </p:panelGrid>
                 <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaUnidadeDroga').hide()"/>
             </p:dialog>
 
             <p:dialog id="dialDeletaUnidadeDroga" visible="false" modal="true"
                       resizable="false" widgetVar="widDialDeletaUnidadeDroga"
-                      header="dados da unidade de droga">
+                      header="Dados de Unidade de Droga">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
-                    <h:outputText value="#{fachada.unidadedrogacontroller.selectedUnidadeDroga.codigo}"/>
+                    <h:outputText value="#{unidadeDrogaController.selectedUnidadeDroga.codigo}"/>
 
                     <h:outputText value="Unidade de Droga:"/>
-                    <h:outputText value="#{fachada.unidadedrogacontroller.selectedUnidadeDroga.unidadeDroga}"/>
+                    <h:outputText value="#{unidadeDrogaController.selectedUnidadeDroga.unidadeDroga}"/>
                 </p:panelGrid>
-                <p:commandButton value="Deseja mesmo deletar a unidadeDroga?" action="#{fachada.unidadedrogacontroller.deletar()}" oncomplete="PF('widDialDeletaUnidadeDroga').hide()"
+                <p:commandButton value="Deseja mesmo deletar a Unidade de Droga?" action="#{unidadeDrogaController.deletar()}" oncomplete="PF('widDialDeletaUnidadeDroga').hide()"
                                  update="@form"/>
             </p:dialog>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadUnidadeDroga').show()"/>
@@ -96,14 +96,14 @@
                   widgetVar="widDialCadUnidadeDroga" header="Cadastrar Unidade de Droga">
 
             <h:form id="formDialCadUnidadeDroga">
-                <p:fieldset legend="cadastrar unidade de droga">
+                <p:fieldset legend="Cadastrar Unidade de Droga">
                     <p:panelGrid columns="3">
                         <h:outputText value="Unidade de Droga*:"/>
-                        <p:inputText id="txtUnidadedeDroga" value="#{fachada.unidadedrogacontroller.unidadeDrogaCadastro.unidadeDroga}"
-                                     required="true" requiredMessage="A unidadeDroga é obrigatório"/>
+                        <p:inputText id="txtUnidadedeDroga" value="#{unidadeDrogaController.unidadeDrogaCadastro.unidadeDroga}"
+                                     required="true" requiredMessage="A Unidade de Droga é obrigatório"/>
                         <p:message for="txtUnidadedeDroga"/>
                     </p:panelGrid>
-                    <p:commandButton value="Cadastrar" action="#{fachada.unidadedrogacontroller.inserir()}"
+                    <p:commandButton value="Cadastrar" action="#{unidadeDrogaController.inserir()}"
                                      oncomplete="PF('widDialCadUnidadeDroga').hide()" 
                                      update=':formUnidadeDroga :gro @form'/>
                 </p:fieldset>
@@ -116,11 +116,11 @@
                 <p:fieldset legend="alterar unidade de droga">
                     <p:panelGrid columns="3">
                         <h:outputText value="Unidade de Droga*:"/>
-                        <p:inputText id="txtUnidadedeDroga" value="#{fachada.unidadedrogacontroller.selectedUnidadeDroga.unidadeDroga}"
+                        <p:inputText id="txtUnidadedeDroga" value="#{unidadeDrogaController.selectedUnidadeDroga.unidadeDroga}"
                                      required="true" requiredMessage="A unidadeDroga é obrigatório"/>
                         <p:message for="txtUnidadedeDroga"/>
                     </p:panelGrid>
-                    <p:commandButton value="Alterar" action="#{fachada.unidadedrogacontroller.alterar(fachada.unidadedrogacontroller.selectedUnidadeDroga)}"
+                    <p:commandButton value="Alterar" action="#{unidadeDrogaController.alterar(unidadeDrogaController.selectedUnidadeDroga)}"
                                      oncomplete="PF('widDialAlteraUnidadeDroga').hide()" 
                                      update=':formUnidadeDroga :gro @form'/>
                 </p:fieldset>

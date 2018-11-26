@@ -47,13 +47,13 @@ public class TipoDrogaController {
         this.tipoDrogaCadastro = new TipoDroga();
         
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","o tipo de droga foi cadastrado com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","O tipo de droga foi cadastrado com sucesso!"));
     }
 
    public void alterar(TipoDroga c){
         this.repositorioTipoDroga.alterar(c);
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","o tipo de droga foi alterado com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","O tipo de droga foi alterado com sucesso!"));
     }
     
     public TipoDroga recuperarTipoDroga(Integer codigo){
@@ -63,7 +63,7 @@ public class TipoDrogaController {
     public void deletar(){
         this.repositorioTipoDroga.deletar(selectedTipoDroga);
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","o tipo de droga foi deletado com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","O tipo de droga foi deletado com sucesso!"));
     }
     
     public List<TipoDroga> recuperarTodosTipoDroga(){

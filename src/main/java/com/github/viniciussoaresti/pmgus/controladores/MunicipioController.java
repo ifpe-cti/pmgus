@@ -40,13 +40,13 @@ public class MunicipioController {
         this.municipioCadastro = new Municipio();
         
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","A municipio foi cadastrada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","O município foi cadastrado com sucesso!"));
     }
     
     public void alterar(Municipio c){
         this.repositorioMunicipio.alterar(c);
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","A municipio foi alterada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","O município foi alterado com sucesso!"));
     }
     
     public Municipio recuperarMunicipio(int codigo){
@@ -56,7 +56,7 @@ public class MunicipioController {
     public void deletar(){
         this.repositorioMunicipio.deletar(selectedMunicipio);
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","A municipio foi deletada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","O município foi deletado com sucesso!"));
     }
     
     public List<Municipio> recuperarTodosMunicipios(){

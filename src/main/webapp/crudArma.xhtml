@@ -34,13 +34,13 @@
         </div>
         <ui:include src="menubar.xhtml"/>
         <h:form id="formArma">    
-            <p:dataTable var="item" value="#{fachada.armacontroller.recuperarTodosArmas()}"
+            <p:dataTable var="item" value="#{armaController.recuperarTodosArmas()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="5">
                 <f:facet name="header">
                     Armas Cadastradas
                 </f:facet>
-                <p:column headerText="Codigo">
+                <p:column headerText="Código">
                     <h:outputText value="#{item.codigo}"/>
                 </p:column>
                 <p:column headerText="Tipo de Arma">
@@ -56,7 +56,7 @@
                     <h:outputText value="#{item.calibre}"/>
                 </p:column>
 
-                <p:column headerText="operações" style="width: 12%">
+                <p:column headerText="Operações" style="width: 12%">
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaArma').show()" 
                                      update=":formArma:dialVisualizaArma">
                         <f:setPropertyActionListener value="#{item}" target="#{armaController.selectedArma}"/>
@@ -74,7 +74,7 @@
 
             <p:dialog id="dialVisualizaArma" visible="false" modal="true"
                       resizable="false" widgetVar="widDialVisualizaArma"
-                      header="dados de arma">
+                      header="Dados da Arma">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
                     <h:outputText value="#{armaController.selectedArma.codigo}"/>
@@ -96,7 +96,7 @@
 
             <p:dialog id="dialDeletaArma" visible="false" modal="true"
                       resizable="false" widgetVar="widDialDeletaArma"
-                      header="dados de arma">
+                      header="Dados da Arma">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
                     <h:outputText value="#{armaController.selectedArma.codigo}"/>
@@ -123,9 +123,9 @@
                   widgetVar="widDialCadArma" header="Cadastrar Arma">
 
             <h:form id="formDialCadArma">
-                <p:fieldset legend="cadastrar arma">
+                <p:fieldset legend="Cadastrar Arma">
                     <p:panelGrid columns="3">
-                        <h:outputText value="TipodeArma*:"/>
+                        <h:outputText value="Tipo de Arma*:"/>
                         <p:inputText id="txtTipodeArma" value="#{armaController.armaCadastro.tipoDeArma}"
                                      required="true" requiredMessage="O tipo de arma é obrigatório"/>
                         <p:message for="txtTipodeArma"/>
@@ -152,9 +152,9 @@
         <p:dialog id="dialAlteraArma" visible="false" modal="true" resizable="false"
                   widgetVar="widDialAlteraArma" header="Alterar Arma">
             <h:form id="formDialAlteraArma">
-                <p:fieldset legend="alterar arma">
+                <p:fieldset legend="Alterar Arma">
                     <p:panelGrid columns="3">
-                        <h:outputText value="TipodeArma*:"/>
+                        <h:outputText value="Tipo d eArma*:"/>
                         <p:inputText id="txtTipodeArma" value="#{armaController.selectedArma.tipoDeArma}"
                                      required="true" requiredMessage="O tipo de arma é obrigatório"/>
                         <p:message for="txtTipodeArma"/>
