@@ -4,6 +4,8 @@ import com.github.viniciussoaresti.pmgus.negocio.Arma;
 import java.io.File;
 import java.util.List;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.ss.usermodel.Cell;
@@ -18,6 +20,8 @@ import org.primefaces.model.UploadedFile;
  *
  * @author vinic
  */
+@ManagedBean
+@SessionScoped
 public class ExcelController {
 
     List<Arma> armas;
@@ -84,6 +88,7 @@ public class ExcelController {
                     armacontroller.inserir();
                 }
                 pkg.close();
+                FacesContext.getCurrentInstance().getExternalContext().redirect("crudArma.xhtml");
                 return true;
             }
         } catch (Exception e) {
