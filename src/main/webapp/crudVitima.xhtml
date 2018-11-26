@@ -35,7 +35,7 @@
         <ui:include src="menubar.xhtml"/>
         <h:form id="formVitima">
 
-            <p:dataTable var="item" value="#{vitimaController.recuperarTodosVitimas()}"
+            <p:dataTable var="item" value="#{fachada.vitimacontroller.recuperarTodosVitimas()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="5">
                 <f:facet name="header">
@@ -63,15 +63,15 @@
                 <p:column headerText="operações" style="width: 12%">
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaVitima').show()" 
                                      update=":formVitima:dialVisualizaVitima">
-                        <f:setPropertyActionListener value="#{item}" target="#{vitimaController.selectedVitima}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{fachada.vitimacontroller.selectedVitima}"/>
                     </p:commandButton>
                     <p:commandButton icon="ui-icon-wrench" oncomplete="PF('widDialAlteraVitima').show()"
                                      update=":formDialAlteraVitima">
-                        <f:setPropertyActionListener value="#{item}" target="#{vitimaController.selectedVitima}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{fachada.vitimacontroller.selectedVitima}"/>
                     </p:commandButton>
                     <p:commandButton icon="ui-icon-closethick" oncomplete="PF('widDialDeletaVitima').show()" 
                                      update=":formVitima:dialDeletaVitima">
-                        <f:setPropertyActionListener value="#{item}" target="#{vitimaController.selectedVitima}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{fachada.vitimacontroller.selectedVitima}"/>
                     </p:commandButton>    
                 </p:column>
             </p:dataTable>
@@ -81,22 +81,22 @@
                       header="dados de vitima">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
-                    <h:outputText value="#{vitimaController.selectedVitima.codigo}"/>
+                    <h:outputText value="#{fachada.vitimacontroller.selectedVitima.codigo}"/>
 
                     <h:outputText value="Nome:"/>
-                    <h:outputText value="#{vitimaController.selectedVitima.nome}"/>     
+                    <h:outputText value="#{fachada.vitimacontroller.selectedVitima.nome}"/>     
 
                     <h:outputText value="Idade:"/>
-                    <h:outputText value="#{vitimaController.selectedVitima.idade}"/>  
+                    <h:outputText value="#{fachada.vitimacontroller.selectedVitima.idade}"/>  
 
                     <h:outputText value="Naturalidade:"/>
-                    <h:outputText value="#{vitimaController.selectedVitima.naturalidade}"/>     
+                    <h:outputText value="#{fachada.vitimacontroller.selectedVitima.naturalidade}"/>     
 
                     <h:outputText value="Nome do Pai:"/>
-                    <h:outputText value="#{vitimaController.selectedVitima.nomePai}"/>  
+                    <h:outputText value="#{fachada.vitimacontroller.selectedVitima.nomePai}"/>  
 
                     <h:outputText value="Nome da Mãe:"/>
-                    <h:outputText value="#{vitimaController.selectedVitima.nomeMae}"/> 
+                    <h:outputText value="#{fachada.vitimacontroller.selectedVitima.nomeMae}"/> 
                 </p:panelGrid>
                 <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaVitima').hide()"/>
             </p:dialog>
@@ -106,24 +106,24 @@
                       header="dados da vitima">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
-                    <h:outputText value="#{vitimaController.selectedVitima.codigo}"/>
+                    <h:outputText value="#{fachada.vitimacontroller.selectedVitima.codigo}"/>
 
                     <h:outputText value="Nome:"/>
-                    <h:outputText value="#{vitimaController.selectedVitima.nome}"/>     
+                    <h:outputText value="#{fachada.vitimacontroller.selectedVitima.nome}"/>     
 
                     <h:outputText value="Idade:"/>
-                    <h:outputText value="#{vitimaController.selectedVitima.idade}"/>  
+                    <h:outputText value="#{fachada.vitimacontroller.selectedVitima.idade}"/>  
 
                     <h:outputText value="Naturalidade:"/>
-                    <h:outputText value="#{vitimaController.selectedVitima.naturalidade}"/>     
+                    <h:outputText value="#{fachada.vitimacontroller.selectedVitima.naturalidade}"/>     
 
                     <h:outputText value="Nome do Pai:"/>
-                    <h:outputText value="#{vitimaController.selectedVitima.nomePai}"/>  
+                    <h:outputText value="#{fachada.vitimacontroller.selectedVitima.nomePai}"/>  
 
                     <h:outputText value="Nome da Mãe:"/>
-                    <h:outputText value="#{vitimaController.selectedVitima.nomeMae}"/>  
+                    <h:outputText value="#{fachada.vitimacontroller.selectedVitima.nomeMae}"/>  
                 </p:panelGrid>
-                <p:commandButton value="Deseja mesmo deletar a vitima?" action="#{vitimaController.deletar()}" oncomplete="PF('widDialDeletaVitima').hide()"
+                <p:commandButton value="Deseja mesmo deletar a vitima?" action="#{fachada.vitimacontroller.deletar()}" oncomplete="PF('widDialDeletaVitima').hide()"
                                  update="@form"/>
             </p:dialog>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadVitima').show()"/>
@@ -136,27 +136,27 @@
                 <p:fieldset legend="cadastrar vitima">
                     <p:panelGrid columns="3">
                         <h:outputText value="Nome*:"/>
-                        <p:inputText id="txtNome" value="#{vitimaController.vitimaCadastro.nome}"
+                        <p:inputText id="txtNome" value="#{fachada.vitimacontroller.vitimaCadastro.nome}"
                                      required="true" requiredMessage="O nome é obrigatório"/>
                         <p:message for="txtNome"/>
                         <h:outputText value="Idade*:"/>
-                        <p:inputText id="txtIdade" value="#{vitimaController.vitimaCadastro.idade}"
+                        <p:inputText id="txtIdade" value="#{fachada.vitimacontroller.vitimaCadastro.idade}"
                                      required="true" requiredMessage="A idade é obrigatório"/>
                         <p:message for="txtIdade"/>
                         <h:outputText value="Naturalidade*:"/>
-                        <p:inputText id="txtNaturalidade" value="#{vitimaController.vitimaCadastro.naturalidade}"
+                        <p:inputText id="txtNaturalidade" value="#{fachada.vitimacontroller.vitimaCadastro.naturalidade}"
                                      required="true" requiredMessage="A naturalidade é obrigatório"/>
                         <p:message for="txtNaturalidade"/>
                         <h:outputText value="Nome do Pai*:"/>
-                        <p:inputText id="txtNomePai" value="#{vitimaController.vitimaCadastro.nomePai}"
+                        <p:inputText id="txtNomePai" value="#{fachada.vitimacontroller.vitimaCadastro.nomePai}"
                                      required="true" requiredMessage="O nome do pai é obrigatório"/>
                         <p:message for="txtNomePai"/>
                         <h:outputText value="Nome da Mãe*:"/>
-                        <p:inputText id="txtNomeMae" value="#{vitimaController.vitimaCadastro.nomeMae}"
+                        <p:inputText id="txtNomeMae" value="#{fachada.vitimacontroller.vitimaCadastro.nomeMae}"
                                      required="true" requiredMessage="O nome da mãe é obrigatório"/>
                         <p:message for="txtNomeMae"/>
                     </p:panelGrid>
-                    <p:commandButton value="Cadastrar" action="#{vitimaController.inserir()}"
+                    <p:commandButton value="Cadastrar" action="#{fachada.vitimacontroller.inserir()}"
                                      oncomplete="PF('widDialCadVitima').hide()" 
                                      update=':formVitima :gro @form'/>
                 </p:fieldset>
@@ -169,27 +169,27 @@
                 <p:fieldset legend="alterar vitima">
                     <p:panelGrid columns="3">
                         <h:outputText value="Nome*:"/>
-                        <p:inputText id="txtNome" value="#{vitimaController.selectedVitima.nome}"
+                        <p:inputText id="txtNome" value="#{fachada.vitimacontroller.selectedVitima.nome}"
                                      required="true" requiredMessage="O nome é obrigatório"/>
                         <p:message for="txtNome"/>
                         <h:outputText value="Idade*:"/>
-                        <p:inputText id="txtIdade" value="#{vitimaController.selectedVitima.idade}"
+                        <p:inputText id="txtIdade" value="#{fachada.vitimacontroller.selectedVitima.idade}"
                                      required="true" requiredMessage="A idade é obrigatório"/>
                         <p:message for="txtIdade"/>
                         <h:outputText value="Naturalidade*:"/>
-                        <p:inputText id="txtNaturalidade" value="#{vitimaController.selectedVitima.naturalidade}"
+                        <p:inputText id="txtNaturalidade" value="#{fachada.vitimacontroller.selectedVitima.naturalidade}"
                                      required="true" requiredMessage="A naturalidade é obrigatório"/>
                         <p:message for="txtNaturalidade"/>
                         <h:outputText value="Nome do Pai*:"/>
-                        <p:inputText id="txtNomePai" value="#{vitimaController.selectedVitima.nomePai}"
+                        <p:inputText id="txtNomePai" value="#{fachada.vitimacontroller.selectedVitima.nomePai}"
                                      required="true" requiredMessage="O nome do pai é obrigatório"/>
                         <p:message for="txtNomePai"/>
                         <h:outputText value="Nome da Mãe*:"/>
-                        <p:inputText id="txtNomeMae" value="#{vitimaController.selectedVitima.nomeMae}"
+                        <p:inputText id="txtNomeMae" value="#{fachada.vitimacontroller.selectedVitima.nomeMae}"
                                      required="true" requiredMessage="O nome da mãe é obrigatório"/>
                         <p:message for="txtNomeMae"/>
                     </p:panelGrid>
-                    <p:commandButton value="Alterar" action="#{vitimaController.alterar(vitimaController.selectedVitima)}"
+                    <p:commandButton value="Alterar" action="#{fachada.vitimacontroller.alterar(fachada.vitimacontroller.selectedVitima)}"
                                      oncomplete="PF('widDialAlteraVitima').hide()" 
                                      update=':formVitima :gro @form'/>
                 </p:fieldset>

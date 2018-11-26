@@ -34,7 +34,7 @@
         </div>
         <ui:include src="menubar.xhtml"/>
         <h:form id="formArma">    
-            <p:dataTable var="item" value="#{armaController.recuperarTodosArmas()}"
+            <p:dataTable var="item" value="#{fachada.armacontroller.recuperarTodosArmas()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="5">
                 <f:facet name="header">
