@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Alterar Ocorrencia</title>
+        <style type="text/css">
+            .label {
+                width:20%;
+                padding:4px;
+            }
+
+            .value {
+                width:80%;
+                padding:4px;
+            }
+
+            .grid {
+                width:100%;
+            }
+
+            .error {
+                color: red;
+            }
+
+            .outputLabel {
+                font-weight: bold;
+            }
+
+            .grid {
+                width:33%;
+                padding:4px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form id="formDialAlteraOcorrencia">
+            <p:fieldset legend="alterar ocorrencia">
+                <p:panelGrid columns="3">
+                    <h:outputText value="TipodeOcorrencia*:"/>
+                    <p:inputText id="txtTipodeOcorrencia" value="#{ocorrenciaController.ocorrenciaCadastro.tipoDeOcorrencia}"
+                                 required="true" requiredMessage="O tipo de ocorrencia é obrigatório"/>
+                    <p:message for="txtTipodeOcorrencia"/>
+                    <h:outputText value="Modelo*:"/>
+                    <p:inputText id="txtModelo" value="#{ocorrenciaController.ocorrenciaCadastro.modelo}"
+                                 required="true" requiredMessage="O modelo é obrigatório"/>
+                    <p:message for="txtModelo"/>
+                    <h:outputText value="Marca*:"/>
+                    <p:inputText id="txtMarca" value="#{ocorrenciaController.ocorrenciaCadastro.marca}"
+                                 required="true" requiredMessage="A marca é obrigatório"/>
+                    <p:message for="txtMarca"/>
+                    <h:outputText value="Calibre*:"/>
+                    <p:inputText id="txtCalibre" value="#{ocorrenciaController.ocorrenciaCadastro.calibre}"
+                                 required="true" requiredMessage="O calibre é obrigatório"/>
+                    <p:message for="txtCalibre"/>
+                </p:panelGrid>
+                <p:commandButton value="Alterar" action="#{ocorrenciaController.alterar(ocorrenciaController.selectedOcorrencia)}"
+                                 oncomplete="PF('widDialAlteraOcorrencia').hide()" 
+                                 update=':formOcorrencia :gro @form'/>
+            </p:fieldset>
+        </h:form>
+    </h:body>
+</html>

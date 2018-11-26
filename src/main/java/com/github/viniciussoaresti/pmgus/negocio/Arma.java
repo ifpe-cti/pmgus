@@ -87,4 +87,8 @@ public class Arma {
         return codigo == ((Arma)obj).getCodigo();
     }
     
+    @Override
+    public String toString(){
+        return getCodigo()+","+getTipoDeArma()+","+getModelo()+","+getMarca()+","+getCalibre()+".";
+    }
 }
