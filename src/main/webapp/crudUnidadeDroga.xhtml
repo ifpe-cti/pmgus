@@ -9,30 +9,20 @@
     <h:head>
         <title>Crud Unidade de Droga</title>
         <style type="text/css">
-            #divCima {
+           img.cima {
                 width:100%;
-                position: relative;
-                overflow:hidden;
-                background:#fff url('CimaPMGus.jpg') top no-repeat;
-
+                height: 100%;
             }
-            #divBaixo {
-                position: fixed;
-                bottom: 0;
-                right: 1;
+            img.baixo {
                 width:100%;
-                overflow:hidden;
-                background:#fff url('BaixoPMGus.jpg') top no-repeat;
-
+                height: auto;
             }
         </style>
     </h:head>
 
     <h:body>  
         <p:growl id="gro" showDetail="true" showSummary="true"/>
-        <div id="divCima">
-            <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
-        </div>
+       <img class="cima" src="\imagens\CimaPMGus.jpg" />
         <ui:include src="menubar.xhtml"/>
         <h:form id="formUnidadeDroga" class="body">
             <p:dataTable var="item" value="#{unidadeDrogaController.recuperarTodosUnidadeDroga()}"
@@ -126,9 +116,7 @@
                 </p:fieldset>
             </h:form>
         </p:dialog>
-        <div id="divBaixo" align="justify">
-            <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
-        </div>
+         <img class="baixo" src="\imagens\BaixoPMGus.jpg"/>
     </h:body>
 
 </html>

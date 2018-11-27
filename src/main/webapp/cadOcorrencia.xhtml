@@ -60,9 +60,9 @@
                         <p:messages />
                         <h:panelGrid columns="2" columnClasses="label, value">
                             <h:outputText value="Endereço: "/>
-                            <p:selectOneMenu id="endereco" value="#{ocorrenciaController.ocorrenciaCadastro.endereco}">
+                            <p:selectOneMenu id="endereco" value="#{ocorrenciaController.ocorrenciaCadastro.endereco.municipio}" converter="municipioConverter">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
-                            <f:selectItems value="#{municipioController.recuperarTodosMunicipios}"/>
+                            <f:selectItems value="#{municipioController.recuperarTodosMunicipios()}"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
                     </p:panel>
@@ -72,11 +72,11 @@
                     <p:panel header="Vítima">
                         <p:messages />
                         <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Email: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.email}" required="true" label="Email"/>
+                            <h:outputText value="Nome*" />
+                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.vitima.nome}" required="true" label="Email"/>
 
-                            <h:outputText value="Phone: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.phone}"/>
+                            <h:outputText value="Idade: " />
+                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.vitima.idade}"/>
                         </h:panelGrid>
                     </p:panel>
                 </p:tab>
@@ -85,14 +85,14 @@
                     <p:panel header="Arma">
                         <p:messages />
                         <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Email: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.email}" required="true" label="Email"/>
+                            <h:outputText value="Tipo de Arma: *" />
+                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.arma.tipoDeArma}" required="true" label="Tipo de Arma"/>
 
-                            <h:outputText value="Phone: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.phone}"/>
+                            <h:outputText value="Modelo: " />
+                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.arma.modelo}"/>
 
-                            <h:outputText value="Additional Info: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.info}"/>
+                            <h:outputText value="Marca: " />
+                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.arma.marca}"/>
                         </h:panelGrid>
                     </p:panel>
                 </p:tab>
@@ -101,14 +101,10 @@
                     <p:panel header="Droga">
                         <p:messages />
                         <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Email: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.email}" required="true" label="Email"/>
+                            <h:outputText value="Nome da Droga: *" />
+                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.droga.nome}" required="true" label="Droga"/>
 
-                            <h:outputText value="Phone: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.phone}"/>
-
-                            <h:outputText value="Additional Info: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.info}"/>
+                        
                         </h:panelGrid>
                     </p:panel>
                 </p:tab>
@@ -117,14 +113,10 @@
                     <p:panel header="Unidade da Droga">
                         <p:messages />
                         <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Email: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.email}" required="true" label="Email"/>
+                            <h:outputText value="Unidade Droga: *" />
+                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.unidade.unidadeDroga}" required="true" label="Unidade Droga"/>
 
-                            <h:outputText value="Phone: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.phone}"/>
-
-                            <h:outputText value="Additional Info: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.info}"/>
+                            
                         </h:panelGrid>
                     </p:panel>
                 </p:tab>
@@ -134,38 +126,8 @@
                         <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
                             <h:panelGrid columns="2" columnClasses="label, value">
                                 <h:outputText value="Firstname: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.firstname}" styleClass="outputLabel"/>
+                               
 
-                                <h:outputText value="Lastname: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.lastname}" styleClass="outputLabel"/>
-
-                                <h:outputText value="Age: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.age}" styleClass="outputLabel"/>
-                            </h:panelGrid>
-
-                            <h:panelGrid columns="2" columnClasses="label, value">
-                                <h:outputText value="Street: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.street}" styleClass="outputLabel"/>
-
-                                <h:outputText value="Postal: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.postalCode}" styleClass="outputLabel"/>
-
-                                <h:outputText value="City: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.city}" styleClass="outputLabel"/>
-                            </h:panelGrid>
-
-                            <h:panelGrid columns="2" columnClasses="label, value">
-                                <h:outputText value="Email: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.email}" styleClass="outputLabel"/>
-
-                                <h:outputText value="Phone " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.phone}" styleClass="outputLabel"/>
-
-                                <h:outputText value="Info: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.info}" styleClass="outputLabel"/>
-
-                                <h:outputText />
-                                <h:outputText />
                             </h:panelGrid>
                         </h:panelGrid>
 
