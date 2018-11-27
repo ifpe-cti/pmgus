@@ -37,142 +37,101 @@
             }
         </style>
     </h:head>
-        <h:form id="formDialCadOcorrencia">
-            <p:wizard flowListener="#{ocorrenciaController.onFlowProcess}">
-                <p:tab id="basico" title="Básico">
-                    <p:panel header="Detalhes Básicos">
-                        <p:messages/>
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Ocorrencia: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.ocorrencia}" required="true"/>
+    <h:form id="formDialCadOcorrencia">
+        <p:wizard flowListener="#{fachada.ocorrenciacontroller.onFlowProcess(event)}">
+            <p:tab id="basico" title="Básico">
+                <p:panel header="Detalhes Básicos">
+                    <p:messages/>
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Ocorrencia: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.ocorrencia}" required="true"/>
 
-                            <h:outputText value="Descrição: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.descricaoOcorrencia}" required="true"/>
+                        <h:outputText value="Descrição: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.descricaoOcorrencia}" required="true"/>
 
-                            <h:outputLabel value="Data:*" for="datetime"/>
-                            <p:calendar id="datetime" value="#{ocorrenciaController.ocorrenciaCadastro.dataOcorrencia}" pattern="dd/MM/yyyy HH:mm:ss" />
-                        </h:panelGrid>
-                    </p:panel>
-                </p:tab>
+                        <h:outputLabel value="Data:*" for="datetime"/>
+                        <p:calendar id="datetime" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.dataOcorrencia}" pattern="dd/MM/yyyy HH:mm:ss" />
 
-                <p:tab id="enderecos" title="Endereço">
-                    <p:panel header="Detalhes do Endereço">
-                        <p:messages />
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Endereço: "/>
-                            <p:selectOneMenu id="endereco" value="#{ocorrenciaController.ocorrenciaCadastro.endereco}">
+                        <h:outputText value="Flagrante: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.flagrante}" required="true"/>
+                    </h:panelGrid>
+                </p:panel>
+            </p:tab>
+
+            <p:tab id="enderecos" title="Endereço">
+                <p:panel header="Detalhes do Endereço">
+                    <p:messages />
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Endereço: "/>
+                        <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.endereco}">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
-                            <f:selectItems value="#{municipioController.recuperarTodosMunicipios}"/>
-                            </p:selectOneMenu>
-                        </h:panelGrid>
-                    </p:panel>
-                </p:tab>
+                            <f:selectItems value="#{fachada.enderecocontroller.recuperarTodosEnderecos}"/>
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                </p:panel>
+            </p:tab>
 
-                <p:tab id="vitima" title="Vítima">
-                    <p:panel header="Vítima">
-                        <p:messages />
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Email: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.email}" required="true" label="Email"/>
+            <p:tab id="vitima" title="Vítima">
+                <p:panel header="Vítima">
+                    <p:messages />
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Vítima: "/>
+                        <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.vitima}">
+                            <f:selectItem itemLabel="Selecione:" itemValue="" />
+                            <f:selectItems value="#{fachada.municipiocontroller.recuperarTodosMunicipios}"/>
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                </p:panel>
+            </p:tab>
 
-                            <h:outputText value="Phone: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.phone}"/>
-                        </h:panelGrid>
-                    </p:panel>
-                </p:tab>
+            <p:tab id="arma" title="Arma">
+                <p:panel header="Arma">
+                    <p:messages />
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Arma: "/>
+                        <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.arma}">
+                            <f:selectItem itemLabel="Selecione:" itemValue="" />
+                            <f:selectItems value="#{fachada.armacontroller.recuperarTodosArmas}"/>
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                </p:panel>
+            </p:tab>
 
-                <p:tab id="arma" title="Arma">
-                    <p:panel header="Arma">
-                        <p:messages />
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Email: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.email}" required="true" label="Email"/>
+            <p:tab id="droga" title="Droga">
+                <p:panel header="Droga">
+                    <p:messages />
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Arma: "/>
+                        <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.droga}">
+                            <f:selectItem itemLabel="Selecione:" itemValue="" />
+                            <f:selectItems value="#{fachada.armacontroller.recuperarTodosArmas}"/>
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                </p:panel>
+            </p:tab>
 
-                            <h:outputText value="Phone: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.phone}"/>
+            <p:tab id="unidade" title="Unidade">
+                <p:panel header="Unidade da Droga">
+                    <p:messages />
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Unidade da Droga: "/>
+                        <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.unidade}">
+                            <f:selectItem itemLabel="Selecione:" itemValue="" />
+                            <f:selectItems value="#{fachada.armacontroller.recuperarTodosArmas}"/>
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                </p:panel>
+            </p:tab>
 
-                            <h:outputText value="Additional Info: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.info}"/>
-                        </h:panelGrid>
-                    </p:panel>
-                </p:tab>
-
-                <p:tab id="droga" title="Droga">
-                    <p:panel header="Droga">
-                        <p:messages />
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Email: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.email}" required="true" label="Email"/>
-
-                            <h:outputText value="Phone: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.phone}"/>
-
-                            <h:outputText value="Additional Info: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.info}"/>
-                        </h:panelGrid>
-                    </p:panel>
-                </p:tab>
-
-                <p:tab id="unidade" title="Unidade">
-                    <p:panel header="Unidade da Droga">
-                        <p:messages />
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Email: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.email}" required="true" label="Email"/>
-
-                            <h:outputText value="Phone: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.phone}"/>
-
-                            <h:outputText value="Additional Info: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.info}"/>
-                        </h:panelGrid>
-                    </p:panel>
-                </p:tab>
-
-                <p:tab id="confirm" title="Confirmação">
-                    <p:panel header="Confirmação">
-                        <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
-                            <h:panelGrid columns="2" columnClasses="label, value">
-                                <h:outputText value="Firstname: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.firstname}" styleClass="outputLabel"/>
-
-                                <h:outputText value="Lastname: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.lastname}" styleClass="outputLabel"/>
-
-                                <h:outputText value="Age: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.age}" styleClass="outputLabel"/>
-                            </h:panelGrid>
-
-                            <h:panelGrid columns="2" columnClasses="label, value">
-                                <h:outputText value="Street: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.street}" styleClass="outputLabel"/>
-
-                                <h:outputText value="Postal: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.postalCode}" styleClass="outputLabel"/>
-
-                                <h:outputText value="City: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.city}" styleClass="outputLabel"/>
-                            </h:panelGrid>
-
-                            <h:panelGrid columns="2" columnClasses="label, value">
-                                <h:outputText value="Email: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.email}" styleClass="outputLabel"/>
-
-                                <h:outputText value="Phone " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.phone}" styleClass="outputLabel"/>
-
-                                <h:outputText value="Info: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.info}" styleClass="outputLabel"/>
-
-                                <h:outputText />
-                                <h:outputText />
-                            </h:panelGrid>
-                        </h:panelGrid>
-
-                        <p:commandButton value="Submit" action="#{ocorrenciaController.inserir()}" oncomplete="PF('widDialCadOcorrencia').hide()" 
-                                         update=':formOcorrencia :gro @form' process="@this"/>
-                    </p:panel>
-                </p:tab>
-            </p:wizard>
-        </h:form>
+            <p:tab id="confirm" title="Confirmação">
+                <p:panel header="Confirmação">
+                    <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
+                        
+                    </h:panelGrid>
+                    <p:commandButton value="Submit" action="#{fachada.ocorrenciacontroller.inserir()}" oncomplete="PF('widDialCadOcorrencia').hide()" 
+                                     update=':formOcorrencia :gro @form' process="@this"/>
+                </p:panel>
+            </p:tab>
+        </p:wizard>
+    </h:form>
 </html>
