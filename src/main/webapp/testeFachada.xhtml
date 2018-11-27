@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Teste Fachada</title>
+        <style type="text/css">
+            #divCima {
+                width:100%;
+                position: relative;
+                overflow:hidden;
+                background:#fff url('CimaPMGus.jpg') top no-repeat;
+
+            }
+            #divBaixo {
+                position: fixed;
+                bottom: 0;
+                right: 1;
+                width:100%;
+                overflow:hidden;
+                background:#fff url('BaixoPMGus.jpg') top no-repeat;
+
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <p:growl id="gro" showDetail="true" showSummary="true"/>
+        <div id="divCima">
+            <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
+        </div>
+        <ui:include src="menubar.xhtml"/>
+        <h:form enctype="multipart/form-data">
+            <p:fileUpload value="#{fachada.excelcontroller.arquivoupload}" mode="simple" skinSimple="true"/>
+            <br/><br/>
+            <p:commandButton value="Enviar" ajax="false" action="#{fachada.excelcontroller.cadastrarArmas(armaController)}"/>
+        </h:form>
+        <div id="divBaixo" align="justify">
+            <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
+        </div>
+    </h:body>
+</html>

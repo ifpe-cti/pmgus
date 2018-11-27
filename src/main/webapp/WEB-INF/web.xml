@@ -21,9 +21,16 @@
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
-    XHTML
-<context-param>
-	<param-name>primefaces.THEME</param-name>
-	<param-value>bootstrap</param-value>
-</context-param>
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>bootstrap</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+        <param-value>.xhtml</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.UPLOADER</param-name>
+        <param-value>commons</param-value>
+    </context-param>
 </web-app>

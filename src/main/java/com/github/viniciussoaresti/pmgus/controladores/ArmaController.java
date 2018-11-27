@@ -23,7 +23,7 @@ import javax.faces.context.FacesContext;
 @ManagedBean
 @SessionScoped
 public class ArmaController{
-     private RepositorioGenerico<Arma,Integer> repositorioArma = null;
+    private RepositorioGenerico<Arma,Integer> repositorioArma = null;
     private Arma armaCadastro;
     private Arma selectedArma;
    
@@ -34,7 +34,6 @@ public class ArmaController{
         this.armaCadastro = new Arma();
     }
     public void inserir(){
-        
         this.repositorioArma.inserir(this.armaCadastro);
         this.armaCadastro = new Arma();
         FacesContext.getCurrentInstance().addMessage(null, 
