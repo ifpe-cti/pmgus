@@ -23,7 +23,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class EnderecoController implements Serializable{
+public class EnderecoController{
     private RepositorioGenerico<Endereco,Integer> repositorioEndereco = null;
     private Endereco enderecoCadastro;
     private Endereco selectedEndereco;

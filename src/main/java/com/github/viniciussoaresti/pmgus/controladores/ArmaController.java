@@ -23,7 +23,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class ArmaController implements Serializable{
+public class ArmaController{
     private RepositorioGenerico<Arma,Integer> repositorioArma = null;
     private Arma armaCadastro;
     private Arma selectedArma;

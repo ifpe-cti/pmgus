@@ -15,7 +15,7 @@ import org.primefaces.event.FlowEvent;
  */
 @ManagedBean
 @SessionScoped
-public class OcorrenciaController implements Serializable{
+public class OcorrenciaController{
     
     private RepositorioGenerico<Ocorrencia,Integer> repositorioOcorrencia = null;
     private Ocorrencia ocorrenciaCadastro;

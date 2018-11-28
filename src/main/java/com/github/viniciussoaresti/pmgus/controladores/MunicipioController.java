@@ -23,7 +23,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class MunicipioController implements Serializable{
+public class MunicipioController{
      private RepositorioGenerico<Municipio,Integer> repositorioMunicipio = null;
     private Municipio municipioCadastro;
     private Municipio selectedMunicipio;

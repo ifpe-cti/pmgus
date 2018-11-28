@@ -22,7 +22,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class TipoDrogaController implements Serializable{
+public class TipoDrogaController{
     
     private RepositorioGenerico<TipoDroga,Integer> repositorioTipoDroga = null;
     private TipoDroga tipoDrogaCadastro;

@@ -23,7 +23,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class VitimaController implements Serializable{
+public class VitimaController{
      private RepositorioGenerico<Vitima,Integer> repositorioVitima = null;
     private Vitima vitimaCadastro;
     private Vitima selectedVitima;
