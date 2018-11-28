@@ -26,7 +26,7 @@
         <ui:include src="menubar.xhtml"/>
         <h:form id="formMunicipio">
 
-            <p:dataTable var="item" value="#{municipioController.recuperarTodosMunicipios()}"
+            <p:dataTable var="item" value="#{fachada.municipiocontroller.recuperarTodosMunicipios()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="5">
                 <f:facet name="header">
@@ -42,15 +42,15 @@
                 <p:column headerText="Operações" style="width: 12%">
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaMunicipio').show()" 
                                      update=":formMunicipio:dialVisualizaMunicipio">
-                        <f:setPropertyActionListener value="#{item}" target="#{municipioController.selectedMunicipio}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{fachada.municipiocontroller.selectedMunicipio}"/>
                     </p:commandButton>
                     <p:commandButton icon="ui-icon-wrench" oncomplete="PF('widDialAlteraMunicipio').show()"
                                      update=":formDialAlteraMunicipio">
-                        <f:setPropertyActionListener value="#{item}" target="#{municipioController.selectedMunicipio}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{fachada.municipiocontroller.selectedMunicipio}"/>
                     </p:commandButton>
                     <p:commandButton icon="ui-icon-closethick" oncomplete="PF('widDialDeletaMunicipio').show()" 
                                      update=":formMunicipio:dialDeletaMunicipio">
-                        <f:setPropertyActionListener value="#{item}" target="#{municipioController.selectedMunicipio}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{fachada.municipiocontroller.selectedMunicipio}"/>
                     </p:commandButton>    
                 </p:column>
             </p:dataTable>
@@ -60,10 +60,10 @@
                       header="Dados do Munícipio">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
-                    <h:outputText value="#{municipioController.selectedMunicipio.codigo}"/>
+                    <h:outputText value="#{fachada.municipiocontroller.selectedMunicipio.codigo}"/>
 
                     <h:outputText value="Nome do Municipio:"/>
-                    <h:outputText value="#{municipioController.selectedMunicipio.nome}"/>     
+                    <h:outputText value="#{fachada.municipiocontroller.selectedMunicipio.nome}"/>     
 
                 </p:panelGrid>
                 <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaMunicipio').hide()"/>
@@ -74,13 +74,13 @@
                       header="Dados do Munícipio">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
-                    <h:outputText value="#{municipioController.selectedMunicipio.codigo}"/>
+                    <h:outputText value="#{fachada.municipiocontroller.selectedMunicipio.codigo}"/>
 
                     <h:outputText value="Tipo de Municipio:"/>
-                    <h:outputText value="#{municipioController.selectedMunicipio.nome}"/>     
+                    <h:outputText value="#{fachada.municipiocontroller.selectedMunicipio.nome}"/>     
 
                 </p:panelGrid>
-                <p:commandButton value="Deseja mesmo deletar o municipio?" action="#{municipioController.deletar()}" oncomplete="PF('widDialDeletaMunicipio').hide()"
+                <p:commandButton value="Deseja mesmo deletar o municipio?" action="#{fachada.municipiocontroller.deletar()}" oncomplete="PF('widDialDeletaMunicipio').hide()"
                                  update="@form"/>
             </p:dialog>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadMunicipio').show()"/>
@@ -93,13 +93,13 @@
                 <p:fieldset legend="Cadastrar Munícipio">
                     <p:panelGrid columns="3">
                         <h:outputText value="Nome*:"/>
-                        <p:inputText id="txtNome" value="#{municipioController.municipioCadastro.nome}"
+                        <p:inputText id="txtNome" value="#{fachada.municipiocontroller.municipioCadastro.nome}"
                                      required="true" requiredMessage="O nome é obrigatório"/>
                         <p:message for="txtNome"/>
 
 
                     </p:panelGrid>
-                    <p:commandButton value="Cadastrar" action="#{municipioController.inserir()}"
+                    <p:commandButton value="Cadastrar" action="#{fachada.municipiocontroller.inserir()}"
                                      oncomplete="PF('widDialCadMunicipio').hide()" 
                                      update=':formMunicipio :gro @form'/>
                 </p:fieldset>
@@ -112,12 +112,12 @@
                 <p:fieldset legend="Alterar Munícipio">
                     <p:panelGrid columns="3">
                         <h:outputText value="Nome*:"/>
-                        <p:inputText id="txtNome" value="#{municipioController.selectedMunicipio.nome}"
+                        <p:inputText id="txtNome" value="#{fachada.municipiocontroller.selectedMunicipio.nome}"
                                      required="true" requiredMessage="O nome é obrigatório"/>
                         <p:message for="txtNome"/>
 
                     </p:panelGrid>
-                    <p:commandButton value="Alterar" action="#{municipioController.alterar(municipioController.selectedMunicipio)}"
+                    <p:commandButton value="Alterar" action="#{fachada.municipiocontroller.alterar(fachada.municipiocontroller.selectedMunicipio)}"
                                      oncomplete="PF('widDialAlteraMunicipio').hide()" 
                                      update=':formMunicipio :gro @form'/>
                 </p:fieldset>
