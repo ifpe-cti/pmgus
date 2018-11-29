@@ -24,7 +24,7 @@
        <img class="cima" src="\imagens\CimaPMGus.jpg" />
         <ui:include src="menubar.xhtml"/>
         <h:form id="formTipoDroga">
-            <p:dataTable var="item" value="#{tipoDrogaController.recuperarTodosTipoDroga()}"
+            <p:dataTable var="item" value="#{fachada.tipodrogacontroller.recuperarTodosTipoDroga()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="5">
                 <f:facet name="header">
@@ -39,15 +39,15 @@
                 <p:column headerText="Operações" style="width: 12%">
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaTipoDroga').show()" 
                                      update=":formTipoDroga:dialVisualizaTipoDroga">
-                        <f:setPropertyActionListener value="#{item}" target="#{tipoDrogaController.selectedTipoDroga}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{fachada.tipodrogacontroller.selectedTipoDroga}"/>
                     </p:commandButton>
                     <p:commandButton icon="ui-icon-wrench" oncomplete="PF('widDialAlteraTipoDroga').show()"
                                      update=":formDialAlteraTipoDroga">
-                        <f:setPropertyActionListener value="#{item}" target="#{tipoDrogaController.selectedTipoDroga}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{fachada.tipodrogacontroller.selectedTipoDroga}"/>
                     </p:commandButton>
                     <p:commandButton icon="ui-icon-closethick" oncomplete="PF('widDialDeletaTipoDroga').show()" 
                                      update=":formTipoDroga:dialDeletaTipoDroga">
-                        <f:setPropertyActionListener value="#{item}" target="#{tipoDrogaController.selectedTipoDroga}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{fachada.tipodrogacontroller.selectedTipoDroga}"/>
                     </p:commandButton>    
                 </p:column>
             </p:dataTable>
@@ -57,10 +57,10 @@
                       header="Dados do Tipo de Droga">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
-                    <h:outputText value="#{tipoDrogaController.selectedTipoDroga.codigo}"/>
+                    <h:outputText value="#{fachada.tipodrogacontroller.selectedTipoDroga.codigo}"/>
 
                     <h:outputText value="Nome:"/>
-                    <h:outputText value="#{tipoDrogaController.selectedTipoDroga.nome}"/>                   
+                    <h:outputText value="#{fachada.tipodrogacontroller.selectedTipoDroga.nome}"/>                   
                 </p:panelGrid>
                 <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaTipoDroga').hide()"/>
             </p:dialog>
@@ -70,12 +70,12 @@
                       header="Dados do Tipo de Droga">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
-                    <h:outputText value="#{tipoDrogaController.selectedTipoDroga.codigo}"/>
+                    <h:outputText value="#{fachada.tipodrogacontroller.selectedTipoDroga.codigo}"/>
 
                     <h:outputText value="Nome:"/>
-                    <h:outputText value="#{tipoDrogaController.selectedTipoDroga.nome}"/>
+                    <h:outputText value="#{fachada.tipodrogacontroller.selectedTipoDroga.nome}"/>
                 </p:panelGrid>
-                <p:commandButton value="Deseja mesmo deletar o Tipo de Droga?" action="#{tipoDrogaController.deletar()}" oncomplete="PF('widDialDeletaTipoDroga').hide()"
+                <p:commandButton value="Deseja mesmo deletar o Tipo de Droga?" action="#{fachada.tipodrogacontroller.deletar()}" oncomplete="PF('widDialDeletaTipoDroga').hide()"
                                  update="@form"/>
             </p:dialog>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadTipoDroga').show()"/>
@@ -88,11 +88,11 @@
                 <p:fieldset legend="Cadastrar Tipo de Droga">
                     <p:panelGrid columns="3">
                         <h:outputText value="Nome*:"/>
-                        <p:inputText id="txtNome" value="#{tipoDrogaController.tipoDrogaCadastro.nome}"
+                        <p:inputText id="txtNome" value="#{fachada.tipodrogacontroller.tipoDrogaCadastro.nome}"
                                      required="true" requiredMessage="O nome é obrigatório"/>
                         <p:message for="txtNome"/>
                     </p:panelGrid>
-                    <p:commandButton value="Cadastrar" action="#{tipoDrogaController.inserir()}"
+                    <p:commandButton value="Cadastrar" action="#{fachada.tipodrogacontroller.inserir()}"
                                      oncomplete="PF('widDialCadTipoDroga').hide()" 
                                      update=':formTipoDroga :gro @form'/>
                 </p:fieldset>
@@ -105,11 +105,11 @@
                 <p:fieldset legend="Alterar Tipo de Droga">
                     <p:panelGrid columns="3">
                         <h:outputText value="Nome*:"/>
-                        <p:inputText id="txtNome" value="#{tipoDrogaController.selectedTipoDroga.nome}"
+                        <p:inputText id="txtNome" value="#{fachada.tipodrogacontroller.selectedTipoDroga.nome}"
                                      required="true" requiredMessage="O nome é obrigatório"/>
                         <p:message for="txtNome"/>
                     </p:panelGrid>
-                    <p:commandButton value="Alterar" action="#{tipoDrogaController.alterar(tipoDrogaController.selectedTipoDroga)}"
+                    <p:commandButton value="Alterar" action="#{fachada.tipodrogacontroller.alterar(fachada.tipodrogacontroller.selectedTipoDroga)}"
                                      oncomplete="PF('widDialAlteraTipoDroga').hide()" 
                                      update=':formTipoDroga :gro @form'/>
                 </p:fieldset>

@@ -25,7 +25,7 @@
        <img class="cima" src="\imagens\CimaPMGus.jpg" />
         <ui:include src="menubar.xhtml"/>
         <h:form id="formUnidadeDroga" class="body">
-            <p:dataTable var="item" value="#{unidadeDrogaController.recuperarTodosUnidadeDroga()}"
+            <p:dataTable var="item" value="#{fachada.unidadedrogacontroller.recuperarTodosUnidadeDroga()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="5">
                 <f:facet name="header">
@@ -40,15 +40,15 @@
                 <p:column headerText="Operações" style="width: 12%">
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaUnidadeDroga').show()" 
                                      update=":formUnidadeDroga:dialVisualizaUnidadeDroga">
-                        <f:setPropertyActionListener value="#{item}" target="#{unidadeDrogaController.selectedUnidadeDroga}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{fachada.unidadedrogacontroller.selectedUnidadeDroga}"/>
                     </p:commandButton>
                     <p:commandButton icon="ui-icon-wrench" oncomplete="PF('widDialAlteraUnidadeDroga').show()"
                                      update=":formDialAlteraUnidadeDroga">
-                        <f:setPropertyActionListener value="#{item}" target="#{unidadeDrogaController.selectedUnidadeDroga}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{fachada.unidadedrogacontroller.selectedUnidadeDroga}"/>
                     </p:commandButton>
                     <p:commandButton icon="ui-icon-closethick" oncomplete="PF('widDialDeletaUnidadeDroga').show()" 
                                      update=":formUnidadeDroga:dialDeletaUnidadeDroga">
-                        <f:setPropertyActionListener value="#{item}" target="#{unidadeDrogaController.selectedUnidadeDroga}"/>
+                        <f:setPropertyActionListener value="#{item}" target="#{fachada.unidadedrogacontroller.selectedUnidadeDroga}"/>
                     </p:commandButton>    
                 </p:column>
             </p:dataTable>
@@ -58,10 +58,10 @@
                       header="Dados de Unidade de Droga">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
-                    <h:outputText value="#{unidadeDrogaController.selectedUnidadeDroga.codigo}"/>
+                    <h:outputText value="#{fachada.unidadedrogacontroller.selectedUnidadeDroga.codigo}"/>
 
                     <h:outputText value="Unidade de Droga:"/>
-                    <h:outputText value="#{unidadeDrogaController.selectedUnidadeDroga.unidadeDroga}"/>                   
+                    <h:outputText value="#{fachada.unidadedrogacontroller.selectedUnidadeDroga.unidadeDroga}"/>                   
                 </p:panelGrid>
                 <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaUnidadeDroga').hide()"/>
             </p:dialog>
@@ -71,12 +71,12 @@
                       header="Dados de Unidade de Droga">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
-                    <h:outputText value="#{unidadeDrogaController.selectedUnidadeDroga.codigo}"/>
+                    <h:outputText value="#{fachada.unidadedrogacontroller.selectedUnidadeDroga.codigo}"/>
 
                     <h:outputText value="Unidade de Droga:"/>
-                    <h:outputText value="#{unidadeDrogaController.selectedUnidadeDroga.unidadeDroga}"/>
+                    <h:outputText value="#{fachada.unidadedrogacontroller.selectedUnidadeDroga.unidadeDroga}"/>
                 </p:panelGrid>
-                <p:commandButton value="Deseja mesmo deletar a Unidade de Droga?" action="#{unidadeDrogaController.deletar()}" oncomplete="PF('widDialDeletaUnidadeDroga').hide()"
+                <p:commandButton value="Deseja mesmo deletar a Unidade de Droga?" action="#{fachada.unidadedrogacontroller.deletar()}" oncomplete="PF('widDialDeletaUnidadeDroga').hide()"
                                  update="@form"/>
             </p:dialog>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadUnidadeDroga').show()"/>
@@ -89,11 +89,11 @@
                 <p:fieldset legend="Cadastrar Unidade de Droga">
                     <p:panelGrid columns="3">
                         <h:outputText value="Unidade de Droga*:"/>
-                        <p:inputText id="txtUnidadedeDroga" value="#{unidadeDrogaController.unidadeDrogaCadastro.unidadeDroga}"
+                        <p:inputText id="txtUnidadedeDroga" value="#{fachada.unidadedrogacontroller.unidadeDrogaCadastro.unidadeDroga}"
                                      required="true" requiredMessage="A Unidade de Droga é obrigatório"/>
                         <p:message for="txtUnidadedeDroga"/>
                     </p:panelGrid>
-                    <p:commandButton value="Cadastrar" action="#{unidadeDrogaController.inserir()}"
+                    <p:commandButton value="Cadastrar" action="#{fachada.unidadedrogacontroller.inserir()}"
                                      oncomplete="PF('widDialCadUnidadeDroga').hide()" 
                                      update=':formUnidadeDroga :gro @form'/>
                 </p:fieldset>
@@ -106,11 +106,11 @@
                 <p:fieldset legend="alterar unidade de droga">
                     <p:panelGrid columns="3">
                         <h:outputText value="Unidade de Droga*:"/>
-                        <p:inputText id="txtUnidadedeDroga" value="#{unidadeDrogaController.selectedUnidadeDroga.unidadeDroga}"
+                        <p:inputText id="txtUnidadedeDroga" value="#{fachada.unidadedrogacontroller.selectedUnidadeDroga.unidadeDroga}"
                                      required="true" requiredMessage="A unidadeDroga é obrigatório"/>
                         <p:message for="txtUnidadedeDroga"/>
                     </p:panelGrid>
-                    <p:commandButton value="Alterar" action="#{unidadeDrogaController.alterar(unidadeDrogaController.selectedUnidadeDroga)}"
+                    <p:commandButton value="Alterar" action="#{fachada.unidadedrogacontroller.alterar(fachada.unidadedrogacontroller.selectedUnidadeDroga)}"
                                      oncomplete="PF('widDialAlteraUnidadeDroga').hide()" 
                                      update=':formUnidadeDroga :gro @form'/>
                 </p:fieldset>

@@ -38,19 +38,19 @@
         </style>
     </h:head>
         <h:form id="formDialCadOcorrencia">
-            <p:wizard flowListener="#{ocorrenciaController.onFlowProcess}">
+            <p:wizard flowListener="#{fachada.ocorrenciacontroller.onFlowProcess}">
                 <p:tab id="basico" title="Básico">
                     <p:panel header="Detalhes Básicos">
                         <p:messages/>
                         <h:panelGrid columns="2" columnClasses="label, value">
                             <h:outputText value="Ocorrencia: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.ocorrencia}" required="true"/>
+                            <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.ocorrencia}" required="true"/>
 
                             <h:outputText value="Descrição: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.descricaoOcorrencia}" required="true"/>
+                            <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.descricaoOcorrencia}" required="true"/>
 
                             <h:outputLabel value="Data:*" for="datetime"/>
-                            <p:calendar id="datetime" value="#{ocorrenciaController.ocorrenciaCadastro.dataOcorrencia}" pattern="dd/MM/yyyy HH:mm:ss" />
+                            <p:calendar id="datetime" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.dataOcorrencia}" pattern="dd/MM/yyyy HH:mm:ss" />
                         </h:panelGrid>
                     </p:panel>
                 </p:tab>
@@ -60,7 +60,7 @@
                         <p:messages />
                         <h:panelGrid columns="2" columnClasses="label, value">
                             <h:outputText value="Endereço: "/>
-                            <p:selectOneMenu id="endereco" value="#{ocorrenciaController.ocorrenciaCadastro.endereco.municipio}" converter="municipioConverter">
+                            <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.endereco.municipio}" converter="municipioConverter">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
                             <f:selectItems value="#{municipioController.recuperarTodosMunicipios()}"/>
                             </p:selectOneMenu>
@@ -73,10 +73,10 @@
                         <p:messages />
                         <h:panelGrid columns="2" columnClasses="label, value">
                             <h:outputText value="Nome*" />
-                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.vitima.nome}" required="true" label="Email"/>
+                            <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.vitima.nome}" required="true" label="Email"/>
 
                             <h:outputText value="Idade: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.vitima.idade}"/>
+                            <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.vitima.idade}"/>
                         </h:panelGrid>
                     </p:panel>
                 </p:tab>
@@ -86,13 +86,13 @@
                         <p:messages />
                         <h:panelGrid columns="2" columnClasses="label, value">
                             <h:outputText value="Tipo de Arma: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.arma.tipoDeArma}" required="true" label="Tipo de Arma"/>
+                            <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.arma.tipoDeArma}" required="true" label="Tipo de Arma"/>
 
                             <h:outputText value="Modelo: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.arma.modelo}"/>
+                            <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.arma.modelo}"/>
 
                             <h:outputText value="Marca: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.arma.marca}"/>
+                            <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.arma.marca}"/>
                         </h:panelGrid>
                     </p:panel>
                 </p:tab>
@@ -102,7 +102,7 @@
                         <p:messages />
                         <h:panelGrid columns="2" columnClasses="label, value">
                             <h:outputText value="Nome da Droga: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.droga.nome}" required="true" label="Droga"/>
+                            <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.droga.nome}" required="true" label="Droga"/>
 
                         
                         </h:panelGrid>
@@ -114,7 +114,7 @@
                         <p:messages />
                         <h:panelGrid columns="2" columnClasses="label, value">
                             <h:outputText value="Unidade Droga: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.unidade.unidadeDroga}" required="true" label="Unidade Droga"/>
+                            <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.unidade.unidadeDroga}" required="true" label="Unidade Droga"/>
 
                             
                         </h:panelGrid>
@@ -131,7 +131,7 @@
                             </h:panelGrid>
                         </h:panelGrid>
 
-                        <p:commandButton value="Submit" action="#{ocorrenciaController.inserir()}" oncomplete="PF('widDialCadOcorrencia').hide()" 
+                        <p:commandButton value="Submit" action="#{fachada.ocorrenciacontroller.inserir()}" oncomplete="PF('widDialCadOcorrencia').hide()" 
                                          update=':formOcorrencia :gro @form' process="@this"/>
                     </p:panel>
                 </p:tab>
