@@ -2,7 +2,6 @@ package com.github.viniciussoaresti.pmgus.controladores;
 import com.github.viniciussoaresti.pmgus.infraestrutura.repositorios.comportamentos.RepositorioGenerico;
 import com.github.viniciussoaresti.pmgus.infraestrutura.repositorios.implementacoes.RepositorioOcorrenciaImplBD;
 import com.github.viniciussoaresti.pmgus.negocio.Ocorrencia;
-import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;

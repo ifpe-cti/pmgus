@@ -57,7 +57,7 @@
                             <h:outputText value="Endereço: "/>
                             <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.endereco.municipio}" converter="municipioConverter">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
-                            <f:selectItems value="#{fachada.municipiocontroller.recuperarTodosMunicipios()}"/>
+                            <f:selectItems value="#{fachada.municipiocontroller.recuperarTodosMunicipios()}" var="municipio" itemLabel="#{municipio.nome}" itemValue="#{municipio}"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
                     </p:panel>
