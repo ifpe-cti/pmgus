@@ -9,6 +9,7 @@ package com.github.viniciussoaresti.pmgus.controladores;
 import com.github.viniciussoaresti.pmgus.infraestrutura.repositorios.comportamentos.RepositorioGenerico;
 import com.github.viniciussoaresti.pmgus.infraestrutura.repositorios.implementacoes.RepositorioEnderecoImplBD;
 import com.github.viniciussoaresti.pmgus.negocio.Endereco;
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -22,7 +23,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class EnderecoController {
+public class EnderecoController{
     private RepositorioGenerico<Endereco,Integer> repositorioEndereco = null;
     private Endereco enderecoCadastro;
     private Endereco selectedEndereco;
