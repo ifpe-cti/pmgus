@@ -81,7 +81,7 @@
                                     <h:outputText value="Vítima: "/>
                                     <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.selectedOcorrencia.vitima}">
                                         <f:selectItem itemLabel="Selecione:" itemValue="" />
-                                        <f:selectItems value="#{fachada.municipiocontroller.recuperarTodosMunicipios}"/>
+                                        <f:selectItems value="#{fachada.vitimacontroller.recuperarTodosVitimas}"/>
                                     </p:selectOneMenu>
                                 </h:panelGrid>
                             </p:panel>
@@ -101,26 +101,26 @@
                         </p:tab>
 
                         <p:tab id="droga" title="Droga">
-                            <p:panel header="Droga">
+                            <p:panel header="Tipo de Droga">
                                 <p:messages />
                                 <h:panelGrid columns="2" columnClasses="label, value">
-                                    <h:outputText value="Arma: "/>
+                                    <h:outputText value="Tipo de Droga: "/>
                                     <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.selectedOcorrencia.droga}">
                                         <f:selectItem itemLabel="Selecione:" itemValue="" />
-                                        <f:selectItems value="#{fachada.armacontroller.recuperarTodosArmas}"/>
+                                        <f:selectItems value="#{fachada.tipodrogacontroller.recuperarTodosTipoDroga}"/>
                                     </p:selectOneMenu>
                                 </h:panelGrid>
                             </p:panel>
                         </p:tab>
 
-                        <p:tab id="unidade" title="Unidade">
+                        <p:tab id="unidade" title="Droga">
                             <p:panel header="Unidade da Droga">
                                 <p:messages />
                                 <h:panelGrid columns="2" columnClasses="label, value">
                                     <h:outputText value="Unidade da Droga: "/>
                                     <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.selectedOcorrencia.unidade}">
                                         <f:selectItem itemLabel="Selecione:" itemValue="" />
-                                        <f:selectItems value="#{fachada.armacontroller.recuperarTodosArmas}"/>
+                                        <f:selectItems value="#{fachada.unidadedrogacontroller.recuperarTodosUnidadeDroga}"/>
                                     </p:selectOneMenu>
                                 </h:panelGrid>
                             </p:panel>

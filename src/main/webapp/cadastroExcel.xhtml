@@ -7,7 +7,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Teste Fachada</title>
+        <title>Cadastro Excel</title>
         <style type="text/css">
             #divCima {
                 width:100%;
@@ -34,9 +34,10 @@
         </div>
         <ui:include src="menubar.xhtml"/>
         <h:form enctype="multipart/form-data">
-            <p:fileUpload value="#{fachada.excelcontroller.arquivoupload}" mode="simple" skinSimple="true"/>
+            <p:fileUpload value="#{fachada.excelcontroller.arquivoupload}" mode="simple" skinSimple="true" fileUploadListener="#{fachada.excelcontroller.carregarUpload}"/>
             <br/><br/>
-            <p:commandButton value="Enviar" ajax="false" action="#{fachada.excelcontroller.cadastrarArmas(armaController)}"/>
+            <!--<p:commandButton value="Enviar" ajax="false" action="#fachada.excelcontroller.carregarUpload}"/>!-->
+            <p:commandButton value="Cadastrar Armas" ajax="false" action="#{fachada.testeOffline()}"/>
         </h:form>
         <div id="divBaixo" align="justify">
             <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>

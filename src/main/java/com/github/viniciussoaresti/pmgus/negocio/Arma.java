@@ -26,13 +26,13 @@ public class Arma {
     @Column(length = 20)
     private String marca;
     @Column(length = 10)
-    private int calibre;
+    private String calibre;
    
 
     public Arma() {
     }
 
-    public Arma(int codigo, String tipoDeArma, String modelo, String marca, int calibre) {
+    public Arma(int codigo, String tipoDeArma, String modelo, String marca, String calibre) {
         this.codigo = codigo;
         this.tipoDeArma = tipoDeArma;
         this.modelo = modelo;
@@ -72,11 +72,11 @@ public class Arma {
         this.marca = marca;
     }
 
-    public int getCalibre() {
+    public String getCalibre() {
         return calibre;
     }
 
-    public void setCalibre(int calibre) {
+    public void setCalibre(String calibre) {
         this.calibre = calibre;
     }
     

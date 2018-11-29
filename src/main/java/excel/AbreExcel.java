@@ -14,7 +14,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class AbreExcel {
 
-    private static final String teste = "src/main/java/excel/teste.xlsx";
+    private static final String teste = "src/main/java/com/github/viniciussoaresti/pmgus/controladores//teste.xlsx";
 
     public static void main(String[] args) throws IOException {
         List<Arma> armas = new ArrayList<>();
@@ -45,7 +45,7 @@ public class AbreExcel {
                                     arma.setMarca(celula.getStringCellValue());
                                     break;
                                 case 4:
-                                    arma.setCalibre((int) celula.getNumericCellValue());
+                                    arma.setCalibre(Double.toString(celula.getNumericCellValue()));
                                     break;
                             }
                         }

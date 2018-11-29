@@ -2,6 +2,9 @@ package com.github.viniciussoaresti.pmgus.controladores;
 
 import com.github.viniciussoaresti.pmgus.negocio.Arma;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -35,22 +38,15 @@ public class ExcelController {
         this.arquivoupload = arquivoupload;
     }
 
-    public void upload() {
-        if (arquivoupload != null) {
-            FacesMessage message = new FacesMessage("Sucesso no upload de ", arquivoupload.getFileName() + ".");
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
+    public void carregarUpload(FileUploadEvent event) throws FileNotFoundException, IOException {
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "O upload foi realizado!"));
+        setArquivoupload(event.getFile());
     }
 
-    public void handleFileUpload(FileUploadEvent event) {
-        FacesMessage msg = new FacesMessage("Sucesso no upload de ", event.getFile().getFileName() + ".");
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-
-    public boolean cadastrarArmas(ArmaController armacontroller) {
+    public void cadastrarArmas(ArmaController armacontroller) {
         try {
             if (arquivoupload != null) {
-                System.out.println(arquivoupload.getFileName());
                 OPCPackage pkg = OPCPackage.open(new File(arquivoupload.getFileName()));
                 XSSFWorkbook wb = new XSSFWorkbook(pkg);
                 for (Sheet sheet : wb) {
@@ -63,8 +59,6 @@ public class ExcelController {
                             Arma arma = new Arma();
                             for (Cell celula : linha) { //coluna
                                 switch (celula.getColumnIndex()) {
-                                    case 0://código é definido automaticamente
-                                        break;
                                     case 1:
                                         arma.setTipoDeArma(celula.getStringCellValue());
                                         break;
@@ -75,7 +69,7 @@ public class ExcelController {
                                         arma.setMarca(celula.getStringCellValue());
                                         break;
                                     case 4:
-                                        arma.setCalibre((int) celula.getNumericCellValue());
+                                        arma.setCalibre(celula.getStringCellValue());
                                         break;
                                 }
                             }
@@ -89,11 +83,67 @@ public class ExcelController {
                 }
                 pkg.close();
                 FacesContext.getCurrentInstance().getExternalContext().redirect("crudArma.xhtml");
-                return true;
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "As armas foram cadastradas com sucesso!"));
+            } else {
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_INFO, "Erro!", "As armas não foram cadastradas!"));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+    }
+
+    public void testeOffline(ArmaController armacontroller) {
+        String teste = "C://Users/vinic/Documents/pmgus/src/main/java/com/github/viniciussoaresti/pmgus/controladores/teste.xlsx";
+        List<Arma> armas = new ArrayList<>();
+        try {
+            File file = new File(teste);
+            if (teste.equals(null)) {
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_INFO, "Erro!", "As armas não foram cadastradas!"));
+            } else {
+                OPCPackage pkg = OPCPackage.open(file);
+                XSSFWorkbook wb = new XSSFWorkbook(pkg);
+                for (Sheet sheet : wb) {
+                    for (int i = 0; i < sheet.getLastRowNum(); i++) { //linha
+                        Row linha = null;
+                        if (sheet.getRow(i) != null) {
+                            linha = sheet.getRow(i);
+                        }
+                        if (linha != null && linha.getCell(i) != null && !linha.getCell(0).getCellType().equals(CellType.BLANK)) {
+                            Arma arma = new Arma();
+                            for (Cell celula : linha) { //coluna
+                                switch (celula.getColumnIndex()) {
+                                    case 1:
+                                        arma.setTipoDeArma(celula.getStringCellValue());
+                                        break;
+                                    case 2:
+                                        arma.setModelo(celula.getStringCellValue());
+                                        break;
+                                    case 3:
+                                        arma.setMarca(celula.getStringCellValue());
+                                        break;
+                                    case 4:
+                                        arma.setCalibre(Double.toString(celula.getNumericCellValue()));
+                                        break;
+                                }
+                            }
+                            armas.add(arma);
+                        }
+                    }
+                }
+                for (Arma a : armas) {
+                    armacontroller.setArmaCadastro(a);
+                    armacontroller.inserir();
+                }
+                pkg.close();
+                FacesContext.getCurrentInstance().getExternalContext().redirect("crudArma.xhtml");
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "As armas foram cadastradas com sucesso!"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

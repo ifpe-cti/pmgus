@@ -65,7 +65,7 @@
                         <h:outputText value="Endereço: "/>
                         <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.endereco}">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
-                            <f:selectItems value="#{fachada.enderecocontroller.recuperarTodosEnderecos}"/>
+                            <f:selectItems value="#{fachada.enderecocontroller.recuperarTodosEnderecos()}"/>
                         </p:selectOneMenu>
                     </h:panelGrid>
                 </p:panel>
@@ -78,7 +78,7 @@
                         <h:outputText value="Vítima: "/>
                         <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.vitima}">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
-                            <f:selectItems value="#{fachada.municipiocontroller.recuperarTodosMunicipios}"/>
+                            <f:selectItems value="#{fachada.vitimacontroller.recuperarTodosVitimas}"/>
                         </p:selectOneMenu>
                     </h:panelGrid>
                 </p:panel>
@@ -101,7 +101,7 @@
                 <p:panel header="Droga">
                     <p:messages />
                     <h:panelGrid columns="2" columnClasses="label, value">
-                        <h:outputText value="Arma: "/>
+                        <h:outputText value="Droga: "/>
                         <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.droga}">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
                             <f:selectItems value="#{fachada.armacontroller.recuperarTodosArmas}"/>
