@@ -13,24 +13,19 @@
                 width:20%;
                 padding:4px;
             }
-
             .value {
                 width:80%;
                 padding:4px;
             }
-
             .grid {
                 width:100%;
             }
-
             .error {
                 color: red;
             }
-
             .outputLabel {
                 font-weight: bold;
             }
-
             .grid {
                 width:33%;
                 padding:4px;
@@ -42,19 +37,19 @@
             <p:fieldset legend="alterar ocorrencia">
                 <p:panelGrid columns="3">
                     <h:outputText value="TipodeOcorrencia*:"/>
-                    <p:inputText id="txtTipodeOcorrencia" value="#{ocorrenciaController.ocorrenciaCadastro.arma}"
+                    <p:inputText id="txtTipodeOcorrencia" value="#{ocorrenciaController.ocorrenciaCadastro.tipoDeOcorrencia}"
                                  required="true" requiredMessage="O tipo de ocorrencia é obrigatório"/>
                     <p:message for="txtTipodeOcorrencia"/>
                     <h:outputText value="Modelo*:"/>
-                    <p:inputText id="txtModelo" value="#{ocorrenciaController.ocorrenciaCadastro.arma}"
+                    <p:inputText id="txtModelo" value="#{ocorrenciaController.ocorrenciaCadastro.modelo}"
                                  required="true" requiredMessage="O modelo é obrigatório"/>
                     <p:message for="txtModelo"/>
                     <h:outputText value="Marca*:"/>
-                    <p:inputText id="txtMarca" value="#{ocorrenciaController.ocorrenciaCadastro.arma}"
+                    <p:inputText id="txtMarca" value="#{ocorrenciaController.ocorrenciaCadastro.marca}"
                                  required="true" requiredMessage="A marca é obrigatório"/>
                     <p:message for="txtMarca"/>
                     <h:outputText value="Calibre*:"/>
-                    <p:inputText id="txtCalibre" value="#{ocorrenciaController.ocorrenciaCadastro.arma}"
+                    <p:inputText id="txtCalibre" value="#{ocorrenciaController.ocorrenciaCadastro.calibre}"
                                  required="true" requiredMessage="O calibre é obrigatório"/>
                     <p:message for="txtCalibre"/>
                 </p:panelGrid>
