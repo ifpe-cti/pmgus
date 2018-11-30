@@ -30,7 +30,7 @@
         <h:form id="formArma">    
             <p:dataTable var="item" value="#{fachada.armacontroller.recuperarTodosArmas()}"
                          rowKey="#{item.codigo}" paginator="true"
-                         rows="5">
+                         rows="4">
                 <f:facet name="header">
                     Armas Cadastradas
                 </f:facet>
@@ -108,7 +108,7 @@
                     <h:outputText value="#{fachada.armacontroller.selectedArma.calibre}"/>   
                 </p:panelGrid>
                 <p:commandButton value="Deseja mesmo deletar a arma?" action="#{fachada.armacontroller.deletar()}" oncomplete="PF('widDialDeletaArma').hide()"
-                                 update="@form"/>
+                                 update=":formArma :gro @form"/>
             </p:dialog>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadArma').show()"/>
         </h:form>
@@ -138,7 +138,7 @@
                     </p:panelGrid>
                     <p:commandButton value="Cadastrar" action="#{fachada.armacontroller.inserir()}"
                                      oncomplete="PF('widDialCadArma').hide()" 
-                                     update=':formArma :gro @form'/>
+                                     update=':formArma :gro @form' />
                 </p:fieldset>
             </h:form>
         </p:dialog>

@@ -29,7 +29,7 @@
 
             <p:dataTable var="item" value="#{fachada.vitimacontroller.recuperarTodosVitimas()}"
                          rowKey="#{item.codigo}" paginator="true"
-                         rows="5">
+                         rows="4">
                 <f:facet name="header">
                     Vítimas Cadastradas
                 </f:facet>
@@ -116,7 +116,7 @@
                     <h:outputText value="#{fachada.vitimacontroller.selectedVitima.nomeMae}"/>  
                 </p:panelGrid>
                 <p:commandButton value="Deseja mesmo deletar a vitima?" action="#{fachada.vitimacontroller.deletar()}" oncomplete="PF('widDialDeletaVitima').hide()"
-                                 update="@form"/>
+                                 update=":formVitima :gro @form"/>
             </p:dialog>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadVitima').show()"/>
         </h:form>

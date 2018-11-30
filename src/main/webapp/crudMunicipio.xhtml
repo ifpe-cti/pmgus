@@ -30,7 +30,7 @@
 
             <p:dataTable var="item" value="#{fachada.municipiocontroller.recuperarTodosMunicipios()}"
                          rowKey="#{item.codigo}" paginator="true"
-                         rows="5">
+                         rows="4">
                 <f:facet name="header">
                     Municípios Cadastrados
                 </f:facet>
@@ -83,7 +83,7 @@
 
                 </p:panelGrid>
                 <p:commandButton value="Deseja mesmo deletar o municipio?" action="#{fachada.municipiocontroller.deletar()}" oncomplete="PF('widDialDeletaMunicipio').hide()"
-                                 update="@form"/>
+                                 update=":formMunicipio :gro @form"/>
             </p:dialog>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadMunicipio').show()"/>
         </h:form>
