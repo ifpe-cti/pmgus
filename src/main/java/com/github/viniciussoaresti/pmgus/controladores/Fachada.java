@@ -60,8 +60,4 @@ public class Fachada {
     public void cadastrarArmaExcel(){
         excelcontroller.cadastrarArmas(armacontroller);
     }
-    
-    public void testeOffline(){
-        excelcontroller.testeOffline(armacontroller);
-    }
 }
