@@ -71,7 +71,7 @@ public class ExcelController {
                                         arma.setMarca(celula.getStringCellValue());
                                         break;
                                     case 4:
-                                        arma.setCalibre((int) celula.getNumericCellValue());
+                                        arma.setCalibre(celula.getStringCellValue());
                                         break;
                                 }
                             }

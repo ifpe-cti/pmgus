@@ -12,7 +12,7 @@ import javax.faces.convert.FacesConverter;
  *
  * @author viniciussoaresti
  */
-   @FacesConverter("OcorrenciaConverter")
+   @FacesConverter("ocorrenciaConverter")
 public class OcorrenciaConverter implements Converter {
     public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
         if(value != null && value.trim().length() > 0) {

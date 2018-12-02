@@ -21,7 +21,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class UnidadeDrogaController {
+public class UnidadeDrogaController{
     
     private RepositorioGenerico<UnidadeDroga,Integer> repositorioUnidadeDroga = null;
     private UnidadeDroga unidadeDrogaCadastro;
@@ -47,13 +47,13 @@ public class UnidadeDrogaController {
         this.unidadeDrogaCadastro = new UnidadeDroga();
         
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","a unidade de droga foi cadastrada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","A unidade de droga foi cadastrada com sucesso!"));
     }
 
    public void alterar(UnidadeDroga c){
         this.repositorioUnidadeDroga.alterar(c);
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","a unidade de droga foi alterada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","A unidade de droga foi alterada com sucesso!"));
     }
     
     public UnidadeDroga recuperarUnidadeDroga(Integer codigo){
@@ -63,7 +63,7 @@ public class UnidadeDrogaController {
     public void deletar(){
         this.repositorioUnidadeDroga.deletar(selectedUnidadeDroga);
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","a unidade de droga foi deletada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","A unidade de droga foi deletada com sucesso!"));
     }
     
     public List<UnidadeDroga> recuperarTodosUnidadeDroga(){

@@ -22,7 +22,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class VitimaController {
+public class VitimaController{
      private RepositorioGenerico<Vitima,Integer> repositorioVitima = null;
     private Vitima vitimaCadastro;
     private Vitima selectedVitima;
@@ -40,13 +40,13 @@ public class VitimaController {
         this.vitimaCadastro = new Vitima();
         
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","A vitima foi cadastrada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","A vítima foi cadastrada com sucesso!"));
     }
     
     public void alterar(Vitima c){
         this.repositorioVitima.alterar(c);
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","A vitima foi alterada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","A vítima foi alterada com sucesso!"));
     }
     
     public Vitima recuperarVitima(int codigo){
@@ -56,7 +56,7 @@ public class VitimaController {
     public void deletar(){
         this.repositorioVitima.deletar(selectedVitima);
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","A vitima foi deletada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","A vítima foi deletada com sucesso!"));
     }
     
     public List<Vitima> recuperarTodosVitimas(){

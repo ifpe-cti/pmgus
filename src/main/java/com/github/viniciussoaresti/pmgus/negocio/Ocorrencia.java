@@ -81,7 +81,11 @@ public class Ocorrencia {
     }
 
     public Endereco getEndereco() {
+        if (endereco == null){
+    endereco = new Endereco();
+}
         return endereco;
+       
     }
 
     public void setEndereco(Endereco endereco) {
@@ -89,6 +93,9 @@ public class Ocorrencia {
     }
 
     public Vitima getVitima() {
+        if (vitima == null){
+    vitima = new Vitima();
+}
         return vitima;
     }
 
@@ -97,6 +104,9 @@ public class Ocorrencia {
     }
 
     public Arma getArma() {
+          if (arma == null){
+                arma = new Arma();
+            }
         return arma;
     }
 
@@ -105,6 +115,9 @@ public class Ocorrencia {
     }
 
     public TipoDroga getDroga() {
+          if (droga == null){
+            droga = new TipoDroga();
+        }
         return droga;
     }
 
@@ -113,6 +126,9 @@ public class Ocorrencia {
     }
 
     public UnidadeDroga getUnidade() {
+          if (unidade == null){
+           unidade = new UnidadeDroga();
+        }
         return unidade;
     }
 

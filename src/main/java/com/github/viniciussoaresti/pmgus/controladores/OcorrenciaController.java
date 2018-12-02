@@ -14,7 +14,7 @@ import org.primefaces.event.FlowEvent;
  */
 @ManagedBean
 @SessionScoped
-public class OcorrenciaController {
+public class OcorrenciaController{
     
     private RepositorioGenerico<Ocorrencia,Integer> repositorioOcorrencia = null;
     private Ocorrencia ocorrenciaCadastro;
@@ -40,13 +40,13 @@ public class OcorrenciaController {
         this.ocorrenciaCadastro = new Ocorrencia();
         
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","A ocorrencia foi cadastrada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","A ocorrência foi cadastrada com sucesso!"));
     }
 
    public void alterar(Ocorrencia c){
         this.repositorioOcorrencia.alterar(c);
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","A ocorrencia foi alterada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","A ocorrência foi alterada com sucesso!"));
     }
     
     public Ocorrencia recuperarOcorrencia(Integer codigo){
@@ -56,7 +56,7 @@ public class OcorrenciaController {
     public void deletar(){
         this.repositorioOcorrencia.deletar(selectedOcorrencia);
         FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","A ocorrencia foi deletada com sucesso!"));
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","A ocorrência foi deletada com sucesso!"));
     }
     
     public List<Ocorrencia> recuperarTodosOcorrencia(){
