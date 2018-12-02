@@ -23,13 +23,13 @@ public class Endereco implements Serializable{
     private int codigo;
     @ManyToOne
     private Municipio municipio;
-    @Column(length = 20)
+    @Column(length = 50)
     private String rua;
-    @Column(length = 20)
+    @Column(length = 9)
     private String cep;
-    @Column(length = 20)
+    @Column(length = 6)
     private int numero;
-    @Column(length = 20)
+    @Column(length = 30)
     private String bairro;
     
     public Endereco(){

@@ -19,7 +19,7 @@ public class Municipio {
      @Id
     @GeneratedValue
     private int codigo;
-    @Column(length = 20)
+    @Column(length = 25)
     private String nome;
 
     public Municipio() {

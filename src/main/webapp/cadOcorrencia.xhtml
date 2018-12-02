@@ -50,12 +50,12 @@
                     </p:panel>
                 </p:tab>
 
-                <p:tab id="enderecos" title="Endereço">
-                    <p:panel header="Detalhes do Endereço">
+                <p:tab id="municipios" title="Munícipio">
+                    <p:panel header="Detalhes do Município">
                         <p:messages />
                         <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Endereço: "/>
-                            <p:selectOneMenu id="endereco" value="#{ocorrenciaController.ocorrenciaCadastro.endereco.municipio}" converter="municipioConverter">
+                            <h:outputText value="Município: "/>
+                            <p:selectOneMenu id="municipio" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.municipio}" converter="municipioConverter">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
                             <f:selectItems value="#{municipioController.recuperarTodosMunicipios()}" var="municipio" itemLabel="#{municipio.nome}" itemValue="#{municipio}"/>
                             </p:selectOneMenu>

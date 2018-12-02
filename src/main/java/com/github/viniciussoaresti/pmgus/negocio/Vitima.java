@@ -19,15 +19,15 @@ public class Vitima {
     @Id
     @GeneratedValue
     private int codigo;
-    @Column(length = 20)
+    @Column(length = 35)
     private String nome;
     @Column(length = 20)
     private String naturalidade;
-    @Column(length = 20)
+    @Column(length = 35)
     private String nomePai;
-    @Column(length = 20)
+    @Column(length = 35)
     private String nomeMae;
-    @Column(length = 20)
+    @Column(length = 3)
     private int idade; 
     
     public Vitima(){

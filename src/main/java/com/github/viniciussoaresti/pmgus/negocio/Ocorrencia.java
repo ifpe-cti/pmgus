@@ -30,7 +30,7 @@ public class Ocorrencia {
     @Column(length = 50)
     private String flagrante;
     @OneToOne(optional = false)
-    private Endereco endereco;
+    private Municipio municipio;
     @OneToOne(optional = false)
     private Vitima vitima;
     @OneToOne(optional = false)
@@ -80,22 +80,21 @@ public class Ocorrencia {
         this.flagrante = flagrante;
     }
 
-    public Endereco getEndereco() {
-        if (endereco == null){
-    endereco = new Endereco();
-}
-        return endereco;
-       
+    public Municipio getMunicipio() {
+          if (municipio == null){
+             municipio = new Municipio();
+             }
+        return municipio;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
     }
 
     public Vitima getVitima() {
         if (vitima == null){
     vitima = new Vitima();
-}
+        }
         return vitima;
     }
 
@@ -140,13 +139,13 @@ public class Ocorrencia {
 
     }
 
-    public Ocorrencia(int codigo, String ocorrencia, String descricaoOcorrencia, Date dataOcorrencia, String flagrante, Endereco endereco, Vitima vitima, Arma arma, TipoDroga droga, UnidadeDroga unidade) {
+    public Ocorrencia(int codigo, String ocorrencia, String descricaoOcorrencia, Date dataOcorrencia, String flagrante, Municipio municipio, Vitima vitima, Arma arma, TipoDroga droga, UnidadeDroga unidade) {
         this.codigo = codigo;
         this.ocorrencia = ocorrencia;
         this.descricaoOcorrencia = descricaoOcorrencia;
         this.dataOcorrencia = dataOcorrencia;
         this.flagrante = flagrante;
-        this.endereco = endereco;
+        this.municipio = municipio;
         this.vitima = vitima;
         this.arma = arma;
         this.droga = droga;

@@ -39,8 +39,8 @@
                 <p:column headerText="Data Ocorrência">
                     <h:outputText value="#{item.dataOcorrencia}"/>
                 </p:column>
-                <p:column headerText="Endereço">
-                    <h:outputText value="#{item.endereco}"/>
+                <p:column headerText="Município">
+                    <h:outputText value="#{item.municipio.nome}"/>
                 </p:column>
                 <p:column headerText="Arma">
                     <h:outputText value="#{item.arma.modelo}"/>
@@ -84,8 +84,8 @@
                     <h:outputText value="Flagrante:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.flagrante}"/>
 
-                    <h:outputText value="Endereço:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco}"/>
+                    <h:outputText value="Município:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.municipio.nome}"/>
 
                     <h:outputText value="Vítima:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.vitima.nome}"/>
@@ -121,8 +121,8 @@
                     <h:outputText value="Flagrante:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.flagrante}"/>
 
-                    <h:outputText value="Endereço:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco}"/>
+                    <h:outputText value="Município:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.municipio.nome}"/>
 
                     <h:outputText value="Vítima:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.vitima.nome}"/>
