@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div>
+            <p:dialog header="Relatório" widgetVar="dialogMunicipios" resizable ="true" width ="600" showEffect="explode" hideEffect="explode" dynamic ="true">
+                <h:form>
+                    <h:panelGrid columns ="3" cellpadding="4" styleClass="estiloPadrao">
+                        <p:barChart value="#{chartController.carregaDadosOcorrencia()}" style="height: 300px; width: 800px; "legendPosition="ne" orientation="horizontal" extender="ext" />
+                    </h:panelGrid>
+                </h:form> 
+             </p:dialog>
+        </div>
+    </body>
+</html>

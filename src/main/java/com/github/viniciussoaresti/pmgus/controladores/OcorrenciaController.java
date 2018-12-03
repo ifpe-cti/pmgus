@@ -1,6 +1,8 @@
 package com.github.viniciussoaresti.pmgus.controladores;
 import com.github.viniciussoaresti.pmgus.infraestrutura.repositorios.comportamentos.RepositorioGenerico;
 import com.github.viniciussoaresti.pmgus.infraestrutura.repositorios.implementacoes.RepositorioOcorrenciaImplBD;
+import static com.github.viniciussoaresti.pmgus.negocio.Endereco_.municipio;
+import com.github.viniciussoaresti.pmgus.negocio.Municipio;
 import com.github.viniciussoaresti.pmgus.negocio.Ocorrencia;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -19,6 +21,7 @@ public class OcorrenciaController {
     private RepositorioGenerico<Ocorrencia,Integer> repositorioOcorrencia = null;
     private Ocorrencia ocorrenciaCadastro;
     private Ocorrencia selectedOcorrencia;
+ 
     
     public void setRepositorioOcorrencia(RepositorioGenerico<Ocorrencia, Integer> repositorioOcorrencia) {
         this.repositorioOcorrencia = repositorioOcorrencia;
@@ -38,6 +41,7 @@ public class OcorrenciaController {
         //String nome =((String)((HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("tipo de drogaController"));        
         this.repositorioOcorrencia.inserir(this.ocorrenciaCadastro);
         this.ocorrenciaCadastro = new Ocorrencia();
+        
         
         FacesContext.getCurrentInstance().addMessage(null, 
                 new FacesMessage(FacesMessage.SEVERITY_INFO,"sucesso!","A ocorrência foi cadastrada com sucesso!"));

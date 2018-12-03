@@ -10,6 +10,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.swing.JFileChooser;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -95,15 +96,18 @@ public class ExcelController {
     }
 
     public void testeOffline(ArmaController armacontroller) {
-        String teste = "C://Users/vinic/Documents/pmgus/src/main/java/com/github/viniciussoaresti/pmgus/controladores/teste.xlsx";
+        JFileChooser arquivo = new JFileChooser();
         List<Arma> armas = new ArrayList<>();
+        String caminho=null;
         try {
-            File file = new File(teste);
-            if (teste.equals(null)) {
+            if (arquivo.showDialog(null, "Enviar") == JFileChooser.APPROVE_OPTION) {
+                caminho = arquivo.getSelectedFile().getAbsolutePath();
+            }
+            if (caminho.equals(null)) {
                 FacesContext.getCurrentInstance().addMessage(null,
                         new FacesMessage(FacesMessage.SEVERITY_INFO, "Erro!", "As armas não foram cadastradas!"));
             } else {
-                OPCPackage pkg = OPCPackage.open(file);
+                OPCPackage pkg = OPCPackage.open(caminho);
                 XSSFWorkbook wb = new XSSFWorkbook(pkg);
                 for (Sheet sheet : wb) {
                     for (int i = 0; i < sheet.getLastRowNum(); i++) { //linha

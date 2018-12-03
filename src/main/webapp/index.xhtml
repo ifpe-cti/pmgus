@@ -28,6 +28,7 @@
     <h:body>
         <div id="divCima">
             <hl><img src="\imagens\CimaPMGus.jpg" height="122"/></hl>
+            
         </div>
         <h:form id="formMenu" >
              <p:panelGrid columns="3" >
@@ -35,6 +36,7 @@
                         <p:inputText id="txtLogin" value="#{loginController.login}"
                                      required="true" requiredMessage="O login é obrigatório"/>
                         <p:message for="txtLogin"/>
+                        
                         <h:outputText value="Senha:"/>
                         <p:inputText id="txtSenha" value="#{loginController.senha}"
                                      required="true" requiredMessage="A senha é obrigatória" type="password"/>
