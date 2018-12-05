@@ -26,7 +26,6 @@
        <img class="cima" src="\imagens\CimaPMGus.jpg" />
         <ui:include src="menubar.xhtml"/>
         <h:form id="formOcorrencia">
-        
             <p:dataTable var="item" value="#{fachada.ocorrenciacontroller.recuperarTodosOcorrencia()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="4">
@@ -108,7 +107,6 @@
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.codigo}"/>
-
                     <h:outputText value="Ocorrência:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.ocorrencia}"/>     
 

@@ -2,8 +2,13 @@ package com.github.viniciussoaresti.pmgus.controladores;
 
 import com.github.viniciussoaresti.pmgus.negocio.Arma;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.ss.usermodel.Cell;
@@ -18,6 +23,8 @@ import org.primefaces.model.UploadedFile;
  *
  * @author vinic
  */
+@ManagedBean
+@SessionScoped
 public class ExcelController {
 
     List<Arma> armas;
@@ -31,22 +38,16 @@ public class ExcelController {
         this.arquivoupload = arquivoupload;
     }
 
-    public void upload() {
-        if (arquivoupload != null) {
-            FacesMessage message = new FacesMessage("Sucesso no upload de ", arquivoupload.getFileName() + ".");
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
+    public void carregarUpload(FileUploadEvent event) throws FileNotFoundException, IOException {
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "O upload foi realizado!"));
+        setArquivoupload(event.getFile());
     }
 
-    public void handleFileUpload(FileUploadEvent event) {
-        FacesMessage msg = new FacesMessage("Sucesso no upload de ", event.getFile().getFileName() + ".");
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-
-    public boolean cadastrarArmas(ArmaController armacontroller) {
+    public void cadastrarArmas(ArmaController armacontroller) {
         try {
+            armas = new ArrayList<>();
             if (arquivoupload != null) {
-                System.out.println(arquivoupload.getFileName());
                 OPCPackage pkg = OPCPackage.open(new File(arquivoupload.getFileName()));
                 XSSFWorkbook wb = new XSSFWorkbook(pkg);
                 for (Sheet sheet : wb) {
@@ -59,8 +60,6 @@ public class ExcelController {
                             Arma arma = new Arma();
                             for (Cell celula : linha) { //coluna
                                 switch (celula.getColumnIndex()) {
-                                    case 0://código é definido automaticamente
-                                        break;
                                     case 1:
                                         arma.setTipoDeArma(celula.getStringCellValue());
                                         break;
@@ -84,11 +83,15 @@ public class ExcelController {
                     armacontroller.inserir();
                 }
                 pkg.close();
-                return true;
+                FacesContext.getCurrentInstance().getExternalContext().redirect("crudArma.xhtml");
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "As armas foram cadastradas com sucesso!"));
+            } else {
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_INFO, "Erro!", "As armas não foram cadastradas!"));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
     }
 }

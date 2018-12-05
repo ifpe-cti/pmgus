@@ -56,7 +56,7 @@ public class Fachada {
     public ExcelController getExcelcontroller() {
         return excelcontroller;
     }
-
+    
     public void cadastrarArmaExcel(){
         excelcontroller.cadastrarArmas(armacontroller);
     }

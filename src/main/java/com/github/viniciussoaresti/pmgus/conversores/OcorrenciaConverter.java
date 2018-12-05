@@ -1,6 +1,5 @@
 package com.github.viniciussoaresti.pmgus.conversores;
 import com.github.viniciussoaresti.pmgus.controladores.OcorrenciaController;
-import com.github.viniciussoaresti.pmgus.controladores.OcorrenciaController;
 import com.github.viniciussoaresti.pmgus.negocio.Ocorrencia;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -12,7 +11,7 @@ import javax.faces.convert.FacesConverter;
  *
  * @author viniciussoaresti
  */
-   @FacesConverter("ocorrenciaConverter")
+   @FacesConverter("ocorrenciaconverter")
 public class OcorrenciaConverter implements Converter {
     public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
         if(value != null && value.trim().length() > 0) {
