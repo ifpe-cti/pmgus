@@ -26,11 +26,6 @@
        <img class="cima" src="\imagens\CimaPMGus.jpg" />
         <ui:include src="menubar.xhtml"/>
         <h:form id="formOcorrencia">
-<<<<<<< HEAD
-            <p:commandButton value="inserir" oncomplete="PF('widDialCadOcorrencia').show()"/>
-=======
-        
->>>>>>> 64fa970d5d817819e512a42c23eae3542cc2b6fb
             <p:dataTable var="item" value="#{fachada.ocorrenciacontroller.recuperarTodosOcorrencia()}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="4">
@@ -112,16 +107,6 @@
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.codigo}"/>
-
-<<<<<<< HEAD
-                    <h:outputText value="Ocorrencia:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.ocorrencia}"/>     
-
-                    <h:outputText value="Descrição da Ocorrencia:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.descricaoOcorrencia}"/>
-
-                    <h:outputText value="Data da Ocorrencia:"/>
-=======
                     <h:outputText value="Ocorrência:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.ocorrencia}"/>     
 
@@ -129,7 +114,6 @@
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.descricaoOcorrencia}"/>
 
                     <h:outputText value="Data da Ocorrência:"/>
->>>>>>> 64fa970d5d817819e512a42c23eae3542cc2b6fb
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dataOcorrencia}"/>
 
                     <h:outputText value="Flagrante:"/>
@@ -139,21 +123,6 @@
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco}"/>
 
                     <h:outputText value="Vítima:"/>
-<<<<<<< HEAD
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.vitima}"/>
-
-                    <h:outputText value="Arma:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.arma}"/>
-
-                    <h:outputText value="Droga:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.droga}"/>
-
-                    <h:outputText value="Unidade de Droga:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.unidade}"/>  
-                </p:panelGrid>
-                <p:commandButton value="Deseja mesmo deletar a ocorrencia?" action="#{fachada.ocorrenciacontroller.deletar()}" oncomplete="PF('widDialDeletaOcorrencia').hide()"
-                                 update="@form"/>
-=======
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.vitima.nome}"/>
 
                     <h:outputText value="Arma:"/>
@@ -167,7 +136,6 @@
                 </p:panelGrid>
                 <p:commandButton value="Deseja mesmo deletar a ocorrência?" action="#{fachada.ocorrenciacontroller.deletar()}" oncomplete="PF('widDialDeletaOcorrencia').hide()"
                                  update=":formOcorrencia :gro @form"/>
->>>>>>> 64fa970d5d817819e512a42c23eae3542cc2b6fb
             </p:dialog>
              <p:commandButton value="inserir" oncomplete="PF('widDialCadOcorrencia').show()"/>
         </h:form>
