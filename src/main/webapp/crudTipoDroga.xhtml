@@ -9,44 +9,36 @@
     <h:head>
         <title>Crud Tipo de Droga</title>
         <style type="text/css">
-            #divCima {
+           img.cima {
                 width:100%;
-                position: relative;
-                overflow:hidden;
-                background:#fff url('CimaPMGus.jpg') top no-repeat;
-
+                height: 100%;
             }
-            #divBaixo {
+            img.baixo {
+                width:100%;
+                height: auto;
                 position: fixed;
                 bottom: 0;
-                right: 1;
-                width:100%;
-                overflow:hidden;
-                background:#fff url('BaixoPMGus.jpg') top no-repeat;
-
             }
         </style>
     </h:head>
     <h:body>
         <p:growl id="gro" showDetail="true" showSummary="true"/>
-        <div id="divCima">
-            <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
-        </div>
+       <img class="cima" src="\imagens\CimaPMGus.jpg" />
         <ui:include src="menubar.xhtml"/>
         <h:form id="formTipoDroga">
             <p:dataTable var="item" value="#{fachada.tipodrogacontroller.recuperarTodosTipoDroga()}"
                          rowKey="#{item.codigo}" paginator="true"
-                         rows="5">
+                         rows="4">
                 <f:facet name="header">
                     Tipos de Drogas Cadastrados
                 </f:facet>
-                <p:column headerText="Codigo">
+                <p:column headerText="Código">
                     <h:outputText value="#{item.codigo}"/>
                 </p:column>
                 <p:column headerText="Nome">
                     <h:outputText value="#{item.nome}"/>
                 </p:column>
-                <p:column headerText="operações" style="width: 12%">
+                <p:column headerText="Operações" style="width: 12%">
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaTipoDroga').show()" 
                                      update=":formTipoDroga:dialVisualizaTipoDroga">
                         <f:setPropertyActionListener value="#{item}" target="#{fachada.tipodrogacontroller.selectedTipoDroga}"/>
@@ -64,7 +56,7 @@
 
             <p:dialog id="dialVisualizaTipoDroga" visible="false" modal="true"
                       resizable="false" widgetVar="widDialVisualizaTipoDroga"
-                      header="dados do tipo de droga">
+                      header="Dados do Tipo de Droga">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
                     <h:outputText value="#{fachada.tipodrogacontroller.selectedTipoDroga.codigo}"/>
@@ -77,7 +69,7 @@
 
             <p:dialog id="dialDeletaTipoDroga" visible="false" modal="true"
                       resizable="false" widgetVar="widDialDeletaTipoDroga"
-                      header="dados do tipo de droga">
+                      header="Dados do Tipo de Droga">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
                     <h:outputText value="#{fachada.tipodrogacontroller.selectedTipoDroga.codigo}"/>
@@ -85,8 +77,8 @@
                     <h:outputText value="Nome:"/>
                     <h:outputText value="#{fachada.tipodrogacontroller.selectedTipoDroga.nome}"/>
                 </p:panelGrid>
-                <p:commandButton value="Deseja mesmo deletar o tipoDroga?" action="#{fachada.tipodrogacontroller.deletar()}" oncomplete="PF('widDialDeletaTipoDroga').hide()"
-                                 update="@form"/>
+                <p:commandButton value="Deseja mesmo deletar o Tipo de Droga?" action="#{fachada.tipodrogacontroller.deletar()}" oncomplete="PF('widDialDeletaTipoDroga').hide()"
+                                 update=":formTipoDroga :gro @form"/>
             </p:dialog>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadTipoDroga').show()"/>
         </h:form>
@@ -95,7 +87,7 @@
                   widgetVar="widDialCadTipoDroga" header="Cadastrar Tipo de Droga">
 
             <h:form id="formDialCadTipoDroga">
-                <p:fieldset legend="cadastrar tipo de droga">
+                <p:fieldset legend="Cadastrar Tipo de Droga">
                     <p:panelGrid columns="3">
                         <h:outputText value="Nome*:"/>
                         <p:inputText id="txtNome" value="#{fachada.tipodrogacontroller.tipoDrogaCadastro.nome}"
@@ -112,7 +104,7 @@
         <p:dialog id="dialAlteraTipoDroga" visible="false" modal="true" resizable="false"
                   widgetVar="widDialAlteraTipoDroga" header="Alterar Tipo de Droga">
             <h:form id="formDialAlteraTipoDroga">
-                <p:fieldset legend="alterar tipo de droga">
+                <p:fieldset legend="Alterar Tipo de Droga">
                     <p:panelGrid columns="3">
                         <h:outputText value="Nome*:"/>
                         <p:inputText id="txtNome" value="#{fachada.tipodrogacontroller.selectedTipoDroga.nome}"
@@ -125,9 +117,7 @@
                 </p:fieldset>
             </h:form>
         </p:dialog>
-        <div id="divBaixo" align="justify">
-            <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
-        </div>
+         <img class="baixo" src="\imagens\BaixoPMGus.jpg"/>
     </h:body>
 </html>
 

@@ -85,6 +85,7 @@ public class Ocorrencia implements Serializable {
             endereco = new Endereco();
         }
         return endereco;
+
     }
 
     public void setEndereco(Endereco endereco) {
@@ -93,7 +94,7 @@ public class Ocorrencia implements Serializable {
 
     public Vitima getVitima() {
         if (vitima == null) {
-            endereco = new Endereco();
+            vitima = new Vitima();
         }
         return vitima;
     }
@@ -104,7 +105,7 @@ public class Ocorrencia implements Serializable {
 
     public Arma getArma() {
         if (arma == null) {
-            endereco = new Endereco();
+            arma = new Arma();
         }
         return arma;
     }
@@ -114,22 +115,26 @@ public class Ocorrencia implements Serializable {
     }
 
     public TipoDroga getDroga() {
-        if (droga == null) {
-            endereco = new Endereco();
+            if (droga == null) {
+                droga = new TipoDroga();
+            }
+            return droga;
         }
-        return droga;
-    }
+
+    
 
     public void setDroga(TipoDroga droga) {
         this.droga = droga;
     }
 
     public UnidadeDroga getUnidade() {
-        if (unidade == null) {
-            endereco = new Endereco();
+            if (unidade == null) {
+                unidade = new UnidadeDroga();
+            }
+            return unidade;
         }
-        return unidade;
-    }
+
+    
 
     public void setUnidade(UnidadeDroga unidade) {
         this.unidade = unidade;

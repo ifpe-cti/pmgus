@@ -22,7 +22,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class MunicipioController {
+public class MunicipioController{
      private RepositorioGenerico<Municipio,Integer> repositorioMunicipio = null;
     private Municipio municipioCadastro;
     private Municipio selectedMunicipio;
@@ -40,13 +40,21 @@ public class MunicipioController {
         this.municipioCadastro = new Municipio();
         
         FacesContext.getCurrentInstance().addMessage(null, 
+<<<<<<< HEAD
                 new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","O municipio foi cadastrada com sucesso!"));
+=======
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","O município foi cadastrado com sucesso!"));
+>>>>>>> 64fa970d5d817819e512a42c23eae3542cc2b6fb
     }
     
     public void alterar(Municipio c){
         this.repositorioMunicipio.alterar(c);
         FacesContext.getCurrentInstance().addMessage(null, 
+<<<<<<< HEAD
                 new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","O municipio foi alterada com sucesso!"));
+=======
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","O município foi alterado com sucesso!"));
+>>>>>>> 64fa970d5d817819e512a42c23eae3542cc2b6fb
     }
     
     public Municipio recuperarMunicipio(int codigo){
@@ -56,7 +64,11 @@ public class MunicipioController {
     public void deletar(){
         this.repositorioMunicipio.deletar(selectedMunicipio);
         FacesContext.getCurrentInstance().addMessage(null, 
+<<<<<<< HEAD
                 new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","O municipio foi deletada com sucesso!"));
+=======
+                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","O município foi deletado com sucesso!"));
+>>>>>>> 64fa970d5d817819e512a42c23eae3542cc2b6fb
     }
     
     public List<Municipio> recuperarTodosMunicipios(){

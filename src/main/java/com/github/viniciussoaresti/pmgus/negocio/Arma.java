@@ -79,7 +79,7 @@ public class Arma {
     public void setCalibre(String calibre) {
         this.calibre = calibre;
     }
-    
+
     public boolean equals (Object obj){
         if(obj == null){
             return false;

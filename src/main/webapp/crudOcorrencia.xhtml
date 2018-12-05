@@ -7,57 +7,53 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>CRUD Ocorrencia</title>
+        <title>CRUD Ocorrência</title>
         <style type="text/css">
-            #divCima {
+          img.cima {
                 width:100%;
-                position: relative;
-                overflow:hidden;
-                background:#fff url('CimaPMGus.jpg') top no-repeat;
-
+                height: 100%;
             }
-            #divBaixo {
+            img.baixo {
+                width:100%;
+                height: auto;
                 position: fixed;
                 bottom: 0;
-                right: 1;
-                width:100%;
-                overflow:hidden;
-                background:#fff url('BaixoPMGus.jpg') top no-repeat;
-
             }
         </style>
     </h:head>
     <h:body>
         <p:growl id="gro" showDetail="true" showSummary="true"/>
-        <div id="divCima">
-            <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
-        </div>
+       <img class="cima" src="\imagens\CimaPMGus.jpg" />
         <ui:include src="menubar.xhtml"/>
         <h:form id="formOcorrencia">
+<<<<<<< HEAD
             <p:commandButton value="inserir" oncomplete="PF('widDialCadOcorrencia').show()"/>
+=======
+        
+>>>>>>> 64fa970d5d817819e512a42c23eae3542cc2b6fb
             <p:dataTable var="item" value="#{fachada.ocorrenciacontroller.recuperarTodosOcorrencia()}"
                          rowKey="#{item.codigo}" paginator="true"
-                         rows="5">
+                         rows="4">
                 <f:facet name="header">
-                    Ocorrencias Cadastradas
+                    Ocorrências Cadastradas
                 </f:facet>
-                <p:column headerText="Codigo">
+                <p:column headerText="Código">
                     <h:outputText value="#{item.codigo}"/>
                 </p:column>
-                <p:column headerText="Data Ocorrencia">
+                <p:column headerText="Data Ocorrência">
                     <h:outputText value="#{item.dataOcorrencia}"/>
                 </p:column>
                 <p:column headerText="Endereço">
                     <h:outputText value="#{item.endereco}"/>
                 </p:column>
                 <p:column headerText="Arma">
-                    <h:outputText value="#{item.arma}"/>
+                    <h:outputText value="#{item.arma.modelo}"/>
                 </p:column>
                 <p:column headerText="Droga">
-                    <h:outputText value="#{item.droga}"/>
+                    <h:outputText value="#{item.droga.nome}"/>
                 </p:column>
 
-                <p:column headerText="operações" style="width: 12%">
+                <p:column headerText="Operações" style="width: 12%">
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaOcorrencia').show()" 
                                      update=":formOcorrencia:dialVisualizaOcorrencia">
                         <f:setPropertyActionListener value="#{item}" target="#{fachada.ocorrenciacontroller.selectedOcorrencia}"/>
@@ -75,37 +71,37 @@
 
             <p:dialog id="dialVisualizaOcorrencia" visible="false" modal="true"
                       resizable="false" widgetVar="widDialVisualizaOcorrencia"
-                      header="dados de ocorrencia">
+                      header="Dados de Ocorrência">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
-                    <h:outputText value="#{fachada.ocorrenciaacontroller.selectedOcorrencia.codigo}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.codigo}"/>
 
-                    <h:outputText value="Ocorrencia:"/>
-                    <h:outputText value="#{fachada.ocorrenciaacontroller.selectedOcorrencia.ocorrencia}"/>     
+                    <h:outputText value="Ocorrência:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.ocorrencia}"/>     
 
-                    <h:outputText value="Descrição da Ocorrencia:"/>
-                    <h:outputText value="#{fachada.ocorrenciaacontroller.selectedOcorrencia.descricaoOcorrencia}"/>
+                    <h:outputText value="Descrição da Ocorrência:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.descricaoOcorrencia}"/>
 
-                    <h:outputText value="Data da Ocorrencia:"/>
-                    <h:outputText value="#{fachada.ocorrenciaacontroller.selectedOcorrencia.dataOcorrencia}"/>
+                    <h:outputText value="Data da Ocorrência:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dataOcorrencia}"/>
 
                     <h:outputText value="Flagrante:"/>
-                    <h:outputText value="#{fachada.ocorrenciaacontroller.selectedOcorrencia.flagrante}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.flagrante}"/>
 
                     <h:outputText value="Endereço:"/>
-                    <h:outputText value="#{fachada.ocorrenciaacontroller.selectedOcorrencia.endereco}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco}"/>
 
                     <h:outputText value="Vítima:"/>
-                    <h:outputText value="#{fachada.ocorrenciaacontroller.selectedOcorrencia.vitima}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.vitima.nome}"/>
 
                     <h:outputText value="Arma:"/>
-                    <h:outputText value="#{fachada.ocorrenciaacontroller.selectedOcorrencia.arma}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.arma.modelo}"/>
 
                     <h:outputText value="Droga:"/>
-                    <h:outputText value="#{fachada.ocorrenciaacontroller.selectedOcorrencia.droga}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.droga.nome}"/>
 
                     <h:outputText value="Unidade de Droga:"/>
-                    <h:outputText value="#{fachada.ocorrenciaacontroller.selectedOcorrencia.unidade}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.unidade.unidadeDroga}"/>
                 </p:panelGrid>
                 <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaOcorrencia').hide()"/>
             </p:dialog>
@@ -117,6 +113,7 @@
                     <h:outputText value="Código:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.codigo}"/>
 
+<<<<<<< HEAD
                     <h:outputText value="Ocorrencia:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.ocorrencia}"/>     
 
@@ -124,6 +121,15 @@
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.descricaoOcorrencia}"/>
 
                     <h:outputText value="Data da Ocorrencia:"/>
+=======
+                    <h:outputText value="Ocorrência:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.ocorrencia}"/>     
+
+                    <h:outputText value="Descrição da Ocorrência:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.descricaoOcorrencia}"/>
+
+                    <h:outputText value="Data da Ocorrência:"/>
+>>>>>>> 64fa970d5d817819e512a42c23eae3542cc2b6fb
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dataOcorrencia}"/>
 
                     <h:outputText value="Flagrante:"/>
@@ -133,6 +139,7 @@
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco}"/>
 
                     <h:outputText value="Vítima:"/>
+<<<<<<< HEAD
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.vitima}"/>
 
                     <h:outputText value="Arma:"/>
@@ -146,19 +153,34 @@
                 </p:panelGrid>
                 <p:commandButton value="Deseja mesmo deletar a ocorrencia?" action="#{fachada.ocorrenciacontroller.deletar()}" oncomplete="PF('widDialDeletaOcorrencia').hide()"
                                  update="@form"/>
+=======
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.vitima.nome}"/>
+
+                    <h:outputText value="Arma:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.arma.modelo}"/>
+
+                    <h:outputText value="Droga:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.droga.nome}"/>
+
+                    <h:outputText value="Unidade de Droga:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.unidade.unidadeDroga}"/>  
+                </p:panelGrid>
+                <p:commandButton value="Deseja mesmo deletar a ocorrência?" action="#{fachada.ocorrenciacontroller.deletar()}" oncomplete="PF('widDialDeletaOcorrencia').hide()"
+                                 update=":formOcorrencia :gro @form"/>
+>>>>>>> 64fa970d5d817819e512a42c23eae3542cc2b6fb
             </p:dialog>
+             <p:commandButton value="inserir" oncomplete="PF('widDialCadOcorrencia').show()"/>
         </h:form>
         <p:dialog id="dialCadOcorrencia" visible="false" modal="true" resizable="false"
-                  widgetVar="widDialCadOcorrencia" header="Cadastrar Ocorrencia">
+                  widgetVar="widDialCadOcorrencia" header="Cadastrar Ocorrência">
             <ui:include src="cadOcorrencia.xhtml"/>
         </p:dialog>
-
+        
         <p:dialog id="dialAlteraOcorrencia" visible="false" modal="true" resizable="false"
                   widgetVar="widDialAlteraOcorrencia" header="Alterar Ocorrencia">
             <ui:include src="altOcorrencia.xhtml"/>
         </p:dialog>
-        <div id="divBaixo" align="justify">
-            <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
-        </div>
+
+        <img class="baixo" src="\imagens\BaixoPMGus.jpg"/>
     </h:body>
 </html>

@@ -14,7 +14,7 @@ import org.primefaces.event.FlowEvent;
  */
 @ManagedBean
 @SessionScoped
-public class OcorrenciaController {
+public class OcorrenciaController{
     
     private RepositorioGenerico<Ocorrencia,Integer> repositorioOcorrencia = null;
     private Ocorrencia ocorrenciaCadastro;

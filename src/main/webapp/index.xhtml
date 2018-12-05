@@ -7,28 +7,20 @@
     <h:head>
         <title>Login</title>
         <style type="text/css">
-            #divCima {
+           img.cima {
                 width:100%;
-                position: relative;
-                overflow:hidden;
-                background:#fff url('imagens/CimaPMGus') top no-repeat;
-
+                height: 100%;
             }
-            #divBaixo {
+            img.baixo {
+                width:100%;
+                height: auto;
                 position: fixed;
                 bottom: 0;
-                right: 1;
-                width:100%;
-                overflow:hidden;
-                    background:#fff url('imagens/BaixoPMGus.jpg') top no-repeat;
-
             }
         </style>
     </h:head>
     <h:body>
-        <div id="divCima">
-            <hl><img src="\imagens\CimaPMGus.jpg" height="122"/></hl>
-        </div>
+        <img class="cima" src="\imagens\CimaPMGus.jpg" />
         <h:form id="formMenu" >
              <p:panelGrid columns="3" >
                         <h:outputText value="Login:" />
@@ -44,9 +36,7 @@
             <p:separator/>
         <p:separator/>
         </h:form>
-        <div id="divBaixo" align="justify">
-            <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
-        </div>
+        <img class="baixo" src="\imagens\BaixoPMGus.jpg"/>
     </h:body>
 </html>
 

@@ -13,30 +13,26 @@
                 width:20%;
                 padding:4px;
             }
-
             .value {
                 width:80%;
                 padding:4px;
             }
-
             .grid {
                 width:100%;
             }
-
             .error {
                 color: red;
             }
-
             .outputLabel {
                 font-weight: bold;
             }
-
             .grid {
                 width:33%;
                 padding:4px;
             }
         </style>
     </h:head>
+<<<<<<< HEAD
     <h:form id="formDialCadOcorrencia">
         <p:wizard flowListener="#{fachada.ocorrenciacontroller.onFlowProcess(event)}">
             <p:tab id="basico" title="Básico">
@@ -135,3 +131,109 @@
         </p:wizard>
     </h:form>
 </html>
+=======
+        <h:form id="formDialCadOcorrencia">
+            <p:wizard flowListener="#{fachada.ocorrenciacontroller.onFlowProcess}">
+                <p:tab id="basico" title="Básico">
+                    <p:panel header="Detalhes Básicos">
+                        <p:messages/>
+                        <h:panelGrid columns="2" columnClasses="label, value">
+                            <h:outputText value="Ocorrencia: *" />
+                            <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.ocorrencia}" required="true"/>
+
+                            <h:outputText value="Descrição: *" />
+                            <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.descricaoOcorrencia}" required="true"/>
+
+                            <h:outputLabel value="Data:*" for="datetime"/>
+                            <p:calendar id="datetime" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.dataOcorrencia}" pattern="dd/MM/yyyy HH:mm:ss" />
+                        </h:panelGrid>
+                    </p:panel>
+                </p:tab>
+
+                <p:tab id="enderecos" title="Endereço">
+                    <p:panel header="Detalhes do Endereço">
+                        <p:messages />
+                        <h:panelGrid columns="2" columnClasses="label, value">
+                            <h:outputText value="Endereço: "/>
+                            <p:selectOneMenu id="endereco" value="#{ocorrenciaController.ocorrenciaCadastro.endereco.municipio}" converter="municipioConverter">
+                            <f:selectItem itemLabel="Selecione:" itemValue="" />
+                            <f:selectItems value="#{municipioController.recuperarTodosMunicipios()}" var="municipio" itemLabel="#{municipio.nome}" itemValue="#{municipio}"/>
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                    </p:panel>
+                </p:tab>
+                 <p:tab id="flagrante" title="Flagrante">
+                    <p:panel header="Detalhes do Flagrante">
+                        <p:messages />
+                        <h:panelGrid columns="2" columnClasses="label, value">
+                            <h:outputText value="Flagrante: "/>
+                            <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.flagrante}" required="true"/>
+                            </h:panelGrid>
+                    </p:panel>
+                </p:tab>
+
+                <p:tab id="vitima" title="Vítima">
+                    <p:panel header="Vítima">
+                        <p:messages />
+                        <h:panelGrid columns="2" columnClasses="label, value">
+                            <h:outputText value="Nome*" />
+                            <p:selectOneMenu id="vitimas" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.vitima}" converter="vitimaConverter">
+                                <f:selectItem itemLabel="Selecione:" itemValue="" />
+                                <f:selectItems value="#{vitimaController.recuperarTodosVitimas()}" var="vitima" itemLabel="#{vitima.nome}" itemValue="#{vitima}"/>
+                            </p:selectOneMenu> 
+
+                        </h:panelGrid>
+                    </p:panel>
+                </p:tab>
+
+                <p:tab id="arma" title="Arma">
+                    <p:panel header="Arma">
+                        <p:messages />
+                        <h:panelGrid columns="2" columnClasses="label, value">
+                            <h:outputText value="Tipo de Arma: *" />
+                            <p:selectOneMenu id="armas" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.arma}" converter="armaConverter">
+                            <f:selectItem itemLabel="Selecione:" itemValue="" />
+                            <f:selectItems value="#{armaController.recuperarTodosArmas()}" var="arma" itemLabel="#{arma.tipoDeArma}" itemValue="#{arma}"/>
+                            </p:selectOneMenu>
+                             </h:panelGrid>
+                    </p:panel>
+                </p:tab>
+
+                <p:tab id="droga" title="Droga">
+                    <p:panel header="Droga">
+                        <p:messages />
+                        <h:panelGrid columns="2" columnClasses="label, value">
+                            <h:outputText value="Nome da Droga: *" />
+                          <p:selectOneMenu id="drogas" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.droga}" converter="tipoDrogaConverter">
+                            <f:selectItem itemLabel="Selecione:" itemValue="" />
+                            <f:selectItems value="#{tipoDrogaController.recuperarTodosTipoDroga()}" var="tipoDroga" itemLabel="#{tipoDroga.nome}" itemValue="#{tipoDroga}"/>
+                            </p:selectOneMenu>
+                        
+                        </h:panelGrid>
+                    </p:panel>
+                </p:tab>
+
+                <p:tab id="unidade" title="Unidade">
+                    <p:panel header="Unidade da Droga">
+                        <p:messages />
+                        <h:panelGrid columns="2" columnClasses="label, value">
+                            <h:outputText value="Unidade Droga: *" />
+                           <p:selectOneMenu id="unidades" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.unidade}" converter="unidadeDrogaConverter">
+                            <f:selectItem itemLabel="Selecione:" itemValue="" />
+                            <f:selectItems value="#{unidadeDrogaController.recuperarTodosUnidadeDroga()}" var="unidadeDroga" itemLabel="#{unidadeDroga.unidadeDroga}" itemValue="#{unidadeDroga}"/>
+                            </p:selectOneMenu>
+                            
+                        </h:panelGrid>
+                    </p:panel>
+                </p:tab>
+
+                <p:tab id="confirm" title="Confirmação">
+                    <p:panel header="Confirmação">
+                        <p:commandButton value="Cadastrar" action="#{fachada.ocorrenciacontroller.inserir()}" oncomplete="PF('widDialCadOcorrencia').hide()" 
+                                         update=':formOcorrencia :gro @form' process="@this"/>
+                    </p:panel>
+                </p:tab>
+            </p:wizard>
+        </h:form>
+</html>
+>>>>>>> 64fa970d5d817819e512a42c23eae3542cc2b6fb

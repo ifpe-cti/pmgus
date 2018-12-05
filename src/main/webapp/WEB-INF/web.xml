@@ -24,5 +24,16 @@
     <context-param>
         <param-name>primefaces.THEME</param-name>
         <param-value>glass-x</param-value>
+<<<<<<< HEAD
+=======
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+        <param-value>.xhtml</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.UPLOADER</param-name>
+        <param-value>commons</param-value>
+>>>>>>> 64fa970d5d817819e512a42c23eae3542cc2b6fb
     </context-param>
 </web-app>
