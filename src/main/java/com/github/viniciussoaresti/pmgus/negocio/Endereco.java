@@ -5,7 +5,6 @@
  */
 package com.github.viniciussoaresti.pmgus.negocio;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,18 +16,12 @@ import javax.persistence.ManyToOne;
  * @author Sb Grafica
  */
 @Entity
-public class Endereco implements Serializable{
+public class Endereco{
     @Id
     @GeneratedValue
     private int codigo;
     @ManyToOne
-    private Municipio municipio;
-    @Column(length = 50)
-    private String rua;
-    @Column(length = 9)
-    private String cep;
-    @Column(length = 6)
-    private int numero;
+    private Municipio municipio; 
     @Column(length = 30)
     private String bairro;
     
@@ -41,10 +34,7 @@ public class Endereco implements Serializable{
     
     public Endereco(int codigo, Municipio municipio, String rua, String cep, int numero, String bairro) {
         this.codigo = codigo;
-        this.municipio = municipio;
-        this.rua = rua;
-        this.cep = cep;
-        this.numero = numero;
+        this.municipio = municipio;   
         this.bairro = bairro;
     }
 
@@ -62,30 +52,6 @@ public class Endereco implements Serializable{
 
     public void setMunicipio(Municipio municipio) {
         this.municipio = municipio;
-    }
-
-    public String getRua() {
-        return rua;
-    }
-
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
     }
 
     public String getBairro() {

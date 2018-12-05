@@ -20,6 +20,7 @@ public class Fachada {
     static UnidadeDrogaController unidadedrogacontroller = new UnidadeDrogaController();
     static VitimaController vitimacontroller = new VitimaController();
     static ExcelController excelcontroller = new ExcelController();
+    static EncaminhamentosController encaminhamentoscontroller = new EncaminhamentosController();
 
     public ArmaController getArmacontroller() {
         return armacontroller;
@@ -60,4 +61,14 @@ public class Fachada {
     public void cadastrarArmaExcel(){
         excelcontroller.cadastrarArmas(armacontroller);
     }
+
+    public static EncaminhamentosController getEncaminhamentoscontroller() {
+        return encaminhamentoscontroller;
+    }
+
+    public static void setEncaminhamentoscontroller(EncaminhamentosController encaminhamentoscontroller) {
+        Fachada.encaminhamentoscontroller = encaminhamentoscontroller;
+    }
+    
+    
 }

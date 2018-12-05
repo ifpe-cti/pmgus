@@ -9,11 +9,11 @@
     <h:head>
         <title>Crud Endereço</title>
         <style type="text/css">
-        img.cima {
+            img.cima {
                 width:100%;
                 height: 100%;
             }
-           
+
             img.baixo {
                 width:100%;
                 height: auto;
@@ -39,17 +39,8 @@
                 <p:column headerText="Nome munícipio">
                     <h:outputText value="#{item.municipio.nome}"/>
                 </p:column>
-                <p:column headerText="CEP">
-                    <h:outputText value="#{item.cep}"/>
-                </p:column>
                 <p:column headerText="Bairro">
                     <h:outputText value="#{item.bairro}"/>
-                </p:column>
-                <p:column headerText="Rua">
-                    <h:outputText value="#{item.rua}"/>
-                </p:column>
-                <p:column headerText="Número">
-                    <h:outputText value="#{item.numero}"/>
                 </p:column>
 
                 <p:column headerText="Operações" style="width: 12%">
@@ -78,17 +69,9 @@
                     <h:outputText value="Nome município:"/>
                     <h:outputText value="#{fachada.enderecocontroller.selectedEndereco.municipio.nome}"/>     
 
-                    <h:outputText value="CEP:"/>
-                    <h:outputText value="#{fachada.enderecocontroller.selectedEndereco.cep}"/>  
-
                     <h:outputText value="Bairro:"/>
                     <h:outputText value="#{fachada.enderecocontroller.selectedEndereco.bairro}"/>     
 
-                    <h:outputText value="Rua:"/>
-                    <h:outputText value="#{fachada.enderecocontroller.selectedEndereco.rua}"/>   
-
-                    <h:outputText value="Número:"/>
-                    <h:outputText value="#{fachada.enderecocontroller.selectedEndereco.numero}"/>     
                 </p:panelGrid>
                 <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaEndereco').hide()"/>
             </p:dialog>
@@ -103,17 +86,10 @@
                     <h:outputText value="Nome município:"/>
                     <h:outputText value="#{fachada.enderecocontroller.selectedEndereco.municipio.nome}"/>     
 
-                    <h:outputText value="CEP:"/>
-                    <h:outputText value="#{fachada.enderecocontroller.selectedEndereco.cep}"/>  
-
                     <h:outputText value="Bairro:"/>
                     <h:outputText value="#{fachada.enderecocontroller.selectedEndereco.bairro}"/>     
 
-                    <h:outputText value="Rua:"/>
-                    <h:outputText value="#{fachada.enderecocontroller.selectedEndereco.rua}"/>   
 
-                    <h:outputText value="Número:"/>
-                    <h:outputText value="#{fachada.enderecocontroller.selectedEndereco.numero}"/>   
                 </p:panelGrid>
                 <p:commandButton value="Deseja mesmo deletar o endereço?" action="#{fachada.enderecocontroller.deletar()}" oncomplete="PF('widDialDeletaEndereco').hide()"
                                  update=":formEndereco :gro @form"/>
@@ -132,22 +108,13 @@
                             <f:selectItems value="#{municipioController.recuperarTodosMunicipios()}" var="municipio" itemLabel="#{municipio.nome}" itemValue="#{municipio}" />
                         </p:selectOneMenu>
                         <p:message for="txtNomeMunicipio"/>
-                        <h:outputText value="CEP*:"/>
-                        <p:inputText id="txtCep" value="#{fachada.enderecocontroller.enderecoCadastro.cep}"
-                                     required="true" requiredMessage="O CEP é obrigatório"/>
-                        <p:message for="txtCep"/>
+                       
+                        
                         <h:outputText value="Bairro*:"/>
                         <p:inputText id="txtBairro" value="#{fachada.enderecocontroller.enderecoCadastro.bairro}"
                                      required="true" requiredMessage="O bairro é obrigatório"/>
                         <p:message for="txtBairro"/>
-                        <h:outputText value="Rua*:"/>
-                        <p:inputText id="txtRua" value="#{fachada.enderecocontroller.enderecoCadastro.rua}"
-                                     required="true" requiredMessage="A rua é obrigatório"/>
-                        <p:message for="txtRua"/>
-                        <h:outputText value="Número*:"/>
-                        <p:inputText id="txtNumero" value="#{fachada.enderecocontroller.enderecoCadastro.numero}"
-                                     required="true" requiredMessage="O número é obrigatório"/>
-                        <p:message for="txtNumero"/>
+                       
                     </p:panelGrid>
                     <p:commandButton value="Cadastrar" action="#{fachada.enderecocontroller.inserir()}"
                                      oncomplete="PF('widDialCadEndereco').hide()" 
@@ -166,22 +133,12 @@
                             <f:selectItems value="#{municipioController.recuperarTodosMunicipios()}" var="municipio" itemLabel="#{municipio.nome}" itemValue="#{municipio}" />
                         </p:selectOneListbox>
                         <p:message for="txtNomeMunicipio"/>
-                        <h:outputText value="CEP*:"/>
-                        <p:inputText id="txtCep" value="#{fachada.enderecocontroller.selectedEndereco.cep}"
-                                     required="true" requiredMessage="O CEP é obrigatório"/>
-                        <p:message for="txtCep"/>
+                        
                         <h:outputText value="Bairro*:"/>
                         <p:inputText id="txtBairro" value="#{fachada.enderecocontroller.selectedEndereco.bairro}"
                                      required="true" requiredMessage="O bairro é obrigatório"/>
                         <p:message for="txtBairro"/>
-                        <h:outputText value="Rua*:"/>
-                        <p:inputText id="txtRua" value="#{fachada.enderecocontroller.selectedEndereco.rua}"
-                                     required="true" requiredMessage="A rua é obrigatório"/>
-                        <p:message for="txtRua"/>
-                        <h:outputText value="Numero*:"/>
-                        <p:inputText id="txtNumero" value="#{fachada.enderecocontroller.selectedEndereco.numero}"
-                                     required="true" requiredMessage="O número é obrigatório"/>
-                        <p:message for="txtNumero"/>
+                       
                     </p:panelGrid>
                     <p:commandButton value="Alterar" action="#{fachada.enderecocontroller.alterar(fachada.enderecocontroller.selectedEndereco)}"
                                      oncomplete="PF('widDialAlteraEndereco').hide()" 
@@ -189,9 +146,9 @@
                 </p:fieldset>
             </h:form>
         </p:dialog>
-       
-            <img class="baixo" src="\imagens\BaixoPMGus.jpg"/>
-        
+
+        <img class="baixo" src="\imagens\BaixoPMGus.jpg"/>
+
     </h:body>
 </html>
 
