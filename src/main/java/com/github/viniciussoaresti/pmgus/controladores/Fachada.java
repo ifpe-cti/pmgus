@@ -18,7 +18,7 @@ public class Fachada {
     static OcorrenciaController ocorrenciacontroller = new OcorrenciaController();
     static TipoDrogaController tipodrogacontroller = new TipoDrogaController();
     static UnidadeDrogaController unidadedrogacontroller = new UnidadeDrogaController();
-    static VitimaController vitimacontroller = new VitimaController();
+  
     static ExcelController excelcontroller = new ExcelController();
     static EncaminhamentosController encaminhamentoscontroller = new EncaminhamentosController();
 
@@ -50,9 +50,7 @@ public class Fachada {
         return unidadedrogacontroller;
     }
 
-    public VitimaController getVitimacontroller() {
-        return vitimacontroller;
-    }
+    
 
     public ExcelController getExcelcontroller() {
         return excelcontroller;
@@ -65,10 +63,4 @@ public class Fachada {
     public static EncaminhamentosController getEncaminhamentoscontroller() {
         return encaminhamentoscontroller;
     }
-
-    public static void setEncaminhamentoscontroller(EncaminhamentosController encaminhamentoscontroller) {
-        Fachada.encaminhamentoscontroller = encaminhamentoscontroller;
-    }
-    
-    
 }
