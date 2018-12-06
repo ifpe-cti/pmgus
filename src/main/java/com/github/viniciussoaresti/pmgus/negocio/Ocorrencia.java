@@ -101,10 +101,7 @@ public class Ocorrencia implements Serializable {
     }
     
     public Municipio getMunicipio() {
-          if (municipio == null){
-             municipio = new Municipio();
-             }
-        return municipio;
+         return municipio;
 
     }
     public void setMunicipio(Municipio municipio) {
@@ -112,9 +109,6 @@ public class Ocorrencia implements Serializable {
     }
 
     public Arma getArma() {
-        if (arma == null) {
-            arma = new Arma();
-        }
         return arma;
     }
 
@@ -122,10 +116,7 @@ public class Ocorrencia implements Serializable {
         this.arma = arma;
     }
 
-    public TipoDroga getDroga() {
-            if (droga == null) {
-                droga = new TipoDroga();
-            }
+    public TipoDroga getDroga(){
             return droga;
         }
 
@@ -136,22 +127,14 @@ public class Ocorrencia implements Serializable {
     }
 
     public UnidadeDroga getUnidade() {
-            if (unidade == null) {
-                unidade = new UnidadeDroga();
-            }
-            return unidade;
+          return unidade;
         }
-
-    
 
     public void setUnidade(UnidadeDroga unidade) {
         this.unidade = unidade;
     }
 
     public Endereco getEndereco() {
-        if (endereco == null){
-           endereco = new Endereco();
-        }
         return endereco;
     }
 
