@@ -1,5 +1,6 @@
 package com.github.viniciussoaresti.pmgus.negocio;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,14 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Version;
 
 /**
  *
  * @author BarrosPedro
  */
 @Entity
-public class Ocorrencia {
+public class Ocorrencia implements Serializable {
 
     @Id
     @GeneratedValue
@@ -105,16 +105,16 @@ public class Ocorrencia {
              municipio = new Municipio();
              }
         return municipio;
-    }
 
+    }
     public void setMunicipio(Municipio municipio) {
         this.municipio = municipio;
     }
 
     public Arma getArma() {
-          if (arma == null){
-                arma = new Arma();
-            }
+        if (arma == null) {
+            arma = new Arma();
+        }
         return arma;
     }
 
@@ -123,22 +123,26 @@ public class Ocorrencia {
     }
 
     public TipoDroga getDroga() {
-          if (droga == null){
-            droga = new TipoDroga();
+            if (droga == null) {
+                droga = new TipoDroga();
+            }
+            return droga;
         }
-        return droga;
-    }
+
+    
 
     public void setDroga(TipoDroga droga) {
         this.droga = droga;
     }
 
     public UnidadeDroga getUnidade() {
-          if (unidade == null){
-           unidade = new UnidadeDroga();
+            if (unidade == null) {
+                unidade = new UnidadeDroga();
+            }
+            return unidade;
         }
-        return unidade;
-    }
+
+    
 
     public void setUnidade(UnidadeDroga unidade) {
         this.unidade = unidade;
