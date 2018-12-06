@@ -4,12 +4,16 @@ import com.github.viniciussoaresti.pmgus.negocio.Arma;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.Part;
+import javax.swing.JFileChooser;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -24,31 +28,26 @@ import org.primefaces.model.UploadedFile;
  * @author vinic
  */
 @ManagedBean
-@SessionScoped
+@ApplicationScoped
 public class ExcelController {
 
     List<Arma> armas;
-    private UploadedFile arquivoupload;
-
-    public UploadedFile getArquivoupload() {
-        return arquivoupload;
-    }
-
-    public void setArquivoupload(UploadedFile arquivoupload) {
-        this.arquivoupload = arquivoupload;
-    }
-
-    public void carregarUpload(FileUploadEvent event) throws FileNotFoundException, IOException {
-        FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "O upload foi realizado!"));
-        setArquivoupload(event.getFile());
-    }
 
     public void cadastrarArmas(ArmaController armacontroller) {
+        JFileChooser arquivo = new JFileChooser();
+        armas = new ArrayList<>();
+        String caminho = null;
         try {
-            armas = new ArrayList<>();
-            if (arquivoupload != null) {
-                OPCPackage pkg = OPCPackage.open(new File(arquivoupload.getFileName()));
+            if (arquivo.showDialog(null, "Enviar") == JFileChooser.APPROVE_OPTION) {
+                caminho = arquivo.getSelectedFile().getAbsolutePath();
+            }
+            if (caminho == null) {
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_INFO, "Erro!", "As armas não foram cadastradas!"));
+            } else {
+                  FacesContext.getCurrentInstance().addMessage(null,
+                  new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "O upload foi realizado com sucesso!"));
+                OPCPackage pkg = OPCPackage.open(caminho);
                 XSSFWorkbook wb = new XSSFWorkbook(pkg);
                 for (Sheet sheet : wb) {
                     for (int i = 0; i < sheet.getLastRowNum(); i++) { //linha
@@ -70,7 +69,7 @@ public class ExcelController {
                                         arma.setMarca(celula.getStringCellValue());
                                         break;
                                     case 4:
-                                        arma.setCalibre(celula.getStringCellValue());
+                                        arma.setCalibre(Double.toString(celula.getNumericCellValue()));
                                         break;
                                 }
                             }
@@ -86,9 +85,6 @@ public class ExcelController {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("crudArma.xhtml");
                 FacesContext.getCurrentInstance().addMessage(null,
                         new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "As armas foram cadastradas com sucesso!"));
-            } else {
-                FacesContext.getCurrentInstance().addMessage(null,
-                        new FacesMessage(FacesMessage.SEVERITY_INFO, "Erro!", "As armas não foram cadastradas!"));
             }
         } catch (Exception e) {
             e.printStackTrace();

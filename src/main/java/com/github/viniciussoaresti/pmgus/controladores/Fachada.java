@@ -49,13 +49,11 @@ public class Fachada {
         return unidadedrogacontroller;
     }
 
-    
-
     public ExcelController getExcelcontroller() {
         return excelcontroller;
     }
     
-    public void cadastrarArmaExcel(){
+    public void cadastrarArmas(){
         excelcontroller.cadastrarArmas(armacontroller);
     }
 
