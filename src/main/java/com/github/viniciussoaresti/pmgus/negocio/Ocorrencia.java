@@ -12,7 +12,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author vinic
+ * @author BarrosPedro
  */
 @Entity
 public class Ocorrencia implements Serializable {
@@ -27,19 +27,39 @@ public class Ocorrencia implements Serializable {
     @Column(name = "DATA_OCORRENCIA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataOcorrencia;
+    
     @Column(length = 50)
-    private String flagrante;
+    private String zona;
+    @OneToOne(optional = false)
+    private Municipio municipio;
     @OneToOne(optional = false)
     private Endereco endereco;
-    @OneToOne(optional = false)
-    private Vitima vitima;
+
     @OneToOne(optional = false)
     private Arma arma;
     @OneToOne(optional = false)
     private TipoDroga droga;
     @OneToOne(optional = false)
     private UnidadeDroga unidade;
-
+    @Column(length = 70)
+    private String outrasApreensoes;
+     @Column(length = 10)
+    private String qtdeArma;
+      @Column(length = 10)
+    private String qtdeDroga;
+    
+    @Column(length = 45) 
+    private String nomeImputado;
+    @Column(length = 20)
+    private String EstadoCivilImputado;
+    @Column(length = 25)
+    private String profissaoImputado;
+    @Column(length = 3)
+    private int idadeImputado;
+    @Column(length = 60)
+    private String enderecoImputado;
+    
+    
     public int getCodigo() {
         return codigo;
     }
@@ -72,35 +92,23 @@ public class Ocorrencia implements Serializable {
         this.dataOcorrencia = dataOcorrencia;
     }
 
-    public String getFlagrante() {
-        return flagrante;
+    public String getZona() {
+        return zona;
     }
 
-    public void setFlagrante(String flagrante) {
-        this.flagrante = flagrante;
+    public void setZona(String zona) {
+        this.zona = zona;
     }
-
-    public Endereco getEndereco() {
-        if (endereco == null) {
-            endereco = new Endereco();
-        }
-        return endereco;
+    
+    public Municipio getMunicipio() {
+          if (municipio == null){
+             municipio = new Municipio();
+             }
+        return municipio;
 
     }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-
-    public Vitima getVitima() {
-        if (vitima == null) {
-            vitima = new Vitima();
-        }
-        return vitima;
-    }
-
-    public void setVitima(Vitima vitima) {
-        this.vitima = vitima;
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
     }
 
     public Arma getArma() {
@@ -140,20 +148,105 @@ public class Ocorrencia implements Serializable {
         this.unidade = unidade;
     }
 
-    public Ocorrencia() {
-
+    public Endereco getEndereco() {
+        if (endereco == null){
+           endereco = new Endereco();
+        }
+        return endereco;
     }
 
-    public Ocorrencia(int codigo, String ocorrencia, String descricaoOcorrencia, Date dataOcorrencia, String flagrante, Endereco endereco, Vitima vitima, Arma arma, TipoDroga droga, UnidadeDroga unidade) {
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getOutrasApreensoes() {
+        return outrasApreensoes;
+    }
+
+    public void setOutrasApreensoes(String outrasApreensoes) {
+        this.outrasApreensoes = outrasApreensoes;
+    }
+
+    public String getNomeImputado() {
+        return nomeImputado;
+    }
+
+    public void setNomeImputado(String nomeImputado) {
+        this.nomeImputado = nomeImputado;
+    }
+
+    public String getEstadoCivilImputado() {
+        return EstadoCivilImputado;
+    }
+
+    public void setEstadoCivilImputado(String EstadoCivilImputado) {
+        this.EstadoCivilImputado = EstadoCivilImputado;
+    }
+
+    public String getProfissaoImputado() {
+        return profissaoImputado;
+    }
+
+    public void setProfissaoImputado(String profissaoImputado) {
+        this.profissaoImputado = profissaoImputado;
+    }
+
+    public int getIdadeImputado() {
+        return idadeImputado;
+    }
+
+    public void setIdadeImputado(int idadeImputado) {
+        this.idadeImputado = idadeImputado;
+    }
+
+    public String getEnderecoImputado() {
+        return enderecoImputado;
+    }
+
+    public void setEnderecoImputado(String enderecoImputado) {
+        this.enderecoImputado = enderecoImputado;
+    }
+
+    public String getQtdeArma() {
+        return qtdeArma;
+    }
+
+    public void setQtdeArma(String qtdeArma) {
+        this.qtdeArma = qtdeArma;
+    }
+
+    public String getQtdeDroga() {
+        return qtdeDroga;
+    }
+
+    public void setQtdeDroga(String qtdeDroga) {
+        this.qtdeDroga = qtdeDroga;
+    }
+    
+
+    public Ocorrencia() {
+    }
+
+    public Ocorrencia(int codigo, String ocorrencia, String descricaoOcorrencia, Date dataOcorrencia, String zona, Municipio municipio, Endereco endereco, Arma arma, TipoDroga droga, UnidadeDroga unidade, String outrasApreensoes, String qtdeArma, String qtdeDroga, String nomeImputado, String EstadoCivilImputado, String profissaoImputado, int idadeImputado, String enderecoImputado) {
         this.codigo = codigo;
         this.ocorrencia = ocorrencia;
         this.descricaoOcorrencia = descricaoOcorrencia;
         this.dataOcorrencia = dataOcorrencia;
-        this.flagrante = flagrante;
+        this.zona = zona;
+        this.municipio = municipio;
         this.endereco = endereco;
-        this.vitima = vitima;
         this.arma = arma;
         this.droga = droga;
         this.unidade = unidade;
+        this.outrasApreensoes = outrasApreensoes;
+        this.qtdeArma = qtdeArma;
+        this.qtdeDroga = qtdeDroga;
+        this.nomeImputado = nomeImputado;
+        this.EstadoCivilImputado = EstadoCivilImputado;
+        this.profissaoImputado = profissaoImputado;
+        this.idadeImputado = idadeImputado;
+        this.enderecoImputado = enderecoImputado;
     }
+    
+     
 }

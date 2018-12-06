@@ -8,8 +8,9 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>CRUD Ocorrência</title>
+        
         <style type="text/css">
-          img.cima {
+            img.cima {
                 width:100%;
                 height: 100%;
             }
@@ -23,7 +24,7 @@
     </h:head>
     <h:body>
         <p:growl id="gro" showDetail="true" showSummary="true"/>
-       <img class="cima" src="\imagens\CimaPMGus.jpg" />
+        <img class="cima" src="\imagens\CimaPMGus.jpg" />
         <ui:include src="menubar.xhtml"/>
         <h:form id="formOcorrencia">
             <p:dataTable var="item" value="#{fachada.ocorrenciacontroller.recuperarTodosOcorrencia()}"
@@ -35,18 +36,16 @@
                 <p:column headerText="Código">
                     <h:outputText value="#{item.codigo}"/>
                 </p:column>
+                <p:column headerText="Ocorrência">
+                    <h:outputText value="#{item.ocorrencia}"/>
+                </p:column>
                 <p:column headerText="Data Ocorrência">
                     <h:outputText value="#{item.dataOcorrencia}"/>
                 </p:column>
-                <p:column headerText="Endereço">
-                    <h:outputText value="#{item.endereco}"/>
+                <p:column headerText="Município">
+                    <h:outputText value="#{item.municipio.nome}"/>
                 </p:column>
-                <p:column headerText="Arma">
-                    <h:outputText value="#{item.arma.modelo}"/>
-                </p:column>
-                <p:column headerText="Droga">
-                    <h:outputText value="#{item.droga.nome}"/>
-                </p:column>
+              
 
                 <p:column headerText="Operações" style="width: 12%">
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaOcorrencia').show()" 
@@ -80,24 +79,22 @@
                     <h:outputText value="Data da Ocorrência:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dataOcorrencia}"/>
 
-                    <h:outputText value="Flagrante:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.flagrante}"/>
-
                     <h:outputText value="Endereço:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco.bairro} - Zona #{fachada.ocorrenciacontroller.selectedOcorrencia.zona} - #{fachada.ocorrenciacontroller.selectedOcorrencia.municipio.nome}"/>
 
-                    <h:outputText value="Vítima:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.vitima.nome}"/>
-
+                    <h:outputText value="Dados do Imputado:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.nomeImputado}, #{fachada.ocorrenciacontroller.selectedOcorrencia.idadeImputado}"/>
+                    
                     <h:outputText value="Arma:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.arma.modelo}"/>
 
                     <h:outputText value="Droga:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.droga.nome}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.qtdeDroga} #{fachada.ocorrenciacontroller.selectedOcorrencia.unidade.unidadeDroga} #{fachada.ocorrenciacontroller.selectedOcorrencia.droga.nome}"/>
 
-                    <h:outputText value="Unidade de Droga:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.unidade.unidadeDroga}"/>
-                </p:panelGrid>
+                    <h:outputText value="Outras Apreensões:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.outrasApreensoes}"/>
+
+                    </p:panelGrid>
                 <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaOcorrencia').hide()"/>
             </p:dialog>
 
@@ -116,34 +113,31 @@
                     <h:outputText value="Data da Ocorrência:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dataOcorrencia}"/>
 
-                    <h:outputText value="Flagrante:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.flagrante}"/>
-
                     <h:outputText value="Endereço:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco.bairro} - Zona #{fachada.ocorrenciacontroller.selectedOcorrencia.zona} - #{fachada.ocorrenciacontroller.selectedOcorrencia.municipio.nome}"/>
 
-                    <h:outputText value="Vítima:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.vitima.nome}"/>
-
+                    <h:outputText value="Dados do Imputado:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.nomeImputado}, #{fachada.ocorrenciacontroller.selectedOcorrencia.idadeImputado}"/>
+                    
                     <h:outputText value="Arma:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.arma.modelo}"/>
 
                     <h:outputText value="Droga:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.droga.nome}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.qtdeDroga} #{fachada.ocorrenciacontroller.selectedOcorrencia.unidade.unidadeDroga} #{fachada.ocorrenciacontroller.selectedOcorrencia.droga.nome}"/>
 
-                    <h:outputText value="Unidade de Droga:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.unidade.unidadeDroga}"/>  
-                </p:panelGrid>
+                    <h:outputText value="Outras Apreensões:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.outrasApreensoes}"/>
+   </p:panelGrid>
                 <p:commandButton value="Deseja mesmo deletar a ocorrência?" action="#{fachada.ocorrenciacontroller.deletar()}" oncomplete="PF('widDialDeletaOcorrencia').hide()"
                                  update=":formOcorrencia :gro @form"/>
             </p:dialog>
-             <p:commandButton value="inserir" oncomplete="PF('widDialCadOcorrencia').show()"/>
+            <p:commandButton value="inserir" oncomplete="PF('widDialCadOcorrencia').show()"/>
         </h:form>
         <p:dialog id="dialCadOcorrencia" visible="false" modal="true" resizable="false"
                   widgetVar="widDialCadOcorrencia" header="Cadastrar Ocorrência">
             <ui:include src="cadOcorrencia.xhtml"/>
         </p:dialog>
-        
+
         <p:dialog id="dialAlteraOcorrencia" visible="false" modal="true" resizable="false"
                   widgetVar="widDialAlteraOcorrencia" header="Alterar Ocorrencia">
             <ui:include src="altOcorrencia.xhtml"/>

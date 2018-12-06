@@ -64,29 +64,6 @@
                         </h:panelGrid>
                     </p:panel>
                 </p:tab>
-                 <p:tab id="flagrante" title="Flagrante">
-                    <p:panel header="Detalhes do Flagrante">
-                        <p:messages />
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Flagrante: "/>
-                            <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.flagrante}" required="true"/>
-                            </h:panelGrid>
-                    </p:panel>
-                </p:tab>
-
-                <p:tab id="vitima" title="Vítima">
-                    <p:panel header="Vítima">
-                        <p:messages />
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Nome*" />
-                            <p:selectOneMenu id="vitimas" value="#{fachada.ocorrenciacontroller.selectedOcorrencia.vitima}" converter="vitimaConverter">
-                                <f:selectItem itemLabel="Selecione:" itemValue="" />
-                                <f:selectItems value="#{vitimaController.recuperarTodosVitimas()}" var="vitima" itemLabel="#{vitima.nome}" itemValue="#{vitima}"/>
-                            </p:selectOneMenu> 
-
-                        </h:panelGrid>
-                    </p:panel>
-                </p:tab>
 
                 <p:tab id="arma" title="Arma">
                     <p:panel header="Arma">
