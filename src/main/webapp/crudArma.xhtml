@@ -30,7 +30,7 @@
     <h:body>
         <p:growl id="gro" showDetail="true" showSummary="true"/>
         <div id="divCima">
-            <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
+            <hl><img src="\imagens\CimaPMGus.jpg"  height="128"/></hl>
         </div>
         <ui:include src="menubar.xhtml"/>
         <h:form id="formArma">    
@@ -116,7 +116,8 @@
                 <p:commandButton value="Deseja mesmo deletar a arma?" action="#{armaController.deletar()}" oncomplete="PF('widDialDeletaArma').hide()"
                                  update="@form"/>
             </p:dialog>
-            <p:commandButton value="inserir" oncomplete="PF('widDialCadArma').show()"/>
+            <p:commandButton value="inserir" oncomplete="PF('widDialCadArma').show()" />
+            
         </h:form>
 
         <p:dialog id="dialCadArma" visible="false" modal="true" resizable="false"
@@ -178,7 +179,7 @@
             </h:form>
         </p:dialog>
         <div id="divBaixo" align="justify">
-            <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
+            <hl><img src="\imagens\BaixoPMGus.jpg" height="106px"/></hl>
         </div>
     </h:body>
 </html>

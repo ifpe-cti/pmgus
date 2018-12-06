@@ -14,6 +14,8 @@
                 background:#fff url('imagens/CimaPMGus') top no-repeat;
 
             }
+         
+            
             #divBaixo {
                 position: fixed;
                 bottom: 0;
@@ -27,11 +29,12 @@
     </h:head>
     <h:body>
         <div id="divCima">
-            <hl><img src="\imagens\CimaPMGus.jpg" height="122"/></hl>
+            <hl><img src="\imagens\CimaPMGus.jpg" height="128"/></hl>
             
         </div>
         <h:form id="formMenu" >
-             <p:panelGrid columns="3" >
+            
+            <p:panelGrid columns="3"  >
                         <h:outputText value="Login:" />
                         <p:inputText id="txtLogin" value="#{loginController.login}"
                                      required="true" requiredMessage="O login é obrigatório"/>
@@ -42,12 +45,18 @@
                                      required="true" requiredMessage="A senha é obrigatória" type="password"/>
                         <p:message for="txtSenha"/>                                               
                     </p:panelGrid>
+            
+            <div align="left">
+                <br></br>
             <p:commandButton value="Logar" action="#{loginController.cripSenha(loginController.senha)}"/>
+            </div>
             <p:separator/>
         <p:separator/>
+        
         </h:form>
+        
         <div id="divBaixo" align="justify">
-            <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
+            <hl><img src="\imagens\BaixoPMGus.jpg" height="106px"/></hl>
         </div>
     </h:body>
 </html>

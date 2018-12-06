@@ -5,7 +5,8 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      >
     <h:head>
         <title>Cadastro Excel</title>
         <style type="text/css">
@@ -16,6 +17,12 @@
                 background:#fff url('CimaPMGus.jpg') top no-repeat;
 
             }
+            #divMeio{
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+                background: url('pm2.jpg') top no-repeat;
+            }
             #divBaixo {
                 position: fixed;
                 bottom: 0;
@@ -25,22 +32,56 @@
                 background:#fff url('BaixoPMGus.jpg') top no-repeat;
 
             }
+        #divCentro{
+                width:100%;
+                height: 100%;
+                overflow:hidden;
+                background:#fff url('imagens/pm.jpg') top no-repeat;
+                z-index: 1;
+            }
+            body{
+                background-image: url("#{resource['imagens/pm.png']}");
+                width:100%;
+                height:100%;
+                background-repeat: no-repeat;                
+            }
+            
         </style>
     </h:head>
-    <h:body>
+    <h:body >
+      
+            
         <p:growl id="gro" showDetail="true" showSummary="true"/>
         <div id="divCima">
             <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
         </div>
         <ui:include src="menubar.xhtml"/>
-        <h:form enctype="multipart/form-data">
-            <p:fileUpload value="#{fachada.excelcontroller.arquivoupload}" mode="simple" skinSimple="true" fileUploadListener="#{fachada.excelcontroller.carregarUpload}"/>
-            <br/><br/>
-            <!--<p:commandButton value="Enviar" ajax="false" action="#fachada.excelcontroller.carregarUpload}"/>!-->
-            <p:commandButton value="Cadastrar Armas" ajax="false" action="#{fachada.testeOffline()}"/>
-        </h:form>
+       
+        <h:form id="form" >
+            <div >
+            <div align="center" >
+              
+            
+            <br></br>
+           </div>
+            
+            <br></br>     
+                     
+            <div align="center" >
+                <p:commandButton value="Cadastrar" action="#{fachada.testeOffline()}" 
+                                                 style="font-size: 30px " />
+               
+                
+                
+                
+                
+            </div>
+            </div>
+        </h:form> 
+          
         <div id="divBaixo" align="justify">
             <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
         </div>
+          
     </h:body>
 </html>
