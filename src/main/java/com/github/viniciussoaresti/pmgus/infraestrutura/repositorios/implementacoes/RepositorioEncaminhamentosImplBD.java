@@ -7,43 +7,42 @@ package com.github.viniciussoaresti.pmgus.infraestrutura.repositorios.implementa
 
 import com.github.viniciussoaresti.pmgus.infraestrutura.dao.PersistenceDao;
 import com.github.viniciussoaresti.pmgus.infraestrutura.repositorios.comportamentos.RepositorioGenerico;
-import com.github.viniciussoaresti.pmgus.negocio.Vitima;
+import com.github.viniciussoaresti.pmgus.negocio.Encaminhamentos;
 import java.util.List;
 
 /**
  *
  * @author Sb Grafica
  */
-public class RepositorioVitimaImplBD implements RepositorioGenerico<Vitima, Integer> {
+public class RepositorioEncaminhamentosImplBD implements RepositorioGenerico<Encaminhamentos, Integer> {
      @Override
-    public void inserir(Vitima t) {
+    public void inserir(Encaminhamentos t) {
         PersistenceDao.getInstance().persist(t);
     }
 
     @Override
-    public void alterar(Vitima t) {
+    public void alterar(Encaminhamentos t) {
         PersistenceDao.getInstance().update(t);
     }
 
     @Override
-    public Vitima recuperar(Integer codigo) {
+    public Encaminhamentos recuperar(Integer codigo) {
        try{
-           return (Vitima)PersistenceDao.getInstance().read("select a from Vitima a where a.codigo="+codigo).get(0);
+           return (Encaminhamentos)PersistenceDao.getInstance().read("select a from Encaminhamentos a where a.codigo="+codigo).get(0);
        }catch(IndexOutOfBoundsException index){
            return null;
        }
     }
 
     @Override
-    public void deletar(Vitima t) {
+    public void deletar(Encaminhamentos t) {
     PersistenceDao.getInstance().delete(t);
     
     }
 
     @Override
-    public List<Vitima> recuperarTodos() {
-        return PersistenceDao.getInstance().read("select a from Vitima a");
+    public List<Encaminhamentos> recuperarTodos() {
+        return PersistenceDao.getInstance().read("select a from Encaminhamentos a");
 
     }
-    
 }

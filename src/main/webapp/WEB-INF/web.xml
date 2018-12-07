@@ -21,9 +21,8 @@
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
-    XHTML
-<context-param>
-	<param-name>primefaces.THEME</param-name>
-	<param-value>bootstrap</param-value>
-</context-param>
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>glass-x</param-value>
+    </context-param>
 </web-app>

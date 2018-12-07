@@ -8,171 +8,144 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Cadastrar Ocorrencia</title>
+
         <style type="text/css">
             .label {
                 width:20%;
                 padding:4px;
             }
-
             .value {
                 width:80%;
                 padding:4px;
             }
-
             .grid {
                 width:100%;
             }
-
             .error {
                 color: red;
             }
-
             .outputLabel {
                 font-weight: bold;
             }
-
             .grid {
                 width:33%;
                 padding:4px;
             }
         </style>
     </h:head>
-        <h:form id="formDialCadOcorrencia">
-            <p:wizard flowListener="#{ocorrenciaController.onFlowProcess}">
-                <p:tab id="basico" title="Básico">
-                    <p:panel header="Detalhes Básicos">
-                        <p:messages/>
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Ocorrencia: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.ocorrencia}" required="true"/>
+    <h:form id="formDialCadOcorrencia">
+        <p:wizard flowListener="#{fachada.ocorrenciacontroller.onFlowProcess}">
+            <p:tab id="basico" title="Básico">
+                <p:panel header="Detalhes Básicos">
+                    <p:messages/>
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Ocorrencia: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.ocorrencia}" required="true"/>
 
-                            <h:outputText value="Descrição: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrenciaCadastro.descricaoOcorrencia}" required="true"/>
+                        <h:outputText value="Descrição: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.descricaoOcorrencia}" required="true"/>
 
-                            <h:outputLabel value="Data:*" for="datetime"/>
-                            <p:calendar id="datetime" value="#{ocorrenciaController.ocorrenciaCadastro.dataOcorrencia}" pattern="dd/MM/yyyy HH:mm:ss" />
-                        </h:panelGrid>
-                    </p:panel>
-                </p:tab>
+                        <h:outputLabel value="Data:*" for="datetime"/>
+                        <p:calendar id="datetime" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.dataOcorrencia}" pattern="dd/MM/yyyy HH:mm:ss" />
+                    </h:panelGrid>
+                </p:panel>
+            </p:tab>
 
-                <p:tab id="enderecos" title="Endereço">
-                    <p:panel header="Detalhes do Endereço">
-                        <p:messages />
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Endereço: "/>
-                            <p:selectOneMenu id="endereco" value="#{ocorrenciaController.ocorrenciaCadastro.endereco}">
+            <p:tab id="enderecos" title="Endereço">
+                <p:panel header="Detalhes do Endereço">
+                    <p:messages />
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Município: "/>
+                        <p:selectOneMenu id="municipio" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.municipio}" converter="municipioConverter">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
-                            <f:selectItems value="#{municipioController.recuperarTodosMunicipios}"/>
-                            </p:selectOneMenu>
-                        </h:panelGrid>
-                    </p:panel>
-                </p:tab>
+                            <f:selectItems value="#{municipioController.recuperarTodosMunicipios()}" var="municipio" itemLabel="#{municipio.nome}" itemValue="#{municipio}"/>
+                        </p:selectOneMenu>
+                        <h:outputText value="Zona: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.zona}" required="true"/>
+                        <h:outputText value="Bairro: "/>
+                        <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.endereco}" converter="enderecoConverter">
+                            <f:selectItem itemLabel="Selecione:" itemValue="" />
+                            <f:selectItems value="#{enderecoController.recuperarTodosEnderecos()}" var="endereco" itemLabel="#{endereco.municipio.nome}, #{endereco.bairro}" itemValue="#{endereco}"/>
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                </p:panel>
+            </p:tab>
 
-                <p:tab id="vitima" title="Vítima">
-                    <p:panel header="Vítima">
-                        <p:messages />
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Email: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.email}" required="true" label="Email"/>
+            <p:tab id="imputado" title="Imputado">
+                <p:panel header="Detalhes do Imputado">
+                    <p:messages/>
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Nome: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.nomeImputado}" required="true"/>
 
-                            <h:outputText value="Phone: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.phone}"/>
-                        </h:panelGrid>
-                    </p:panel>
-                </p:tab>
+                        <h:outputText value="Idade: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.idadeImputado}" required="true"/>
 
-                <p:tab id="arma" title="Arma">
-                    <p:panel header="Arma">
-                        <p:messages />
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Email: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.email}" required="true" label="Email"/>
+                        <h:outputText value="Endereço: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.enderecoImputado}" required="true"/>
 
-                            <h:outputText value="Phone: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.phone}"/>
+                    </h:panelGrid>
+                </p:panel>
+            </p:tab>
 
-                            <h:outputText value="Additional Info: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.info}"/>
-                        </h:panelGrid>
-                    </p:panel>
-                </p:tab>
+            <p:tab id="materiais" title="Materiais Apreendidos">
+                <p:panel header="Material Apreendido">
+                    <p:messages />
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Tipo de Arma: *" />
+                        <p:selectOneMenu id="armas" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.arma}" converter="armaConverter">
+                            <f:selectItem itemLabel="Selecione:" itemValue="" />
+                            <f:selectItems value="#{armaController.recuperarTodosArmas()}" var="arma" itemLabel="#{arma.tipoDeArma}" itemValue="#{arma}"/>
+                        </p:selectOneMenu>
+                        <h:outputText value="Qtde de Arma: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.qtdeArma}" required="false"/>
 
-                <p:tab id="droga" title="Droga">
-                    <p:panel header="Droga">
-                        <p:messages />
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Email: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.email}" required="true" label="Email"/>
+                    </h:panelGrid>
+                </p:panel>
+            </p:tab>
+            <p:tab id="materiaisDroga" title="Materiais Apreendidos">
+                <p:panel header="Material Apreendido">
+                    <p:messages />
+                    <h:panelGrid columns="2" columnClasses="label, value">
 
-                            <h:outputText value="Phone: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.phone}"/>
+                        <h:outputText value="Nome da Droga: *" />
+                        <p:selectOneMenu id="drogas" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.droga}" converter="tipoDrogaConverter">
+                            <f:selectItem itemLabel="Selecione:" itemValue="" />
+                            <f:selectItems value="#{tipoDrogaController.recuperarTodosTipoDroga()}" var="tipoDroga" itemLabel="#{tipoDroga.nome}" itemValue="#{tipoDroga}"/>
+                        </p:selectOneMenu>
 
-                            <h:outputText value="Additional Info: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.info}"/>
-                        </h:panelGrid>
-                    </p:panel>
-                </p:tab>
+                        <h:outputText value="Qtde de Droga: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.qtdeDroga}" required="false"/>
 
-                <p:tab id="unidade" title="Unidade">
-                    <p:panel header="Unidade da Droga">
-                        <p:messages />
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Email: *" />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.email}" required="true" label="Email"/>
 
-                            <h:outputText value="Phone: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.phone}"/>
+                        <h:outputText value="Unidade Droga: *" />
+                        <p:selectOneMenu id="unidades" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.unidade}" converter="unidadeDrogaConverter">
+                            <f:selectItem itemLabel="Selecione:" itemValue="" />
+                            <f:selectItems value="#{unidadeDrogaController.recuperarTodosUnidadeDroga()}" var="unidadeDroga" itemLabel="#{unidadeDroga.unidadeDroga}" itemValue="#{unidadeDroga}"/>
+                        </p:selectOneMenu>
+                        <h:outputText value="" />
+                        <h:outputText value=""/>
 
-                            <h:outputText value="Additional Info: " />
-                            <p:inputText value="#{ocorrenciaController.ocorrencia.info}"/>
-                        </h:panelGrid>
-                    </p:panel>
-                </p:tab>
+                    </h:panelGrid>
+                </p:panel>
+            </p:tab>
+            <p:tab id="materiaisDrogaOutros" title="Materiais Apreendidos">
+                <p:panel header="Material Apreendido">
+                    <p:messages />
+                    <h:panelGrid columns="2" columnClasses="label, value">
 
-                <p:tab id="confirm" title="Confirmação">
-                    <p:panel header="Confirmação">
-                        <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
-                            <h:panelGrid columns="2" columnClasses="label, value">
-                                <h:outputText value="Firstname: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.firstname}" styleClass="outputLabel"/>
+                        <h:outputText value="Outro Tipo de Apreensão: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.outrasApreensoes}" required="false"/>
 
-                                <h:outputText value="Lastname: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.lastname}" styleClass="outputLabel"/>
-
-                                <h:outputText value="Age: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.age}" styleClass="outputLabel"/>
-                            </h:panelGrid>
-
-                            <h:panelGrid columns="2" columnClasses="label, value">
-                                <h:outputText value="Street: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.street}" styleClass="outputLabel"/>
-
-                                <h:outputText value="Postal: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.postalCode}" styleClass="outputLabel"/>
-
-                                <h:outputText value="City: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.city}" styleClass="outputLabel"/>
-                            </h:panelGrid>
-
-                            <h:panelGrid columns="2" columnClasses="label, value">
-                                <h:outputText value="Email: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.email}" styleClass="outputLabel"/>
-
-                                <h:outputText value="Phone " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.phone}" styleClass="outputLabel"/>
-
-                                <h:outputText value="Info: " />
-                                <h:outputText value="#{ocorrenciaController.ocorrencia.info}" styleClass="outputLabel"/>
-
-                                <h:outputText />
-                                <h:outputText />
-                            </h:panelGrid>
-                        </h:panelGrid>
-
-                        <p:commandButton value="Submit" action="#{ocorrenciaController.inserir()}" oncomplete="PF('widDialCadOcorrencia').hide()" 
-                                         update=':formOcorrencia :gro @form' process="@this"/>
-                    </p:panel>
-                </p:tab>
-            </p:wizard>
-        </h:form>
+                    </h:panelGrid>
+                </p:panel>
+            </p:tab>
+            <p:tab id="confirm" title="Confirmação">
+                <p:panel header="Confirmação">
+                    <p:commandButton value="Cadastrar" action="#{fachada.ocorrenciacontroller.inserir()}" oncomplete="PF('widDialCadOcorrencia').hide()" 
+                                     update=':formOcorrencia :gro @form' process="@this"/>
+                </p:panel>
+            </p:tab>
+        </p:wizard>
+    </h:form>
 </html>

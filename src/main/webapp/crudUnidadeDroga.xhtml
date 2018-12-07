@@ -9,35 +9,27 @@
     <h:head>
         <title>Crud Unidade de Droga</title>
         <style type="text/css">
-            #divCima {
+           img.cima {
                 width:100%;
-                position: relative;
-                overflow:hidden;
-                background:#fff url('CimaPMGus.jpg') top no-repeat;
-
+                height: 100%;
             }
-            #divBaixo {
+            img.baixo {
+                width:100%;
+                height: auto;
                 position: fixed;
                 bottom: 0;
-                right: 1;
-                width:100%;
-                overflow:hidden;
-                background:#fff url('BaixoPMGus.jpg') top no-repeat;
-
             }
         </style>
     </h:head>
 
     <h:body>  
         <p:growl id="gro" showDetail="true" showSummary="true"/>
-        <div id="divCima">
-            <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
-        </div>
+       <img class="cima" src="\imagens\CimaPMGus.jpg" />
         <ui:include src="menubar.xhtml"/>
         <h:form id="formUnidadeDroga" class="body">
             <p:dataTable var="item" value="#{fachada.unidadedrogacontroller.recuperarTodosUnidadeDroga()}"
                          rowKey="#{item.codigo}" paginator="true"
-                         rows="5">
+                         rows="4">
                 <f:facet name="header">
                     Unidades de Drogas Cadastrados
                 </f:facet>
@@ -47,7 +39,7 @@
                 <p:column headerText="Unidade de Droga">
                     <h:outputText value="#{item.unidadeDroga}"/>
                 </p:column>
-                <p:column headerText="operações" style="width: 12%">
+                <p:column headerText="Operações" style="width: 12%">
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialVisualizaUnidadeDroga').show()" 
                                      update=":formUnidadeDroga:dialVisualizaUnidadeDroga">
                         <f:setPropertyActionListener value="#{item}" target="#{fachada.unidadedrogacontroller.selectedUnidadeDroga}"/>
@@ -65,7 +57,7 @@
 
             <p:dialog id="dialVisualizaUnidadeDroga" visible="false" modal="true"
                       resizable="false" widgetVar="widDialVisualizaUnidadeDroga"
-                      header="dados do unidade de droga">
+                      header="Dados de Unidade de Droga">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
                     <h:outputText value="#{fachada.unidadedrogacontroller.selectedUnidadeDroga.codigo}"/>
@@ -78,7 +70,7 @@
 
             <p:dialog id="dialDeletaUnidadeDroga" visible="false" modal="true"
                       resizable="false" widgetVar="widDialDeletaUnidadeDroga"
-                      header="dados da unidade de droga">
+                      header="Dados de Unidade de Droga">
                 <p:panelGrid columns="2">
                     <h:outputText value="Código:"/>
                     <h:outputText value="#{fachada.unidadedrogacontroller.selectedUnidadeDroga.codigo}"/>
@@ -86,8 +78,8 @@
                     <h:outputText value="Unidade de Droga:"/>
                     <h:outputText value="#{fachada.unidadedrogacontroller.selectedUnidadeDroga.unidadeDroga}"/>
                 </p:panelGrid>
-                <p:commandButton value="Deseja mesmo deletar a unidadeDroga?" action="#{fachada.unidadedrogacontroller.deletar()}" oncomplete="PF('widDialDeletaUnidadeDroga').hide()"
-                                 update="@form"/>
+                <p:commandButton value="Deseja mesmo deletar a Unidade de Droga?" action="#{fachada.unidadedrogacontroller.deletar()}" oncomplete="PF('widDialDeletaUnidadeDroga').hide()"
+                                 update=":formUnidadeDroga :gro @form"/>
             </p:dialog>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadUnidadeDroga').show()"/>
         </h:form>
@@ -96,11 +88,11 @@
                   widgetVar="widDialCadUnidadeDroga" header="Cadastrar Unidade de Droga">
 
             <h:form id="formDialCadUnidadeDroga">
-                <p:fieldset legend="cadastrar unidade de droga">
+                <p:fieldset legend="Cadastrar Unidade de Droga">
                     <p:panelGrid columns="3">
                         <h:outputText value="Unidade de Droga*:"/>
                         <p:inputText id="txtUnidadedeDroga" value="#{fachada.unidadedrogacontroller.unidadeDrogaCadastro.unidadeDroga}"
-                                     required="true" requiredMessage="A unidadeDroga é obrigatório"/>
+                                     required="true" requiredMessage="A Unidade de Droga é obrigatório"/>
                         <p:message for="txtUnidadedeDroga"/>
                     </p:panelGrid>
                     <p:commandButton value="Cadastrar" action="#{fachada.unidadedrogacontroller.inserir()}"
@@ -126,9 +118,7 @@
                 </p:fieldset>
             </h:form>
         </p:dialog>
-        <div id="divBaixo" align="justify">
-            <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
-        </div>
+         <img class="baixo" src="\imagens\BaixoPMGus.jpg"/>
     </h:body>
 
 </html>
