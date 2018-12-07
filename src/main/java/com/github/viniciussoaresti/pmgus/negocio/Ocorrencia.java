@@ -44,9 +44,9 @@ public class Ocorrencia implements Serializable {
     @Column(length = 70)
     private String outrasApreensoes;
      @Column(length = 10)
-    private String qtdeArma;
+    private int qtdeArma;
       @Column(length = 10)
-    private String qtdeDroga;
+    private int qtdeDroga;
     
     @Column(length = 45) 
     private String nomeImputado;
@@ -119,9 +119,7 @@ public class Ocorrencia implements Serializable {
     public TipoDroga getDroga(){
             return droga;
         }
-
     
-
     public void setDroga(TipoDroga droga) {
         this.droga = droga;
     }
@@ -190,19 +188,19 @@ public class Ocorrencia implements Serializable {
         this.enderecoImputado = enderecoImputado;
     }
 
-    public String getQtdeArma() {
+    public int getQtdeArma() {
         return qtdeArma;
     }
 
-    public void setQtdeArma(String qtdeArma) {
+    public void setQtdeArma(int qtdeArma) {
         this.qtdeArma = qtdeArma;
     }
 
-    public String getQtdeDroga() {
+    public int getQtdeDroga() {
         return qtdeDroga;
     }
 
-    public void setQtdeDroga(String qtdeDroga) {
+    public void setQtdeDroga(int qtdeDroga) {
         this.qtdeDroga = qtdeDroga;
     }
     
@@ -210,7 +208,7 @@ public class Ocorrencia implements Serializable {
     public Ocorrencia() {
     }
 
-    public Ocorrencia(int codigo, String ocorrencia, String descricaoOcorrencia, Date dataOcorrencia, String zona, Municipio municipio, Endereco endereco, Arma arma, TipoDroga droga, UnidadeDroga unidade, String outrasApreensoes, String qtdeArma, String qtdeDroga, String nomeImputado, String EstadoCivilImputado, String profissaoImputado, int idadeImputado, String enderecoImputado) {
+    public Ocorrencia(int codigo, String ocorrencia, String descricaoOcorrencia, Date dataOcorrencia, String zona, Municipio municipio, Endereco endereco, Arma arma, TipoDroga droga, UnidadeDroga unidade, String outrasApreensoes, int qtdeArma, int qtdeDroga, String nomeImputado, String EstadoCivilImputado, String profissaoImputado, int idadeImputado, String enderecoImputado) {
         this.codigo = codigo;
         this.ocorrencia = ocorrencia;
         this.descricaoOcorrencia = descricaoOcorrencia;

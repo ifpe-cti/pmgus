@@ -94,7 +94,7 @@
                                 <h:outputText value="Tipo de Arma:" />
                                 <p:selectOneMenu id="armas" value="#{fachada.ocorrenciacontroller.selectedOcorrencia.arma}" converter="armaConverter">
                                     <f:selectItem itemLabel="Selecione:" itemValue="" />
-                                    <f:selectItems value="#{armaController.recuperarTodosArmas()}" var="arma" itemLabel="#{arma.tipoDeArma}" itemValue="#{arma}"/>
+                                    <f:selectItems value="#{armaController.recuperarTodosArmas()}" var="arma" itemLabel="#{arma.tipoDeArma} - #{arma.modelo}" itemValue="#{arma}"/>
                                 </p:selectOneMenu>
                                 <h:outputText value="Quantidade de Arma:" />
                                 <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.qtdeArma}" required="false"/>
