@@ -39,7 +39,7 @@
                 <p:panel header="Detalhes Básicos">
                     <p:messages/>
                     <h:panelGrid columns="2" columnClasses="label, value">
-                        <h:outputText value="Ocorrencia: *" />
+                        <h:outputText value="Ocorrência: *" />
                         <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.ocorrencia}" required="true"/>
 
                         <h:outputText value="Descrição: *" />
@@ -88,37 +88,37 @@
                 </p:panel>
             </p:tab>
 
-            <p:tab id="materiais" title="Materiais Apreendidos">
+            <p:tab id="materiais" title="Armas Apreendidas">
                 <p:panel header="Material Apreendido">
                     <p:messages />
                     <h:panelGrid columns="2" columnClasses="label, value">
-                        <h:outputText value="Tipo de Arma: *" />
+                        <h:outputText value="Tipo de Arma:" />
                         <p:selectOneMenu id="armas" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.arma}" converter="armaConverter">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
                             <f:selectItems value="#{armaController.recuperarTodosArmas()}" var="arma" itemLabel="#{arma.tipoDeArma}" itemValue="#{arma}"/>
                         </p:selectOneMenu>
-                        <h:outputText value="Qtde de Arma: *" />
+                        <h:outputText value="Quantidade de Arma:" />
                         <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.qtdeArma}" required="false"/>
 
                     </h:panelGrid>
                 </p:panel>
             </p:tab>
-            <p:tab id="materiaisDroga" title="Materiais Apreendidos">
+            <p:tab id="materiaisDroga" title="Drogas Apreendidas">
                 <p:panel header="Material Apreendido">
                     <p:messages />
                     <h:panelGrid columns="2" columnClasses="label, value">
 
-                        <h:outputText value="Nome da Droga: *" />
+                        <h:outputText value="Nome da Droga:" />
                         <p:selectOneMenu id="drogas" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.droga}" converter="tipoDrogaConverter">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
                             <f:selectItems value="#{tipoDrogaController.recuperarTodosTipoDroga()}" var="tipoDroga" itemLabel="#{tipoDroga.nome}" itemValue="#{tipoDroga}"/>
                         </p:selectOneMenu>
 
-                        <h:outputText value="Qtde de Droga: *" />
+                        <h:outputText value="Quantidade de Droga:" />
                         <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.qtdeDroga}" required="false"/>
 
 
-                        <h:outputText value="Unidade Droga: *" />
+                        <h:outputText value="Unidade Droga:" />
                         <p:selectOneMenu id="unidades" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.unidade}" converter="unidadeDrogaConverter">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
                             <f:selectItems value="#{unidadeDrogaController.recuperarTodosUnidadeDroga()}" var="unidadeDroga" itemLabel="#{unidadeDroga.unidadeDroga}" itemValue="#{unidadeDroga}"/>
@@ -134,7 +134,7 @@
                     <p:messages />
                     <h:panelGrid columns="2" columnClasses="label, value">
 
-                        <h:outputText value="Outro Tipo de Apreensão: *" />
+                        <h:outputText value="Outro Tipo de Apreensão:" />
                         <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.outrasApreensoes}" required="false"/>
 
                     </h:panelGrid>
