@@ -27,6 +27,8 @@ public class Ocorrencia implements Serializable {
     @Column(name = "DATA_OCORRENCIA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataOcorrencia;
+    @Column(length = 60)
+    private String efetivoDeApreensao;
     
     @Column(length = 50)
     private String zona;
@@ -203,12 +205,20 @@ public class Ocorrencia implements Serializable {
     public void setQtdeDroga(int qtdeDroga) {
         this.qtdeDroga = qtdeDroga;
     }
-    
 
+    public String getEfetivoDeApreensao() {
+        return efetivoDeApreensao;
+    }
+
+    public void setEfetivoDeApreensao(String efetivoDeApreensao) {
+        this.efetivoDeApreensao = efetivoDeApreensao;
+    }
+    
+    
     public Ocorrencia() {
     }
 
-    public Ocorrencia(int codigo, String ocorrencia, String descricaoOcorrencia, Date dataOcorrencia, String zona, Municipio municipio, Endereco endereco, Arma arma, TipoDroga droga, UnidadeDroga unidade, String outrasApreensoes, int qtdeArma, int qtdeDroga, String nomeImputado, String EstadoCivilImputado, String profissaoImputado, int idadeImputado, String enderecoImputado) {
+    public Ocorrencia(int codigo, String ocorrencia, String descricaoOcorrencia, Date dataOcorrencia, String zona, Municipio municipio, Endereco endereco, Arma arma, TipoDroga droga, UnidadeDroga unidade, String outrasApreensoes, int qtdeArma, int qtdeDroga, String nomeImputado, String EstadoCivilImputado, String profissaoImputado, int idadeImputado, String enderecoImputado, String efetivoDeApreensao) {
         this.codigo = codigo;
         this.ocorrencia = ocorrencia;
         this.descricaoOcorrencia = descricaoOcorrencia;
@@ -227,6 +237,7 @@ public class Ocorrencia implements Serializable {
         this.profissaoImputado = profissaoImputado;
         this.idadeImputado = idadeImputado;
         this.enderecoImputado = enderecoImputado;
+        this.efetivoDeApreensao = efetivoDeApreensao;
     }
     
      

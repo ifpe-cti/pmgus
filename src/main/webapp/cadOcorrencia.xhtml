@@ -45,6 +45,9 @@
                         <h:outputText value="Descrição: *" />
                         <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.descricaoOcorrencia}" required="true" requiredMessage="Campo DESCRIÇÃO OCORRÊNCIA obrigatório!"/>
 
+                        <h:outputText value="Efetivo de Apreeensão: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.efetivoDeApreensao}" required="true" requiredMessage="Campo EFETIVO DE APREENSÃO obrigatório!"/>
+
                         <h:outputLabel value="Data:*" for="datetime"/>
                         <p:calendar id="datetime" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.dataOcorrencia}" pattern="dd/MM/yyyy HH:mm:ss" required="true" requiredMessage="Campo DATA obrigatório!" />
                     </h:panelGrid>
