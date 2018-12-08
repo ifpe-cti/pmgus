@@ -53,7 +53,7 @@ public class Ocorrencia implements Serializable {
     @Column(length = 45) 
     private String nomeImputado;
     @Column(length = 20)
-    private String EstadoCivilImputado;
+    private String estadoCivilImputado;
     @Column(length = 25)
     private String profissaoImputado;
     @Column(length = 3)
@@ -159,11 +159,11 @@ public class Ocorrencia implements Serializable {
     }
 
     public String getEstadoCivilImputado() {
-        return EstadoCivilImputado;
+        return estadoCivilImputado;
     }
 
-    public void setEstadoCivilImputado(String EstadoCivilImputado) {
-        this.EstadoCivilImputado = EstadoCivilImputado;
+    public void setEstadoCivilImputado(String estadoCivilImputado) {
+        this.estadoCivilImputado = estadoCivilImputado;
     }
 
     public String getProfissaoImputado() {
@@ -218,7 +218,7 @@ public class Ocorrencia implements Serializable {
     public Ocorrencia() {
     }
 
-    public Ocorrencia(int codigo, String ocorrencia, String descricaoOcorrencia, Date dataOcorrencia, String zona, Municipio municipio, Endereco endereco, Arma arma, TipoDroga droga, UnidadeDroga unidade, String outrasApreensoes, int qtdeArma, int qtdeDroga, String nomeImputado, String EstadoCivilImputado, String profissaoImputado, int idadeImputado, String enderecoImputado, String efetivoDeApreensao) {
+    public Ocorrencia(int codigo, String ocorrencia, String descricaoOcorrencia, Date dataOcorrencia, String zona, Municipio municipio, Endereco endereco, Arma arma, TipoDroga droga, UnidadeDroga unidade, String outrasApreensoes, int qtdeArma, int qtdeDroga, String nomeImputado, String estadoCivilImputado, String profissaoImputado, int idadeImputado, String enderecoImputado, String efetivoDeApreensao) {
         this.codigo = codigo;
         this.ocorrencia = ocorrencia;
         this.descricaoOcorrencia = descricaoOcorrencia;
@@ -233,12 +233,28 @@ public class Ocorrencia implements Serializable {
         this.qtdeArma = qtdeArma;
         this.qtdeDroga = qtdeDroga;
         this.nomeImputado = nomeImputado;
-        this.EstadoCivilImputado = EstadoCivilImputado;
+        this.estadoCivilImputado = estadoCivilImputado;
         this.profissaoImputado = profissaoImputado;
         this.idadeImputado = idadeImputado;
         this.enderecoImputado = enderecoImputado;
         this.efetivoDeApreensao = efetivoDeApreensao;
     }
     
-     
+
+   public String dadosImputado(){ 
+       return this.nomeImputado + ", " + this.idadeImputado + ", " + this.estadoCivilImputado + ", " + this.enderecoImputado;
+   }
+   public String dadosArma(){ 
+       if(this.arma == null){
+           return "NENHUMA ARMA APREENDIDA";
+       }
+       return this.qtdeArma + " " + this.arma.getModelo() + "(" + this.arma.getTipoDeArma() + ")";
+   }
+   public String dadosDroga(){ 
+       if(this.droga == null && this.unidade == null){
+           return "NENHUMA DROGA APREENDIDA";
+       }
+       return this.qtdeDroga + " " + this.unidade.getUnidadeDroga() + " " + this.droga.getNome();
+   }
+           
 }
