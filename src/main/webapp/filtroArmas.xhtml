@@ -43,7 +43,6 @@
             </h:panelGrid>
             <p:commandButton oncomplete="PF('widDialResultado').show()" 
                              update="@form" value="Selecionar" action="#{relatorioController.armasTest()}">
-                <f:setPropertyActionListener value="#{arma}" target="#{relatorioController.selectedArma}"/>
             </p:commandButton>
             <p:dialog id="dialResultado" visible="false" modal="false" resizable="false"
                       widgetVar="widDialResultado" header="Relatório:">

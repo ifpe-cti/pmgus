@@ -5,11 +5,12 @@
  */
 package com.github.viniciussoaresti.pmgus.controladores;
 
-import com.github.viniciussoaresti.pmgus.infraestrutura.dao.JinqDao;
+import com.github.viniciussoaresti.pmgus.infraestrutura.dao.PersistenceDao;
 import java.util.Date;
 import java.util.List;
 import com.github.viniciussoaresti.pmgus.negocio.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 
 /**
@@ -17,7 +18,7 @@ import javax.faces.bean.ManagedBean;
  * @author vinic
  */
 @ManagedBean
-public class RelatorioController implements Serializable{
+public class RelatorioController implements Serializable {
 
     //filtros de arma, droga, turno, bairro
     List<Arma> armas;
@@ -26,7 +27,6 @@ public class RelatorioController implements Serializable{
     private Arma selectedArma;
     private TipoDroga selectedTipoDroga;
     private Ocorrencia selectedOcorrencia;
-    static JinqDao helper = JinqDao.getInstance();
 
     /*public void armasTest() {
         helper.execute(Arma.class, streams -> {
@@ -35,12 +35,14 @@ public class RelatorioController implements Serializable{
                     .toList();
         });
     }*/
-    
     public void armasTest() {
-        helper.execute(Arma.class, streams -> {
-            armas = streams
-                    .toList();
-        });
+        Arma a = new Arma(1, "1", "1", "1", "1");
+        armas = new ArrayList<>();
+        armas.add(a);
+       try{
+           armas = (List<Arma>)PersistenceDao.getInstance().read("select a from Arma a where a.codigo="+selectedArma.getCodigo());
+       }catch(IndexOutOfBoundsException index){
+       }
     }
 
     public List<Arma> getArmas() {
@@ -90,15 +92,4 @@ public class RelatorioController implements Serializable{
     public void setSelectedOcorrencia(Ocorrencia selectedOcorrencia) {
         this.selectedOcorrencia = selectedOcorrencia;
     }
-
-    public static JinqDao getHelper() {
-        return helper;
-    }
-
-    public static void setHelper(JinqDao helper) {
-        RelatorioController.helper = helper;
-    }
-
-    
-    
 }
