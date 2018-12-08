@@ -39,6 +39,9 @@
                 <p:column headerText="Ocorrência">
                     <h:outputText value="#{item.ocorrencia}"/>
                 </p:column>
+                <p:column headerText="Efetivo da Apreensão">
+                    <h:outputText value="#{item.efetivoDeApreensao}"/>
+                </p:column>
                 <p:column headerText="Data Ocorrência">
                     <h:outputText value="#{item.dataOcorrencia}"/>
                 </p:column>
@@ -76,6 +79,9 @@
                     <h:outputText value="Descrição da Ocorrência:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.descricaoOcorrencia}"/>
 
+                     <h:outputText value="Efetivo de Apreensão:"/>
+                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.efetivoDeApreensao}"/>
+
                     <h:outputText value="Data da Ocorrência:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dataOcorrencia}"/>
 
@@ -109,6 +115,9 @@
 
                     <h:outputText value="Descrição da Ocorrência:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.descricaoOcorrencia}"/>
+
+                    <h:outputText value="Efetivo de Apreensão:"/>
+                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.efetivoDeApreensao}"/>
 
                     <h:outputText value="Data da Ocorrência:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dataOcorrencia}"/>

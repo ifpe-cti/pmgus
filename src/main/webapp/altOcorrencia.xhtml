@@ -46,6 +46,9 @@
                                 <h:outputText value="Descrição: *" />
                                 <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.descricaoOcorrencia}" required="true"/>
 
+                                <h:outputText value="Efetivo de Apreeensão: *" />
+                                <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.efetivoDeApreensao}" required="true" requiredMessage="Campo EFETIVO DE APREENSÃO obrigatório!"/>
+
                                 <h:outputLabel value="Data:*" for="datetime"/>
                                 <p:calendar id="datetime" value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dataOcorrencia}" pattern="dd/MM/yyyy HH:mm:ss" />
                             </h:panelGrid>
@@ -71,22 +74,22 @@
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
-                      <p:tab id="imputado" title="Imputado">
-                <p:panel header="Detalhes do Imputado">
-                    <p:messages/>
-                    <h:panelGrid columns="2" columnClasses="label, value">
-                        <h:outputText value="Nome: *" />
-                        <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.nomeImputado}" required="true"/>
+                    <p:tab id="imputado" title="Imputado">
+                        <p:panel header="Detalhes do Imputado">
+                            <p:messages/>
+                            <h:panelGrid columns="2" columnClasses="label, value">
+                                <h:outputText value="Nome: *" />
+                                <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.nomeImputado}" required="true"/>
 
-                        <h:outputText value="Idade: *" />
-                        <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.idadeImputado}" required="true"/>
+                                <h:outputText value="Idade: *" />
+                                <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.idadeImputado}" required="true"/>
 
-                        <h:outputText value="Endereço: *" />
-                        <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.enderecoImputado}" required="true"/>
+                                <h:outputText value="Endereço: *" />
+                                <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.enderecoImputado}" required="true"/>
 
-                    </h:panelGrid>
-                </p:panel>
-            </p:tab>
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:tab>
                     <p:tab id="materiais" title="Armas Apreendidas">
                         <p:panel header="Material Apreendido">
                             <p:messages />
@@ -94,7 +97,7 @@
                                 <h:outputText value="Tipo de Arma:" />
                                 <p:selectOneMenu id="armas" value="#{fachada.ocorrenciacontroller.selectedOcorrencia.arma}" converter="armaConverter">
                                     <f:selectItem itemLabel="Selecione:" itemValue="" />
-                                    <f:selectItems value="#{armaController.recuperarTodosArmas()}" var="arma" itemLabel="#{arma.tipoDeArma}" itemValue="#{arma}"/>
+                                    <f:selectItems value="#{armaController.recuperarTodosArmas()}" var="arma" itemLabel="#{arma.tipoDeArma} - #{arma.modelo}" itemValue="#{arma}"/>
                                 </p:selectOneMenu>
                                 <h:outputText value="Quantidade de Arma:" />
                                 <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.qtdeArma}" required="false"/>

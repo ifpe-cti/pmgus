@@ -40,13 +40,16 @@
                     <p:messages/>
                     <h:panelGrid columns="2" columnClasses="label, value">
                         <h:outputText value="Ocorrência: *" />
-                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.ocorrencia}" required="true"/>
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.ocorrencia}" required="true" requiredMessage="Campo OCORRÊNCIA obrigatório!"/>
 
                         <h:outputText value="Descrição: *" />
-                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.descricaoOcorrencia}" required="true"/>
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.descricaoOcorrencia}" required="true" requiredMessage="Campo DESCRIÇÃO OCORRÊNCIA obrigatório!"/>
+
+                        <h:outputText value="Efetivo de Apreeensão: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.efetivoDeApreensao}" required="true" requiredMessage="Campo EFETIVO DE APREENSÃO obrigatório!"/>
 
                         <h:outputLabel value="Data:*" for="datetime"/>
-                        <p:calendar id="datetime" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.dataOcorrencia}" pattern="dd/MM/yyyy HH:mm:ss" />
+                        <p:calendar id="datetime" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.dataOcorrencia}" pattern="dd/MM/yyyy HH:mm:ss" required="true" requiredMessage="Campo DATA obrigatório!" />
                     </h:panelGrid>
                 </p:panel>
             </p:tab>
@@ -55,15 +58,15 @@
                 <p:panel header="Detalhes do Endereço">
                     <p:messages />
                     <h:panelGrid columns="2" columnClasses="label, value">
-                        <h:outputText value="Município: "/>
-                        <p:selectOneMenu id="municipio" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.municipio}" converter="municipioConverter">
+                        <h:outputText value="Município: *"/>
+                        <p:selectOneMenu id="municipio" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.municipio}" converter="municipioConverter" required="true" requiredMessage="Campo MUNÍCIPIO obrigatório!">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
-                            <f:selectItems value="#{municipioController.recuperarTodosMunicipios()}" var="municipio" itemLabel="#{municipio.nome}" itemValue="#{municipio}"/>
+                            <f:selectItems value="#{municipioController.recuperarTodosMunicipios()}" var="municipio" itemLabel="#{municipio.nome}" itemValue="#{municipio}" />
                         </p:selectOneMenu>
                         <h:outputText value="Zona: *" />
-                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.zona}" required="true"/>
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.zona}" required="true" requiredMessage="Campo ZONA obrigatório!"/>
                         <h:outputText value="Bairro: "/>
-                        <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.endereco}" converter="enderecoConverter">
+                        <p:selectOneMenu id="endereco" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.endereco}" converter="enderecoConverter" required="true" requiredMessage="Campo ENDEREÇO obrigatório!">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
                             <f:selectItems value="#{enderecoController.recuperarTodosEnderecos()}" var="endereco" itemLabel="#{endereco.municipio.nome}, #{endereco.bairro}" itemValue="#{endereco}"/>
                         </p:selectOneMenu>
@@ -76,14 +79,13 @@
                     <p:messages/>
                     <h:panelGrid columns="2" columnClasses="label, value">
                         <h:outputText value="Nome: *" />
-                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.nomeImputado}" required="true"/>
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.nomeImputado}" required="true" requiredMessage="Campo NOME IMPUTADO obrigatório!"/>
 
                         <h:outputText value="Idade: *" />
-                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.idadeImputado}" required="true"/>
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.idadeImputado}" required="true" requiredMessage="Campo IDADE IMPUTADO obrigatório!"/>
 
                         <h:outputText value="Endereço: *" />
-                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.enderecoImputado}" required="true"/>
-
+                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.enderecoImputado}" required="true" requiredMessage="Campo ENDEREÇO IMPUTADO obrigatório!"/>
                     </h:panelGrid>
                 </p:panel>
             </p:tab>
@@ -95,11 +97,10 @@
                         <h:outputText value="Tipo de Arma:" />
                         <p:selectOneMenu id="armas" value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.arma}" converter="armaConverter">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
-                            <f:selectItems value="#{armaController.recuperarTodosArmas()}" var="arma" itemLabel="#{arma.tipoDeArma}" itemValue="#{arma}"/>
+                            <f:selectItems value="#{armaController.recuperarTodosArmas()}" var="arma" itemLabel="#{arma.tipoDeArma} - #{arma.modelo}" itemValue="#{arma}"/>
                         </p:selectOneMenu>
                         <h:outputText value="Quantidade de Arma:" />
                         <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.qtdeArma}" required="false"/>
-
                     </h:panelGrid>
                 </p:panel>
             </p:tab>
