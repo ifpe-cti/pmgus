@@ -25,13 +25,18 @@ public class EnderecoTest {
     @Before
     public void setUp() {
         endereco = new Endereco();
+        municipio = new Municipio();
         endereco.setCodigo(1);
-        endereco.setBairro("a");  
+        endereco.setBairro(""); 
+        endereco.setMunicipio(municipio);
         
        
     }
   
-   //Falta @test validar municipio
+  @Test
+    public void testValidaMunicipio() {
+        Assert.assertEquals(endereco.validaMunicipo(), true);
+    }
     
     @Test
     public void testValidaBairro() {

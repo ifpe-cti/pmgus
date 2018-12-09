@@ -70,7 +70,7 @@ public class Endereco{
     }
     
       public boolean validaMunicipo(){
-          if(this.municipio.getNome() == null || this.municipio.getNome().trim().isEmpty()){
+          if(this.municipio == null){
               return false;
           }
           return true;

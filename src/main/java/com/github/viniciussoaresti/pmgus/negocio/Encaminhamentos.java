@@ -74,13 +74,5 @@ public class Encaminhamentos {
             return false;
         }
         return true;
-    }
-     
-    public boolean validaData() {
-        if (this.dataEncaminhamento == null) {
-            return false;
-        }
-        return true;
-    }
-    
+    }    
 }

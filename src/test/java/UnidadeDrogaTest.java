@@ -24,7 +24,7 @@ public class UnidadeDrogaTest {
     public void setUp() {
         unidadeDroga = new UnidadeDroga();
         unidadeDroga.setCodigo(1);
-        unidadeDroga.setUnidadeDroga("A");
+        unidadeDroga.setUnidadeDroga("");
     }
 
     @Test

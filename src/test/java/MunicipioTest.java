@@ -24,7 +24,7 @@ public class MunicipioTest {
     public void setUp() {
         municipio = new Municipio();
         municipio.setCodigo(1);
-        municipio.setNome("Garanhuns");
+        municipio.setNome("");
     }
 
     @Test

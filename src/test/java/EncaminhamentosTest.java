@@ -26,7 +26,7 @@ public class EncaminhamentosTest {
     public void setUp() {
         encaminhamentos = new Encaminhamentos();
         encaminhamentos.setCodigo(1);
-        encaminhamentos.setQtdeEncaminhamentos(1);
+        encaminhamentos.setQtdeEncaminhamentos(0);
     }
 
     @Test

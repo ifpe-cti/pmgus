@@ -87,10 +87,13 @@
 
                     <h:outputText value="Endereço:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco.bairro} - Zona #{fachada.ocorrenciacontroller.selectedOcorrencia.zona} - #{fachada.ocorrenciacontroller.selectedOcorrencia.municipio.nome}"/>
-
-                    <h:outputText value="Dados do Imputado:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosImputado()}"/>
+                    
+                    <h:outputText value="Dados da Vítima:"/>
+                        <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosVitima()}"/>
                   
+                    <h:outputText value="Dados do Imputado:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosImputado()}"/>   
+                    
                     <h:outputText value="Arma:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosArma()}"/>
 

@@ -23,7 +23,7 @@ public class TipoDrogaTest {
     public void setUp() {
         tipoDroga = new TipoDroga();
         tipoDroga.setCodigo(1);
-        tipoDroga.setNome("A");
+        tipoDroga.setNome("");
     }
 
     @Test

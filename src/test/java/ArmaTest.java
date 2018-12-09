@@ -23,10 +23,10 @@ public class ArmaTest {
     public void setUp(){
      arma = new Arma();
      arma.setCodigo(1);
-     arma.setTipoDeArma("Fuzil"); 
-     arma.setModelo("AR15"); 
-     arma.setMarca("Bolsonaro"); 
-     arma.setCalibre(".50"); 
+     arma.setTipoDeArma(""); 
+     arma.setModelo(""); 
+     arma.setMarca(""); 
+     arma.setCalibre(""); 
    
     }
     
