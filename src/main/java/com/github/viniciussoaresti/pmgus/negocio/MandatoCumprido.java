@@ -22,7 +22,7 @@ public class MandatoCumprido {
     @Id
     @GeneratedValue
     private int codigo;
-    @Column(length = 10)
+    @Column(length = 5)
     private int qtdeMandatos;
     @Column(name = "DATA_ENCAMINHAMENTO")
     @Temporal(TemporalType.TIMESTAMP)
@@ -67,4 +67,19 @@ public class MandatoCumprido {
         }
         return codigo == ((MandatoCumprido)obj).getCodigo();
     }
+     
+      public boolean validaQtdeMandatos() {
+        if(this.qtdeMandatos > 99999 || this.qtdeMandatos <0){
+            return false;
+        }
+        return true;
+    }
+     
+    public boolean validaData() {
+        if (this.dataMandato == null) {
+            return false;
+        }
+        return true;
+    }
+    
 }

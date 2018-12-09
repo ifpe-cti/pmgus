@@ -52,5 +52,13 @@ public class Municipio {
         }
         return codigo == ((Municipio)obj).getCodigo();
     }
+      
+      public boolean validaNomeMunicipio() {
+        if(this.nome.length() > 25 || this.nome == null || this.nome.trim().isEmpty() ){
+            return false;
+        }
+        return true;
+    }
+     
     
 }

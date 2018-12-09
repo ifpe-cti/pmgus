@@ -16,7 +16,8 @@ import javax.persistence.Id;
  */
 @Entity
 public class Arma {
-   @Id
+
+    @Id
     @GeneratedValue
     private int codigo;
     @Column(length = 20)
@@ -27,7 +28,6 @@ public class Arma {
     private String marca;
     @Column(length = 10)
     private String calibre;
-   
 
     public Arma() {
     }
@@ -80,15 +80,38 @@ public class Arma {
         this.calibre = calibre;
     }
 
-    public boolean equals (Object obj){
-        if(obj == null){
+    public boolean equals(Object obj) {
+        if (obj == null) {
             return false;
         }
-        return codigo == ((Arma)obj).getCodigo();
+        return codigo == ((Arma) obj).getCodigo();
     }
-    
-    @Override
-    public String toString(){
-        return getCodigo()+","+getTipoDeArma()+","+getModelo()+","+getMarca()+","+getCalibre()+".";
+
+    public boolean validaTipoDeArma() {
+        if (this.tipoDeArma.length() > 20 || this.tipoDeArma == null || this.tipoDeArma.trim().isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean validaModelo() {
+        if (this.modelo.length() > 20 || this.modelo == null || this.modelo.trim().isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean validaMarca() {
+        if (this.marca.length() > 20 || this.marca == null || this.marca.trim().isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean validaCalibre() {
+        if (this.calibre.length() > 10 || this.calibre == null || this.calibre.trim().isEmpty()) {
+            return false;
+        }
+        return true;
     }
 }

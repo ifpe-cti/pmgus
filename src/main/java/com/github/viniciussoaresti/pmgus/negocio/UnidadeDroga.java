@@ -54,6 +54,13 @@ public class UnidadeDroga {
         }
         return codigo == ((UnidadeDroga)obj).getCodigo();
     }
+      
+      public boolean validaNomeUnidadeDroga() {
+        if (this.unidadeDroga.length() > 20 || this.unidadeDroga == null || this.unidadeDroga.trim().isEmpty()) {
+            return false;
+        }
+        return true;
+    }
     
 }
 

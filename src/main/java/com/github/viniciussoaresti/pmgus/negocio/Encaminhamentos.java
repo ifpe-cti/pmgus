@@ -23,7 +23,7 @@ public class Encaminhamentos {
     @Id
     @GeneratedValue
     private int codigo;
-    @Column(length = 10)
+    @Column(length = 5)
     private int qtdeEncaminhamentos;
     @Column(name = "DATA_ENCAMINHAMENTO")
     @Temporal(TemporalType.TIMESTAMP)
@@ -68,4 +68,11 @@ public class Encaminhamentos {
         }
         return codigo == ((Encaminhamentos)obj).getCodigo();
     }
+    
+     public boolean validaQtdeEncaminhamentos() {
+        if(this.qtdeEncaminhamentos > 99999 || this.qtdeEncaminhamentos <0){
+            return false;
+        }
+        return true;
+    }    
 }

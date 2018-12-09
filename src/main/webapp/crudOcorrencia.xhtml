@@ -87,10 +87,13 @@
 
                     <h:outputText value="Endereço:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco.bairro} - Zona #{fachada.ocorrenciacontroller.selectedOcorrencia.zona} - #{fachada.ocorrenciacontroller.selectedOcorrencia.municipio.nome}"/>
-
-                    <h:outputText value="Dados do Imputado:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosImputado()}"/>
+                    
+                    <h:outputText value="Dados da Vítima:"/>
+                        <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosVitima()}"/>
                   
+                    <h:outputText value="Dados do Imputado:"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosImputado()}"/>   
+                    
                     <h:outputText value="Arma:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosArma()}"/>
 
@@ -98,7 +101,7 @@
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosDroga()}"/>
 
                     <h:outputText value="Outras Apreensões:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.outrasApreensoes}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosOutrasApreensoes()}"/>
 
                     </p:panelGrid>
                 <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaOcorrencia').hide()"/>
@@ -135,7 +138,7 @@
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosDroga()}"/>
 
                     <h:outputText value="Outras Apreensões:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.outrasApreensoes}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosOutrasApreensoes()}"/>
    </p:panelGrid>
                 <p:commandButton value="Deseja mesmo deletar a ocorrência?" action="#{fachada.ocorrenciacontroller.deletar()}" oncomplete="PF('widDialDeletaOcorrencia').hide()"
                                  update=":formOcorrencia :gro @form"/>
