@@ -6,9 +6,12 @@
 package com.github.viniciussoaresti.pmgus.infraestrutura.dao;
 
 import java.util.List;
+import java.util.function.Consumer;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import org.jinq.jpa.JPAJinqStream;
+import org.jinq.jpa.JinqJPAStreamProvider;
 /**
  *
  * @author viniciussoaresti
@@ -16,9 +19,10 @@ import javax.persistence.Persistence;
 public class PersistenceDao {
     private static PersistenceDao instance = null;
     private EntityManagerFactory emf = null;
-    
+    JinqJPAStreamProvider streams=null;
     private PersistenceDao(){
         this.emf = Persistence.createEntityManagerFactory("pmgusPU");
+        this.streams = new JinqJPAStreamProvider(emf);
     }
     
     public static PersistenceDao getInstance(){
@@ -59,5 +63,15 @@ public class PersistenceDao {
         em.remove(o);
         em.getTransaction().commit();
         em.close();
+    }
+    
+    public <T> void execute(Class<T> classType, Consumer<JPAJinqStream<T>> action) {
+        EntityManager em = emf.createEntityManager();
+        JinqJPAStreamProvider streams = new JinqJPAStreamProvider(emf);
+        try {
+            action.accept(streams.streamAll(em, classType));
+        } finally {
+            em.close();
+        }
     }
 }
