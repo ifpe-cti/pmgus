@@ -69,4 +69,18 @@ public class Endereco{
         return codigo == ((Endereco)obj).getCodigo();
     }
     
+      public boolean validaMunicipo(){
+          if(this.municipio == null){
+              return false;
+          }
+          return true;
+      }
+      
+      public boolean validaBairro(){
+          if(this.bairro.length() > 30 || this.bairro == null || this.bairro.trim().isEmpty()){
+              return false;
+          }
+          return true;
+      }
+      
 }

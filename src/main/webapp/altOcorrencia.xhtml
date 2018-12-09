@@ -42,19 +42,15 @@
                             <h:panelGrid columns="2" columnClasses="label, value">
                                 <h:outputText value="Ocorrencia: *" />
                                 <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.ocorrencia}" required="true"/>
-
                                 <h:outputText value="Descrição: *" />
                                 <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.descricaoOcorrencia}" required="true"/>
-
                                 <h:outputText value="Efetivo de Apreeensão: *" />
                                 <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.efetivoDeApreensao}" required="true" requiredMessage="Campo EFETIVO DE APREENSÃO obrigatório!"/>
-
                                 <h:outputLabel value="Data:*" for="datetime"/>
                                 <p:calendar id="datetime" value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dataOcorrencia}" pattern="dd/MM/yyyy HH:mm:ss" />
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
-
                     <p:tab id="enderecos" title="Endereço">
                         <p:panel header="Detalhes do Endereço">
                             <p:messages />
@@ -80,19 +76,34 @@
                             <h:panelGrid columns="2" columnClasses="label, value">
                                 <h:outputText value="Nome: *" />
                                 <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.nomeImputado}" required="true"/>
-
                                 <h:outputText value="Idade: *" />
                                 <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.idadeImputado}" required="true"/>
-
                                 <h:outputText value="Endereço: *" />
                                 <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.enderecoImputado}" required="true"/>
-
                                 <h:outputText value="Estado Civil: *" />
                                 <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.estadoCivilImputado}" required="true" requiredMessage="Campo ENDEREÇO IMPUTADO obrigatório!"/>
-
+                                <h:outputText value="Profissão: *" />
+                                <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.profissaoImputado}" required="true" requiredMessage="Campo PROFISSÃO obrigatório!"/>
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
+                    <p:tab id="vitima" title="Vítima">
+                <p:panel header="Detalhes da Vítima">
+                    <p:messages/>
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Nome: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.nomeVitima}"/>
+                        <h:outputText value="Idade: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.idadeVitima}"/>
+                        <h:outputText value="Endereço: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.enderecoVitima}"/>
+                        <h:outputText value="Estado Civil: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.estadoCivilVitima}"/>
+                        <h:outputText value="Profissão: *" />
+                        <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.profissaoVitima}"/>
+                    </h:panelGrid>
+                </p:panel>
+            </p:tab>
                     <p:tab id="materiais" title="Armas Apreendidas">
                         <p:panel header="Material Apreendido">
                             <p:messages />
@@ -104,7 +115,6 @@
                                 </p:selectOneMenu>
                                 <h:outputText value="Quantidade de Arma:" />
                                 <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.qtdeArma}" required="false"/>
-
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
@@ -112,17 +122,13 @@
                         <p:panel header="Material Apreendido">
                             <p:messages />
                             <h:panelGrid columns="2" columnClasses="label, value">
-
                                 <h:outputText value="Nome da Droga:" />
                                 <p:selectOneMenu id="drogas" value="#{fachada.ocorrenciacontroller.selectedOcorrencia.droga}" converter="tipoDrogaConverter">
                                     <f:selectItem itemLabel="Selecione:" itemValue="" />
                                     <f:selectItems value="#{tipoDrogaController.recuperarTodosTipoDroga()}" var="tipoDroga" itemLabel="#{tipoDroga.nome}" itemValue="#{tipoDroga}"/>
                                 </p:selectOneMenu>
-
                                 <h:outputText value="Quantidade de Droga:" />
                                 <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.qtdeDroga}" required="false"/>
-
-
                                 <h:outputText value="Unidade Droga:" />
                                 <p:selectOneMenu id="unidades" value="#{fachada.ocorrenciacontroller.selectedOcorrencia.unidade}" converter="unidadeDrogaConverter">
                                     <f:selectItem itemLabel="Selecione:" itemValue="" />
@@ -130,7 +136,6 @@
                                 </p:selectOneMenu>
                                 <h:outputText value="" />
                                 <h:outputText value=""/>
-
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
@@ -138,15 +143,11 @@
                         <p:panel header="Material Apreendido">
                             <p:messages />
                             <h:panelGrid columns="2" columnClasses="label, value">
-
                                 <h:outputText value="Outro Tipo de Apreensão:" />
                                 <p:inputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.outrasApreensoes}" required="false"/>
-
                             </h:panelGrid>
                         </p:panel>
                     </p:tab>
-
-
                     <p:tab id="confirm" title="Confirmação">
                         <p:panel header="Confirmação">
                             <p:commandButton value="Alterar" action="#{fachada.ocorrenciacontroller.alterar(fachada.ocorrenciacontroller.selectedOcorrencia)}"
