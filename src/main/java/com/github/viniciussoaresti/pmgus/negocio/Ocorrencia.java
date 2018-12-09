@@ -56,7 +56,7 @@ public class Ocorrencia implements Serializable {
     private String estadoCivilImputado;
     @Column(length = 25)
     private String profissaoImputado;
-    @Column(length = 3)
+    @Column(length = 3) 
     private int idadeImputado;
     @Column(length = 60)
     private String enderecoImputado;
@@ -255,6 +255,12 @@ public class Ocorrencia implements Serializable {
            return "NENHUMA DROGA APREENDIDA";
        }
        return this.qtdeDroga + " " + this.unidade.getUnidadeDroga() + " " + this.droga.getNome();
+   }
+   public String dadosOutrasApreensoes(){ 
+       if(this.outrasApreensoes ==  null || this.outrasApreensoes.trim().isEmpty()){
+           return "NADA MAIS APREENDIDO";
+       }
+       return this.outrasApreensoes;
    }
            
 }

@@ -25,4 +25,5 @@
         <param-name>primefaces.THEME</param-name>
         <param-value>glass-x</param-value>
     </context-param>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
 </web-app>
