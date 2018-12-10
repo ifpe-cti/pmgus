@@ -14,22 +14,39 @@ and open the template in the editor.
     <h:head>
         <title>Menu Inicial</title>
         <style type="text/css">
-         img.cima {
+            img.cima {
                 width:100%;
                 height: 100%;
             }
-           img.baixo {
+            img.baixo {
                 width:100%;
                 height: auto;
                 position: fixed;
                 bottom: 0;
             }
-
+            .Centro{
+                width:99%;
+                height: 66%;
+                float: left;
+                top: 187px;                             
+                position: absolute;
+                opacity: 0.8;
+                overflow:hidden;
+                
+            }
+            #menubar{
+                z-index: 5;
+            }
         </style>
     </h:head>
-    <h:body>
-        <img class="cima" src="imagens/CimaPMGus.jpg" />
-         <ui:include src="menubar.xhtml"/>
-        <img class="baixo" src="imagens/BaixoPMGus.jpg"/>
+    <h:body >
+        <h:form id="formMenu">
+            <img class="cima" src="imagens/CimaPMGus.jpg" />
+            <ui:include src="menubar.xhtml" id="menubar"/>
+            <div id="Centro">
+                <hl><img src="imagens/Menu.png" class="Centro"/></hl>
+            </div>
+            <img class="baixo" src="imagens/BaixoPMGus.jpg"/>
+        </h:form>
     </h:body>
 </html>
