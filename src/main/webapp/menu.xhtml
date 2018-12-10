@@ -25,12 +25,32 @@ and open the template in the editor.
                 bottom: 0;
             }
 
+
+            
+            .Centro{
+                width:99%;
+                height: 66%;
+                float: left;
+                top: 187px;                             
+                position: absolute;
+                opacity: 0.8;
+                overflow:hidden;
+                background: url(imagens/Menu.png) top no-repeat;
+                z-index: 1;
+            }
+          
+          
+         
         </style>
     </h:head>
     <h:body >
-        <!--<ui:include src="menu.xhtml"/>!-->
-        <img class="cima" src="\imagens\CimaPMGus.jpg" />
-         <ui:include src="menubar.xhtml"/>
+        <h:form id="formMenu">
+            <img class="cima" src="\imagens\CimaPMGus.jpg" />
+            <ui:include src="menubar.xhtml" />
+            <div id="Centro">
+            <hl><img src="\imagens\Menu.png" class="Centro"/></hl>
+            </div>
         <img class="baixo" src="\imagens\BaixoPMGus.jpg"/>
+        </h:form>
     </h:body>
 </html>

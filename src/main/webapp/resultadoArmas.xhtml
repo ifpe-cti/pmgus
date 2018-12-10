@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>filtroArmas</title>
+        <style type="text/css">
+            .label {
+                width:20%;
+                padding:4px;
+            }
+            .value {
+                width:80%;
+                padding:4px;
+            }
+            .grid {
+                width:100%;
+            }
+            .error {
+                color: red;
+            }
+            .outputLabel {
+                font-weight: bold;
+            }
+            .grid {
+                width:33%;
+                padding:4px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:dataTable var="item" value="#{relatorioController.ocorrencias}"
+                         rowKey="#{item.codigo}" paginator="true"
+                         rows="4">
+                <f:facet name="header">
+                    Ocorrencias Filtradas
+                </f:facet>
+                <p:column headerText="Código">
+                    <h:outputText value="#{item.codigo}"/>
+                </p:column>
+                <p:column headerText="Ocorrência">
+                    <h:outputText value="#{item.ocorrencia}"/>
+                </p:column>
+                <p:column headerText="Efetivo da Apreensão">
+                    <h:outputText value="#{item.efetivoDeApreensao}"/>
+                </p:column>
+                <p:column headerText="Data Ocorrência">
+                    <h:outputText value="#{item.dataOcorrencia}"/>
+                </p:column>
+                <p:column headerText="Município">
+                    <h:outputText value="#{item.municipio.nome}"/>
+                </p:column>
+            </p:dataTable>
+            <ui:include src="testeMapa.xhtml"/>
+            <ui:include src="testeCharts.xhtml"/>
+        </h:form>
+    </h:body>
+</html>
