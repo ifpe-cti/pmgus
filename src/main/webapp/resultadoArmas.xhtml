@@ -34,26 +34,26 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:dataTable var="item" value="#{relatorioController.armas}"
+            <p:dataTable var="item" value="#{relatorioController.ocorrencias}"
                          rowKey="#{item.codigo}" paginator="true"
                          rows="4">
                 <f:facet name="header">
-                    Armas Filtradas
+                    Ocorrencias Filtradas
                 </f:facet>
                 <p:column headerText="Código">
                     <h:outputText value="#{item.codigo}"/>
                 </p:column>
-                <p:column headerText="Tipo de Arma">
-                    <h:outputText value="#{item.tipoDeArma}"/>
+                <p:column headerText="Ocorrência">
+                    <h:outputText value="#{item.ocorrencia}"/>
                 </p:column>
-                <p:column headerText="Modelo">
-                    <h:outputText value="#{item.modelo}"/>
+                <p:column headerText="Efetivo da Apreensão">
+                    <h:outputText value="#{item.efetivoDeApreensao}"/>
                 </p:column>
-                <p:column headerText="Marca">
-                    <h:outputText value="#{item.marca}"/>
+                <p:column headerText="Data Ocorrência">
+                    <h:outputText value="#{item.dataOcorrencia}"/>
                 </p:column>
-                <p:column headerText="Calibre">
-                    <h:outputText value="#{item.calibre}"/>
+                <p:column headerText="Município">
+                    <h:outputText value="#{item.municipio.nome}"/>
                 </p:column>
             </p:dataTable>
             <ui:include src="testeMapa.xhtml"/>

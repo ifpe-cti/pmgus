@@ -42,7 +42,7 @@
                 </p:selectOneMenu>
             </h:panelGrid>
             <p:commandButton oncomplete="PF('widDialResultado').show()" 
-                             update="@form" value="Selecionar" action="#{relatorioController.armasTest()}">
+                             update="@form" value="Selecionar" action="#{relatorioController.relatorioArma()}">
             </p:commandButton>
             <p:dialog id="dialResultado" visible="false" modal="false" resizable="false"
                       widgetVar="widDialResultado" header="Relatório:">
