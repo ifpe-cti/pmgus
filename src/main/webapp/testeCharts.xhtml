@@ -12,24 +12,10 @@ and open the template in the editor.
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Menu Inicial</title>
-        <style type="text/css">
-         img.cima {
-                width:100%;
-                height: 100%;
-            }
-           img.baixo {
-                width:100%;
-                height: auto;
-                position: fixed;
-                bottom: 0;
-            }
-
-        </style>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
-    <h:body>
-        <img class="cima" src="imagens/CimaPMGus.jpg" />
-         <ui:include src="menubar.xhtml"/>
-        <img class="baixo" src="imagens/BaixoPMGus.jpg"/>
-    </h:body>
+    <body>
+        <p:chart type="bar" model="#{chartView.barModel}" style="height:300px"/>
+    </body>
 </html>

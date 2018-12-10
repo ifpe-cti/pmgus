@@ -53,11 +53,15 @@ public class Fachada {
         return excelcontroller;
     }
     
+    public static EncaminhamentosController getEncaminhamentoscontroller() {
+        return encaminhamentoscontroller;
+    }
+    
     public void cadastrarArmas(){
         excelcontroller.cadastrarArmas(armacontroller);
     }
-
-    public static EncaminhamentosController getEncaminhamentoscontroller() {
-        return encaminhamentoscontroller;
+    
+    public void cadastrarDrogas(){
+        excelcontroller.cadastrarDrogas(tipodrogacontroller, unidadedrogacontroller);
     }
 }

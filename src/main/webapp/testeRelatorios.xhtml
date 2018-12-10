@@ -7,9 +7,9 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Cadastro Excel</title>
+        <title>Gerar Relatorio</title>
         <style type="text/css">
-         img.cima {
+            img.cima {
                 width:100%;
                 height: 100%;
             }
@@ -23,12 +23,16 @@
     </h:head>
     <h:body>
         <p:growl id="gro" showDetail="true" showSummary="true"/>
-       <img class="cima" src="imagens/CimaPMGus.jpg" />
+        <img class="cima" src="imagens/CimaPMGus.jpg" />
         <ui:include src="menubar.xhtml"/>
-        <h:form enctype="multipart/form-data">
-            <p:commandButton value="Cadastrar Armas" ajax="false" action="#{fachada.cadastrarArmas()}"/>
-            <p:commandButton value="Cadastrar Drogas" ajax="false" action="#{fachada.cadastrarDrogas()}"/>
+        <h:form>
+            <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialFiltroArma').show()" value="Filtrar por Armas">
+            </p:commandButton>
+            <p:dialog id="dialFiltroArmas" visible="false" modal="false" resizable="false"
+                      widgetVar="widDialFiltroArma" header="Filtro por Arma(s)">
+                <ui:include src="filtroArmas.xhtml"/>
+            </p:dialog>
         </h:form>
-        <img class="baixo" src="imagens/BaixoPMGus.jpg"/>
     </h:body>
+    <img class="baixo" src="imagens/BaixoPMGus.jpg"/>
 </html>

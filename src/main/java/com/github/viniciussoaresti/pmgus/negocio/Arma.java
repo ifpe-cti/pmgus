@@ -80,11 +80,14 @@ public class Arma {
         this.calibre = calibre;
     }
 
-    public boolean equals(Object obj) {
-        if (obj == null) {
+    public boolean equals(Arma a) {
+        if (a == null) {
             return false;
         }
-        return codigo == ((Arma) obj).getCodigo();
+        return this.getCalibre().equals(a.getCalibre())
+                && this.getMarca().equals(a.getMarca())
+                && this.getModelo().equals(a.getModelo())
+                && this.getTipoDeArma().equals(a.getTipoDeArma());
     }
 
     public boolean validaTipoDeArma() {

@@ -16,12 +16,12 @@ import javax.persistence.Id;
  */
 @Entity
 public class UnidadeDroga {
+
     @Id
     @GeneratedValue
     private int codigo;
     @Column(length = 20)
     private String unidadeDroga;
- 
 
     public UnidadeDroga() {
     }
@@ -29,9 +29,9 @@ public class UnidadeDroga {
     public UnidadeDroga(int codigo, String unidadeDroga) {
         this.codigo = codigo;
         this.unidadeDroga = unidadeDroga;
-        
+
     }
-    
+
     public int getCodigo() {
         return codigo;
     }
@@ -48,20 +48,18 @@ public class UnidadeDroga {
         this.unidadeDroga = unidadeDroga;
     }
 
-      public boolean equals (Object obj){
-        if(obj == null){
+    public boolean equals(UnidadeDroga u) {
+        if (u == null) {
             return false;
         }
-        return codigo == ((UnidadeDroga)obj).getCodigo();
+        return this.getUnidadeDroga().equals(u.getUnidadeDroga());
     }
-      
-      public boolean validaNomeUnidadeDroga() {
+
+    public boolean validaNomeUnidadeDroga() {
         if (this.unidadeDroga.length() > 20 || this.unidadeDroga == null || this.unidadeDroga.trim().isEmpty()) {
             return false;
         }
         return true;
     }
-    
+
 }
-
-
