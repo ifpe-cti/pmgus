@@ -11,25 +11,51 @@ and open the template in the editor.
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <style type="text/css">
+            .sair{
+                position: absolute;
+                right: 12px;
+                
+            }
+            .Centro{
+                width:99%;
+                height: 66%;
+                float: left;
+                top: 187px;                             
+                position: absolute;
+                opacity: 0.8;
+                overflow:hidden;
+                background: url(imagens/3.png) top no-repeat;
+                z-index: 1;
+            }
+            
+        </style>
+    </h:head>
     <body>
-        <h:form id="formMenu">
+        <div>
+            <h:form id="formMenu" >
             <p:menubar>
                 <p:menuitem value="Página Inicial" url="menu.xhtml"/>
                 <p:submenu label="Cadastros">
                     <p:menuitem value="Ocorrencia" url="crudOcorrencia.xhtml"/>
-                    <p:menuitem value="Armas" url="crudArma.xhtml"/>
-                    <p:menuitem value="Drogas" url="crudTipoDroga.xhtml"/>
-                    <p:menuitem value="Unidade de Droga" url="crudUnidadeDroga.xhtml"/>
-                    <p:menuitem value="Endereço" url="crudEndereço.xhtml"/>
+                    <p:menuitem value="Arma" url="crudArma.xhtml"/>
+                    <p:menuitem value="Droga" url="crudTipoDroga.xhtml"/>
+                    <p:menuitem value="Unidade de contagem" url="crudUnidadeDroga.xhtml"/>
+                    <p:menuitem value="Endereço" url="crudEndereco.xhtml"/>
                     <p:menuitem value="Municipio" url="crudMunicipio.xhtml"/>
+                    <p:menuitem value="Encaminhamentos" url="crudEncaminhamentos.xhtml"/>
+                    
+
                 </p:submenu>
                 
-                
-                <p:submenu label="Cadastro de Planilha">
-                    <p:menuitem value="Planilha de Armas" url="cadastroExcel.xhtml"/>
+                <p:submenu label="Cadastrar por Planilhas">
+                    <p:menuitem value="Cadastrar Armas" ajax="false" action="#{fachada.cadastrarArmas()}"/>
                 </p:submenu>
-                <p:menuitem value="Sair" url="index.xhtml" style="position: absolute;alignment-adjust: auto "/>
+                <p:menuitem value="Sair" url="index.xhtml" class="sair" action="#{loginController.deslogar()}" />
             </p:menubar>
+            
         </h:form>
+            </div>
     </body>
 </html>

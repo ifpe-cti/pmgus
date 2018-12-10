@@ -14,92 +14,58 @@ and open the template in the editor.
     <h:head>
         <title>Menu Inicial</title>
         <style type="text/css">
-            #divCima {
+         img.cima {
                 width:100%;
-                position: relative;
-                overflow:hidden;
-                background:#fff url('CimaPMGus.jpg') top no-repeat;
+                height: 100%;
             }
-            #divBaixo {
+           img.baixo {
+                width:100%;
+                height: auto;
                 position: fixed;
                 bottom: 0;
-                right: 1px;
-                width:100%;
-                overflow:hidden;
-                background:#fff url('BaixoPMGus.jpg') top no-repeat;
-
             }
-            #divCentro{
-                width:100%;
+
+            
+            .Centro{
+                width:99%;
+                height: 66%;
+                float: left;
+                top: 187px;                             
+                position: absolute;
+                opacity: 0.8;
                 overflow:hidden;
-                background:#fff url('pmgusDivFundo.jpg') top no-repeat;
+                background: url(imagens/Menu.png) top no-repeat;
                 z-index: 1;
             }
-            #divPactoPelaVida{
-                overflow:hidden;
-                background:#fff url('pmgusDivPACTOPELAVIDA.jpg') top no-repeat;
-                z-index: 2;
-                position: absolute;
-                top: 220px;
-                left: 100px;
-            }
-            #divCVLI{
-                overflow:hidden;
-                background:#fff url('pmgusDivCVLI.jpg') top no-repeat;
-                z-index: 2;
-                position: absolute;
-                top: 220px;
-                left: 400px;
-            }
-            #divCVP{
-                overflow:hidden;
-                background:#fff url('pmgusDivCVP.jpg') top no-repeat;
-                z-index: 2;
-                position: absolute;
-                top: 220px;
-                left: 700px;
-            }
-            #divBOWEB{
-                overflow:hidden;
-                background:#fff url('pmgusDivBOWEB.jpg') top no-repeat;
-                z-index: 2;
-                position: absolute;
-                top: 220px;
-                left: 1000px;
-            }
+          
+          
+         
+            
 
         </style>
     </h:head>
     <h:body >
         <!--<ui:include src="menu.xhtml"/>!-->
-        <div id="divCima">
-            <hl><img src="\imagens\CimaPMGus.jpg"  height="128px"/></hl>
-        </div>
-        <div id="divCentro">
-            <hl><img src="\imagens\pmgusDivFundo.jpg" height="430px"/></hl>
-        </div>
-        <a href="crudArma.xhtml">
-            <div id="divPactoPelaVida">
-                <hl><img src="\imagens\pmgusDivPACTOPELAVIDA.jpg" height="220px"/></hl>
+       
+          
+        
+           
+       
+        <h:form id="formMenu">
+             <img class="cima" src="\imagens\CimaPMGus.jpg" />
+            
+            <ui:include src="menubar.xhtml" />
+            
+        
+            <div id="Centro">
+                <hl><img src="\imagens\Menu.png" class="Centro"/></hl>
             </div>
-        </a>
-        <a href="crudTipoDroga.xhtml">
-        <div id="divCVLI">
-            <hl><img src="\imagens\pmgusDivCVLI.jpg" height="220px"/></hl>
-        </div>
-        </a>
-        <a href="crudUnidadeDroga.xhtml">
-        <div id="divCVP">
-            <hl><img src="\imagens\pmgusDivCVP.jpg" height="220px"/></hl>
-        </div>
-        </a>
-        <a href="crudTipoDroga.xhtml">
-        <div id="divBOWEB">
-            <hl><img src="\imagens\pmgusDivBOWEB.jpg" height="220px"/></hl>
-        </div>
-        </a>
-        <div id="divBaixo">
-            <hl><img src="\imagens\BaixoPMGus.jpg" height="106px"/></hl>
-        </div>
+        
+        <img class="baixo" src="\imagens\BaixoPMGus.jpg"/>
+        </h:form>
+         
+        
+       
+         
     </h:body>
 </html>

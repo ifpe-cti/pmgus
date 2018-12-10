@@ -11,7 +11,6 @@ public class RepositorioOcorrenciaImplBD implements RepositorioGenerico<Ocorrenc
     @Override
     public void inserir(Ocorrencia t){
         PersistenceDao.getInstance().persist(t);
-        
     }
 
     @Override

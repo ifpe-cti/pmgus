@@ -7,7 +7,9 @@ package com.github.viniciussoaresti.pmgus.controladores;
 
 
 import com.github.viniciussoaresti.pmgus.criptografia.LoginCriptografia;
+import com.github.viniciussoaresti.pmgus.infraestrutura.repositorios.implementacoes.repositorioUsuario;
 import com.github.viniciussoaresti.pmgus.negocio.Usuario;
+
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -22,17 +24,29 @@ import javax.faces.context.FacesContext;
 @RequestScoped
 public class LoginController {
     private String login;
+    private String senhaRec;
+
+    public String getSenhaRec() {
+        return senhaRec;
+    }
+
+    public void setSenhaRec(String senhaRec) {
+        this.senhaRec = senhaRec;
+    }
     private String senha;
     private String senhaCripto;
-  
+    private repositorioUsuario repositoriousuario;
     private Usuario usuarioLogado;
+
     
-    private boolean usrLogado = false;
+    
+    private boolean usrLogado;
 
     public LoginController(String login, String senha, Usuario usuarioLogado) {
         this.login = login;
         this.senha = senha;
         this.usuarioLogado = usuarioLogado;
+        
        
     }
 
@@ -43,10 +57,6 @@ public class LoginController {
        senhaCripto=LoginCriptografia.criptografar(senha);
        return logar();
          }
-
-    
-
-    
 
     public boolean isUsrLogado() {
         return usrLogado;
@@ -71,18 +81,33 @@ public class LoginController {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    public void recupSenha(){
+        
+       senhaRec=repositoriousuario.getSenha1();
+        
+    }
+    public void deslogar(){
+        
+        
+        setUsrLogado(false);
+        
+       
+    }
     public String logar(){
         if(login.equals("9bpm") && senhaCripto.equals("5cfc42d4c71557cd294522c6b66d91f1".toUpperCase())){
-            usrLogado = true; 
+            setUsrLogado(true); 
              FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","Usuário logado com sucesso!"));
+               new FacesMessage(FacesMessage.SEVERITY_INFO,"Sucesso!","Usuário logado com sucesso!"));
         return "menu.xhtml";    
     }else{
+            
             FacesContext.getCurrentInstance().addMessage(null, 
                 new FacesMessage(FacesMessage.SEVERITY_INFO,"Atenção!","Login ou senha, incorretos!"));
         return null; 
         }
     }
+
+    
 
     public Usuario getUsuarioLogado() {
         return usuarioLogado;

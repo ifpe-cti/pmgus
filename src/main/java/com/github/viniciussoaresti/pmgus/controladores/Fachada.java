@@ -18,8 +18,8 @@ public class Fachada {
     static OcorrenciaController ocorrenciacontroller = new OcorrenciaController();
     static TipoDrogaController tipodrogacontroller = new TipoDrogaController();
     static UnidadeDrogaController unidadedrogacontroller = new UnidadeDrogaController();
-    static VitimaController vitimacontroller = new VitimaController();
     static ExcelController excelcontroller = new ExcelController();
+    static EncaminhamentosController encaminhamentoscontroller = new EncaminhamentosController();
 
     public ArmaController getArmacontroller() {
         return armacontroller;
@@ -49,19 +49,16 @@ public class Fachada {
         return unidadedrogacontroller;
     }
 
-    public VitimaController getVitimacontroller() {
-        return vitimacontroller;
-    }
-
     public ExcelController getExcelcontroller() {
         return excelcontroller;
     }
     
-    public void cadastrarArmaExcel(){
+    public void cadastrarArmas(){
+        
         excelcontroller.cadastrarArmas(armacontroller);
     }
-    
-    public void testeOffline(){
-        excelcontroller.testeOffline(armacontroller);
+
+    public static EncaminhamentosController getEncaminhamentoscontroller() {
+        return encaminhamentoscontroller;
     }
 }

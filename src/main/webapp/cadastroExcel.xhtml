@@ -5,83 +5,49 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      >
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Cadastro Excel</title>
         <style type="text/css">
-            #divCima {
-                width:100%;
-                position: relative;
-                overflow:hidden;
-                background:#fff url('CimaPMGus.jpg') top no-repeat;
-
-            }
-            #divMeio{
-                width: 100%;
-                position: relative;
-                overflow: hidden;
-                background: url('pm2.jpg') top no-repeat;
-            }
-            #divBaixo {
-                position: fixed;
-                bottom: 0;
-                right: 1;
-                width:100%;
-                overflow:hidden;
-                background:#fff url('BaixoPMGus.jpg') top no-repeat;
-
-            }
-        #divCentro{
+         img.cima {
                 width:100%;
                 height: 100%;
+            }
+            img.baixo {
+                width:100%;
+                height: auto;
+                position: fixed;
+                bottom: 0;
+            }
+           .Centro1{
+                width:60%;
+                height: 60%;
+                top: 200px;
+                left: 260px;
+                position: absolute;
+                opacity: 0.8;
                 overflow:hidden;
-                background:#fff url('imagens/pm.jpg') top no-repeat;
+                background: url(imagens/3.png) top no-repeat;
                 z-index: 1;
             }
-            body{
-                background-image: url("#{resource['imagens/pm.png']}");
-                width:100%;
-                height:100%;
-                background-repeat: no-repeat;                
-            }
-            
+          
         </style>
     </h:head>
-    <h:body >
-      
-            
+    <h:body>
+        
         <p:growl id="gro" showDetail="true" showSummary="true"/>
-        <div id="divCima">
-            <hl><img src="\imagens\CimaPMGus.jpg"  height="122"/></hl>
-        </div>
+       <img class="cima" src="\imagens\CimaPMGus.jpg" />
         <ui:include src="menubar.xhtml"/>
-       
-        <h:form id="form" >
-            <div >
-            <div align="center" >
-              
-            
+        <br></br>
+        <h:form enctype="multipart/form-data">
             <br></br>
-           </div>
-            
-            <br></br>     
-                     
-            <div align="center" >
-                <p:commandButton value="Cadastrar" action="#{fachada.testeOffline()}" 
-                                                 style="font-size: 30px " />
-               
-                
-                
-                
-                
+            <p:commandButton value="Upload da Planilha" ajax="false" action="#{fachada.cadastrarArmas()}"/>
+        <div id="Centro">
+                <hl><img src="\imagens\3.png" class="Centro1"/></hl>
             </div>
-            </div>
-        </h:form> 
-          
-        <div id="divBaixo" align="justify">
-            <hl><img src="\imagens\BaixoPMGus.jpg" height="101px"/></hl>
-        </div>
-          
+        </h:form>
+         <img class="baixo" src="\imagens\BaixoPMGus.jpg"/>
+        
+         
     </h:body>
 </html>

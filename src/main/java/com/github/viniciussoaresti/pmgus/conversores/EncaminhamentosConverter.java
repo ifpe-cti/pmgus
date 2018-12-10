@@ -5,8 +5,8 @@
  */
 package com.github.viniciussoaresti.pmgus.conversores;
 
-import com.github.viniciussoaresti.pmgus.controladores.VitimaController;
-import com.github.viniciussoaresti.pmgus.negocio.Vitima;
+import com.github.viniciussoaresti.pmgus.controladores.EncaminhamentosController;
+import com.github.viniciussoaresti.pmgus.negocio.Encaminhamentos;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -18,14 +18,14 @@ import javax.faces.convert.FacesConverter;
  *
  * @author pronatec
  */
-@FacesConverter("vitimaConverter")
-public class VitimaConverter implements Converter {
+@FacesConverter("encaminhamentosConverter")
+public class EncaminhamentosConverter implements Converter {
  
     public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
         if(value != null && value.trim().length() > 0) {
             try {
-                VitimaController service = (VitimaController) fc.getExternalContext().getSessionMap().get("vitimaController");
-                return service.recuperarVitima(Integer.parseInt(value));
+                EncaminhamentosController service = (EncaminhamentosController) fc.getExternalContext().getSessionMap().get("encaminhamentosController");
+                return service.recuperarEncaminhamentos(Integer.parseInt(value));
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
             }
@@ -37,7 +37,7 @@ public class VitimaConverter implements Converter {
  
     public String getAsString(FacesContext fc, UIComponent uic, Object object) {
         if(object != null) {
-            return String.valueOf(((Vitima) object).getCodigo());
+            return String.valueOf(((Encaminhamentos) object).getCodigo());
         }
         else {
             return null;
