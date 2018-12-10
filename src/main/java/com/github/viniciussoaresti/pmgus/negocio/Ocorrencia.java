@@ -129,23 +129,31 @@ public class Ocorrencia implements Serializable {
         this.arma = arma;
     }
 
-    public TipoDroga getDroga() {
-        return droga;
-    }
+
+    public TipoDroga getDroga() {          
+            return droga;
+        }
+
+    
+
 
     public void setDroga(TipoDroga droga) {
         this.droga = droga;
     }
 
     public UnidadeDroga getUnidade() {
-        return unidade;
-    }
 
+            return unidade;
+        }
+
+    
     public void setUnidade(UnidadeDroga unidade) {
         this.unidade = unidade;
     }
 
+
     public Endereco getEndereco() {
+
         return endereco;
     }
 
