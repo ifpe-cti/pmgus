@@ -47,11 +47,11 @@ public class TipoDroga {
         this.nome = nome;
     }
 
-    public boolean equals(Object obj) {
-        if (obj == null) {
+    public boolean equals(TipoDroga td) {
+         if (td == null) {
             return false;
         }
-        return codigo == ((TipoDroga) obj).getCodigo();
+        return this.getNome().equals(td.getNome());
     }
 
     public boolean validaNomeTipoDroga() {

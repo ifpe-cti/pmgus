@@ -45,18 +45,13 @@ and open the template in the editor.
                     <p:menuitem value="Endereço" url="crudEndereco.xhtml"/>
                     <p:menuitem value="Municipio" url="crudMunicipio.xhtml"/>
                     <p:menuitem value="Encaminhamentos" url="crudEncaminhamentos.xhtml"/>
-                    
-
                 </p:submenu>
-                
-
                 <p:submenu label="Cadastrar por Planilhas">
-                    <p:menuitem value="Cadastrar Armas" ajax="false" action="#{fachada.cadastrarArmas()}"/>
+                <p:menuitem value="Inserir" url="cadastroExcel.xhtml"/>
                 </p:submenu>
                 <p:menuitem value="Sair" url="index.xhtml" class="sair" action="#{loginController.deslogar()}" />
-            </p:menubar>
-            
-        </h:form>
-            </div>
+           </p:menubar>
+          </h:form>
+       </div>
     </body>
 </html>

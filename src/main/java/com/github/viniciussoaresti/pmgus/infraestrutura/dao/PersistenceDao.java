@@ -16,7 +16,6 @@ import javax.persistence.Persistence;
 public class PersistenceDao {
     private static PersistenceDao instance = null;
     private EntityManagerFactory emf = null;
-    
     private PersistenceDao(){
         this.emf = Persistence.createEntityManagerFactory("pmgusPU");
     }

@@ -69,7 +69,7 @@
         <h:form id="formMenu" style="align-self: center" styleClass="form">
             <p:separator/>
         <p:separator/>
-        <p:panelGrid columns="3" style="align-content: center" >
+        <p:panelGrid columns="2" style="align-content: center" >
                         <h:outputText value="Login:" />
                         <p:inputText id="txtLogin" value="#{loginController.login}"
                                      required="true" requiredMessage="O login é obrigatório"/>
@@ -81,14 +81,11 @@
                     </p:panelGrid>
             <br></br>
             <p:commandButton value="Logar" action="#{loginController.cripSenha(loginController.senha)}" class="botao" />
-            
-       
         </h:form>
         <img class ="centro2" src="\imagens\5.jpg"/>
         <img class ="centro3" src="\imagens\2.jpg"/>
         <img class ="centro1" src="\imagens\1.jpg"/>
         <img class ="centro4" src="\imagens\4.jpg"/>
-        	
         <img class="baixo" src="\imagens\BaixoPMGus.jpg" />
     </h:body>
 </html>
