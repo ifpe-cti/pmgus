@@ -39,6 +39,9 @@
                 <p:column headerText="Ocorrência">
                     <h:outputText value="#{item.ocorrencia}"/>
                 </p:column>
+                <p:column headerText="Efetivo da Apreensão">
+                    <h:outputText value="#{item.efetivoDeApreensao}"/>
+                </p:column>
                 <p:column headerText="Data Ocorrência">
                     <h:outputText value="#{item.dataOcorrencia}"/>
                 </p:column>
@@ -76,23 +79,29 @@
                     <h:outputText value="Descrição da Ocorrência:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.descricaoOcorrencia}"/>
 
+                     <h:outputText value="Efetivo de Apreensão:"/>
+                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.efetivoDeApreensao}"/>
+
                     <h:outputText value="Data da Ocorrência:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dataOcorrencia}"/>
 
                     <h:outputText value="Endereço:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco.bairro} - Zona #{fachada.ocorrenciacontroller.selectedOcorrencia.zona} - #{fachada.ocorrenciacontroller.selectedOcorrencia.municipio.nome}"/>
-
+                    
+                    <h:outputText value="Dados da Vítima:"/>
+                        <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosVitima()}"/>
+                  
                     <h:outputText value="Dados do Imputado:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.nomeImputado}, #{fachada.ocorrenciacontroller.selectedOcorrencia.idadeImputado}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosImputado()}"/>   
                     
                     <h:outputText value="Arma:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.arma.modelo}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosArma()}"/>
 
                     <h:outputText value="Droga:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.qtdeDroga} #{fachada.ocorrenciacontroller.selectedOcorrencia.unidade.unidadeDroga} #{fachada.ocorrenciacontroller.selectedOcorrencia.droga.nome}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosDroga()}"/>
 
                     <h:outputText value="Outras Apreensões:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.outrasApreensoes}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosOutrasApreensoes()}"/>
 
                     </p:panelGrid>
                 <p:commandButton value="fechar" oncomplete="PF('widDialVisualizaOcorrencia').hide()"/>
@@ -110,6 +119,9 @@
                     <h:outputText value="Descrição da Ocorrência:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.descricaoOcorrencia}"/>
 
+                    <h:outputText value="Efetivo de Apreensão:"/>
+                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.efetivoDeApreensao}"/>
+
                     <h:outputText value="Data da Ocorrência:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dataOcorrencia}"/>
 
@@ -117,16 +129,16 @@
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco.bairro} - Zona #{fachada.ocorrenciacontroller.selectedOcorrencia.zona} - #{fachada.ocorrenciacontroller.selectedOcorrencia.municipio.nome}"/>
 
                     <h:outputText value="Dados do Imputado:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.nomeImputado}, #{fachada.ocorrenciacontroller.selectedOcorrencia.idadeImputado}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosImputado()}"/>
                     
                     <h:outputText value="Arma:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.arma.modelo}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosArma()}"/>
 
                     <h:outputText value="Droga:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.qtdeDroga} #{fachada.ocorrenciacontroller.selectedOcorrencia.unidade.unidadeDroga} #{fachada.ocorrenciacontroller.selectedOcorrencia.droga.nome}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosDroga()}"/>
 
                     <h:outputText value="Outras Apreensões:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.outrasApreensoes}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosOutrasApreensoes()}"/>
    </p:panelGrid>
                 <p:commandButton value="Deseja mesmo deletar a ocorrência?" action="#{fachada.ocorrenciacontroller.deletar()}" oncomplete="PF('widDialDeletaOcorrencia').hide()"
                                  update=":formOcorrencia :gro @form"/>

@@ -62,7 +62,7 @@ public class EnderecoController{
     public List<Endereco> recuperarTodosEnderecos(){
         return this.repositorioEndereco.recuperarTodos();
     }
-
+    
     public Endereco getEnderecoCadastro() {
         return enderecoCadastro;
     }

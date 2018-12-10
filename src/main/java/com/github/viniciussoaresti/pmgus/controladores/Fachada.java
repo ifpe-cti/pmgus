@@ -54,7 +54,6 @@ public class Fachada {
     }
     
     public void cadastrarArmas(){
-        
         excelcontroller.cadastrarArmas(armacontroller);
     }
 

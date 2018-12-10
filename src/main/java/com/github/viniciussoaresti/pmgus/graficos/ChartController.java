@@ -9,7 +9,7 @@ import com.github.viniciussoaresti.pmgus.controladores.OcorrenciaController;
 import com.github.viniciussoaresti.pmgus.infraestrutura.repositorios.implementacoes.RepositorioOcorrenciaImplBD;
 import com.github.viniciussoaresti.pmgus.negocio.Municipio;
 import com.github.viniciussoaresti.pmgus.negocio.Ocorrencia;
-import static com.github.viniciussoaresti.pmgus.negocio.Ocorrencia_.ocorrencia;
+import com.github.viniciussoaresti.pmgus.negocio.Ocorrencia;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;

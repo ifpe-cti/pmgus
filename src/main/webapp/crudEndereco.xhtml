@@ -102,9 +102,10 @@
 
             <h:form id="formDialCadEndereco">
                 <p:fieldset legend="Cadastrar Endereço">
-                    <p:panelGrid columns="3">
+                    <p:panelGrid columns="3" >
                         <h:outputText value="Nome do Município*:"/>
-                        <p:selectOneMenu id="txtNomeMunicipio" value="#{fachada.enderecocontroller.enderecoCadastro.municipio}" converter="municipioConverter" filter="true" filterMatchMode="contains" required="true" requiredMessage="O Municipio é obrigatório">
+                        <p:selectOneMenu id="txtNomeMunicipio" value="#{fachada.enderecocontroller.enderecoCadastro.municipio}" converter="municipioConverter" required="true" requiredMessage="O Municipio é obrigatório">
+                             <f:selectItem itemLabel="Selecione:" itemValue="" />
                             <f:selectItems value="#{municipioController.recuperarTodosMunicipios()}" var="municipio" itemLabel="#{municipio.nome}" itemValue="#{municipio}" />
                         </p:selectOneMenu>
                         <p:message for="txtNomeMunicipio"/>
