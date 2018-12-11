@@ -35,7 +35,7 @@
     <h:body>
         <h:form>
             <h:panelGrid columns="2" columnClasses="label, value">
-                <h:outputText value="Arma: "/>
+                <h:outputText value="Arma:"/>
                 <p:selectOneMenu id="armas" value="#{relatorioController.selectedArma}" converter="armaConverter">
                     <f:selectItem itemLabel="Selecione:" itemValue="" />
                     <f:selectItems value="#{armaController.recuperarTodosArmas()}" var="arma" itemLabel="#{arma.tipoDeArma}" itemValue="#{arma}"/>
