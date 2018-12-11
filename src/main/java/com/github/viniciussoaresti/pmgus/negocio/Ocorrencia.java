@@ -63,14 +63,9 @@ public class Ocorrencia implements Serializable {
 
     @Column(length = 45)
     private String nomeVitima;
-    @Column(length = 20)
-    private String estadoCivilVitima;
-    @Column(length = 25)
-    private String profissaoVitima;
     @Column(length = 3)
     private int idadeVitima;
-    @Column(length = 60)
-    private String enderecoVitima;
+  
 
     public int getCodigo() {
         return codigo;
@@ -217,22 +212,6 @@ public class Ocorrencia implements Serializable {
         this.nomeVitima = nomeVitima;
     }
 
-    public String getEstadoCivilVitima() {
-        return estadoCivilVitima;
-    }
-
-    public void setEstadoCivilVitima(String estadoCivilVitima) {
-        this.estadoCivilVitima = estadoCivilVitima;
-    }
-
-    public String getProfissaoVitima() {
-        return profissaoVitima;
-    }
-
-    public void setProfissaoVitima(String profissaoVitima) {
-        this.profissaoVitima = profissaoVitima;
-    }
-
     public int getIdadeVitima() {
         return idadeVitima;
     }
@@ -240,15 +219,6 @@ public class Ocorrencia implements Serializable {
     public void setIdadeVitima(int idadeVitima) {
         this.idadeVitima = idadeVitima;
     }
-
-    public String getEnderecoVitima() {
-        return enderecoVitima;
-    }
-
-    public void setEnderecoVitima(String enderecoVitima) {
-        this.enderecoVitima = enderecoVitima;
-    }
-
     public int getQtdeArma() {
         return qtdeArma;
     }
@@ -297,11 +267,8 @@ public class Ocorrencia implements Serializable {
         this.idadeImputado = idadeImputado;
         this.enderecoImputado = enderecoImputado;
         this.nomeVitima = nomeVitima;
-        this.estadoCivilVitima = estadoCivilVitima;
-        this.profissaoVitima = profissaoVitima;
         this.idadeVitima = idadeVitima;
-        this.enderecoVitima = enderecoVitima;
-    }
+       }
 
     public String dadosImputado() {
         return this.nomeImputado + ", " + this.idadeImputado + ", " + this.estadoCivilImputado + ", " + this.enderecoImputado + ", " + this.profissaoImputado;
@@ -311,7 +278,7 @@ public class Ocorrencia implements Serializable {
         if (this.nomeVitima.trim().isEmpty()) {
             return "NÃO HOUVE VÍTIMA";
         }
-        return this.nomeVitima + ", " + this.idadeVitima + ", " + this.estadoCivilVitima + ", " + this.enderecoVitima + ", " + this.profissaoVitima;
+        return this.nomeVitima + ", " + this.idadeVitima;
     }
 
     public String dadosArma() {
@@ -439,30 +406,8 @@ public class Ocorrencia implements Serializable {
         }
         return true;
     }
-
-    public boolean validaEstadoCivilVitima() {
-        if (this.estadoCivilVitima.length() > 20) {
-            return false;
-        }
-        return true;
-    }
-
     public boolean validaIdadeVitima() {
         if (this.idadeVitima > 999 || this.idadeVitima <= 0) {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean validaEnderecoVitima() {
-        if (this.enderecoVitima.length() > 60) {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean validaProfissaoVitima() {
-        if (this.profissaoVitima.length() > 25) {
             return false;
         }
         return true;
