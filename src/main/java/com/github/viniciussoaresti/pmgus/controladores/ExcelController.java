@@ -1,18 +1,12 @@
 package com.github.viniciussoaresti.pmgus.controladores;
 
 import com.github.viniciussoaresti.pmgus.negocio.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.Part;
 import javax.swing.JFileChooser;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.ss.usermodel.Cell;
@@ -20,8 +14,6 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.primefaces.event.FileUploadEvent;
-import org.primefaces.model.UploadedFile;
 
 /**
  *
@@ -141,17 +133,17 @@ public class ExcelController {
                     }
                 }
                 for (TipoDroga t : tiposDroga) {
-                    if(!tdc.recuperarTodosTipoDroga()
+                    if (!tdc.recuperarTodosTipoDroga()
                             .parallelStream()
                             .anyMatch(tipo -> {
                                 return tipo.equals(t);
-                            })){
+                            })) {
                         tdc.setTipoDrogaCadastro(t);
                         tdc.inserir();
                     }
                 }
                 for (UnidadeDroga u : unidadesDroga) {
-                    if(!udc.recuperarTodosUnidadeDroga()
+                    if (!udc.recuperarTodosUnidadeDroga()
                             .parallelStream()
                             .anyMatch(unidade -> {
                                 return unidade.equals(u);
