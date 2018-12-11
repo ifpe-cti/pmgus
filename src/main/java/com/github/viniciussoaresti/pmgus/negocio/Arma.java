@@ -40,6 +40,10 @@ public class Arma {
         this.calibre = calibre;
     }
 
+    public Arma(String fuzil, String aR15, String bolsonaro, String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getCodigo() {
         return codigo;
     }

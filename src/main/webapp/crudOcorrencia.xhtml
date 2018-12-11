@@ -46,7 +46,7 @@
                     <h:outputText value="#{item.dataOcorrencia}"/>
                 </p:column>
                 <p:column headerText="Município">
-                    <h:outputText value="#{item.municipio.nome}"/>
+                    <h:outputText value="#{item.endereco.municipio.nome}"/>
                 </p:column>
               
 
@@ -86,7 +86,7 @@
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dataOcorrencia}"/>
 
                     <h:outputText value="Endereço:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco.bairro} - Zona #{fachada.ocorrenciacontroller.selectedOcorrencia.zona} - #{fachada.ocorrenciacontroller.selectedOcorrencia.municipio.nome}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco.bairro} - Zona #{fachada.ocorrenciacontroller.selectedOcorrencia.zona} - #{fachada.ocorrenciacontroller.selectedOcorrencia.endereco.municipio.nome}"/>
                     
                     <h:outputText value="Dados da Vítima:"/>
                         <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosVitima()}"/>
@@ -126,7 +126,7 @@
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dataOcorrencia}"/>
 
                     <h:outputText value="Endereço:"/>
-                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco.bairro} - Zona #{fachada.ocorrenciacontroller.selectedOcorrencia.zona} - #{fachada.ocorrenciacontroller.selectedOcorrencia.municipio.nome}"/>
+                    <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.endereco.bairro} - Zona #{fachada.ocorrenciacontroller.selectedOcorrencia.zona} - #{fachada.ocorrenciacontroller.selectedOcorrencia.endereco.municipio.nome}"/>
 
                     <h:outputText value="Dados do Imputado:"/>
                     <h:outputText value="#{fachada.ocorrenciacontroller.selectedOcorrencia.dadosImputado()}"/>
