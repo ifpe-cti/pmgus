@@ -49,9 +49,7 @@ public class OcorrenciaTest {
         ocorrencia.setEstadoCivilImputado("a");
         ocorrencia.setNomeVitima("a");
         ocorrencia.setIdadeVitima(1);
-        ocorrencia.setEnderecoVitima("a");
-        ocorrencia.setProfissaoVitima("a");
-        ocorrencia.setEstadoCivilVitima("a");
+        
     }
     
     @Test
@@ -120,17 +118,5 @@ public class OcorrenciaTest {
     @Test
     public void testValidaIdadeVitima() {
         Assert.assertEquals(ocorrencia.validaIdadeVitima(), true);
-    }
-    @Test
-    public void testValidaEnderecoVitima() {
-        Assert.assertEquals(ocorrencia.validaEnderecoVitima(), true);
-    }
-    @Test
-    public void testValidaProfissaoVitima() {
-        Assert.assertEquals(ocorrencia.validaProfissaoVitima(), true);
-    }
-    @Test
-    public void testValidaEstadoCivilVitima() {
-        Assert.assertEquals(ocorrencia.validaEstadoCivilVitima(), true);
     }
 }

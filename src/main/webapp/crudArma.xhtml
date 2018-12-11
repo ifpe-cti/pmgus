@@ -23,12 +23,8 @@
     </h:head>
     <h:body>
         <p:growl id="gro" showDetail="true" showSummary="true"/>
-
-        
         <img class="cima" src="imagens/CimaPMGus.jpg" />
-          
-           <ui:include src="menubar.xhtml"/>
-
+        <ui:include src="menubar.xhtml"/>
         <h:form id="formArma">    
             <p:dataTable var="item" value="#{fachada.armacontroller.recuperarTodosArmas()}"
                          rowKey="#{item.codigo}" paginator="true"
