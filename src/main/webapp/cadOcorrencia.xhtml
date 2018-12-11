@@ -32,6 +32,7 @@
             }
         </style>
     </h:head>
+    
     <h:form id="formDialCadOcorrencia">
         <p:wizard flowListener="#{fachada.ocorrenciacontroller.onFlowProcess}">
             <p:tab id="basico" title="Básico">
@@ -93,13 +94,7 @@
                         <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.nomeVitima}"/>
                         <h:outputText value="Idade: *" />
                         <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.idadeVitima}"/>
-                        <h:outputText value="Endereço: *" />
-                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.enderecoVitima}"/>
-                        <h:outputText value="Estado Civil: *" />
-                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.estadoCivilVitima}"/>
-                        <h:outputText value="Profissão: *" />
-                        <p:inputText value="#{fachada.ocorrenciacontroller.ocorrenciaCadastro.profissaoVitima}"/>
-                    </h:panelGrid>
+                       </h:panelGrid>
                 </p:panel>
             </p:tab>
             <p:tab id="materiais" title="Armas Apreendidas">
@@ -153,5 +148,7 @@
                 </p:panel>
             </p:tab>
         </p:wizard>
+        
+        
     </h:form>
 </html>

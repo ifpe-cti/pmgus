@@ -6,6 +6,7 @@
 package com.github.viniciussoaresti.pmgus.controladores;
 
 import com.github.viniciussoaresti.pmgus.criptografia.LoginCriptografia;
+import com.github.viniciussoaresti.pmgus.infraestrutura.repositorios.implementacoes.repositorioUsuario;
 import com.github.viniciussoaresti.pmgus.negocio.Usuario;
 import java.io.IOException;
 import java.util.List;
@@ -17,25 +18,32 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author Pichau
+ * @author Matheus
  */
 @ManagedBean
 @RequestScoped
 public class LoginController {
 
     private String login;
+    private String senhaRec;
+
+    public String getSenhaRec() {
+        return senhaRec;
+    }
+
+    public void setSenhaRec(String senhaRec) {
+        this.senhaRec = senhaRec;
+    }
     private String senha;
     private String senhaCripto;
-
+    private repositorioUsuario repositoriousuario;
     private Usuario usuarioLogado;
-
-    private boolean usrLogado = false;
+    private boolean usrLogado;
 
     public LoginController(String login, String senha, Usuario usuarioLogado) {
         this.login = login;
         this.senha = senha;
         this.usuarioLogado = usuarioLogado;
-
     }
 
     public LoginController() {
@@ -69,7 +77,15 @@ public class LoginController {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
+  
+    public void recupSenha(){
+       senhaRec=repositoriousuario.getSenha1();
+    }
+  
+    public void deslogar(){
+        setUsrLogado(false);
+    }
+  
     public void logar() throws IOException {
         if (login.equals("9bpm") && senhaCripto.equals("5cfc42d4c71557cd294522c6b66d91f1".toUpperCase())) {
             usrLogado = true;
@@ -81,7 +97,7 @@ public class LoginController {
                     new FacesMessage(FacesMessage.SEVERITY_INFO, "Atenção!", "Login ou senha, incorretos!"));
         }
     }
-
+  
     public Usuario getUsuarioLogado() {
         return usuarioLogado;
     }

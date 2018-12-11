@@ -9,55 +9,66 @@
     <h:head>
         <title>filtroArmas</title>
         <style type="text/css">
-            .label {
-                width:20%;
-                padding:4px;
-            }
-            .value {
-                width:80%;
-                padding:4px;
-            }
-            .grid {
+            img.cima {
                 width:100%;
+                height: 100%;
             }
-            .error {
-                color: red;
+            img.baixo {
+                width:100%;
+                height: auto;
+                position: fixed;
+                bottom: 0;
             }
-            .outputLabel {
-                font-weight: bold;
+            .Centro{
+                width:99%;
+                height: 66%;
+                float: left;
+                top: 187px;                             
+                position: absolute;
+                opacity: 0.8;
+                overflow:hidden;
+                z-index: -1;
             }
-            .grid {
-                width:33%;
-                padding:4px;
+            #menubar{
+                z-index: 5;
+            }
+            #tabela{
+                height: 40%;
             }
         </style>
     </h:head>
-    <h:body>
-        <h:form>
-            <p:dataTable var="item" value="#{relatorioController.ocorrencias}"
-                         rowKey="#{item.codigo}" paginator="true"
-                         rows="4">
-                <f:facet name="header">
-                    Ocorrencias Filtradas
-                </f:facet>
-                <p:column headerText="Código">
-                    <h:outputText value="#{item.codigo}"/>
-                </p:column>
-                <p:column headerText="Ocorrência">
-                    <h:outputText value="#{item.ocorrencia}"/>
-                </p:column>
-                <p:column headerText="Efetivo da Apreensão">
-                    <h:outputText value="#{item.efetivoDeApreensao}"/>
-                </p:column>
-                <p:column headerText="Data Ocorrência">
-                    <h:outputText value="#{item.dataOcorrencia}"/>
-                </p:column>
-                <p:column headerText="Município">
-                    <h:outputText value="#{item.municipio.nome}"/>
-                </p:column>
-            </p:dataTable>
-            <ui:include src="testeMapa.xhtml"/>
-            <ui:include src="testeCharts.xhtml"/>
+    <h:body style="width: 100%">
+        <h:form id="formMenu">
+            <img class="cima" src="imagens/CimaPMGus.jpg" />
+            <h:form>
+                <ui:include src="menubar.xhtml"/>
+                <div id="tabela">
+                    <p:dataTable var="item" value="#{relatorioController.ocorrencias}"
+                                 rowKey="#{item.codigo}" paginator="true"
+                                 rows="4">
+                        <f:facet name="header">
+                            Ocorrencias Filtradas
+                        </f:facet>
+                        <p:column headerText="Código">
+                            <h:outputText value="#{item.codigo}"/>
+                        </p:column>
+                        <p:column headerText="Ocorrência">
+                            <h:outputText value="#{item.ocorrencia}"/>
+                        </p:column>
+                        <p:column headerText="Efetivo da Apreensão">
+                            <h:outputText value="#{item.efetivoDeApreensao}"/>
+                        </p:column>
+                        <p:column headerText="Data Ocorrência">
+                            <h:outputText value="#{item.dataOcorrencia}"/>
+                        </p:column>
+                        <p:column headerText="Município">
+                            <h:outputText value="#{item.municipio.nome}"/>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+                <ui:include src="testeMapa.xhtml"/>
+                <ui:include src="testeCharts.xhtml"/>
+            </h:form>
         </h:form>
     </h:body>
 </html>

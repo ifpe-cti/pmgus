@@ -41,13 +41,7 @@
                     <f:selectItems value="#{armaController.recuperarTodosArmas()}" var="arma" itemLabel="#{arma.tipoDeArma}" itemValue="#{arma}"/>
                 </p:selectOneMenu>
             </h:panelGrid>
-            <p:commandButton oncomplete="PF('widDialResultado').show()" 
-                             update="@form" value="Selecionar" action="#{relatorioController.relatorioArma()}">
-            </p:commandButton>
-            <p:dialog id="dialResultado" visible="false" modal="false" resizable="false"
-                      widgetVar="widDialResultado" header="Relatório:">
-                <ui:include src="resultadoArmas.xhtml"/>
-            </p:dialog>
+            <p:commandButton update="@form" value="Selecionar" action="#{relatorioController.relatorioArma()}"/>
         </h:form>
     </h:body>
 </html>
