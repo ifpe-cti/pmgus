@@ -26,8 +26,7 @@
         <img class="cima" src="imagens/CimaPMGus.jpg" />
         <ui:include src="menubar.xhtml"/>
         <h:form>
-            <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialFiltroArma').show()" value="Filtrar por Armas">
-            </p:commandButton>
+            <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialFiltroArma').show()" value="Filtrar por Armas"/>
             <p:dialog id="dialFiltroArmas" visible="false" modal="false" resizable="false"
                       widgetVar="widDialFiltroArma" header="Filtro por Arma(s)">
                 <ui:include src="filtroArmas.xhtml"/>

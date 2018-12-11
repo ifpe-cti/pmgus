@@ -23,7 +23,6 @@ public class RelatorioController implements Serializable {
 
     //filtros de arma, droga, turno, bairro -> ocorrencias, mapa e gráficos
     private Relatorio relatorio;
-    private BarChartModel barModel;
     private Arma selectedArma;
     private TipoDroga selectedDroga;
     private Date selectedDate;
@@ -33,8 +32,7 @@ public class RelatorioController implements Serializable {
     public List<Ocorrencia> getOcorrencias() {
         return ocorrencias;
     }
-    
-    
+
     public Arma getSelectedArma() {
         return selectedArma;
     }
@@ -46,8 +44,24 @@ public class RelatorioController implements Serializable {
     public Date getSelectedDate() {
         return selectedDate;
     }
+
+    public Relatorio getRelatorio() {
+        return relatorio;
+    }
+
+    public void setSelectedArma(Arma selectedArma) {
+        this.selectedArma = selectedArma;
+    }
+
+    public void setSelectedDroga(TipoDroga selectedDroga) {
+        this.selectedDroga = selectedDroga;
+    }
+
+    public void setSelectedDate(Date selectedDate) {
+        this.selectedDate = selectedDate;
+    }
     
-    public void relatorioArma() throws IOException{
-        FacesContext.getCurrentInstance().getExternalContext().redirect("resultadoArmas.xhtml");
+    public void relatorioArma() throws IOException {
+        FacesContext.getCurrentInstance().getExternalContext().redirect("crudArma.xhtml");
     }
 }
