@@ -29,7 +29,16 @@
             <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialFiltroArma').show()" value="Filtrar por Armas"/>
             <p:dialog id="dialFiltroArmas" visible="false" modal="false" resizable="false"
                       widgetVar="widDialFiltroArma" header="Filtro por Arma(s)">
-                <ui:include src="filtroArmas.xhtml"/>
+                <h:form>
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Arma:"/>
+                        <p:selectOneMenu id="armas" value="#{relatorioController.selectedArma}" converter="armaConverter">
+                            <f:selectItem itemLabel="Selecione:" itemValue="" />
+                            <f:selectItems value="#{armaController.recuperarTodosArmas()}" var="arma" itemLabel="#{arma.tipoDeArma}" itemValue="#{arma}"/>
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                    <p:commandButton value="Selecionar" action="#{relatorioController.relatorioArma()}" ajax="false"/>
+                </h:form>
             </p:dialog>
         </h:form>
     </h:body>

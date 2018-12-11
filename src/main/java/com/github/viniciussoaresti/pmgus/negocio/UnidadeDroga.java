@@ -48,11 +48,11 @@ public class UnidadeDroga {
         this.unidadeDroga = unidadeDroga;
     }
 
-    public boolean equals(UnidadeDroga u) {
-        if (u == null) {
+    public boolean equals (Object obj){
+        if(obj == null){
             return false;
         }
-        return this.getUnidadeDroga().equals(u.getUnidadeDroga());
+        return codigo == ((UnidadeDroga)obj).getCodigo();
     }
 
     public boolean validaNomeUnidadeDroga() {

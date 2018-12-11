@@ -64,11 +64,11 @@ public class Endereco {
         this.bairro = bairro;
     }
 
-    public boolean equals(Object obj) {
-        if (obj == null) {
+    public boolean equals (Object obj){
+        if(obj == null){
             return false;
         }
-        return codigo == ((Endereco) obj).getCodigo();
+        return codigo == ((Endereco)obj).getCodigo();
     }
 
     public boolean validaMunicipo() {

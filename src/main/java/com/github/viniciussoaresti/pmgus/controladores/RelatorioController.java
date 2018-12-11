@@ -62,6 +62,6 @@ public class RelatorioController implements Serializable {
     }
     
     public void relatorioArma() throws IOException {
-        FacesContext.getCurrentInstance().getExternalContext().redirect("crudArma.xhtml");
+        FacesContext.getCurrentInstance().getExternalContext().redirect("relatorio.xhtml");
     }
 }
