@@ -21,7 +21,7 @@
                 width:30%;
                 height: 33%;
                 float: right;
-                top: 170px;
+                top: 160px;
                 right: 430px;
                 position: absolute;
             }
@@ -29,7 +29,7 @@
                 width:30%;
                 height: 33%;
                 float: right;
-                top: 170px;
+                top: 160px;
                 right: 1px;
                 position: absolute;
 
@@ -38,7 +38,7 @@
                 width:30%;
                 height: 34%;
                 float: right;
-                bottom: 78px;
+                bottom: 70px;
                 right: 1px;
                 position: absolute;
             }
@@ -46,46 +46,68 @@
                 width:30%;
                 height: 34%;
                 float: right;
-                bottom: 78px;
+                bottom: 70px;
                 right: 430px;
                 position: absolute;
+            }
+            img.centro5{
+                width:20%;
+                height: 30%;
+                float: right;
+                top: 170px;
+                left:100px;
+                position: absolute;
+            }
+            .icone1{
+                width:20%;
+                height: 30%;
+                position: absolute;
+                top: 180px;
+                left: 150px;
             }
             .botao{
                 font-size: 25px;
                 position: absolute;
-                top: 300px;
-                left: 400px;
-
+                top: 120px;
+                left: 380px;
             }
             .form{
+                position: absolute;
                 font-size: 25px;
-                font-style: oblique
-
+                font-style: oblique;
+                top: 420px;
             }
         </style>
     </h:head>
     <h:body styleClass="teste">
         <img class="cima" src="imagens/CimaPMGus.jpg" />
+        <p:separator></p:separator>
+        <p:separator></p:separator>
         <h:form id="formMenu" style="align-self: center" styleClass="form">
-            <p:panelGrid columns="3" style="align-content: center" >
-                <h:outputText value="Login:" />
-                <p:inputText id="txtLogin" value="#{loginController.login}"
-                             required="true" requiredMessage="O login é obrigatório"/>
-                <p:message for="txtLogin"/>
-                <h:outputText value="Senha:"/>
-                <p:inputText id="txtSenha" value="#{loginController.senha}"
-                             required="true" requiredMessage="A senha é obrigatória" type="password"/>
-                <p:message for="txtSenha"/>                                               
-                <p:commandButton value="Logar" action="#{loginController.cripSenha(loginController.senha)}" class="botao" />
-            </p:panelGrid>
+
+            
+        <p:panelGrid columns="3" style="align-content: center" >
+
+            <p:separator/>
+        <p:separator/>
+  
+                        <h:outputText value="Login:" />
+                        <p:inputText id="txtLogin" value="#{loginController.login}"
+                                     required="true" requiredMessage="O login é obrigatório"/>
+                        <p:message for="txtLogin"/>
+                        <h:outputText value="Senha"/>
+                        <p:inputText id="txtSenha" value="#{loginController.senha}"
+                                     required="true" requiredMessage="A senha é obrigatória" type="password"/>
+                        <p:message for="txtSenha"/>                                               
+                    </p:panelGrid>
+            <br></br>
+            <p:commandButton value="Logar" action="#{loginController.cripSenha(loginController.senha)}" class="botao" />
         </h:form>
-        <br></br>
-        <p:separator/>
-        <p:separator/>
         <img class ="centro2" src="imagens/5.jpg"/>
         <img class ="centro3" src="imagens/2.jpg"/>
         <img class ="centro1" src="imagens/1.jpg"/>
         <img class ="centro4" src="imagens/4.jpg"/>
+        <img class="icone1"   src="imagens/user.png" />
         <img class="baixo" src="imagens/BaixoPMGus.jpg" />
     </h:body>
 </html>

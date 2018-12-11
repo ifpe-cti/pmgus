@@ -5,10 +5,13 @@
     <class>com.github.viniciussoaresti.pmgus.negocio.Arma</class>
     <class>com.github.viniciussoaresti.pmgus.negocio.Encaminhamentos</class>
     <class>com.github.viniciussoaresti.pmgus.negocio.Endereco</class>
+    <class>com.github.viniciussoaresti.pmgus.negocio.MandatoCumprido</class>
     <class>com.github.viniciussoaresti.pmgus.negocio.Municipio</class>
     <class>com.github.viniciussoaresti.pmgus.negocio.Ocorrencia</class>
     <class>com.github.viniciussoaresti.pmgus.negocio.TipoDroga</class>
     <class>com.github.viniciussoaresti.pmgus.negocio.UnidadeDroga</class>
+
+
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/pmgus?zeroDateTimeBehavior=convertToNull"/>
