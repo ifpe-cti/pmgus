@@ -16,7 +16,7 @@ and open the template in the editor.
             .sair{
                 position: absolute;
                 right: 12px;
-                
+
             }
             #formMenu{
                 z-index: 2;
@@ -26,25 +26,23 @@ and open the template in the editor.
     <body>
         <div>
             <h:form id="formMenu" >
-            <p:menubar>
-                <p:menuitem value="Página Inicial" url="menu.xhtml"/>
-                <p:submenu label="Cadastros">
-                    <p:menuitem value="Ocorrencia" url="crudOcorrencia.xhtml"/>
-                    <p:menuitem value="Arma" url="crudArma.xhtml"/>
-                    <p:menuitem value="Droga" url="crudTipoDroga.xhtml"/>
-                    <p:menuitem value="Unidade de contagem" url="crudUnidadeDroga.xhtml"/>
-                    <p:menuitem value="Endereço" url="crudEndereco.xhtml"/>
-                    <p:menuitem value="Municipio" url="crudMunicipio.xhtml"/>
-                    <p:menuitem value="Encaminhamentos" url="crudEncaminhamentos.xhtml"/>
-
-                    <p:menuitem value="Mandados Cumpridos" url="crudMandatoCumprido.xhtml"/>
-
-                </p:submenu>
-                <p:menuitem value="Cadastrar por Planilhas" url="cadastroExcel.xhtml"/>
-                <p:menuitem value="Relatórios" url="testeRelatorios.xhtml"/>
-                <p:menuitem value="Sair" url="index.xhtml" class="sair" action="#{loginController.deslogar()}" />
-           </p:menubar>
-          </h:form>
-       </div>
+                <p:menubar>
+                    <p:menuitem value="Página Inicial" url="menu.xhtml"/>
+                    <p:submenu label="Cadastros">
+                        <p:menuitem value="Ocorrencia" url="crudOcorrencia.xhtml"/>
+                        <p:menuitem value="Arma" url="crudArma.xhtml"/>
+                        <p:menuitem value="Droga" url="crudTipoDroga.xhtml"/>
+                        <p:menuitem value="Unidade de contagem" url="crudUnidadeDroga.xhtml"/>
+                        <p:menuitem value="Municipio" url="crudMunicipio.xhtml"/>
+                        <p:menuitem value="Endereço" url="crudEndereco.xhtml"/>
+                        <p:menuitem value="Encaminhamentos" url="crudEncaminhamentos.xhtml"/>
+                        <p:menuitem value="Mandados Cumpridos" url="crudMandatoCumprido.xhtml"/>
+                    </p:submenu>
+                    <p:menuitem value="Cadastrar por Planilhas" url="cadastroExcel.xhtml"/>
+                    <p:menuitem value="Relatórios" url="testeRelatorios.xhtml"/>
+                    <p:menuitem value="Sair" url="index.xhtml" class="sair" action="#{loginController.deslogar()}" />
+                </p:menubar>
+            </h:form>
+        </div>
     </body>
 </html>

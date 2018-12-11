@@ -109,7 +109,7 @@ public class ExcelController {
                 OPCPackage pkg = OPCPackage.open(caminho);
                 XSSFWorkbook wb = new XSSFWorkbook(pkg);
                 for (Sheet sheet : wb) {
-                    for (int i = 0; i < sheet.getLastRowNum(); i++) { //linha
+                    for (int i = 1; i < sheet.getLastRowNum(); i++) { //linha
                         Row linha = null;
                         if (sheet.getRow(i) != null) {
                             linha = sheet.getRow(i);
