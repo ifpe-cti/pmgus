@@ -65,7 +65,6 @@ public class Ocorrencia implements Serializable {
     private String nomeVitima;
     @Column(length = 3)
     private int idadeVitima;
-  
 
     public int getCodigo() {
         return codigo;
@@ -124,13 +123,9 @@ public class Ocorrencia implements Serializable {
         this.arma = arma;
     }
 
-
-    public TipoDroga getDroga() {          
-            return droga;
-        }
-
-    
-
+    public TipoDroga getDroga() {
+        return droga;
+    }
 
     public void setDroga(TipoDroga droga) {
         this.droga = droga;
@@ -138,14 +133,12 @@ public class Ocorrencia implements Serializable {
 
     public UnidadeDroga getUnidade() {
 
-            return unidade;
-        }
+        return unidade;
+    }
 
-    
     public void setUnidade(UnidadeDroga unidade) {
         this.unidade = unidade;
     }
-
 
     public Endereco getEndereco() {
 
@@ -219,6 +212,7 @@ public class Ocorrencia implements Serializable {
     public void setIdadeVitima(int idadeVitima) {
         this.idadeVitima = idadeVitima;
     }
+
     public int getQtdeArma() {
         return qtdeArma;
     }
@@ -268,7 +262,7 @@ public class Ocorrencia implements Serializable {
         this.enderecoImputado = enderecoImputado;
         this.nomeVitima = nomeVitima;
         this.idadeVitima = idadeVitima;
-       }
+    }
 
     public String dadosImputado() {
         return this.nomeImputado + ", " + this.idadeImputado + ", " + this.estadoCivilImputado + ", " + this.enderecoImputado + ", " + this.profissaoImputado;
@@ -352,14 +346,14 @@ public class Ocorrencia implements Serializable {
     }
 
     public boolean validaQtdeArma() {
-        if (this.qtdeArma > 999999999 || this.qtdeArma<0) {
+        if (this.qtdeArma > 999999999 || this.qtdeArma < 0) {
             return false;
         }
         return true;
     }
 
     public boolean validaQtdeDroga() {
-        if (this.qtdeDroga > 999999999 || this.qtdeDroga<0) {
+        if (this.qtdeDroga > 999999999 || this.qtdeDroga < 0) {
             return false;
         }
         return true;
@@ -406,6 +400,7 @@ public class Ocorrencia implements Serializable {
         }
         return true;
     }
+
     public boolean validaIdadeVitima() {
         if (this.idadeVitima > 999 || this.idadeVitima <= 0) {
             return false;

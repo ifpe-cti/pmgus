@@ -10,31 +10,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import org.primefaces.model.map.LatLng;
 
 /**
  *
  * @author Sb Grafica
  */
 @Entity
-public class Endereco{
+public class Endereco {
+
     @Id
     @GeneratedValue
     private int codigo;
     @ManyToOne
-    private Municipio municipio; 
+    private Municipio municipio;
     @Column(length = 30)
     private String bairro;
-    
-    public Endereco(){
+
+    public Endereco() {
     }
 
     public Endereco(Municipio municipio) {
         this.municipio = municipio;
     }
-    
-    public Endereco(int codigo, Municipio municipio, String rua, String cep, int numero, String bairro) {
+
+    public Endereco(int codigo, Municipio municipio, String bairro) {
         this.codigo = codigo;
-        this.municipio = municipio;   
+        this.municipio = municipio;
         this.bairro = bairro;
     }
 
@@ -61,26 +63,25 @@ public class Endereco{
     public void setBairro(String bairro) {
         this.bairro = bairro;
     }
-    
-      public boolean equals (Object obj){
+
+    public boolean equals (Object obj){
         if(obj == null){
             return false;
         }
         return codigo == ((Endereco)obj).getCodigo();
     }
-    
-      public boolean validaMunicipo(){
-          if(this.municipio == null){
-              return false;
-          }
-          return true;
-      }
-      
-      public boolean validaBairro(){
-          if(this.bairro.length() > 30 || this.bairro == null || this.bairro.trim().isEmpty()){
-              return false;
-          }
-          return true;
-      }
-      
+
+    public boolean validaMunicipo() {
+        if (this.municipio == null) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean validaBairro() {
+        if (this.bairro.length() > 30 || this.bairro == null || this.bairro.trim().isEmpty()) {
+            return false;
+        }
+        return true;
+    }
 }
