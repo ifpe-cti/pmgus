@@ -2,16 +2,15 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="pmgusPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-<<<<<<< HEAD
     <class>com.github.viniciussoaresti.pmgus.negocio.Arma</class>
     <class>com.github.viniciussoaresti.pmgus.negocio.Encaminhamentos</class>
     <class>com.github.viniciussoaresti.pmgus.negocio.Endereco</class>
+    <class>com.github.viniciussoaresti.pmgus.negocio.MandatoCumprido</class>
     <class>com.github.viniciussoaresti.pmgus.negocio.Municipio</class>
     <class>com.github.viniciussoaresti.pmgus.negocio.Ocorrencia</class>
     <class>com.github.viniciussoaresti.pmgus.negocio.TipoDroga</class>
     <class>com.github.viniciussoaresti.pmgus.negocio.UnidadeDroga</class>
-=======
->>>>>>> 4447e3f50d5b66f4f86614b24d54bfba792fad83
+    <class>com.github.viniciussoaresti.pmgus.negocio.Usuario</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/pmgus?zeroDateTimeBehavior=convertToNull"/>
