@@ -10,7 +10,10 @@
     <class>com.github.viniciussoaresti.pmgus.negocio.Ocorrencia</class>
     <class>com.github.viniciussoaresti.pmgus.negocio.TipoDroga</class>
     <class>com.github.viniciussoaresti.pmgus.negocio.UnidadeDroga</class>
+<<<<<<< HEAD
     <class>com.github.viniciussoaresti.pmgus.negocio.Usuario</class>
+=======
+>>>>>>> 3e97559866e2c6e75557c588d53516f35204493c
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/pmgus?zeroDateTimeBehavior=convertToNull"/>

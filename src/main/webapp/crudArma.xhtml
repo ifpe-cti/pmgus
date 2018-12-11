@@ -22,12 +22,13 @@
         </style>
     </h:head>
     <h:body>
-        
         <p:growl id="gro" showDetail="true" showSummary="true"/>
+
         
         <img class="cima" src="imagens/CimaPMGus.jpg" />
           
            <ui:include src="menubar.xhtml"/>
+
         <h:form id="formArma">    
             <p:dataTable var="item" value="#{fachada.armacontroller.recuperarTodosArmas()}"
                          rowKey="#{item.codigo}" paginator="true"
@@ -171,10 +172,10 @@
                                      update=':formArma :gro @form'/>
                 </p:fieldset>
             </h:form>
+
         </p:dialog>
      
            <img class="baixo" src="imagens/BaixoPMGus.jpg"/>
-        
         
     </h:body>
 </html>

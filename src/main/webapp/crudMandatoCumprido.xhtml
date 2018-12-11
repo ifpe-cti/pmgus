@@ -24,8 +24,10 @@
     <h:body>
         <p:growl id="gro" showDetail="true" showSummary="true"/>
         
+
         <img class="cima" src="imagens/CimaPMGus.jpg "/>
         <ui:include  src= "menubar.xhtml" />
+
         <h:form id="formMandatoCumprido">    
             <p:dataTable var="item" value="#{mandatoCumpridoController.recuperarTodosMandatoCumprido()}"
                          rowKey="#{item.codigo}" paginator="true"
