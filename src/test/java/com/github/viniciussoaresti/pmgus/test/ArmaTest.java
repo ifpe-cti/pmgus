@@ -60,6 +60,7 @@ public class ArmaTest {
     public void testValidaCalibre() {
         Assert.assertEquals(arma.validaCalibre(), true);
     }
+    /*
     @Test
     public void inserirArma(){
      repositorio.inserir(arma);
@@ -71,5 +72,5 @@ public class ArmaTest {
         repositorio.inserir(arma2);
         repositorio.deletar(arma2);
         Assert.assertEquals(null, repositorio.recuperar(arma2.getCodigo()));
-    }     
+    }     */
 }
