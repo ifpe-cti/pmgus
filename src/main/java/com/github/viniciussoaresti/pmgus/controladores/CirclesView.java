@@ -119,7 +119,6 @@ public class CirclesView implements Serializable {
         circleModel.addOverlay(circle12);
         circleModel.addOverlay(circle13);
         
-        
     }
   
     public MapModel getCircleModel() {

@@ -5,8 +5,8 @@
  */
 package com.github.viniciussoaresti.pmgus.negocio;
 
+import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import org.primefaces.event.ItemSelectEvent;
@@ -28,13 +28,21 @@ public class Relatorio {
     private List<Ocorrencia> ocorrencias;
     private BarChartModel grafico;
     private MapModel circleModel;
+    private Relatorio myself;
+
+    public Relatorio getInstance() {
+        if (myself == null) {
+            return new Relatorio();
+        } else {
+            return myself;
+        }
+    }
 
     public List<Ocorrencia> getOcorrencias() {
         return ocorrencias;
     }
 
-    @PostConstruct
-    public void init() {
+    public Relatorio() {
         createBarModel();
         createMapModel();
     }
@@ -42,7 +50,6 @@ public class Relatorio {
     public void itemSelect(ItemSelectEvent event) {
         FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Item selected",
                 "Item Index: " + event.getItemIndex() + ", Series Index:" + event.getSeriesIndex());
-
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
@@ -58,33 +65,33 @@ public class Relatorio {
         grafico = initBarModel();
     }
 
-    private BarChartModel initBarModel() {
+    private BarChartModel initBarModel() { //tipo e etc
         BarChartModel model = new BarChartModel();
-
         ChartSeries boys = new ChartSeries();
-        boys.setLabel("Boys");
-        boys.set("2004", 120);
-        boys.set("2005", 100);
-        boys.set("2006", 44);
-        boys.set("2007", 150);
-        boys.set("2008", 25);
-
-        ChartSeries girls = new ChartSeries();
-        girls.setLabel("Girls");
-        girls.set("2004", 52);
-        girls.set("2005", 60);
-        girls.set("2006", 110);
-        girls.set("2007", 135);
-        girls.set("2008", 120);
-
+        boys.setLabel("Armas");
+        boys.set("severiano", 1);
+        boys.set("heliopolis", 10);
+        boys.set("magano", 9);
+        boys.set("aluisio", 1);
+        boys.set("sao jose", 4);
+        boys.set("francisco", 6);
+        boys.set("boa vista", 2);
+        boys.set("santo antonio", 10);
+        boys.set("dom helder", 5);
+        boys.set("jose maria", 9);
+        boys.set("novo heliopolis", 2);
+        boys.set("dom thiago", 1);
+        boys.set("brasilia", 7);
         model.addSeries(boys);
-        model.addSeries(girls);
-
         return model;
     }
 
     public void createMapModel() {
         circleModel = new DefaultMapModel();
+        overlay();
+    }
+
+    public void overlay() {
         LatLng severiano = new LatLng(-8.877546, -36.467807);
         LatLng heliopolis = new LatLng(-8.884082, -36.481302);
         LatLng magano = new LatLng(-8.885331, -36.501434);
@@ -98,93 +105,104 @@ public class Relatorio {
         LatLng novoheliopolis = new LatLng(-8.87216, -36.462442);
         LatLng domthiago = new LatLng(-8.878143, -36.485508);
         LatLng brasilia = new LatLng(-8.882855, -36.496897);
-        Circle circle1 = new Circle(severiano, 200);
 
-        circle1.setStrokeColor("#d93c3c"); //vermelho
-        circle1.setFillColor("#d93c3c");
-        circle1.setFillOpacity(0.5);
+        List<Circle> circulos = new ArrayList<>();
+        Circle severianoCirculo = new Circle(severiano, 200);
 
-        Circle circle2 = new Circle(heliopolis, 210);
-        circle2.setStrokeColor("#d93c3c");
-        circle2.setFillColor("#d93c3c");
-        circle2.setFillOpacity(0.7);
+        severianoCirculo.setStrokeColor("#d93c3c"); //vermelho
+        severianoCirculo.setFillColor("#d93c3c");
+        severianoCirculo.setFillOpacity(0.5);
 
-        Circle circle3 = new Circle(magano, 220);
-        circle3.setStrokeColor("#d93c3c");
-        circle3.setFillColor("#d93c3c");
-        circle3.setStrokeOpacity(0.7);
-        circle3.setFillOpacity(0.7);
+        Circle heliopolisCirculo = new Circle(heliopolis, 210);
+        heliopolisCirculo.setStrokeColor("#d93c3c");
+        heliopolisCirculo.setFillColor("#d93c3c");
+        heliopolisCirculo.setFillOpacity(0.7);
 
-        Circle circle4 = new Circle(aluisio, 230);
-        circle4.setStrokeColor("#d93c3c");
-        circle4.setFillColor("#d93c3c");
-        circle4.setFillOpacity(0.7);
+        Circle maganoCirculo = new Circle(magano, 220);
+        maganoCirculo.setStrokeColor("#d93c3c");
+        maganoCirculo.setFillColor("#d93c3c");
+        maganoCirculo.setStrokeOpacity(0.7);
+        maganoCirculo.setFillOpacity(0.7);
 
-        Circle circle5 = new Circle(saojose, 220);
-        circle5.setStrokeColor("#d93c3c");
-        circle5.setFillColor("#d93c3c");
-        circle5.setStrokeOpacity(0.7);
-        circle5.setFillOpacity(0.7);
+        Circle aluisioCirculo = new Circle(aluisio, 230);
+        aluisioCirculo.setStrokeColor("#d93c3c");
+        aluisioCirculo.setFillColor("#d93c3c");
+        aluisioCirculo.setFillOpacity(0.7);
 
-        Circle circle6 = new Circle(francisco, 210);
-        circle6.setStrokeColor("#d93c3c");
-        circle6.setFillColor("#d93c3c");
-        circle6.setFillOpacity(0.7);
+        Circle saoJoseCirculo = new Circle(saojose, 220);
+        saoJoseCirculo.setStrokeColor("#d93c3c");
+        saoJoseCirculo.setFillColor("#d93c3c");
+        saoJoseCirculo.setStrokeOpacity(0.7);
+        saoJoseCirculo.setFillOpacity(0.7);
 
-        Circle circle7 = new Circle(boavista, 200);
-        circle7.setStrokeColor("#d93c3c");
-        circle7.setFillColor("#d93c3c");
-        circle7.setFillOpacity(0.7);
+        Circle franciscoCirculo = new Circle(francisco, 210);
+        franciscoCirculo.setStrokeColor("#d93c3c");
+        franciscoCirculo.setFillColor("#d93c3c");
+        franciscoCirculo.setFillOpacity(0.7);
 
-        Circle circle8 = new Circle(santoantonio, 190);
-        circle8.setStrokeColor("#d93c3c");
-        circle8.setFillColor("#d93c3c");
-        circle8.setStrokeOpacity(0.7);
-        circle8.setFillOpacity(0.7);
+        Circle boavistaCirculo = new Circle(boavista, 200);
+        boavistaCirculo.setStrokeColor("#d93c3c");
+        boavistaCirculo.setFillColor("#d93c3c");
+        boavistaCirculo.setFillOpacity(0.7);
 
-        Circle circle9 = new Circle(domhelder, 180);
-        circle9.setStrokeColor("#d93c3c");
-        circle9.setFillColor("#d93c3c");
-        circle9.setFillOpacity(0.7);
+        Circle santoAntonioCirculo = new Circle(santoantonio, 190);
+        santoAntonioCirculo.setStrokeColor("#d93c3c");
+        santoAntonioCirculo.setFillColor("#d93c3c");
+        santoAntonioCirculo.setStrokeOpacity(0.7);
+        santoAntonioCirculo.setFillOpacity(0.7);
 
-        Circle circle10 = new Circle(josemaria, 170);
-        circle10.setStrokeColor("#d93c3c");
-        circle10.setFillColor("#d93c3c");
-        circle10.setFillOpacity(0.7);
+        Circle domHelderCirculo = new Circle(domhelder, 180);
+        domHelderCirculo.setStrokeColor("#d93c3c");
+        domHelderCirculo.setFillColor("#d93c3c");
+        domHelderCirculo.setFillOpacity(0.7);
 
-        Circle circle11 = new Circle(novoheliopolis, 160);
-        circle11.setStrokeColor("#d93c3c");
-        circle11.setFillColor("#d93c3c");
-        circle11.setStrokeOpacity(0.7);
-        circle11.setFillOpacity(0.7);
+        Circle joseMariaCirculo = new Circle(josemaria, 170);
+        joseMariaCirculo.setStrokeColor("#d93c3c");
+        joseMariaCirculo.setFillColor("#d93c3c");
+        joseMariaCirculo.setFillOpacity(0.7);
 
-        Circle circle12 = new Circle(domthiago, 90);
-        circle12.setStrokeColor("#d93c3c");
-        circle12.setFillColor("#d93c3c");
-        circle12.setFillOpacity(0.7);
+        Circle novoHeliopolisCirculo = new Circle(novoheliopolis, 160);
+        novoHeliopolisCirculo.setStrokeColor("#d93c3c");
+        novoHeliopolisCirculo.setFillColor("#d93c3c");
+        novoHeliopolisCirculo.setStrokeOpacity(0.7);
+        novoHeliopolisCirculo.setFillOpacity(0.7);
 
-        Circle circle13 = new Circle(brasilia, 120);
-        circle13.setStrokeColor("#d93c3c");
-        circle13.setFillColor("#d93c3c");
-        circle13.setStrokeOpacity(0.7);
-        circle13.setFillOpacity(0.7);
+        Circle domThiagoCirculo = new Circle(domthiago, 90);
+        domThiagoCirculo.setStrokeColor("#d93c3c");
+        domThiagoCirculo.setFillColor("#d93c3c");
+        domThiagoCirculo.setFillOpacity(0.7);
 
-        circleModel.addOverlay(circle1);
-        circleModel.addOverlay(circle2);
-        circleModel.addOverlay(circle3);
-        circleModel.addOverlay(circle4);
-        circleModel.addOverlay(circle5);
-        circleModel.addOverlay(circle6);
-        circleModel.addOverlay(circle7);
-        circleModel.addOverlay(circle8);
-        circleModel.addOverlay(circle9);
-        circleModel.addOverlay(circle10);
-        circleModel.addOverlay(circle11);
-        circleModel.addOverlay(circle12);
-        circleModel.addOverlay(circle13);
+        Circle brasiliaCirculo = new Circle(brasilia, 120);
+        brasiliaCirculo.setStrokeColor("#d93c3c");
+        brasiliaCirculo.setFillColor("#d93c3c");
+        brasiliaCirculo.setStrokeOpacity(0.7);
+        brasiliaCirculo.setFillOpacity(0.7);
+
+        circleModel.addOverlay(severianoCirculo);
+        circleModel.addOverlay(heliopolisCirculo);
+        circleModel.addOverlay(maganoCirculo);
+        circleModel.addOverlay(aluisioCirculo);
+        circleModel.addOverlay(saoJoseCirculo);
+        circleModel.addOverlay(franciscoCirculo);
+        circleModel.addOverlay(boavistaCirculo);
+        circleModel.addOverlay(santoAntonioCirculo);
+        circleModel.addOverlay(domHelderCirculo);
+        circleModel.addOverlay(joseMariaCirculo);
+        circleModel.addOverlay(novoHeliopolisCirculo);
+        circleModel.addOverlay(domThiagoCirculo);
+        circleModel.addOverlay(brasiliaCirculo);
     }
 
     public void onCircleSelect(OverlaySelectEvent event) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Circle Selected", null));
     }
+
+    public void relatorioArma(Arma a, List<Ocorrencia> ocorrencias) {
+        this.ocorrencias = ocorrencias;
+    }
+
+    public void relatorioDroga(TipoDroga d, List<Ocorrencia> ocorrencias) {
+        this.ocorrencias = ocorrencias;
+    }
+
 }

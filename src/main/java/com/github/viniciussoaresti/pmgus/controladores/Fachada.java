@@ -19,8 +19,8 @@ public class Fachada {
     static TipoDrogaController tipodrogacontroller = new TipoDrogaController();
     static UnidadeDrogaController unidadedrogacontroller = new UnidadeDrogaController();
     static ExcelController excelcontroller = new ExcelController();
-    static EncaminhamentosController encaminhamentoscontroller = new EncaminhamentosController();
-
+    static EncaminhamentosController encaminhamentoscontroller = new EncaminhamentosController();    
+    
     public ArmaController getArmacontroller() {
         return armacontroller;
     }

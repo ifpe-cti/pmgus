@@ -75,7 +75,10 @@ public class ExcelController {
                     if (!armacontroller.recuperarTodosArmas()
                             .parallelStream()
                             .anyMatch(arma -> {
-                                return arma.equals(a);
+                                return a.getCalibre().equals(arma.getCalibre())
+                                       || a.getMarca().equals(arma.getMarca())
+                                       || a.getModelo().equals(arma.getModelo())
+                                       || a.getTipoDeArma().equals(arma.getTipoDeArma());
                             })) {
                         armacontroller.setArmaCadastro(a);
                         armacontroller.inserir();
@@ -136,7 +139,7 @@ public class ExcelController {
                     if (!tdc.recuperarTodosTipoDroga()
                             .parallelStream()
                             .anyMatch(tipo -> {
-                                return tipo.equals(t);
+                                return t.getNome().equals(t.getNome());
                             })) {
                         tdc.setTipoDrogaCadastro(t);
                         tdc.inserir();
@@ -146,7 +149,7 @@ public class ExcelController {
                     if (!udc.recuperarTodosUnidadeDroga()
                             .parallelStream()
                             .anyMatch(unidade -> {
-                                return unidade.equals(u);
+                                return unidade.getUnidadeDroga().equals(u.getUnidadeDroga());
                             })) {
                         udc.setUnidadeDrogaCadastro(u);
                         udc.inserir();
