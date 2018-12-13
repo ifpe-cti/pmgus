@@ -7,7 +7,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Crud MandatoCumprido</title>
+        <title>Crud Mandatos Cumpridos</title>
         <style type="text/css">
             img.cima {
                 width:100%;
@@ -33,7 +33,7 @@
                          rowKey="#{item.codigo}" paginator="true"
                          rows="4">
                 <f:facet name="header">
-                    Mandatos Cumpridos Cadastradas
+                    Mandatos Cumpridos Cadastrados
                 </f:facet>
                 <p:column headerText="Código">
                     <h:outputText value="#{item.codigo}"/>
@@ -93,7 +93,7 @@
                     <h:outputText value="#{mandatoCumpridoController.selectedMandatoCumprido.dataMandato}"/>  
     
                 </p:panelGrid>
-                <p:commandButton value="Deseja mesmo deletar a mandatoCumprido?" action="#{mandatoCumpridoController.deletar()}" oncomplete="PF('widDialDeletaMandatoCumprido').hide()"
+                <p:commandButton value="Deseja mesmo deletar o mandatos cumprido?" action="#{mandatoCumpridoController.deletar()}" oncomplete="PF('widDialDeletaMandatoCumprido').hide()"
                                  update=":formMandatoCumprido :gro @form"/>
             </p:dialog>
             <p:commandButton value="inserir" oncomplete="PF('widDialCadMandatoCumprido').show()"/>
@@ -123,13 +123,13 @@
         </p:dialog>
 
         <p:dialog id="dialAlteraMandatoCumprido" visible="false" modal="true" resizable="false"
-                  widgetVar="widDialAlteraMandatoCumprido" header="Alterar MandatoCumprido">
+                  widgetVar="widDialAlteraMandatoCumprido" header="Alterar Mandato Cumprido">
             <h:form id="formDialAlteraMandatoCumprido">
-                <p:fieldset legend="Alterar MandatoCumprido">
+                <p:fieldset legend="Alterar Mandato Cumprido">
                     <p:panelGrid columns="3">
-                       <h:outputText value="Quantidade MandatoCumprido*:"/>
+                       <h:outputText value="Quantidade Mandato Cumprido*:"/>
                         <p:inputText id="txtqtdeMandatoCumprido" value="#{mandatoCumpridoController.selectedMandatoCumprido.qtdeMandatos}"
-                                     required="true" requiredMessage="O quantidade de mandatoCumprido é obrigatório"/>
+                                     required="true" requiredMessage="O quantidade de mandato cumprido é obrigatório"/>
                         <p:message for="txtqtdeMandatoCumprido"/>
                         <h:outputText value="Data*:"/>
                         <p:calendar id="txtData" value="#{mandatoCumpridoController.selectedMandatoCumprido.dataMandato}" pattern="dd/MM/yyyy HH:mm:ss" 

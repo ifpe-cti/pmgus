@@ -1,6 +1,7 @@
 package com.github.viniciussoaresti.pmgus.test;
 
 
+import com.github.viniciussoaresti.pmgus.negocio.Arma;
 import com.github.viniciussoaresti.pmgus.negocio.Endereco;
 import com.github.viniciussoaresti.pmgus.negocio.Municipio;
 import com.github.viniciussoaresti.pmgus.negocio.Ocorrencia;
@@ -23,6 +24,7 @@ public class OcorrenciaTest {
     Ocorrencia ocorrencia;
     Endereco endereco;
     Municipio municipio;
+    Arma arma;
 
     public OcorrenciaTest() {
     }
@@ -32,6 +34,7 @@ public class OcorrenciaTest {
         ocorrencia = new Ocorrencia();
         endereco = new Endereco();
         municipio = new Municipio();
+        arma = new Arma(1, "Fuzil", "AR15", "Bolsonaro", ".50");
         ocorrencia.setCodigo(1);
         ocorrencia.setOcorrencia("a");
         ocorrencia.setDescricaoOcorrencia("a");
@@ -49,6 +52,7 @@ public class OcorrenciaTest {
         ocorrencia.setEstadoCivilImputado("a");
         ocorrencia.setNomeVitima("a");
         ocorrencia.setIdadeVitima(1);
+        ocorrencia.setArma(arma);
         
     }
     
@@ -119,4 +123,17 @@ public class OcorrenciaTest {
     public void testValidaIdadeVitima() {
         Assert.assertEquals(ocorrencia.validaIdadeVitima(), true);
     }
+    @Test
+    public void testDadosVitima() {
+        Assert.assertEquals("a, 1", ocorrencia.dadosVitima());
+    }
+    @Test
+    public void testDadosImputado() {
+        Assert.assertEquals("a, 11, a, a, a", ocorrencia.dadosImputado());
+    }
+    @Test
+    public void testDadosArma() {
+        Assert.assertEquals("0 AR15(Fuzil)", ocorrencia.dadosArma());
+    }
+    
 }
