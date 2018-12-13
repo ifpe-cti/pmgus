@@ -27,8 +27,10 @@
         <ui:include src="menubar.xhtml"/>
         <h:form>
             <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialFiltroArma').show()" value="Filtrar por Armas"/>
+            <p:commandButton icon="ui-icon-search" oncomplete="PF('widDialFiltroDroga').show()" value="Filtrar por Droga"/>
+            
             <p:dialog id="dialFiltroArmas" visible="false" modal="false" resizable="false"
-                      widgetVar="widDialFiltroArma" header="Filtro por Arma(s)">
+                      widgetVar="widDialFiltroArma" header="Filtro por Arma">
                 <h:form>
                     <h:panelGrid columns="2" columnClasses="label, value">
                         <h:outputText value="Arma:"/>
@@ -37,9 +39,24 @@
                             <f:selectItems value="#{armaController.recuperarTodosArmas()}" var="arma" itemLabel="#{arma.tipoDeArma}" itemValue="#{arma}"/>
                         </p:selectOneMenu>
                     </h:panelGrid>
-                    <p:commandButton value="Selecionar" action="#{relatorioController.relatorioArma()}" ajax="false"/>
+                    <p:commandButton value="Selecionar" action="#{relatorioController.instance.relatorioArma(ocorrenciaController.recuperarTodosOcorrencia())}" ajax="false"/>
                 </h:form>
             </p:dialog>
+            
+            <p:dialog id="dialFiltroDrogas" visible="false" modal="false" resizable="false"
+                      widgetVar="widDialFiltroDroga" header="Filtro por Droga">
+                <h:form>
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Droga:"/>
+                        <p:selectOneMenu id="drogas" value="#{relatorioController.selectedDroga}" converter="tipoDrogaConverter">
+                            <f:selectItem itemLabel="Selecione:" itemValue="" />
+                            <f:selectItems value="#{tipoDrogaController.recuperarTodosTipoDroga()}" var="droga" itemLabel="#{droga.codigo}" itemValue="#{droga}"/>
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                    <p:commandButton value="Selecionar" action="#{relatorioController.instance.relatorioDroga(ocorrenciaController.recuperarTodosOcorrencia())}" ajax="false"/>
+                </h:form>
+            </p:dialog>
+            
         </h:form>
     </h:body>
     <img class="baixo" src="imagens/BaixoPMGus.jpg"/>

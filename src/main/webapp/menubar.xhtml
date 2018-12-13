@@ -37,9 +37,14 @@ and open the template in the editor.
                         <p:menuitem value="Endereço" url="crudEndereco.xhtml"/>
                         <p:menuitem value="Encaminhamentos" url="crudEncaminhamentos.xhtml"/>
                         <p:menuitem value="Mandados Cumpridos" url="crudMandatoCumprido.xhtml"/>
+                        
                     </p:submenu>
-                    <p:menuitem value="Cadastrar por Planilhas" url="cadastroExcel.xhtml"/>
-                    <p:menuitem value="Relatórios" url="testeRelatorios.xhtml"/>
+                    
+                    <p:submenu label="Cadastrar Planilhas"  >
+                        <p:menuitem value="Armas" action="#{fachada.cadastrarArmas()}"/>
+                        <p:menuitem value="Drogas" action="#{fachada.cadastrarDrogas()}"/>
+                        </p:submenu> 
+                    <p:menuitem value="Relatórios" url="emitirRelatorios.xhtml"/>
                     <p:menuitem value="Sair" url="index.xhtml" class="sair" action="#{loginController.deslogar()}" />
                 </p:menubar>
             </h:form>
