@@ -22,21 +22,12 @@ import javax.faces.context.FacesContext;
 public class RelatorioController implements Serializable {
 
     //filtros de arma, droga, turno, bairro -> ocorrencias, mapa e gráficos
-    private Relatorio relatorio;
+    private static Relatorio relatorio;
     private Arma selectedArma;
     private TipoDroga selectedDroga;
     private Date selectedDate;
-    private RelatorioController myself;
 
-    public RelatorioController getInstance() {
-        if (myself==null){
-            return new RelatorioController();
-        } else{
-            return myself;
-        }
-    }
-
-    @PostConstruct
+    //@PostConstruct
     public void init() {
         relatorio = new Relatorio();
     }
