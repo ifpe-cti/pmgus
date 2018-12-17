@@ -39,7 +39,7 @@
                             <f:selectItems value="#{armaController.recuperarTodosArmas()}" var="arma" itemLabel="#{arma.tipoDeArma}" itemValue="#{arma}"/>
                         </p:selectOneMenu>
                     </h:panelGrid>
-                    <p:commandButton value="Selecionar" action="#{relatorioController.instance.relatorioArma(ocorrenciaController.recuperarTodosOcorrencia())}" ajax="false"/>
+                    <p:commandButton value="Selecionar" action="#{relatorioController.relatorioArma(ocorrenciaController.recuperarTodosOcorrencia())}" ajax="false"/>
                 </h:form>
             </p:dialog>
             
@@ -50,10 +50,10 @@
                         <h:outputText value="Droga:"/>
                         <p:selectOneMenu id="drogas" value="#{relatorioController.selectedDroga}" converter="tipoDrogaConverter">
                             <f:selectItem itemLabel="Selecione:" itemValue="" />
-                            <f:selectItems value="#{tipoDrogaController.recuperarTodosTipoDroga()}" var="droga" itemLabel="#{droga.codigo}" itemValue="#{droga}"/>
+                            <f:selectItems value="#{tipoDrogaController.recuperarTodosTipoDroga()}" var="droga" itemLabel="#{droga.nome}" itemValue="#{droga}"/>
                         </p:selectOneMenu>
                     </h:panelGrid>
-                    <p:commandButton value="Selecionar" action="#{relatorioController.instance.relatorioDroga(ocorrenciaController.recuperarTodosOcorrencia())}" ajax="false"/>
+                    <p:commandButton value="Selecionar" action="#{relatorioController.relatorioDroga(ocorrenciaController.recuperarTodosOcorrencia())}" ajax="false"/>
                 </h:form>
             </p:dialog>
             

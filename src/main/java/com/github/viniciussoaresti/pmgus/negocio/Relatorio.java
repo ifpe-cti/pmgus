@@ -7,6 +7,7 @@ package com.github.viniciussoaresti.pmgus.negocio;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import org.primefaces.event.ItemSelectEvent;
@@ -26,25 +27,11 @@ public class Relatorio {
 
     //filtros de arma, droga, turno, bairro -> ocorrencias, mapa e gráficos
     private List<Ocorrencia> ocorrencias;
-    private BarChartModel grafico;
-    private MapModel circleModel;
-    private Relatorio myself;
-
-    public Relatorio getInstance() {
-        if (myself == null) {
-            return new Relatorio();
-        } else {
-            return myself;
-        }
-    }
+    private BarChartModel grafico = new BarChartModel();
+    private MapModel circleModel = new DefaultMapModel();
 
     public List<Ocorrencia> getOcorrencias() {
         return ocorrencias;
-    }
-
-    public Relatorio() {
-        createBarModel();
-        createMapModel();
     }
 
     public void itemSelect(ItemSelectEvent event) {
@@ -61,34 +48,65 @@ public class Relatorio {
         return circleModel;
     }
 
-    private void createBarModel() {
-        grafico = initBarModel();
-    }
-
-    private BarChartModel initBarModel() { //tipo e etc
+    private void gerarGrafico() { //tipo e etc
         BarChartModel model = new BarChartModel();
-        ChartSeries boys = new ChartSeries();
-        boys.setLabel("Armas");
-        boys.set("severiano", 1);
-        boys.set("heliopolis", 10);
-        boys.set("magano", 9);
-        boys.set("aluisio", 1);
-        boys.set("sao jose", 4);
-        boys.set("francisco", 6);
-        boys.set("boa vista", 2);
-        boys.set("santo antonio", 10);
-        boys.set("dom helder", 5);
-        boys.set("jose maria", 9);
-        boys.set("novo heliopolis", 2);
-        boys.set("dom thiago", 1);
-        boys.set("brasilia", 7);
-        model.addSeries(boys);
-        return model;
-    }
-
-    public void createMapModel() {
-        circleModel = new DefaultMapModel();
-        overlay();
+        ChartSeries bairros = new ChartSeries();
+        bairros.setLabel("Armas");
+        bairros.set("severiano", ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("severiano"))
+                .count()
+        );
+        bairros.set("heliopolis", ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("heliopolis"))
+                .count());
+        bairros.set("magano", ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("magano"))
+                .count());
+        bairros.set("aluisio", ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("aluisio"))
+                .count());
+        bairros.set("sao jose", ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("sao jose"))
+                .count());
+        bairros.set("francisco", ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("francisco"))
+                .count());
+        bairros.set("boa vista", ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("boa vista"))
+                .count());
+        bairros.set("santo antonio", ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("santo antonio"))
+                .count());
+        bairros.set("dom helder", ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("dom helder"))
+                .count());
+        bairros.set("jose maria", ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("jose maria"))
+                .count());
+        bairros.set("novo heliopolis", ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("novo heliopolis"))
+                .count());
+        bairros.set("dom thiago", ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("dom thiago"))
+                .count());
+        bairros.set("brasilia", ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("brasilia"))
+                .count());
+        model.addSeries(bairros);
+        grafico = model;
     }
 
     public void overlay() {
@@ -106,73 +124,110 @@ public class Relatorio {
         LatLng domthiago = new LatLng(-8.878143, -36.485508);
         LatLng brasilia = new LatLng(-8.882855, -36.496897);
 
-        List<Circle> circulos = new ArrayList<>();
-        Circle severianoCirculo = new Circle(severiano, 200);
-
+        Circle severianoCirculo = new Circle(severiano, ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("severiano"))
+                .count()*70);
         severianoCirculo.setStrokeColor("#d93c3c"); //vermelho
         severianoCirculo.setFillColor("#d93c3c");
         severianoCirculo.setFillOpacity(0.5);
 
-        Circle heliopolisCirculo = new Circle(heliopolis, 210);
+        Circle heliopolisCirculo = new Circle(heliopolis, ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("heliopolis"))
+                .count()*70);
         heliopolisCirculo.setStrokeColor("#d93c3c");
         heliopolisCirculo.setFillColor("#d93c3c");
         heliopolisCirculo.setFillOpacity(0.7);
 
-        Circle maganoCirculo = new Circle(magano, 220);
+        Circle maganoCirculo = new Circle(magano, ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("magano"))
+                .count()*70);
         maganoCirculo.setStrokeColor("#d93c3c");
         maganoCirculo.setFillColor("#d93c3c");
         maganoCirculo.setStrokeOpacity(0.7);
         maganoCirculo.setFillOpacity(0.7);
 
-        Circle aluisioCirculo = new Circle(aluisio, 230);
+        Circle aluisioCirculo = new Circle(aluisio, ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("aluisio"))
+                .count()*70);
         aluisioCirculo.setStrokeColor("#d93c3c");
         aluisioCirculo.setFillColor("#d93c3c");
         aluisioCirculo.setFillOpacity(0.7);
 
-        Circle saoJoseCirculo = new Circle(saojose, 220);
+        Circle saoJoseCirculo = new Circle(saojose, ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("sao jose"))
+                .count()*70);
         saoJoseCirculo.setStrokeColor("#d93c3c");
         saoJoseCirculo.setFillColor("#d93c3c");
         saoJoseCirculo.setStrokeOpacity(0.7);
         saoJoseCirculo.setFillOpacity(0.7);
 
-        Circle franciscoCirculo = new Circle(francisco, 210);
+        Circle franciscoCirculo = new Circle(francisco, ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("francisco"))
+                .count()*70);
         franciscoCirculo.setStrokeColor("#d93c3c");
         franciscoCirculo.setFillColor("#d93c3c");
         franciscoCirculo.setFillOpacity(0.7);
 
-        Circle boavistaCirculo = new Circle(boavista, 200);
+        Circle boavistaCirculo = new Circle(boavista, ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("boa vista"))
+                .count()*70);
         boavistaCirculo.setStrokeColor("#d93c3c");
         boavistaCirculo.setFillColor("#d93c3c");
         boavistaCirculo.setFillOpacity(0.7);
 
-        Circle santoAntonioCirculo = new Circle(santoantonio, 190);
+        Circle santoAntonioCirculo = new Circle(santoantonio, ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("santo antonio"))
+                .count()*70);
         santoAntonioCirculo.setStrokeColor("#d93c3c");
         santoAntonioCirculo.setFillColor("#d93c3c");
         santoAntonioCirculo.setStrokeOpacity(0.7);
         santoAntonioCirculo.setFillOpacity(0.7);
 
-        Circle domHelderCirculo = new Circle(domhelder, 180);
+        Circle domHelderCirculo = new Circle(domhelder, ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("dom helder"))
+                .count()*70);
         domHelderCirculo.setStrokeColor("#d93c3c");
         domHelderCirculo.setFillColor("#d93c3c");
         domHelderCirculo.setFillOpacity(0.7);
 
-        Circle joseMariaCirculo = new Circle(josemaria, 170);
+        Circle joseMariaCirculo = new Circle(josemaria, ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("jose maria"))
+                .count()*70);
         joseMariaCirculo.setStrokeColor("#d93c3c");
         joseMariaCirculo.setFillColor("#d93c3c");
         joseMariaCirculo.setFillOpacity(0.7);
 
-        Circle novoHeliopolisCirculo = new Circle(novoheliopolis, 160);
+        Circle novoHeliopolisCirculo = new Circle(novoheliopolis, ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("novo heliopolos"))
+                .count()*70);
         novoHeliopolisCirculo.setStrokeColor("#d93c3c");
         novoHeliopolisCirculo.setFillColor("#d93c3c");
         novoHeliopolisCirculo.setStrokeOpacity(0.7);
         novoHeliopolisCirculo.setFillOpacity(0.7);
 
-        Circle domThiagoCirculo = new Circle(domthiago, 90);
+        Circle domThiagoCirculo = new Circle(domthiago, ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("dom thiago"))
+                .count()*70);
         domThiagoCirculo.setStrokeColor("#d93c3c");
         domThiagoCirculo.setFillColor("#d93c3c");
         domThiagoCirculo.setFillOpacity(0.7);
 
-        Circle brasiliaCirculo = new Circle(brasilia, 120);
+        Circle brasiliaCirculo = new Circle(brasilia, ocorrencias
+                .stream()
+                .filter(o -> o.getEndereco().getBairro().contains("brasilia"))
+                .count()*70);
         brasiliaCirculo.setStrokeColor("#d93c3c");
         brasiliaCirculo.setFillColor("#d93c3c");
         brasiliaCirculo.setStrokeOpacity(0.7);
@@ -198,11 +253,20 @@ public class Relatorio {
     }
 
     public void relatorioArma(Arma a, List<Ocorrencia> ocorrencias) {
-        this.ocorrencias = ocorrencias;
+        this.ocorrencias = ocorrencias
+                .stream()
+                .filter(o -> o.getArma().equals(a))
+                .collect(Collectors.toList());
+        overlay();
+        gerarGrafico();
     }
 
     public void relatorioDroga(TipoDroga d, List<Ocorrencia> ocorrencias) {
-        this.ocorrencias = ocorrencias;
+        this.ocorrencias = ocorrencias
+                .stream()
+                .filter(o -> o.getDroga().equals(d))
+                .collect(Collectors.toList());
+        overlay();
+        gerarGrafico();
     }
-
 }
